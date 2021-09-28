@@ -4,15 +4,13 @@ Execute server by entering
 
 npm run start 
 or
-node server.js 
+npm run dev 
 
-sever will listen on port 8008
+(*** run dev runs nodemon to avoid restarting after chages ***)
+
+http sever will listen on port 3000
 
 Once server is running go to: 
 
-http://localhost:8008
-
-on your browser to execute program. API Documentation can be found by clicking an anchor tag hyperlink on the top right 
-hand corner of the home page or by going to
-
-http://localhost:8008/api 
+http://localhost:3000
+ 
