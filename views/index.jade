@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title AO APP
+    body
+        h1 AO APP (BETA)
+        p Enter your alert message:
+        textarea.form-control#alertMsg(name="alertMsg", rows="7", cols="77")
+        p Enter alert message in Spanish:
+        textarea.form-control#alertMsgSp(name="alertMsgSp", rows="7", cols="77")
+
+        p Select Region: 
+        article
+        p Some text here (2 space after article block)
+        An empty line with 2 space tab before iframe tag
+        iframe(width='560', height='315', src='//www.google.com/maps/place/Arizona+State+University/@33.5099144,-112.0774765,10z/data=!4m9!1m2!2m1!1sarizona+state+university!3m5!1s0x872b1222c8fe8da9:0x9531f6a75c71079a!8m2!3d33.4532165!4d-112.0719833!15sChhhcml6b25hIHN0YXRlIHVuaXZlcnNpdHmSAQp1bml2ZXJzaXR5', frameborder='0')
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
