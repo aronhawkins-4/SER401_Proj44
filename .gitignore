@@ -35,5 +35,4 @@ target/
 .DS_Store
 
 ### Node.js ###
-/bin/
 /node_modules/
