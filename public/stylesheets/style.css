@@ -1,6 +1,8 @@
 body {
-    padding: 50px;
+    margin: 0;
+    /* padding: 0 50px 50px 50px; */
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #f7f7f7;
 }
 
 
@@ -11,17 +13,39 @@ a {
 }
 
 header {
-    display: flexbox;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #005287;
+}
+
+#invis {
+    width: 200px;
 }
 
 h1 {
-    width: 250px;
+    justify-self: center;
+    align-self: center;
+    color: white;
 }
 
-#femaLogo {
-    height: 50px;
-    width: auto;
-    justify-content: right;
+.femaLogo {
+    width: 125px;
+    padding-top: 20px;
+    padding-right: 50px;
+    align-self: center;
+}
+
+h4 {
+    padding: 0 100px;
+}
+
+footer {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    background-color: #005287;
+    margin: 50px 0 0 0;
 }
 
 
@@ -31,11 +55,17 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    padding: 0 100px;
     /* height: 300px; */
 }
 
-.alert {
-    height: 10em;
+.alert90 {
+    height: 4em;
+    width: 75%;
+}
+
+.alert360 {
+    height: 8em;
     width: 100%;
     min-width: 20em;
 }
@@ -44,11 +74,22 @@ h1 {
     grid-row: 2 / 3;
 }
 
+.text {
+    color: #005287
+}
+
+
+/* Style Map */
+
+#map {
+    padding: 0 50px 0 50px;
+}
+
 
 /* Style Buttons */
 
 .button {
-    background-color: #4CAF50;
+    background-color: #4BB543;
     /* Green */
     border: none;
     color: white;
