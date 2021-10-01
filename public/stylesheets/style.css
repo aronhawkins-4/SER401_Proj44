@@ -88,7 +88,7 @@ footer {
 
 /* Style Buttons */
 
-.button {
+button {
     background-color: #4BB543;
     /* Green */
     border: none;
@@ -107,8 +107,12 @@ footer {
     transition: .1s;
 }
 
-.button:hover {
+button:hover {
     background-color: #ff0f0f;
+}
+
+.translate {
+    padding: 5px 10px;
 }
 
 .button1 {
