@@ -36,7 +36,7 @@ h1 {
     align-self: center;
 }
 
-h4 {
+h2 {
     padding: 0 100px;
 }
 
@@ -51,6 +51,49 @@ footer {
 
 /* Style Text Areas */
 
+.container {
+    padding: 10px;
+    border: 1px sold #ededed;
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+}
+
+textarea {
+    margin: 5px;
+    /* border: none; */
+    outline: none;
+    resize: none;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+}
+
+.textarea_style {
+    margin: 5px;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+}
+
+.textarea_style:hover {
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+    /* border: 1px solid #229CFF; */
+}
+
+.textarea_style:focus {
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+    /* border: 1px solid #229CFF; */
+}
+
+p {
+    float: right;
+    font-size: 10px;
+}
+
 .alertGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -60,14 +103,14 @@ footer {
 }
 
 .alert90 {
-    height: 4em;
-    width: 75%;
+    /* height: 4em; */
+    width: 97%;
 }
 
 .alert360 {
-    height: 8em;
-    width: 100%;
-    min-width: 20em;
+    min-height: 5em;
+    width: 97%;
+    /* min-width: 20em; */
 }
 
 #En360 {
