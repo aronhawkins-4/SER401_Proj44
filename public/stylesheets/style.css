@@ -113,6 +113,15 @@ p {
     /* min-width: 20em; */
 }
 
+.dropdownMenu {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 100px;
+    
+}
+
 #En360 {
     grid-row: 2 / 3;
 }
