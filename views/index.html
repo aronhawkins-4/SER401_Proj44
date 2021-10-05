@@ -15,7 +15,15 @@
         </a>
     </header>
 
-    <h2 class="text">Enter your alert:</h4>
+    <h2 class="text">Enter your alert:</h2>
+    
+    <select name="msgTypeDropdown" id="msgTypeDropdown" onchange="msgTypeOpt('Haha')">
+        <option value="Default">-----Message Type-----</option>
+        <option value="Alert">Alert</option>
+        <option value="Update">Update</option>
+        <option value="Cancel">Cancel</option>
+    </select>
+    <br><br>
         <div class="alertGrid">
             <div id="En90" class="container">
                 <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
