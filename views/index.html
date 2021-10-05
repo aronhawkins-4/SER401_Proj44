@@ -2,18 +2,27 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <script src="javascripts/myScript.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <script src="../javascripts/myScript.js"></script>
 </head>
 
 <body>
     <header id="header">
         <p id="invis"></p>
         <h1>AO APP (BETA)</h1>
-        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system" target="_blank">
-            <img class="femaLogo" src="/images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
+            target="_blank">
+            <img class="femaLogo" src="../public/images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
         </a>
     </header>
+    <label for="scope">Scope</label>
+
+    <select name="scope" id="scope" required>
+        <option value="public">public</option>
+        <option value="restricted">restricted</option>
+        <option value="private">private</option>
+
+    </select>
 
     <h2 class="text">Enter your alert:</h4>
         <div class="alertGrid">
@@ -22,47 +31,60 @@
                 <br>
 
                 <div class="textarea_style">
-                    <textarea id="alertEn90" class="alert90" name="alertEn90" oninput="countWord()" maxlength="90"></textarea>
+                    <textarea id="alertEn90" class="alert90" name="alertEn90" oninput="countWord()"
+                        maxlength="90"></textarea>
                 </div>
                 <p id="wordsLeftEn90" class="text">Characters Left: 90</p>
                 <br>
-                <button id="trnslEng90" class="translate" type="button" onclick="document.getElementById('alertSp90').value = 'TEXTO DEL PLACEHOLDER: Este será eventualmente el mensaje en español traducido al inglés.'">Translate to Spanish</button>
+                <button id="trnslEng90" class="translate" type="button"
+                    onclick="document.getElementById('alertSp90').value = 'TEXTO DEL PLACEHOLDER: Este será eventualmente el mensaje en español traducido al inglés.'">Translate
+                    to Spanish</button>
             </div>
             <div id="En360" class="container">
                 <label for="alert360" class="text"><strong>Your 360 Character English Alert:</strong></label>
                 <br>
 
                 <div class="textarea_style">
-                    <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"></textarea>
+                    <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
+                        maxlength="360"></textarea>
                 </div>
                 <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
-                <button id="trnslEng360" class="translate" type="button" onclick="document.getElementById('alertSp360').value = 'TEXTO DEL PLACEHOLDER: Este será eventualmente el mensaje en español traducido al inglés.'">Translate to Spanish</button>
+                <button id="trnslEng360" class="translate" type="button"
+                    onclick="document.getElementById('alertSp360').value = 'TEXTO DEL PLACEHOLDER: Este será eventualmente el mensaje en español traducido al inglés.'">Translate
+                    to Spanish</button>
             </div>
             <div id="Sp90" class="container">
                 <label for="alert90" class="text"><strong>Your 90 Character Spanish Alert:</strong></label>
                 <br>
 
                 <div class="textarea_style">
-                    <textarea id="alertSp90" class="alert90" name="alertSp90" oninput="countWord()" maxlength="90"></textarea>
+                    <textarea id="alertSp90" class="alert90" name="alertSp90" oninput="countWord()"
+                        maxlength="90"></textarea>
                 </div>
                 <p id="wordsLeftSp90" class="text">Characters Left: 90</p>
                 <br>
-                <button id="trnslSp90" class="translate" type="button" onclick="document.getElementById('alertEn90').value = 'PLACEHOLDER TEXT: This will eventually be the English message translated into Spanish.'">Traducir al inglés</button>
+                <button id="trnslSp90" class="translate" type="button"
+                    onclick="document.getElementById('alertEn90').value = 'PLACEHOLDER TEXT: This will eventually be the English message translated into Spanish.'">Traducir
+                    al inglés</button>
             </div>
             <div id="Sp360" class="container">
                 <label for="alertSp360 " class="text "><strong>Your 360 Character Spanish Alert:</strong></label>
                 <br>
 
                 <div class="textarea_style">
-                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord() " maxlength="360 "></textarea>
+                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord() "
+                        maxlength="360 "></textarea>
                 </div>
                 <p id="wordsLeftSp360 " class="text ">Characters Left: 360</p>
-                <button id="trnslSp360" class="translate " type="button " onclick="document.getElementById( 'alertEn360').value='PLACEHOLDER TEXT: This will eventually be the English message translated into Spanish.' ">Traducir al inglés</button>
+                <button id="trnslSp360" class="translate " type="button "
+                    onclick="document.getElementById( 'alertEn360').value='PLACEHOLDER TEXT: This will eventually be the English message translated into Spanish.' ">Traducir
+                    al inglés</button>
             </div>
         </div>
         <br><br>
         <div id="map ">
-            <iframe width="100% " height="600px " frameborder="0 " scrolling="no " marginheight="0 " marginwidth="0 " src="https://maps.google.com/maps?width=65%25&amp;height=600&amp;hl=en&amp;q=501%20E%20Orange%20St.,%20Tempe,%20AZ%2085281+(Arizona%20State%20University)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed ">
+            <iframe width="100% " height="600px " frameborder="0 " scrolling="no " marginheight="0 " marginwidth="0 "
+                src="https://maps.google.com/maps?width=65%25&amp;height=600&amp;hl=en&amp;q=501%20E%20Orange%20St.,%20Tempe,%20AZ%2085281+(Arizona%20State%20University)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed ">
             </iframe><a href="http://www.gps.ie/ ">truck gps</a>
         </div>
         <br><br>
