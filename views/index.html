@@ -16,13 +16,20 @@
     </header>
 
     <h2 class="text">Enter your alert:</h2>
-    <div id="msgTypeDropdownMenu" class="dropdownMenu">
-        <select name="msgTypeDropdown" id="msgTypeDropdown" onchange="msgTypeOpt()">
-            <option value="Default">Select Message Type</option>
-            <option value="Alert">Alert</option>
-            <option value="Update">Update</option>
-            <option value="Cancel">Cancel</option>
-        </select>
+    <div class="alertGrid">
+        <div id="msgTypeDrop" class="container">
+            <label for="msgTypeDropdown" class="text"><strong>Your Message Type:</strong></label>
+            <br>
+            <div id="msgTypeDropdownMenu" class="dropdownMenu_style">
+                <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
+                    <option value="Default">Select Message Type</option>
+                    <option value="Alert">Alert</option>
+                    <option value="Update">Update</option>
+                    <option value="Cancel">Cancel</option>
+                </select>
+                <br>
+            </div>
+        </div>
     </div>
     <br><br>
         <div class="alertGrid">
