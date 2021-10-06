@@ -15,7 +15,23 @@
         </a>
     </header>
 
-    <h2 class="text">Enter your alert:</h4>
+    <h2 class="text">Enter your alert:</h2>
+    <div class="alertGrid" id="alertInfo">
+        <div id="msgTypeDrop" class="container">
+            <label for="msgTypeDropdown" class="text"><strong>Your Message Type:</strong></label>
+            <br>
+            <div id="msgTypeDropdownMenu" class="dropdownMenu_style">
+                <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
+                    <option value="Default">Select Message Type</option>
+                    <option value="Alert">Alert</option>
+                    <option value="Update">Update</option>
+                    <option value="Cancel">Cancel</option>
+                </select>
+                <br>
+            </div>
+        </div>
+    </div>
+    <br>
         <div class="alertGrid">
             <div id="En90" class="container">
                 <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
@@ -26,7 +42,6 @@
                 </div>
                 <p id="wordsLeftEn90" class="text">Characters Left: 90</p>
                 <br>
-                <button id="trnslEng90" class="translate" type="button" onclick="document.getElementById('alertSp90').value = 'TEXTO DEL PLACEHOLDER: Este será eventualmente el mensaje en español traducido al inglés.'">Translate to Spanish</button>
             </div>
             <div id="En360" class="container">
                 <label for="alert360" class="text"><strong>Your 360 Character English Alert:</strong></label>
@@ -36,7 +51,6 @@
                     <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"></textarea>
                 </div>
                 <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
-                <button id="trnslEng360" class="translate" type="button" onclick="document.getElementById('alertSp360').value = 'TEXTO DEL PLACEHOLDER: Este será eventualmente el mensaje en español traducido al inglés.'">Translate to Spanish</button>
             </div>
             <div id="Sp90" class="container">
                 <label for="alert90" class="text"><strong>Your 90 Character Spanish Alert:</strong></label>
@@ -47,7 +61,6 @@
                 </div>
                 <p id="wordsLeftSp90" class="text">Characters Left: 90</p>
                 <br>
-                <button id="trnslSp90" class="translate" type="button" onclick="document.getElementById('alertEn90').value = 'PLACEHOLDER TEXT: This will eventually be the English message translated into Spanish.'">Traducir al inglés</button>
             </div>
             <div id="Sp360" class="container">
                 <label for="alertSp360 " class="text "><strong>Your 360 Character Spanish Alert:</strong></label>
@@ -57,7 +70,6 @@
                     <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord() " maxlength="360 "></textarea>
                 </div>
                 <p id="wordsLeftSp360 " class="text ">Characters Left: 360</p>
-                <button id="trnslSp360" class="translate " type="button " onclick="document.getElementById( 'alertEn360').value='PLACEHOLDER TEXT: This will eventually be the English message translated into Spanish.' ">Traducir al inglés</button>
             </div>
         </div>
         <br><br>

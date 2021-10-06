@@ -1,3 +1,13 @@
+//var for option selected from msgType dropdown list
+var msgTypeOptSelected;
+
+//Saves message type selected on option onclick
+function msgTypeOpt() {
+    
+    msgTypeOptSelected = document.getElementById('msgTypeDropdown').value;
+    
+}
+
 function countWord() {
 
     var engCount90 = 90;
