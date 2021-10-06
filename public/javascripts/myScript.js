@@ -6,8 +6,6 @@ function categoryOpt() {
     
     categoryOptSelected = document.getElementById('categoryDropdown').value;
     
-    alert(categoryOptSelected);
-    
 }
 
 function countWord() {
