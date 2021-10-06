@@ -15,14 +15,6 @@
             <img class="femaLogo" src="../public/images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
         </a>
     </header>
-    <label for="scope">Scope</label>
-
-    <select name="scope" id="scope" required>
-        <option value="public">public</option>
-        <option value="restricted">restricted</option>
-        <option value="private">private</option>
-
-    </select>
 
     <h2 class="text">Enter your alert:</h2>
     <div class="alertGrid" id="alertInfo">
@@ -40,63 +32,78 @@
             </div>
         </div>
     </div>
+    <div class="alertGrid">
+        <div id="megTypeDrop" class="container">
+            <label for="scope" class="text"><strong>Message Scope:</strong></label>
+            <br>
+            <div id="msgTypeDropdownMenu" class=dropdownMenu_style>
+                <select name="scope" id="scope" required>
+                    <option value="public">public</option>
+                    <option value="restricted">restricted</option>
+                    <option value="private">private</option>
+
+                </select>
+                <br>
+            </div>
+        </div>
+    </div>
     <br>
-        <div class="alertGrid">
-            <div id="En90" class="container">
-                <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
-                <br>
+    <div class="alertGrid">
+        <div id="En90" class="container">
+            <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
+            <br>
 
-                <div class="textarea_style">
-                    <textarea id="alertEn90" class="alert90" name="alertEn90" oninput="countWord()"
-                        maxlength="90"></textarea>
-                </div>
-                <p id="wordsLeftEn90" class="text">Characters Left: 90</p>
-                <br>
+            <div class="textarea_style">
+                <textarea id="alertEn90" class="alert90" name="alertEn90" oninput="countWord()"
+                    maxlength="90"></textarea>
             </div>
-            <div id="En360" class="container">
-                <label for="alert360" class="text"><strong>Your 360 Character English Alert:</strong></label>
-                <br>
-
-                <div class="textarea_style">
-                    <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
-                        maxlength="360"></textarea>
-                </div>
-                <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
-            </div>
-            <div id="Sp90" class="container">
-                <label for="alert90" class="text"><strong>Your 90 Character Spanish Alert:</strong></label>
-                <br>
-
-                <div class="textarea_style">
-                    <textarea id="alertSp90" class="alert90" name="alertSp90" oninput="countWord()"
-                        maxlength="90"></textarea>
-                </div>
-                <p id="wordsLeftSp90" class="text">Characters Left: 90</p>
-                <br>
-            </div>
-            <div id="Sp360" class="container">
-                <label for="alertSp360 " class="text "><strong>Your 360 Character Spanish Alert:</strong></label>
-                <br>
-
-                <div class="textarea_style">
-                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord() "
-                        maxlength="360 "></textarea>
-                </div>
-                <p id="wordsLeftSp360 " class="text ">Characters Left: 360</p>
-            </div>
+            <p id="wordsLeftEn90" class="text">Characters Left: 90</p>
+            <br>
         </div>
-        <br><br>
-        <div id="map ">
-            <iframe width="100% " height="600px " frameborder="0 " scrolling="no " marginheight="0 " marginwidth="0 "
-                src="https://maps.google.com/maps?width=65%25&amp;height=600&amp;hl=en&amp;q=501%20E%20Orange%20St.,%20Tempe,%20AZ%2085281+(Arizona%20State%20University)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed ">
-            </iframe><a href="http://www.gps.ie/ ">truck gps</a>
+        <div id="En360" class="container">
+            <label for="alert360" class="text"><strong>Your 360 Character English Alert:</strong></label>
+            <br>
+
+            <div class="textarea_style">
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
+                    maxlength="360"></textarea>
+            </div>
+            <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
         </div>
-        <br><br>
-        <div>
-            <button class="button button1 ">Submit Alert!</button>
+        <div id="Sp90" class="container">
+            <label for="alert90" class="text"><strong>Your 90 Character Spanish Alert:</strong></label>
+            <br>
+
+            <div class="textarea_style">
+                <textarea id="alertSp90" class="alert90" name="alertSp90" oninput="countWord()"
+                    maxlength="90"></textarea>
+            </div>
+            <p id="wordsLeftSp90" class="text">Characters Left: 90</p>
+            <br>
         </div>
-        <footer id="footer ">
-        </footer>
+        <div id="Sp360" class="container">
+            <label for="alertSp360 " class="text "><strong>Your 360 Character Spanish Alert:</strong></label>
+            <br>
+
+            <div class="textarea_style">
+                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord() "
+                    maxlength="360 "></textarea>
+            </div>
+            <p id="wordsLeftSp360 " class="text ">Characters Left: 360</p>
+        </div>
+    </div>
+    <br><br>
+    <div id="map ">
+        <iframe width="100% " height="600px " frameborder="0 " scrolling="no " marginheight="0 " marginwidth="0 "
+            src="https://maps.google.com/maps?width=65%25&amp;height=600&amp;hl=en&amp;q=501%20E%20Orange%20St.,%20Tempe,%20AZ%2085281+(Arizona%20State%20University)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed ">
+        </iframe><a href="http://www.gps.ie/ ">truck gps</a>
+    </div>
+    <br><br>
+    <div>
+        <button class="button button1 ">Submit Alert!</button>
+    </div>
+    <footer id="footer ">
+    </footer>
 </body>
 
 
