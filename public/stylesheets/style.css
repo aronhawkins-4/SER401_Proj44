@@ -133,6 +133,26 @@ p {
     /* min-width: 20em; */
 }
 
+.dropdownMenu {
+    
+    margin: 5px;
+    outline: none;
+    resize: none;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    width: 98%;
+    
+}
+
+.dropdownMenu_style {
+    
+    margin: 5px;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    
+}
+
 #En360 {
     grid-row: 2 / 3;
 }
@@ -140,7 +160,6 @@ p {
 .text {
     color: #005287
 }
-
 
 /* Style Map */
 
