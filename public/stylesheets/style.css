@@ -144,7 +144,11 @@ p {
 /* Style Map */
 
 #map {
-    padding: 0 50px 0 50px;
+    /*padding: 0 20px 0 20px;*/
+    border-top: 7px solid  #005287;
+    border-bottom: 7px solid  #005287;
+    border-left: 17px solid  #005287;
+    border-right: 17px solid  #005287;
 }
 
 
