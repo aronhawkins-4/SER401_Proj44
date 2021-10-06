@@ -1,3 +1,13 @@
+//var for option selected from category dropdown list
+var categoryOptSelected;
+
+//Saves category type selected on option onchange
+function categoryOpt() {
+    
+    categoryOptSelected = document.getElementById('categoryDropdown').value;
+    
+}
+
 //var for option selected from msgType dropdown list
 var msgTypeOptSelected;
 
