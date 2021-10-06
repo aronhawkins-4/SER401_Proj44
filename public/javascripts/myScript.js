@@ -1,3 +1,15 @@
+//var for option selected from category dropdown list
+var categoryOptSelected;
+
+//Saves category type selected on option onchange
+function categoryOpt() {
+    
+    categoryOptSelected = document.getElementById('categoryDropdown').value;
+    
+    alert(categoryOptSelected);
+    
+}
+
 function countWord() {
 
     var engCount90 = 90;
