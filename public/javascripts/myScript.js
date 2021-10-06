@@ -8,6 +8,26 @@ function categoryOpt() {
     
 }
 
+//var for option selected from msgType dropdown list
+var msgTypeOptSelected;
+
+//Saves message type selected on option onclick
+function msgTypeOpt() {
+    
+    msgTypeOptSelected = document.getElementById('msgTypeDropdown').value;
+    
+}
+
+//var for option selected from category dropdown list
+var categoryOptSelected;
+
+//Saves category type selected on option onchange
+function categoryOpt() {
+    
+    categoryOptSelected = document.getElementById('categoryDropdown').value;
+    
+}
+
 function countWord() {
 
     var engCount90 = 90;
