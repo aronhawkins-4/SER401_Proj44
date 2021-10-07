@@ -55,7 +55,26 @@
             </div>
         </div>
         <br>
-  
+
+        <div class="alertGrid" id="alertSeverity">
+            <div id="alertTypeDrop" class="container">
+                <label for="alertDropDown" class="text"><strong>Select Alert Severity:</strong></label>
+                <br>
+                <div id="alertDropDownMenu" class="dropdownMenu_style">
+                    <select name="alertDropDown" class="dropdownMenu" id="alertDropDown" onchange="alertTypeOpt()">
+                        <option value="Default">Select Alert Severity</option>
+                        <option value="Extreme">Extreme - Extraordinary threat to life or property</option>
+                        <option value="Severe">Severe - Significant threat to life or property</option>
+                        <option value="Moderate">Moderate - Possible threat to life or property</option>
+                        <option value="Minor">Minor - Minimal to no known threat to life or property</option>
+                        <option value="Unknown">Unknown - Severity unknown</option>
+                    </select>
+                    <br>
+                </div>
+            </div> 
+        </div>
+        <br>
+
         <div class="alertGrid">
             <div id="En90" class="container">
                 <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
@@ -97,6 +116,7 @@
             </div>
         </div>
         <br><br>
+
         <div id="map ">
             <iframe width="100% " height="600px " frameborder="0 " scrolling="no " marginheight="0 " marginwidth="0 " src="https://maps.google.com/maps?width=65%25&amp;height=600&amp;hl=en&amp;q=501%20E%20Orange%20St.,%20Tempe,%20AZ%2085281+(Arizona%20State%20University)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed ">
             </iframe><a href="http://www.gps.ie/ ">truck gps</a>
