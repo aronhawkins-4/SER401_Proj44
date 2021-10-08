@@ -79,6 +79,12 @@ footer {
     
 }
 
+#mapid {
+    
+    height: 500px;
+
+}
+
 textarea {
     margin: 5px;
     /* border: none; */
