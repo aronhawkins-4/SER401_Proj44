@@ -54,8 +54,23 @@
                 </div>
             </div>
         </div>
-        <br>
-  
+        <div id="urgencyDrop" class="container">
+            <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
+            <br>
+            <div id="urgencyDropdownMenu" class="dropdownMenu_style">
+                <select name="urgencyDropdown" class="dropdownMenu" id="urgencyDropdown" onchange="urgencyOpt()">
+                    <option value="Default">Select Alert Urgency</option>
+                    <option value="Immediate">Immediate</option>
+                    <option value="Expected">Expected</option>
+                    <option value="Future">Future</option>
+                    <option value="Past">Past</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                <br>
+            </div>
+        </div>
+    </div>
+    <br>
         <div class="alertGrid">
             <div id="En90" class="container">
                 <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
