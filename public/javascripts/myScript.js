@@ -18,6 +18,16 @@ function msgTypeOpt() {
     
 }
 
+//var for option selected from event dropdown list
+var eventOptSelected;
+
+//Saves event code selected on option onclick
+function eventOpt() {
+    
+    eventOptSelected = document.getElementById('eventDropdown').value;
+    
+}
+
 function countWord() {
 
     var engCount90 = 90;
