@@ -59,6 +59,26 @@ footer {
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
 }
 
+.dropdownMenu {
+    
+    margin: 5px;
+    outline: none;
+    resize: none;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    width: 98%;
+    
+}
+
+.dropdownMenu_style {
+    
+    margin: 5px;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    
+}
+
 textarea {
     margin: 5px;
     /* border: none; */
@@ -144,7 +164,11 @@ p {
 /* Style Map */
 
 #map {
-    padding: 0 50px 0 50px;
+    /*padding: 0 20px 0 20px;*/
+    border-top: 7px solid  #005287;
+    border-bottom: 7px solid  #005287;
+    border-left: 17px solid  #005287;
+    border-right: 17px solid  #005287;
 }
 
 

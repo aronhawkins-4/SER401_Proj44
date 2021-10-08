@@ -17,6 +17,7 @@
     </header>
 
     <h2 class="text">Enter your alert:</h2>
+
     <div class="alertGrid" id="alertInfo">
         <div id="msgTypeDrop" class="container">
             <label for="msgTypeDropdown" class="text"><strong>Your Message Type:</strong></label>
@@ -31,11 +32,51 @@
                 <br>
             </div>
         </div>
-        <div id="megTypeDrop" class="container">
-            <label for="scope" class="text"><strong>Message Scope:</strong></label>
+        <div id="categoryDrop" class="container">
+            <label for="categoryDropdown" class="text"><strong>Your Alert Category:</strong></label>
             <br>
-            <div id="msgTypeDropdownMenu" class=dropdownMenu_style>
-                <select name="scope" id="scope" required>
+            <div id="categoryDropdownMenu" class="dropdownMenu_style">
+                <select name="categoryDropdown" class="dropdownMenu" id="categoryDropdown" onchange="categoryOpt()">
+                    <option value="Default">Select Alert Category</option>
+                    <option value="Geo">Geophysical (inc. Landslide)</option>
+                    <option value="Met">Meteorological (inc. Flood)</option>
+                    <option value="Safety">General Emergency and Public Safety</option>
+                    <option value="Security">Law Enforcement, Military, Homeland and Local/Private Security</option>
+                    <option value="Rescue">Rescue and Recovery</option>
+                    <option value="Fire">Fire Suppression and Rescue</option>
+                    <option value="Health">Medical and Public Health</option>
+                    <option value="Env">Pollution and Other Environmental</option>
+                    <option value="Transport">Public and Private Transportation</option>
+                    <option value="Infra">Utility, Telecommunication, Other Non-Transport Infrastructure</option>
+                    <option value="CBRNE">Chemical, Biological, Radiological, Nuclear or High-Yield Explosive Threat or
+                        Attack</option>
+                    <option value="Other">Other Events</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="urgencyDrop" class="container">
+            <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
+            <br>
+            <div id="urgencyDropdownMenu" class="dropdownMenu_style">
+                <select name="urgencyDropdown" class="dropdownMenu" id="urgencyDropdown" onchange="urgencyOpt()">
+                    <option value="Default">Select Alert Urgency</option>
+                    <option value="Immediate">Immediate</option>
+                    <option value="Expected">Expected</option>
+                    <option value="Future">Future</option>
+                    <option value="Past">Past</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                <br>
+            </div>
+        </div>
+
+        <div id="scopeDrop" class="container">
+            <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
+            <br>
+            <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
+                <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
+                    <option value="Default">Select Alert Scope</option>
                     <option value="public">public</option>
                     <option value="restricted">restricted</option>
                     <option value="private">private</option>
@@ -88,19 +129,18 @@
             </div>
             <p id="wordsLeftSp360 " class="text ">Characters Left: 360</p>
         </div>
-    </div>
-    <br><br>
-    <div id="map ">
-        <iframe width="100% " height="600px " frameborder="0 " scrolling="no " marginheight="0 " marginwidth="0 "
-            src="https://maps.google.com/maps?width=65%25&amp;height=600&amp;hl=en&amp;q=501%20E%20Orange%20St.,%20Tempe,%20AZ%2085281+(Arizona%20State%20University)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed ">
-        </iframe><a href="http://www.gps.ie/ ">truck gps</a>
-    </div>
-    <br><br>
-    <div>
-        <button class="button button1 ">Submit Alert!</button>
-    </div>
-    <footer id="footer ">
-    </footer>
+        <br><br>
+        <div id="map">
+            <iframe width="100% " height="600px " frameborder="0 " scrolling="no " marginheight="0 " marginwidth="0 "
+                src="https://maps.google.com/maps?width=65%25&amp;height=600&amp;hl=en&amp;q=501%20E%20Orange%20St.,%20Tempe,%20AZ%2085281+(Arizona%20State%20University)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed ">
+            </iframe><a href="http://www.gps.ie/ "></a>
+        </div>
+        <br><br>
+        <div>
+            <button class="button button1 ">Submit Alert!</button>
+        </div>
+        <footer id="footer ">
+        </footer>
 </body>
 
 
