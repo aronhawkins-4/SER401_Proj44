@@ -85,6 +85,10 @@ footer {
 
 }
 
+.my-leaflet-map-container img {
+    max-height: none;
+}
+
 textarea {
     margin: 5px;
     /* border: none; */
