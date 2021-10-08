@@ -79,14 +79,11 @@ footer {
     
 }
 
+/*LeafletJS map height*/
 #mapid {
     
     height: 500px;
 
-}
-
-.my-leaflet-map-container img {
-    max-height: none;
 }
 
 textarea {
