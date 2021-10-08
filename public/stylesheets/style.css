@@ -82,7 +82,11 @@ footer {
 /*LeafletJS map height*/
 #mapid {
     
-    height: 500px;
+    height: 750px;
+    border-top: 7px solid  #005287;
+    border-bottom: 7px solid  #005287;
+    border-left: 17px solid  #005287;
+    border-right: 17px solid  #005287;
 
 }
 
