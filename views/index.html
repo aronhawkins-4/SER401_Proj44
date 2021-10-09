@@ -59,7 +59,7 @@
             <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
             <br>
             <div id="urgencyDropdownMenu" class="dropdownMenu_style">
-                <select name="urgencyDropdown" class="dropdownMenu" id="urgencyDropdown" onchange="urgencyOpt()">
+                <select name="urgencyDropdown" class="dropdownMenu" id="urgencyDropdown" required onchange="urgencyOpt()">
                     <option value="Default">Select Alert Urgency</option>
                     <option value="Immediate">Immediate</option>
                     <option value="Expected">Expected</option>
@@ -89,9 +89,7 @@
             <label for "restrictionText" class="text"><strong>Restriction Condition</strong></label>
             <br>
             <div class = "textarea_style">
-                <textarea id= "restrictionTextBox" class = "restrictionText" value = "Use if scope set to restricted">
-                    
-                </textarea>  
+                <textarea id= "restrictionTextBox" class = "restrictionText" placeholder = "Use if scope set to restricted"></textarea>  
             </div>
         </div>
     </div>
