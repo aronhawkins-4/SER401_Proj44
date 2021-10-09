@@ -133,6 +133,11 @@ p {
     /* min-width: 20em; */
 }
 
+.event90 {
+    /* height: 4em; */
+    width: 97%;
+}
+
 .dropdownMenu {
     
     margin: 5px;

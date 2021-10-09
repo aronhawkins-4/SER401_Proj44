@@ -18,28 +18,20 @@ function msgTypeOpt() {
     
 }
 
-//var for option selected from event dropdown list
-var eventOptSelected;
-
-//Saves event code selected on option onclick
-function eventOpt() {
-    
-    eventOptSelected = document.getElementById('eventDropdown').value;
-    
-}
-
 function countWord() {
 
     var engCount90 = 90;
     var engCount360 = 360;
     var spanCount90 = 90;
     var spacCount360 = 360;
+    var eventCount90 = 90;
 
     // Get the input text value
     var engChars90 = document.getElementById("alertEn90");
     var engChars360 = document.getElementById("alertEn360");
     var spanChars90 = document.getElementById("alertSp90");
     var spanChars360 = document.getElementById("alertSp360");
+    var eventChars90 = document.getElementById("eventFi90");
     var chars;
     var charsLeft;
     var counter;
@@ -65,6 +57,11 @@ function countWord() {
         charsLeft = 360;
         counter = document.getElementById("wordsLeftSp360");
         alert = document.querySelector('#alertSp360');
+    } else if (eventChars90 === document.activeElement) {
+        chars = eventChars90.value.length;
+        charsLeft = 90;
+        counter = document.getElementById("wordsLeftEvent90");
+        alert = document.querySelector('#eventFi90');
     }
 
     // Display it as output
