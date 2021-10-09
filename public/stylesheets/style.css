@@ -133,9 +133,12 @@ p {
     /* min-width: 20em; */
 }
 
-.event90 {
-    /* height: 4em; */
+.event360 {
+    
+    min-height: 5em;
     width: 97%;
+    /* min-width: 20em; */
+
 }
 
 .dropdownMenu {
