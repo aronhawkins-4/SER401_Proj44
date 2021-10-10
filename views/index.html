@@ -1,121 +1,123 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <link rel="stylesheet" href="stylesheets/style.css">
-      <script src="javascripts/myScript.js"></script>
-      </link>
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-         crossorigin="" />
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-         crossorigin=""></script>
-   </head>
-   <body>
-      <header id="header">
-         <p id="invis"></p>
-         <h1>AO APP (BETA)</h1>
-         <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
+
+<head>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="javascripts/myScript.js"></script>
+    </link>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+</head>
+
+<body>
+    <header id="header">
+        <p id="invis"></p>
+        <h1>AO APP (BETA)</h1>
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
             target="_blank">
-         <img class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
-         </a>
-      </header>
-      <h2 class="text">Enter your alert:</h2>
-      <div class="alertGrid">
-         <div id="msgTypeDrop" class="container">
+            <img class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
+        </a>
+    </header>
+    <h2 class="text">Enter your alert:</h2>
+    <div class="alertGrid">
+        <div id="msgTypeDrop" class="container">
             <label for="msgTypeDropdown" class="text"><strong>Your Message Type:</strong></label>
             <br>
             <div id="msgTypeDropdownMenu" class="dropdownMenu_style">
-               <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
-                  <option value="Default">Select Message Type</option>
-                  <option value="Alert">Alert</option>
-                  <option value="Update">Update</option>
-                  <option value="Cancel">Cancel</option>
-               </select>
-               <br>
+                <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
+                    <option value="Default">Select Message Type</option>
+                    <option value="Alert">Alert</option>
+                    <option value="Update">Update</option>
+                    <option value="Cancel">Cancel</option>
+                </select>
+                <br>
             </div>
-         </div>
-         <div id="categoryDrop" class="container">
+        </div>
+        <div id="categoryDrop" class="container">
             <label for="categoryDropdown" class="text"><strong>Your Alert Category:</strong></label>
             <br>
             <div id="categoryDropdownMenu" class="dropdownMenu_style">
-               <select name="categoryDropdown" class="dropdownMenu" id="categoryDropdown" onchange="categoryOpt()">
-                  <option value="Default">Select Alert Category</option>
-                  <option value="Geo">Geophysical (inc. Landslide)</option>
-                  <option value="Met">Meteorological (inc. Flood)</option>
-                  <option value="Safety">General Emergency and Public Safety</option>
-                  <option value="Security">Law Enforcement, Military, Homeland and Local/Private Security</option>
-                  <option value="Rescue">Rescue and Recovery</option>
-                  <option value="Fire">Fire Suppression and Rescue</option>
-                  <option value="Health">Medical and Public Health</option>
-                  <option value="Env">Pollution and Other Environmental</option>
-                  <option value="Transport">Public and Private Transportation</option>
-                  <option value="Infra">Utility, Telecommunication, Other Non-Transport Infrastructure</option>
-                  <option value="CBRNE">Chemical, Biological, Radiological, Nuclear or High-Yield Explosive Threat or
-                     Attack
-                  </option>
-                  <option value="Other">Other Events</option>
-               </select>
-               <br>
+                <select name="categoryDropdown" class="dropdownMenu" id="categoryDropdown" onchange="categoryOpt()">
+                    <option value="Default">Select Alert Category</option>
+                    <option value="Geo">Geophysical (inc. Landslide)</option>
+                    <option value="Met">Meteorological (inc. Flood)</option>
+                    <option value="Safety">General Emergency and Public Safety</option>
+                    <option value="Security">Law Enforcement, Military, Homeland and Local/Private Security</option>
+                    <option value="Rescue">Rescue and Recovery</option>
+                    <option value="Fire">Fire Suppression and Rescue</option>
+                    <option value="Health">Medical and Public Health</option>
+                    <option value="Env">Pollution and Other Environmental</option>
+                    <option value="Transport">Public and Private Transportation</option>
+                    <option value="Infra">Utility, Telecommunication, Other Non-Transport Infrastructure</option>
+                    <option value="CBRNE">Chemical, Biological, Radiological, Nuclear or High-Yield Explosive Threat or
+                        Attack
+                    </option>
+                    <option value="Other">Other Events</option>
+                </select>
+                <br>
             </div>
-         </div>
-      </div>
-      <br>
-      <div class="alertGrid">
-         <div id="alertTypeDrop" class="container">
+        </div>
+    </div>
+    <br>
+    <div class="alertGrid">
+        <div id="alertTypeDrop" class="container">
             <label for="alertDropDown" class="text"><strong>Select Alert Severity:</strong></label>
             <br>
             <div id="alertDropDownMenu" class="dropdownMenu_style">
-               <select name="alertDropDown" class="dropdownMenu" id="alertDropDown" onchange="alertTypeOpt()">
-                  <option value="Default">Select Alert Severity</option>
-                  <option value="Extreme">Extreme - Extraordinary threat to life or property</option>
-                  <option value="Severe">Severe - Significant threat to life or property</option>
-                  <option value="Moderate">Moderate - Possible threat to life or property</option>
-                  <option value="Minor">Minor - Minimal to no known threat to life or property</option>
-                  <option value="Unknown">Unknown - Severity unknown</option>
-               </select>
-               <br>
-            </div>
-            </div> 
-            <div id="certaintyDrop" class="container">
-                <label for="certaintyDropdown" class="text"><strong>Alert Certainty:</strong></label>
+                <select name="alertDropDown" class="dropdownMenu" id="alertDropDown" onchange="alertTypeOpt()">
+                    <option value="Default">Select Alert Severity</option>
+                    <option value="Extreme">Extreme - Extraordinary threat to life or property</option>
+                    <option value="Severe">Severe - Significant threat to life or property</option>
+                    <option value="Moderate">Moderate - Possible threat to life or property</option>
+                    <option value="Minor">Minor - Minimal to no known threat to life or property</option>
+                    <option value="Unknown">Unknown - Severity unknown</option>
+                </select>
                 <br>
-                <div id="certaintyDropdownMenu" class="dropdownMenu_style">
-                    <select name="certaintyDropdown" class="dropdownMenu" id="certaintyDropdown" onchange="certaintyOpt()">
-                        <option value="Default">Select Certainty</option>
-                        <option value="Observed">Observed</option>
-                        <option value="Likely">Likely</option>
-                        <option value="Possible">Possible</option>
-                        <option value="Unlikely">Unlikely</option>
-                        <option value="Unknown">Unknown</option>
-                    </select>
-                </div>
             </div>
         </div>
+        <div id="certaintyDrop" class="container">
+            <label for="certaintyDropdown" class="text"><strong>Alert Certainty:</strong></label>
+            <br>
+            <div id="certaintyDropdownMenu" class="dropdownMenu_style">
+                <select name="certaintyDropdown" class="dropdownMenu" id="certaintyDropdown" onchange="certaintyOpt()">
+                    <option value="Default">Select Certainty</option>
+                    <option value="Observed">Observed</option>
+                    <option value="Likely">Likely</option>
+                    <option value="Possible">Possible</option>
+                    <option value="Unlikely">Unlikely</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <br>
-        <div class="alertGrid">
-          <div id="scopeDrop" class="container">
+    <div class="alertGrid">
+        <div id="scopeDrop" class="container">
             <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
             <br>
             <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
-               <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
-                  <option value="Default">Select Alert Scope</option>
-                  <option value="public">public</option>
-                  <option value="restricted">restricted</option>
-                  <option value="private">private</option>
-               </select>
-               <br>
+                <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
+                    <option value="Default">Select Alert Scope</option>
+                    <option value="public">public</option>
+                    <option value="restricted">restricted</option>
+                    <option value="private">private</option>
+                </select>
+                <br>
             </div>
-         </div>
         </div>
-      <div class="alertGrid">
-             <div class="alertGrid">
+    </div>
+    <div class="alertGrid">
         <div id="En360" class="container">
             <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
             <br>
 
             <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"></textarea>
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
+                    maxlength="360"></textarea>
             </div>
             <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
         </div>
@@ -124,19 +126,18 @@
             <br>
 
             <div class="textarea_style">
-                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"></textarea>
+                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()"
+                    maxlength="360"></textarea>
             </div>
             <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
         </div>
     </div>
     <br><br>
-      <br>
-      </div>
-      <div id="mapid">
-         <script>
+    <div id="mapid">
+        <script>
             //var to store LeafletJS map initial settings
             var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-            
+
             //LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -146,14 +147,15 @@
                 zoomOffset: -1,
                 accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
             }).addTo(mymap);
-            
-         </script>
-      </div>
-      <br><br>
-      <div>
-         <button class="button button1 ">Submit Alert!</button>
-      </div>
-      <footer id="footer">
-      </footer>
-   </body>
+
+        </script>
+    </div>
+    <br><br>
+    <div>
+        <button class="button button1 ">Submit Alert!</button>
+    </div>
+    <footer id="footer">
+    </footer>
+</body>
+
 </html>
