@@ -61,6 +61,29 @@
                 <br>
             </div>
         </div>
+        <br>
+        <div class="alertGrid" id="alertSeverity">
+            <div id="alertTypeDrop" class="container">
+                <label for="alertDropDown" class="text"><strong>Select Alert Severity:</strong></label>
+                <br>
+                <div id="alertDropDownMenu" class="dropdownMenu_style">
+                    <select name="alertDropDown" class="dropdownMenu" id="alertDropDown" onchange="alertTypeOpt()">
+                        <option value="Default">Select Alert Severity</option>
+                        <option value="Extreme">Extreme - Extraordinary threat to life or property</option>
+                        <option value="Severe">Severe - Significant threat to life or property</option>
+                        <option value="Moderate">Moderate - Possible threat to life or property</option>
+                        <option value="Minor">Minor - Minimal to no known threat to life or property</option>
+                        <option value="Unknown">Unknown - Severity unknown</option>
+                    </select>
+                    <br>
+                </div>
+            </div> 
+        </div>
+        <br>
+
+        <div class="alertGrid">
+            <div id="En90" class="container">
+                <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
         <div id="urgencyDrop" class="container">
             <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
             <br>
@@ -124,16 +147,6 @@
             </div>
             <p id="wordsLeftSp90" class="text">Characters Left: 90</p>
             <br>
-        </div>
-        <div id="Sp360" class="container">
-            <label for="alertSp360 " class="text "><strong>Your 360 Character Spanish Alert:</strong></label>
-            <br>
-
-            <div class="textarea_style">
-                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord() "
-                    maxlength="360 "></textarea>
-            </div>
-            <p id="wordsLeftSp360 " class="text ">Characters Left: 360</p>
         </div>
         <br><br>
         <div id="mapid"></div>
