@@ -11,10 +11,20 @@ function categoryOpt() {
 //var for option selected from msgType dropdown list
 var msgTypeOptSelected;
 
-//Saves message type selected on option onclick
+//Saves message type selected on option onchange
 function msgTypeOpt() {
     
     msgTypeOptSelected = document.getElementById('msgTypeDropdown').value;
+    
+}
+
+//var for option selected from urgency dropdown list
+var urgencyOptSelected;
+
+//Saves urgency selected on option onchange
+function urgencyOpt() {
+    
+    urgencyOptSelected = document.getElementById('urgencyDropdown').value;
     
 }
 
