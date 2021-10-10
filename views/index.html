@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="stylesheets/style.css">
-    <script src="javascripts/myScript.js"></script>
+    <script src="javascripts/myScript.js"></script></link>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
@@ -11,20 +11,17 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 </head>
-
 <body>
     <header id="header">
         <p id="invis"></p>
         <h1>AO APP (BETA)</h1>
         <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
             target="_blank">
-            <img class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+            <img class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
-
     <h2 class="text">Enter your alert:</h2>
-
-    <div class="alertGrid" id="alertInfo">
+<div class="alertGrid">
         <div id="msgTypeDrop" class="container">
             <label for="msgTypeDropdown" class="text"><strong>Your Message Type:</strong></label>
             <br>
@@ -36,8 +33,8 @@
                     <option value="Cancel">Cancel</option>
                 </select>
                 <br>
-            </div>
-        </div>
+                </div></div> 
+    
         <div id="categoryDrop" class="container">
             <label for="categoryDropdown" class="text"><strong>Your Alert Category:</strong></label>
             <br>
@@ -60,9 +57,8 @@
                 </select>
                 <br>
             </div>
-        </div>
+        </div> 
         <br>
-        <div class="alertGrid" id="alertSeverity">
             <div id="alertTypeDrop" class="container">
                 <label for="alertDropDown" class="text"><strong>Select Alert Severity:</strong></label>
                 <br>
@@ -77,11 +73,9 @@
                     </select>
                     <br>
                 </div>
-            </div> 
-        </div>
+          </div> 
         <br>
 
-        <div class="alertGrid">
             <div id="En90" class="container">
                 <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
         <div id="urgencyDrop" class="container">
@@ -98,8 +92,8 @@
                 </select>
                 <br>
             </div>
-        </div>
-
+        </div></div> </div> 
+ 
         <div id="scopeDrop" class="container">
             <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
             <br>
@@ -113,9 +107,7 @@
                 <br>
             </div>
         </div>
-    </div>
     <br>
-    <div class="alertGrid">
         <div id="En90" class="container">
             <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
             <br>
@@ -126,7 +118,6 @@
             </div>
             <p id="wordsLeftEn90" class="text">Characters Left: 90</p>
             <br>
-        </div>
         <div id="En360" class="container">
             <label for="alert360" class="text"><strong>Your 360 Character English Alert:</strong></label>
             <br>
@@ -136,7 +127,6 @@
                     maxlength="360"></textarea>
             </div>
             <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
-        </div>
         <div id="Sp90" class="container">
             <label for="alert90" class="text"><strong>Your 90 Character Spanish Alert:</strong></label>
             <br>
@@ -149,9 +139,9 @@
             <br>
         </div>
         <br><br>
-        <div id="mapid"></div>
-        <script>
-            
+
+        <div id="mapid">
+        <script>          
             //var to store LeafletJS map initial settings
             var mymap = L.map('mapid').setView([51.505, -0.09], 13);
             
@@ -170,9 +160,8 @@
         <div>
             <button class="button button1 ">Submit Alert!</button>
         </div>
-        <footer id="footer ">
+        <footer id="footer">
         </footer>
+    
 </body>
-
-
 </html>
