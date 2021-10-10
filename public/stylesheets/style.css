@@ -75,6 +75,17 @@ footer {
     font-size: 16px;
 }
 
+/*LeafletJS map height*/
+#mapid {
+    
+    height: 750px;
+    border-top: 7px solid  #005287;
+    border-bottom: 7px solid  #005287;
+    border-left: 17px solid  #005287;
+    border-right: 17px solid  #005287;
+
+}
+
 textarea {
     margin: 5px;
     /* border: none; */
