@@ -155,6 +155,18 @@ p {
     /* min-width: 20em; */
 }
 
+#restrictionTextBox{
+    margin-right: 6em;
+    width: 38%;
+}
+
+#addressTextBox{
+    width: 38%
+}
+.halftext{
+    color: #005287;
+    margin-right: 10em ;
+}
 .dropdownMenu {
     margin: 5px;
     outline: none;

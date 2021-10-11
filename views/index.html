@@ -95,6 +95,7 @@
         </div>
     </div>
     <br>
+
     <div class="alertGrid">
         <div id="scopeDrop" class="container">
             <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
@@ -110,17 +111,21 @@
             </div>
         </div>
 
-        <div id="restrictionField" class="container">
-            <label for "restrictionText" class="text"><strong>Restriction Condition</strong></label>
-            <br>
-            <div class = "textarea_style">
-                <textarea id= "restrictionTextBox" class = "restrictionText" placeholder = "Use if scope set to restricted"></textarea>  
+        <div id="conditionalField" class="container">
+            <label for "restrictionText" class="halftext"><strong>Restriction Condition:</strong></label>
+            <label for "addressField" class="text"><strong>Address Field:</strong> </label>
+            <div id="addressField" class="container">
+
+            
+                <div class="conditional">
+                    <textarea id="restrictionTextBox" class="conditional" placeholder="Required when scope set to restricted."></textarea>
+                    <textarea id="addressTextBox" class="conditional"    placeholder="Required when scope set to private. Optional otherwise"></textarea>
+                </div>
+
             </div>
         </div>
-        <div id="addressField" class="container">
-            
-        </div>
     </div>
+
     <div class="alertGrid">
         <div id="En360" class="container">
             <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
