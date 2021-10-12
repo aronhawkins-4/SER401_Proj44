@@ -87,10 +87,68 @@
                     <option value="Unknown">Unknown</option>
                 </select>
             </div>
+            
         </div>
-    </div>
-    <br>
-    <div class="alertGrid">
+        <div id="eventDrop" class="container">
+                <label for="eventDropdownMenu" class="text"><strong>Event Code:</strong></label>
+                <br>
+                <div id="eventDropdownMenu" class="dropdownMenu_style">
+                    <select name="eventCodeDropdown" class="dropdownMenu" id="eventDropdown" onchange="eventOpt()">
+                        <option value="Default">Select Event Code</option>
+                        <option value="ADR">Administrative Message/Follow up Statement</option>
+                        <option value="AVA">Avalanche Watch</option>
+                        <option value="AVW">Avalanche Warning</option>
+                        <option value="BLU">Law Enforcement Blue Alert</option>
+                        <option value="BZW">Blizzard Warning</option>
+                        <option value="CAE">Child Abduction Emergency</option>
+                        <option value="CDW">Civil Danger Warning</option>
+                        <option value="CEM">Civil Emergency Message</option>
+                        <option value="CFW">Coastal Flood Warning</option>
+                        <option value="DMO">Practice/Demo Warning</option>
+                        <option value="DSW">Dust Storm Warning</option>
+                        <option value="EAN">Presidential Alert</option>
+                        <option value="EQW">Earthquake Warning</option>
+                        <option value="EVI">Evacuation Immediate</option>
+                        <option value="FFW">Flash Flood Warning</option>
+                        <option value="FLW">Flood Warning</option>
+                        <option value="FRW">Fire Warning</option>
+                        <option value="HMV">Hazardous Materials Warning</option>
+                        <option value="HUW">Hurricane Warning</option>
+                        <option value="HWW">High Wind Warning</option>
+                        <option value="LEW">Law Enforcement Warning</option>
+                        <option value="LAE">Local Area Emergency</option>
+                        <option value="NIC">National Information Center</option>
+                        <option value="NMN">Network Message Notification</option>
+                        <option value="NPT">National Periodic Test</option>
+                        <option value="NUW">Nuclear Power Plant Warning</option>
+                        <option value="RHW">Radiological Hazard Warning</option>
+                        <option value="RMT">Required Monthly Test</option>
+                        <option value="RWT">Required Weekly Test</option>
+                        <option value="SPW">Shelter in Place Warning</option>
+                        <option value="SVR">Severe Thunderstorm Warning</option>
+                        <option value="SMW">Special Marine Warning</option>
+                        <option value="TOE">911 Telephone Outage Emergency</option>
+                        <option value="TOR">Tornado Warning</option>
+                        <option value="TRW">Tropical Storm Warning</option>
+                        <option value="TSW">Tsunami Warning</option>
+                        <option value="VOW">Volcano Warning</option>
+                        <option value="WSW">Winter Storm Warning</option>
+                        <option value="EWW">Extreme Wind Warning</option>
+                        <option value="FFA">Flash Flood Watch</option>
+                        <option value="FLA">Flood Watch</option>
+                        <option value="FFS">Flash Flood Statement</option>
+                        <option value="HUA">Hurricane Watch</option>
+                        <option value="NWS">National Weather Service</option>
+                        <option value="SSA">Storm Surge Watch</option>
+                        <option value="SSW">Storm Surge Warning</option>
+                        <option value="SVS">Severe Weather Statement</option>
+                        <option value="SPS">Special Weather Statement</option>
+                        <option value="TOA">Tornado Watch</option>
+                        <option value="TRA">Tropical Storm Watch</option>
+                    </select>
+                    <br>
+                </div>
+            </div>
         <div id="scopeDrop" class="container">
             <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
             <br>
@@ -105,6 +163,7 @@
             </div>
         </div>
     </div>
+    <br>
     <div class="alertGrid">
         <div id="En360" class="container">
             <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
