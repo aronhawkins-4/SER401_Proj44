@@ -31,12 +31,9 @@ h1 {
 
 .femaLogo {
     width: 125px;
-    align-self: center;
-}
-
-#header_logo {
     padding-top: 20px;
     padding-right: 50px;
+    align-self: center;
 }
 
 h2 {
@@ -46,26 +43,9 @@ h2 {
 footer {
     height: 90px;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
     background-color: #005287;
     margin: 50px 0 0 0;
-    /* font-size: 16px; */
-    color: white;
-}
-
-#phone_number {
-    /* color: white; */
-    font-size: 16px;
-    padding: 5px;
-    /* justify-self: left; */
-}
-
-#email {
-    font-size: 16px;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
 }
 
 
@@ -80,30 +60,23 @@ footer {
 }
 
 .dropdownMenu {
+    
     margin: 5px;
     outline: none;
     resize: none;
     border: 1px solid #229CFF;
     border-radius: 2px;
     width: 98%;
+    
 }
 
 .dropdownMenu_style {
+    
     margin: 5px;
     width: auto;
     height: auto;
     font-size: 16px;
-}
-
-/*LeafletJS map height*/
-#mapid {
     
-    height: 750px;
-    border-top: 7px solid  #005287;
-    border-bottom: 7px solid  #005287;
-    border-left: 17px solid  #005287;
-    border-right: 17px solid  #005287;
-
 }
 
 textarea {
@@ -149,6 +122,11 @@ p {
     /* height: 300px; */
 }
 
+.alert90 {
+    /* height: 4em; */
+    width: 97%;
+}
+
 .alert360 {
     min-height: 5em;
     width: 97%;
@@ -156,19 +134,27 @@ p {
 }
 
 .dropdownMenu {
+    
     margin: 5px;
     outline: none;
     resize: none;
     border: 1px solid #229CFF;
     border-radius: 2px;
     width: 98%;
+    
 }
 
 .dropdownMenu_style {
+    
     margin: 5px;
     width: auto;
     height: auto;
     font-size: 16px;
+    
+}
+
+#En360 {
+    grid-row: 2 / 3;
 }
 
 .text {
@@ -187,10 +173,10 @@ p {
 
 #map {
     /*padding: 0 20px 0 20px;*/
-    border-top: 7px solid #005287;
-    border-bottom: 7px solid #005287;
-    border-left: 17px solid #005287;
-    border-right: 17px solid #005287;
+    border-top: 7px solid  #005287;
+    border-bottom: 7px solid  #005287;
+    border-left: 17px solid  #005287;
+    border-right: 17px solid  #005287;
 }
 
 
