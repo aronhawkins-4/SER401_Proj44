@@ -161,6 +161,14 @@ p {
     color: #005287
 }
 
+.restrictionText {
+    
+    min-height: 2em;
+    width: 97%;
+    /* min-width: 20em; */
+
+}
+
 /* Style Map */
 
 #map {
