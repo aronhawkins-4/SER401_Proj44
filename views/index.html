@@ -66,7 +66,7 @@
     <br>
     <div class="alertGrid4">
         <div id="categoryDrop" class="container">
-            <label for="categoryDropdown" class="text"><strong>Your Alert Category:</strong></label>
+            <label for="categoryDropdown" class="text"><strong>Alert Category:</strong></label>
             <br>
             <div id="categoryDropdownMenu" class="dropdownMenu_style">
                 <select name="categoryDropdown" class="dropdownMenu" id="categoryDropdown" onchange="categoryOpt()">
@@ -90,7 +90,7 @@
             </div>
         </div>
         <div id="alertTypeDrop" class="container">
-            <label for="alertDropDown" class="text"><strong>Select Alert Severity:</strong></label>
+            <label for="alertDropDown" class="text"><strong>Alert Severity:</strong></label>
             <br>
             <div id="alertDropDownMenu" class="dropdownMenu_style">
                 <select name="alertDropDown" class="dropdownMenu" id="alertDropDown" onchange="alertTypeOpt()">
@@ -120,7 +120,7 @@
         </div>
 
         <div id="scopeDrop" class="container">
-            <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
+            <label for="scopeDropdown" class="text"><strong>Alert Scope:</strong></label>
             <br>
             <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
                 <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
@@ -137,15 +137,15 @@
 <br>
 <div class="alertGrid">
     <div id="Ev180" class="container">
-        <label for="event180" class="text"><strong>Your Event:</strong></label>
+        <label for="event180" class="text"><strong>Alert Description:</strong></label>
         <div class="textarea_style">
             <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()"
-                maxlength="180"></textarea>
+                maxlength="180" placeholder="Provide a short description of the type of alert you are sending out..."></textarea>
         </div>
         <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
     </div>
     <div id="En360" class="container">
-        <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
+        <label for="alert360" class="text"><strong>Alert Message to Send Out:</strong></label>
         <br>
         <div class="textarea_style">
             <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
