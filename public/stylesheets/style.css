@@ -94,6 +94,11 @@ footer {
     /* min-width: 20em; */
 }
 
+
+.resField{
+    min-height: 3em;
+    width: 97%;
+}
 .container {
     padding: 10px;
     border: 1px sold #ededed;
