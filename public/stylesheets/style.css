@@ -68,8 +68,31 @@ footer {
     text-decoration: none;
 }
 
+.dropdownMenu {
+    margin: 5px;
+    outline: none;
+    resize: none;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    width: 98%;
+}
 
-/* Style Text Areas */
+.dropdownMenu_style {
+    margin: 5px;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+}
+
+.text {
+    color: #005287
+}
+
+.event180 {
+    min-height: 3em;
+    width: 97%;
+    /* min-width: 20em; */
+}
 
 .container {
     padding: 10px;
@@ -95,16 +118,30 @@ footer {
     font-size: 16px;
 }
 
-/*LeafletJS map height*/
-#mapid {
-    
-    height: 750px;
-    border-top: 7px solid  #005287;
-    border-bottom: 7px solid  #005287;
-    border-left: 17px solid  #005287;
-    border-right: 17px solid  #005287;
-
+input[type=text],
+select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    box-sizing: border-box;
 }
+
+input[type=email],
+select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+
+/* Style Text Areas */
 
 textarea {
     margin: 5px;
@@ -141,6 +178,15 @@ p {
     font-size: 10px;
 }
 
+.alert360 {
+    min-height: 5em;
+    width: 97%;
+    /* min-width: 20em; */
+}
+
+
+/* Style Page views */
+
 .alertGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -149,38 +195,22 @@ p {
     /* height: 300px; */
 }
 
-.alert360 {
-    min-height: 5em;
-    width: 97%;
-    /* min-width: 20em; */
+.alertGrid4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 0 100px;
 }
 
-.event180 {
-    
-    min-height: 3em;
-    width: 97%;
-    /* min-width: 20em; */
 
-}
+/*LeafletJS map height*/
 
-.dropdownMenu {
-    margin: 5px;
-    outline: none;
-    resize: none;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
-    width: 98%;
-}
-
-.dropdownMenu_style {
-    margin: 5px;
-    width: auto;
-    height: auto;
-    font-size: 16px;
-}
-
-.text {
-    color: #005287
+#mapid {
+    height: 750px;
+    border-top: 7px solid #005287;
+    border-bottom: 7px solid #005287;
+    border-left: 17px solid #005287;
+    border-right: 17px solid #005287;
 }
 
 

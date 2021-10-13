@@ -18,6 +18,14 @@ function msgTypeOpt() {
     
 }
 
+//var for option selected from msgStatusDropdownMenu 
+var msgStatusOptSelected;
+
+//Saves status type selected on option change
+function msgStatusOpt() {
+    msgStatusOptSelected = document.getElementById('msgStatusDropdown').value;
+}
+
 //var for option selected from urgency dropdown list
 var urgencyOptSelected;
 
