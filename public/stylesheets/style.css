@@ -95,15 +95,15 @@ footer {
     font-size: 16px;
 }
 
-/*LeafletJS map height*/
-#mapid {
-    
-    height: 750px;
-    border-top: 7px solid  #005287;
-    border-bottom: 7px solid  #005287;
-    border-left: 17px solid  #005287;
-    border-right: 17px solid  #005287;
 
+/*LeafletJS map height*/
+
+#mapid {
+    height: 750px;
+    border-top: 7px solid #005287;
+    border-bottom: 7px solid #005287;
+    border-left: 17px solid #005287;
+    border-right: 17px solid #005287;
 }
 
 textarea {
@@ -156,11 +156,9 @@ p {
 }
 
 .event180 {
-    
     min-height: 3em;
     width: 97%;
     /* min-width: 20em; */
-
 }
 
 .dropdownMenu {
@@ -227,4 +225,15 @@ button:hover {
 .button1 {
     width: 25%;
     margin: 0 auto;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 480px) {
+    .alertGrid {
+        display: grid;
+        /* grid-column: 1; */
+        grid-template-columns: 1fr;
+    }
 }
