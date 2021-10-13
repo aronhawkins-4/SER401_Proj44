@@ -33,13 +33,15 @@ function countWord() {
     var engCount90 = 90;
     var engCount360 = 360;
     var spanCount90 = 90;
-    var spacCount360 = 360;
+    var spanCount360 = 360;
+    var areaDescCount = 200;
 
     // Get the input text value
     var engChars90 = document.getElementById("alertEn90");
     var engChars360 = document.getElementById("alertEn360");
     var spanChars90 = document.getElementById("alertSp90");
     var spanChars360 = document.getElementById("alertSp360");
+    var areaDescCount = document.getElementById("areaDescriptionField");
     var chars;
     var charsLeft;
     var counter;
@@ -65,6 +67,11 @@ function countWord() {
         charsLeft = 360;
         counter = document.getElementById("wordsLeftSp360");
         alert = document.querySelector('#alertSp360');
+    } else if (areaDescCount === document.activeElement) {
+        chars = areaDescCount.value.length;
+        charsLeft = 200;
+        counter = document.getElementById("wordsLeftAreaDesc");
+        alert = document.querySelector('#areaDescriptionField');
     }
 
     // Display it as output
