@@ -18,6 +18,14 @@ function msgTypeOpt() {
     
 }
 
+//var for option selected from msgStatusDropdownMenu 
+var msgStatusOptSelected;
+
+//Saves status type selected on option change
+function msgStatusOpt() {
+    msgStatusOptSelected = document.getElementById('msgStatusDropdown').value;
+}
+
 //var for option selected from urgency dropdown list
 var urgencyOptSelected;
 
@@ -28,18 +36,30 @@ function urgencyOpt() {
     
 }
 
+//var for option selected from event code dropdown list
+var eventCodeOptSelected;
+
+//Saves event code selected on option onchange
+function eventCodeOpt() {
+
+    eventCodeOptSelected = document.getElementById('eventCodeDropdown').value;
+
+}
+
 function countWord() {
 
     var engCount90 = 90;
     var engCount360 = 360;
     var spanCount90 = 90;
     var spacCount360 = 360;
+    var eventCount180 = 180;
 
     // Get the input text value
     var engChars90 = document.getElementById("alertEn90");
     var engChars360 = document.getElementById("alertEn360");
     var spanChars90 = document.getElementById("alertSp90");
     var spanChars360 = document.getElementById("alertSp360");
+    var eventChars180 = document.getElementById("eventFi180");
     var chars;
     var charsLeft;
     var counter;
@@ -65,6 +85,11 @@ function countWord() {
         charsLeft = 360;
         counter = document.getElementById("wordsLeftSp360");
         alert = document.querySelector('#alertSp360');
+    } else if (eventChars180 === document.activeElement) {
+        chars = eventChars180.value.length;
+        charsLeft = 180;
+        counter = document.getElementById("wordsLeftEvent180");
+        alert = document.querySelector('#eventFi180');
     }
 
     // Display it as output
