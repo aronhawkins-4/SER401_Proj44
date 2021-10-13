@@ -28,6 +28,16 @@ function urgencyOpt() {
     
 }
 
+//var for option selected from event code dropdown list
+var eventCodeOptSelected;
+
+//Saves event code selected on option onchange
+function eventCodeOpt() {
+
+    eventCodeOptSelected = document.getElementById('eventCodeDropdown').value;
+
+}
+
 function countWord() {
 
     var engCount90 = 90;
