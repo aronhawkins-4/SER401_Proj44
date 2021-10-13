@@ -5,7 +5,6 @@ body {
     background-color: #f7f7f7;
 }
 
-
 /* Style General Elements */
 
 a {
@@ -68,6 +67,25 @@ footer {
     text-decoration: none;
 }
 
+.dropdownMenu {
+    margin: 5px;
+    outline: none;
+    resize: none;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    width: 98%;
+}
+
+.dropdownMenu_style {
+    margin: 5px;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+}
+
+.text {
+    color: #005287
+}
 
 /* Style Text Areas */
 
@@ -93,17 +111,6 @@ footer {
     width: auto;
     height: auto;
     font-size: 16px;
-}
-
-/*LeafletJS map height*/
-#mapid {
-    
-    height: 750px;
-    border-top: 7px solid  #005287;
-    border-bottom: 7px solid  #005287;
-    border-left: 17px solid  #005287;
-    border-right: 17px solid  #005287;
-
 }
 
 textarea {
@@ -136,9 +143,35 @@ textarea {
     /* border: 1px solid #229CFF; */
 }
 
+input[type=text], select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    box-sizing:border-box;
+  }
+
 p {
     float: right;
     font-size: 10px;
+}
+
+.alert360 {
+    min-height: 5em;
+    width: 97%;
+    /* min-width: 20em; */
+}
+
+/* Style Page views */ 
+
+.alertGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 100px;
+    /* height: 300px; */
 }
 
 .alertGrid {
@@ -149,32 +182,33 @@ p {
     /* height: 300px; */
 }
 
-.alert360 {
-    min-height: 5em;
-    width: 97%;
-    /* min-width: 20em; */
+
+.alertGrid4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 0 100px;
 }
 
-.dropdownMenu {
-    margin: 5px;
-    outline: none;
-    resize: none;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
-    width: 98%;
+.alertGrid4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 0 100px;
+
 }
 
-.dropdownMenu_style {
-    margin: 5px;
-    width: auto;
-    height: auto;
-    font-size: 16px;
-}
+/*LeafletJS map height*/
 
-.text {
-    color: #005287
-}
+#mapid {
+    
+    height: 750px;
+    border-top: 7px solid  #005287;
+    border-bottom: 7px solid  #005287;
+    border-left: 17px solid  #005287;
+    border-right: 17px solid  #005287;
 
+}
 
 /* Style Map */
 
@@ -185,7 +219,6 @@ p {
     border-left: 17px solid #005287;
     border-right: 17px solid #005287;
 }
-
 
 /* Style Buttons */
 
