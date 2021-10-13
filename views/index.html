@@ -35,11 +35,8 @@
             <br>
             <input type="email" id="sender" name="sender" required>
         </div>
-
-    </div>
-    <div class="alertGrid">
         <div id="msgTypeDrop" class="container">
-            <label for="msgTypeDropdown" class="text"><strong>Your Message Type:</strong></label>
+            <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
             <br>
             <div id="msgTypeDropdownMenu" class="dropdownMenu_style">
                 <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
@@ -51,6 +48,23 @@
                 <br>
             </div>
         </div>
+        <div id="msgStatusDrop" class="container">
+            <label for="msgStatusDropdown" class="text"><strong>Alert Status:</strong></label>
+            <br>
+            <div id="msgStatusDropdown" class="dropdownMenu_style">
+                <select name="status" class="dropdownMenu" id="status" onchange="msgStatusOpt()">
+                    <option value="Default">Select Message Type</option>
+                    <option value="Actual">Actual</option>
+                    <option value="Exercise">Exercise</option>
+                    <option value="System Test">System Test</option>
+                    <option value="Draft">Draft</option>
+                </select>
+                <br>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="alertGrid4">
         <div id="categoryDrop" class="container">
             <label for="categoryDropdown" class="text"><strong>Your Alert Category:</strong></label>
             <br>
@@ -74,18 +88,7 @@
                 </select>
                 <br>
             </div>
-            </div>
-            <div id="Ev180" class="container">
-                <label for="event180" class="text"><strong>Your Event:</strong></label>
-                <div class="textarea_style">
-                    <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180"></textarea>
-                </div>
-                <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
-            </div>
         </div>
-    </div>
-    <br>
-    <div class="alertGrid">
         <div id="alertTypeDrop" class="container">
             <label for="alertDropDown" class="text"><strong>Select Alert Severity:</strong></label>
             <br>
@@ -115,9 +118,7 @@
                 </select>
             </div>
         </div>
-    </div>
-    <br>
-    <div class="alertGrid">
+
         <div id="scopeDrop" class="container">
             <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
             <br>
@@ -131,55 +132,65 @@
                 <br>
             </div>
         </div>
-    </div>
-    <div class="alertGrid">
-        <div id="En360" class="container">
-            <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
-            <br>
-            <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
-                    maxlength="360"></textarea>
-            </div>
-            <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
+</body>
+</div>
+<br>
+<div class="alertGrid">
+    <div id="Ev180" class="container">
+        <label for="event180" class="text"><strong>Your Event:</strong></label>
+        <div class="textarea_style">
+            <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()"
+                maxlength="180"></textarea>
         </div>
-        <div id="Sp360" class="container">
-            <label for="alertSp360 " class="text "><strong>Your Spanish Alert:</strong></label>
-            <br>
-            <div class="textarea_style">
-                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()"
-                    maxlength="360"></textarea>
-            </div>
-            <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
-        </div>
+        <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
     </div>
-    <br><br>
-    <div id="mapid">
-        <script>
-            //var to store LeafletJS map initial settings
-            var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    <div id="En360" class="container">
+        <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
+        <br>
+        <div class="textarea_style">
+            <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
+                maxlength="360"></textarea>
+        </div>
+        <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
+    </div>
+    <div id="Sp360" class="container">
+        <label for="alertSp360 " class="text "><strong>Your Spanish Alert:</strong></label>
+        <br>
+        <div class="textarea_style">
+            <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()"
+                maxlength="360"></textarea>
+        </div>
+        <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
+    </div>
+</div>
+<br><br>
+<div id="mapid">
+    <script>
+        //var to store LeafletJS map initial settings
+        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
-            //LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
-            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                maxZoom: 18,
-                id: 'mapbox/streets-v11',
-                tileSize: 512,
-                zoomOffset: -1,
-                accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
-            }).addTo(mymap);
-        </script>
-    </div>
-    <br><br>
-    <div>
-        <button class="button button1 ">Submit Alert!</button>
-    </div>
-    <footer id="footer ">
-        <p id="phone_number">1 (800) 621-3362</p>
-        <a href="https://www.fema.gov/" target="_blank">
-            <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
-        </a>
-        <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
-    </footer>
+        //LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
+        }).addTo(mymap);
+    </script>
+</div>
+<br><br>
+<div>
+    <button class="button button1 ">Submit Alert!</button>
+</div>
+<footer id="footer ">
+    <p id="phone_number">1 (800) 621-3362</p>
+    <a href="https://www.fema.gov/" target="_blank">
+        <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+    </a>
+    <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+</footer>
 </body>
 
 </html>
