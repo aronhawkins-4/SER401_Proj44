@@ -195,16 +195,75 @@ p {
 .alertGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "En360 Sp360";
     gap: 20px;
-    padding: 0 100px;
-    /* height: 300px; */
+    padding: 0 50px;
+}
+
+#En360 {
+    grid-area: En360;
+}
+
+#Sp360 {
+    grid-area: Sp360;
 }
 
 .alertGrid4 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .5fr .5fr 1fr;
+    grid-template-areas: "msgNum msgSender msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop certaintyDrop eventDrop" "scopeDrop urgencyDrop alertInfoArea ev180";
     gap: 20px;
-    padding: 0 100px;
+    padding: 0 50px;
+}
+
+#msgNum {
+    grid-area: msgNum;
+}
+
+#msgSender {
+    grid-area: msgSender;
+}
+
+#msgTypeDrop {
+    grid-area: msgTypeDrop;
+}
+
+#msgStatusDrop {
+    grid-area: msgStatusDrop;
+}
+
+#categoryDrop {
+    grid-area: categoryDrop;
+}
+
+#alertTypeDrop {
+    grid-area: alertTypeDrop;
+}
+
+#certaintyDrop {
+    grid-area: certaintyDrop;
+}
+
+#eventDrop {
+    grid-area: eventDrop;
+}
+
+#scopeDrop {
+    grid-area: scopeDrop;
+}
+
+#urgencyDrop {
+    grid-area: urgencyDrop;
+}
+
+#alertInfoArea {
+    grid-area: alertInfoArea;
+}
+
+#ev180 {
+    grid-area: ev180;
 }
 
 
@@ -262,4 +321,36 @@ button:hover {
 .button1 {
     width: 25%;
     margin: 0 auto;
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 480px) {
+    .alertGrid4 {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr 1.5fr;
+        grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
+        padding: 0px;
+    }
+    .alertGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "En360" "Sp360";
+        padding: 0px;
+    }
+    header {
+        /* justify-content: center; */
+    }
+    h1 {
+        margin: auto;
+    }
+    #header_logo {
+        visibility: hidden;
+        padding-right: 0px;
+        width: 0px;
+    }
+    #invis {
+        width: 0px;
+    }
 }
