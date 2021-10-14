@@ -94,11 +94,11 @@ footer {
     /* min-width: 20em; */
 }
 
-
-.resField{
+.resField {
     min-height: 3em;
     width: 97%;
 }
+
 .container {
     padding: 10px;
     border: 1px sold #ededed;
@@ -198,7 +198,7 @@ p {
     grid-template-rows: 1fr;
     grid-template-areas: "En360 Sp360";
     gap: 20px;
-    padding: 0 50px;
+    padding: 20px 50px;
 }
 
 #En360 {
@@ -337,10 +337,7 @@ button:hover {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "En360" "Sp360";
-        padding: 0px;
-    }
-    header {
-        /* justify-content: center; */
+        padding: 20px 0px;
     }
     h1 {
         margin: auto;
