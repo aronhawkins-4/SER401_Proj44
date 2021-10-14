@@ -68,8 +68,42 @@ footer {
     text-decoration: none;
 }
 
+.dropdownMenu {
+    margin: 5px;
+    outline: none;
+    resize: none;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    width: 98%;
+}
 
-/* Style Text Areas */
+.dropdownMenu_style {
+    margin: 5px;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+}
+
+.text {
+    color: #005287
+}
+
+.event180 {
+    min-height: 3em;
+    width: 97%;
+    /* min-width: 20em; */
+}
+
+
+.resField{
+    min-height: 3em;
+    width: 97%;
+}
+
+.addField{
+    min-height: 3em;
+    width: 97%;
+}
 
 .container {
     padding: 10px;
@@ -95,16 +129,30 @@ footer {
     font-size: 16px;
 }
 
-/*LeafletJS map height*/
-#mapid {
-    
-    height: 750px;
-    border-top: 7px solid  #005287;
-    border-bottom: 7px solid  #005287;
-    border-left: 17px solid  #005287;
-    border-right: 17px solid  #005287;
-
+input[type=text],
+select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    box-sizing: border-box;
 }
+
+input[type=email],
+select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+
+/* Style Text Areas */
 
 textarea {
     margin: 5px;
@@ -141,18 +189,26 @@ p {
     font-size: 10px;
 }
 
-.alertGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 0 100px;
-    /* height: 300px; */
-}
-
 .alert360 {
     min-height: 5em;
     width: 97%;
     /* min-width: 20em; */
+}
+
+
+/* Style Page views */
+
+.alertGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "En360 Sp360";
+    gap: 20px;
+    padding: 0 50px;
+}
+
+#En360 {
+    grid-area: En360;
 }
 
 #restrictionTextBox{
@@ -175,16 +231,76 @@ p {
     border-radius: 2px;
     width: 98%;
 }
-
-.dropdownMenu_style {
-    margin: 5px;
-    width: auto;
-    height: auto;
-    font-size: 16px;
+   #Sp360 {
+    grid-area: Sp360;
 }
 
-.text {
-    color: #005287
+.alertGrid4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .5fr .5fr 1fr;
+    grid-template-areas: "msgNum msgSender msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop certaintyDrop eventDrop" "scopeDrop urgencyDrop alertInfoArea ev180";
+    gap: 20px;
+    padding: 0 50px;
+}
+
+#msgNum {
+    grid-area: msgNum;
+}
+
+#msgSender {
+    grid-area: msgSender;
+}
+
+#msgTypeDrop {
+    grid-area: msgTypeDrop;
+}
+
+#msgStatusDrop {
+    grid-area: msgStatusDrop;
+}
+
+#categoryDrop {
+    grid-area: categoryDrop;
+}
+
+#alertTypeDrop {
+    grid-area: alertTypeDrop;
+}
+
+#certaintyDrop {
+    grid-area: certaintyDrop;
+}
+
+#eventDrop {
+    grid-area: eventDrop;
+}
+
+#scopeDrop {
+    grid-area: scopeDrop;
+}
+
+#urgencyDrop {
+    grid-area: urgencyDrop;
+}
+
+#alertInfoArea {
+    grid-area: alertInfoArea;
+}
+
+#ev180 {
+    grid-area: ev180;
+}
+
+
+/*LeafletJS map height*/
+
+#mapid {
+    height: 750px;
+    border-top: 7px solid #005287;
+    border-bottom: 7px solid #005287;
+    border-left: 17px solid #005287;
+    border-right: 17px solid #005287;
 }
 
 
@@ -231,4 +347,36 @@ button:hover {
 .button1 {
     width: 25%;
     margin: 0 auto;
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 480px) {
+    .alertGrid4 {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr 1.5fr;
+        grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
+        padding: 0px;
+    }
+    .alertGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "En360" "Sp360";
+        padding: 0px;
+    }
+    header {
+        /* justify-content: center; */
+    }
+    h1 {
+        margin: auto;
+    }
+    #header_logo {
+        visibility: hidden;
+        padding-right: 0px;
+        width: 0px;
+    }
+    #invis {
+        width: 0px;
+    }
 }

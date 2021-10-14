@@ -4,28 +4,33 @@
 <head>
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="javascripts/myScript.js"></script>
-    </link>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 
 <body>
     <header id="header">
         <p id="invis"></p>
         <h1>AO APP (BETA)</h1>
-        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
-            target="_blank">
-            <img class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system" target="_blank">
+            <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
     <h2 class="text">Enter your alert:</h2>
-    <div class="alertGrid">
+    <div class="alertGrid4">
+        <div id="msgNum" class="container">
+            <label for="identifier" class="text"><strong>Alert Number:</strong></label>
+            <br>
+            <input type="text" id="identifier" name="identifier" maxlength="20" placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
+        </div>
+        <div id="msgSender" class="container">
+            <label for="sender" class="text"><strong>Sender's Email:</strong></label>
+            <br>
+            <input type="email" id="sender" name="sender" required>
+        </div>
         <div id="msgTypeDrop" class="container">
-            <label for="msgTypeDropdown" class="text"><strong>Your Message Type:</strong></label>
+            <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
             <br>
             <div id="msgTypeDropdownMenu" class="dropdownMenu_style">
                 <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
@@ -37,8 +42,22 @@
                 <br>
             </div>
         </div>
+        <div id="msgStatusDrop" class="container">
+            <label for="msgStatusDropdown" class="text"><strong>Alert Status:</strong></label>
+            <br>
+            <div id="msgStatusDropdown" class="dropdownMenu_style">
+                <select name="status" class="dropdownMenu" id="status" onchange="msgStatusOpt()">
+                    <option value="Default">Select Message Type</option>
+                    <option value="Actual">Actual</option>
+                    <option value="Exercise">Exercise</option>
+                    <option value="System Test">System Test</option>
+                    <option value="Draft">Draft</option>
+                </select>
+                <br>
+            </div>
+        </div>
         <div id="categoryDrop" class="container">
-            <label for="categoryDropdown" class="text"><strong>Your Alert Category:</strong></label>
+            <label for="categoryDropdown" class="text"><strong>Alert Category:</strong></label>
             <br>
             <div id="categoryDropdownMenu" class="dropdownMenu_style">
                 <select name="categoryDropdown" class="dropdownMenu" id="categoryDropdown" onchange="categoryOpt()">
@@ -61,11 +80,8 @@
                 <br>
             </div>
         </div>
-    </div>
-    <br>
-    <div class="alertGrid">
         <div id="alertTypeDrop" class="container">
-            <label for="alertDropDown" class="text"><strong>Select Alert Severity:</strong></label>
+            <label for="alertDropDown" class="text"><strong>Alert Severity:</strong></label>
             <br>
             <div id="alertDropDownMenu" class="dropdownMenu_style">
                 <select name="alertDropDown" class="dropdownMenu" id="alertDropDown" onchange="alertTypeOpt()">
@@ -92,13 +108,71 @@
                     <option value="Unknown">Unknown</option>
                 </select>
             </div>
-        </div>
-    </div>
-    <br>
 
-    <div class="alertGrid">
+        </div>
+
+        <div id="eventDrop" class="container">
+            <label for="eventDropdownMenu" class="text"><strong>Event Code:</strong></label>
+            <br>
+            <div id="eventDropdownMenu" class="dropdownMenu_style">
+                <select name="eventCodeDropdown" class="dropdownMenu" id="eventDropdown" onchange="eventOpt()">
+                    <option value="Default">Select Event Code</option>
+                    <option value="ADR">Administrative Message/Follow up Statement</option>
+                    <option value="AVA">Avalanche Watch</option>
+                    <option value="AVW">Avalanche Warning</option>
+                    <option value="BLU">Law Enforcement Blue Alert</option>
+                    <option value="BZW">Blizzard Warning</option>
+                    <option value="CAE">Child Abduction Emergency</option>
+                    <option value="CDW">Civil Danger Warning</option>
+                    <option value="CEM">Civil Emergency Message</option>
+                    <option value="CFW">Coastal Flood Warning</option>
+                    <option value="DMO">Practice/Demo Warning</option>
+                    <option value="DSW">Dust Storm Warning</option>
+                    <option value="EAN">Presidential Alert</option>
+                    <option value="EQW">Earthquake Warning</option>
+                    <option value="EVI">Evacuation Immediate</option>
+                    <option value="FFW">Flash Flood Warning</option>
+                    <option value="FLW">Flood Warning</option>
+                    <option value="FRW">Fire Warning</option>
+                    <option value="HMV">Hazardous Materials Warning</option>
+                    <option value="HUW">Hurricane Warning</option>
+                    <option value="HWW">High Wind Warning</option>
+                    <option value="LEW">Law Enforcement Warning</option>
+                    <option value="LAE">Local Area Emergency</option>
+                    <option value="NIC">National Information Center</option>
+                    <option value="NMN">Network Message Notification</option>
+                    <option value="NPT">National Periodic Test</option>
+                    <option value="NUW">Nuclear Power Plant Warning</option>
+                    <option value="RHW">Radiological Hazard Warning</option>
+                    <option value="RMT">Required Monthly Test</option>
+                    <option value="RWT">Required Weekly Test</option>
+                    <option value="SPW">Shelter in Place Warning</option>
+                    <option value="SVR">Severe Thunderstorm Warning</option>
+                    <option value="SMW">Special Marine Warning</option>
+                    <option value="TOE">911 Telephone Outage Emergency</option>
+                    <option value="TOR">Tornado Warning</option>
+                    <option value="TRW">Tropical Storm Warning</option>
+                    <option value="TSW">Tsunami Warning</option>
+                    <option value="VOW">Volcano Warning</option>
+                    <option value="WSW">Winter Storm Warning</option>
+                    <option value="EWW">Extreme Wind Warning</option>
+                    <option value="FFA">Flash Flood Watch</option>
+                    <option value="FLA">Flood Watch</option>
+                    <option value="FFS">Flash Flood Statement</option>
+                    <option value="HUA">Hurricane Watch</option>
+                    <option value="NWS">National Weather Service</option>
+                    <option value="SSA">Storm Surge Watch</option>
+                    <option value="SSW">Storm Surge Warning</option>
+                    <option value="SVS">Severe Weather Statement</option>
+                    <option value="SPS">Special Weather Statement</option>
+                    <option value="TOA">Tornado Watch</option>
+                    <option value="TRA">Tropical Storm Watch</option>
+                </select>
+                <br>
+            </div>
+        </div>
         <div id="scopeDrop" class="container">
-            <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
+            <label for="scopeDropdown" class="text"><strong>Alert Scope:</strong></label>
             <br>
             <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
                 <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
@@ -110,40 +184,70 @@
                 <br>
             </div>
         </div>
+        <div id="urgencyDrop" class="container">
+            <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
+            <br>
+            <div id="urgencyDropdownMenu" class="dropdownMenu_style">
+                <select name="urgencyDropdown" class="dropdownMenu" id="urgencyDropdown" onchange="urgencyOpt()">
+                    <option value="Default">Select Alert Urgency</option>
+                    <option value="Immediate">Immediate</option>
+                    <option value="Expected">Expected</option>
+                    <option value="Future">Future</option>
+                    <option value="Past">Past</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="alertInfoArea" class="container">
+            <label for="alertInfoArea" class="text"><strong>Description of the Area:</strong></label>
+            <div class="textarea_style">
+            </div>
+            <textarea id="areaDescriptionField" class="alert360" name="areaDescriptionField"></textarea>
+        </div>
+        <div id="Ev180" class="container">
+            <label for="event180" class="text"><strong>Alert Description:</strong></label>
+            <div class="textarea_style">
+                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180" placeholder="Provide a short description of the type of alert you are sending out..."></textarea>
+            </div>
+            <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
+        </div>
+    </div>
+    <br>
+    <div class="alertGrid4">
 
-        <div id="conditionalField" class="container">
-            <label for "restrictionText" class="halftext"><strong>Restriction Condition:</strong></label>
-            <label for "addressField" class="text"><strong>Address Field:</strong> </label>
-            <div id="addressField" class="container">
+        <div id= "restrictionFieldBox" class ="container">
+            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
+            <div class ="textarea_style">
+                <textarea id=restrictionField" class = "resField" placeholder="Required if scope set to restriced"></textarea>
+            </div>
+        </div>
 
-            
-                <div class="conditional">
-                    <textarea id="restrictionTextBox" class="conditional" placeholder="Required when scope set to restricted."></textarea>
-                    <textarea id="addressTextBox" class="conditional"    placeholder="Required when scope set to private. Optional otherwise"></textarea>
-                </div>
-
+        <div id = "addressFieldBox" class = "container">
+            <label for="addressBox" class = "text"><strong>Address Field:</strong></label>
+            <div class ="textarea_style">
+                <textarea id="addressField" class="addField" placeholder="Required if scope set to private"></textarea>
             </div>
         </div>
     </div>
-
     <div class="alertGrid">
+
+
         <div id="En360" class="container">
             <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
             <br>
 
             <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
-                    maxlength="360"></textarea>
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"></textarea>
             </div>
             <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
+
         </div>
         <div id="Sp360" class="container">
             <label for="alertSp360 " class="text "><strong>Your Spanish Alert:</strong></label>
             <br>
-
             <div class="textarea_style">
-                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()"
-                    maxlength="360"></textarea>
+                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"></textarea>
             </div>
             <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
         </div>
@@ -152,7 +256,7 @@
     <div id="mapid">
         <script>
             //var to store LeafletJS map initial settings
-            var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+            var mymap = L.map('mapid').setView([33.4181255, -111.9323892], 13);
 
             //LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
@@ -163,7 +267,6 @@
                 zoomOffset: -1,
                 accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
             }).addTo(mymap);
-
         </script>
     </div>
     <br><br>
