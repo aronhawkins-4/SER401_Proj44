@@ -135,6 +135,7 @@ p {
 
 .alert90 {
     /* height: 4em; */
+    min-height: 5em;
     width: 97%;
 }
 

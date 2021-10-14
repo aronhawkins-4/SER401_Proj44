@@ -95,55 +95,53 @@
             </div>
          </div>
       </div>
-
-            <div id="scopeDrop" class="container">
-               <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
+      <br>
+      <div class="alertGrid" id="messageScope">
+         <div id="scopeDrop" class="container">
+            <label for="scopeDropdown" class="text"><strong>Message Scope:</strong></label>
+            <br>
+            <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
+               <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
+                  <option value="Default">Select Alert Scope</option>
+                  <option value="public">public</option>
+                  <option value="restricted">restricted</option>
+                  <option value="private">private</option>
+               </select>
                <br>
-               <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
-                  <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
-                     <option value="Default">Select Alert Scope</option>
-                     <option value="public">public</option>
-                     <option value="restricted">restricted</option>
-                     <option value="private">private</option>
-                  </select>
-                  <br>
-               </div>
             </div>
-    <br>
-    <div class="alertGrid">
-        <div id="En90" class="container">
+         </div>
+         <div id="En90" class="container">
             <label for="alert90" class="text"><strong>Your 90 Character English Alert:</strong></label>
             <br>
-
             <div class="textarea_style">
-                <textarea id="alertEn90" class="alert90" name="alertEn90" oninput="countWord()"
-                    maxlength="90"></textarea>
+               <textarea id="alertEn90" class="alert90" name="alertEn90" oninput="countWord()"
+               maxlength="90">
+               </textarea>
             </div>
             <p id="wordsLeftEn90" class="text">Characters Left: 90</p>
-            <br>
-        </div>
+         </div>
         <div id="En360" class="container">
             <label for="alert360" class="text"><strong>Your 360 Character English Alert:</strong></label>
-            <br>
-
+            
             <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
-                    maxlength="360"></textarea>
+               <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()"
+               maxlength="360">
+               </textarea>
             </div>
             <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
         </div>
         <div id="Sp90" class="container">
             <label for="alert90" class="text"><strong>Your 90 Character Spanish Alert:</strong></label>
-            <br>
-
+            <br> 
             <div class="textarea_style">
-                <textarea id="alertSp90" class="alert90" name="alertSp90" oninput="countWord()"
-                    maxlength="90"></textarea>
+               <textarea id="alertSp90" class="alert90" name="alertSp90" oninput="countWord()"
+               maxlength="90">
+               </textarea>
             </div>
             <p id="wordsLeftSp90" class="text">Characters Left: 90</p>
-            <br>
+
         </div>
-        <br><br>
+      </div>
         <div id="mapid"></div>
         <script>
             
