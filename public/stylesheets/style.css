@@ -342,11 +342,16 @@ button:hover {
     h1 {
         margin: auto;
     }
-    #header_logo {
+    .femaLogo {
         visibility: hidden;
         padding-right: 0px;
         width: 0px;
     }
+    /* #header_logo {
+        visibility: hidden;
+        padding-right: 0px;
+        width: 0px;
+    } */
     #invis {
         width: 0px;
     }
@@ -368,11 +373,16 @@ button:hover {
     h1 {
         margin: auto;
     }
-    #header_logo {
+    .femaLogo {
         visibility: hidden;
         padding-right: 0px;
         width: 0px;
     }
+    /* #header_logo {
+        visibility: hidden;
+        padding-right: 0px;
+        width: 0px;
+    } */
     #invis {
         width: 0px;
     }
