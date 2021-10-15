@@ -84,6 +84,11 @@ footer {
     font-size: 16px;
 }
 
+.addField{
+    min-height: 3em;
+    width: 97%;
+}
+
 .text {
     color: #005287
 }
@@ -205,7 +210,25 @@ p {
     grid-area: En360;
 }
 
+
 #Sp360 {
+    grid-area: Sp360;
+}
+
+#restrictionTextBox{
+    margin-right: 6em;
+    width: 38%;
+}
+
+#addressTextBox{
+    width: 38%
+}
+.halftext{
+    color: #005287;
+    margin-right: 10em ;
+}
+
+   #Sp360 {
     grid-area: Sp360;
 }
 

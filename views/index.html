@@ -201,8 +201,6 @@
         </div>
         <div id="alertInfoArea" class="container">
             <label for="alertInfoArea" class="text"><strong>Description of the Area:</strong></label>
-            <div class="textarea_style">
-            </div>
             <textarea id="areaDescriptionField" class="alert360" name="areaDescriptionField"></textarea>
         </div>
         <div id="Ev180" class="container">
@@ -219,11 +217,35 @@
         <div id= "restrictionFieldBox" class ="container">
             <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
             <div class ="textarea_style">
-                <textarea id=restrictionField" class = "resField" placeholder="Required if scope set to restriced"></textarea>
+                <textarea id="restrictionField" class = "resField" placeholder="Required if scope set to restriced"></textarea>
             </div>
         </div>
 
-    </div>
+        <div id = "addressFieldBox" class = "container">
+            <label for="addressBox" class = "text"><strong>Address Field:</strong></label>
+            <div class ="textarea_style">
+                <textarea id="addressField" class="addField" placeholder="Required if scope set to private"></textarea>
+            </div>
+          </div> 
+        <div id="Ev180" class="container">
+            <label for="event180" class="text"><strong>Alert Description:</strong></label>
+            <div class="textarea_style">
+                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180" placeholder="Provide a short description of the type of alert you are sending out..."></textarea>
+            </div>
+            <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
+        </div>
+        <div id= "restrictionFieldBox" class ="container">
+            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
+            <div class ="textarea_style">
+                <textarea id="restrictionField" class ="resField" placeholder="Required if scope set to restriced"></textarea>
+            </div>
+        </div>
+    
+    </div> 
+    <br>
+   
+
+        
     <div class="alertGrid">
 
 
