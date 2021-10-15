@@ -104,12 +104,20 @@ footer {
     min-height: 3em;
     width: 97%;
 }
+
 .container {
     padding: 10px;
     border: 1px sold #ededed;
     -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
     -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+}
+
+.mapContainer{
+    
+    width: 95%;
+    margin: auto;
+    
 }
 
 .dropdownMenu {
@@ -297,9 +305,10 @@ p {
 }
 
 
-/*LeafletJS map height*/
+/*LeafletJS map styling*/
 
 #mapid {
+    
     height: 750px;
     border-top: 7px solid #005287;
     border-bottom: 7px solid #005287;
@@ -311,6 +320,7 @@ p {
 /* Style Map */
 
 #map {
+    
     /*padding: 0 20px 0 20px;*/
     border-top: 7px solid #005287;
     border-bottom: 7px solid #005287;
