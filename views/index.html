@@ -18,7 +18,7 @@
         <p id="invis"></p>
         <h1>AO APP (BETA)</h1>
         <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
-            target="_blank">
+            target="_blank" id="headerLink">
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
@@ -179,7 +179,7 @@
             <label for="scopeDropdown" class="text"><strong>Alert Scope:</strong></label>
             <br>
             <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
-                <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
+                <select name="scopeDropdown" class="dropdownMenu" id="scopeDropdown" onchange="scoptOpt()">
                     <option value="Default">Select Alert Scope</option>
                     <option value="public">public</option>
                     <option value="restricted">restricted</option>
@@ -214,8 +214,7 @@
             </div>
         </div>
     </div>
-    <br>
-    <div class="alertGrid">
+    <div class="alertGridEn">
         <div id="Ev180" class="container">
             <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
             <div class="textarea_style">
@@ -227,7 +226,6 @@
         <div id="En360" class="container">
             <label for="alert360" class="text"><strong>Alert Message</strong></label>
             <br>
-
             <div class="textarea_style">
                 <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"
                     placeholder="Alert message to be disseminated..."></textarea>
@@ -242,7 +240,7 @@
     </div>
     <br>
     <div id="hideSpan">
-        <div class="alertGrid">
+        <div class="alertGridSp">
             <div id="Ev180sp" class="container">
                 <label for="event180sp" class="text"><strong>Informacion Adicional Sobre el Area
                         Afectada:</strong></label>
@@ -265,7 +263,7 @@
         </div>
     </div>
     <br>
-    <div class="alertGrid4">
+    <div id="fileAttachDiv">
         <div></div>
         <div></div>
         <div></div>
@@ -284,7 +282,7 @@
 
             //LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
                 maxZoom: 18,
                 id: 'mapbox/streets-v11',
                 tileSize: 512,
@@ -295,11 +293,11 @@
     </div>
     <br><br>
     <div>
-        <button class="button button1 ">Submit Alert!</button>
+        <button class="button button1">Submit Alert!</button>
     </div>
-    <footer id="footer ">
+    <footer id="footer">
         <p id="phone_number">1 (800) 621-3362</p>
-        <a href="https://www.fema.gov/" target="_blank">
+        <a href="https://www.fema.gov/" target="_blank" id="footerLink">
             <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
         </a>
         <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>

@@ -74,7 +74,7 @@ footer {
     resize: none;
     border: 1px solid #229CFF;
     border-radius: 2px;
-    width: 98%;
+    width: 95%;
 }
 
 .dropdownMenu_style {
@@ -90,43 +90,25 @@ footer {
 
 .event180 {
     min-height: 3em;
-    width: 97%;
-    /* min-width: 20em; */
+    width: 95%;
 }
-
 
 .resField {
     min-height: 3em;
-    width: 97%;
+    width: 95%;
 }
 
 .container {
     padding: 10px;
     border: 1px sold #ededed;
-    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-}
-
-.dropdownMenu {
-    margin: 5px;
-    outline: none;
-    resize: none;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
-    width: 98%;
-}
-
-.dropdownMenu_style {
-    margin: 5px;
-    width: auto;
-    height: auto;
-    font-size: 16px;
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
 }
 
 input[type=text],
 select {
-    width: 100%;
+    width: 95%;
     padding: 6px 10px 6px;
     margin: 5px;
     display: inline-block;
@@ -139,9 +121,10 @@ select {
 
 input[type=email],
 select {
-    width: 100%;
+    width: 95%;
     padding: 6px 10px;
     margin: 5px;
+    /* margin-right: 10px; */
     display: inline-block;
     border: 1px solid #229CFF;
     border-radius: 2px;
@@ -195,12 +178,44 @@ p {
 
 /* Style Page views */
 
-.alertGrid {
+#identifier, #sender, #addressField, #restrictionField {
+    margin-top: 11px;
+}
+
+.alertGridEn {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: "Ev180 En360";
     gap: 20px;
-    padding: 0 100px;
-    /* height: 300px; */
+    padding: 20px 100px;
+}
+
+#Ev180 {
+    grid-area: Ev180;
+}
+
+#eventFi180, #eventFi180sp {
+    padding-bottom: 29px;
+}
+
+#En360 {
+    grid-area: En360;
+}
+
+.alertGridSp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "Ev180sp Sp360";
+    gap: 20px;
+    padding: 20px 100px;
+}
+
+#Ev180sp {
+    grid-area: Ev180sp;
+}
+
+#Sp360 {
+    grid-area: Sp360;
 }
 
 .alertGrid4 {
@@ -221,7 +236,19 @@ p {
 
 }
 
-
+#fileAttachDiv {
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    margin-right: 100px;
+}
+#fileAttach {
+    width: 150px;
+    margin-top: 0px;
+}
+/* #attachFileBox {
+    font-size: 16px;
+} */
 /*LeafletJS map height*/
 
 #mapid {
@@ -231,13 +258,13 @@ p {
     border-left: 17px solid #005287;
     border-right: 17px solid #005287;
     padding: 10px;
+    margin: 0 50px;
 }
 
 
 /* Style Map */
 
 #map {
-    /*padding: 0 20px 0 20px;*/
     border-top: 7px solid #005287;
     border-bottom: 7px solid #005287;
     border-left: 17px solid #005287;
@@ -249,7 +276,6 @@ p {
 
 button {
     background-color: #4BB543;
-    /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -277,4 +303,64 @@ button:hover {
 .button1 {
     width: 25%;
     margin: 0 auto;
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 768px) {
+    .alertGridEn {
+        padding: 20px 50px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Ev180" "En360";
+    }
+    .alertGridSp {
+        padding: 20px 50px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Ev180sp" "Sp360";
+    }
+    .alertGrid4 {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "msgNum msgSender" "msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop" "certaintyDrop eventDrop" "scopeDrop urgencyDrop" "alertInfoArea ev180";
+        padding: 0px 50px;
+    }
+    #fileAttachDiv {
+        margin-right: 50px;
+    }
+    h1 {
+        margin: auto;
+    }
+    #headerLink, #footerLink {
+        visibility: hidden;
+        padding-right: 0px;
+        width: 0px;
+    }
+    #invis {
+        width: 0px;
+    }
+    #mapid {
+        height: 450px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .alertGridEn {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Ev180" "En360";
+    }
+    .alertGridSp {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Ev180sp" "Sp360";
+    }
+    .alertGrid4 {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
+        padding: 0px 50px;
+    }
 }
