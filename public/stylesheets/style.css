@@ -132,14 +132,14 @@ select {
     border: 1px solid #229CFF;
     border-radius: 2px;
     box-sizing: border-box;
+
     
 }
 
 input[type=email],
 select {
     width: 100%;
-    padding: 6px 10px;
-    
+    padding: 6px 10px;    
     margin: 5px;
     display: inline-block;
     border: 1px solid #229CFF;
@@ -207,6 +207,17 @@ p {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
     padding: 0 100px;
+}
+
+.checkLine {
+    display:inline-flexbox;
+    gap: 20px;
+    padding: 0 100px;
+}
+
+#spanCheck {
+    padding: 10px;
+    margin: 5px;
 }
 
 

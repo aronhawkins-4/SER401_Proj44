@@ -9,7 +9,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 
-<body>
+<body onload="disableFields()">
     <header id="header">
         <p id="invis"></p>
         <h1>AO APP (BETA)</h1>
@@ -114,7 +114,7 @@
         </div>
 
         <div id="eventDrop" class="container">
-            <label for="eventDropdownMenu" class="text"><strong>Event Code:</strong></label>
+            <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
             <br>
             <div id="eventDropdownMenu" class="dropdownMenu_style">
                 <select name="eventCodeDropdown" class="dropdownMenu" id="eventDropdown" onchange="eventOpt()">
@@ -188,15 +188,11 @@
         </div>
         <div id = "addressFieldBox" class = "container">
             <label for="addressBox" class = "text"><strong>Address Field:</strong></label>
-            <div class ="textarea_style">
-                <textarea id="addressField" class="addField" placeholder="Required if scope set to private"></textarea>
-            </div>
+                <input type="text" id="addressField" name="addressField" placeholder="Required if scope set to private"></textarea>
           </div>
           <div id= "restrictionFieldBox" class ="container">
             <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
-            <div class ="textarea_style">
-                <textarea id="restrictionField" class = "resField" placeholder="Required if scope set to restriced"></textarea>
-            </div>
+                <input type="text" id="restrictionField" name="restrictionField"  placeholder="Required if scope set to restriced"></textarea>
         </div> 
         <div id="urgencyDrop" class="container">
             <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
@@ -215,51 +211,55 @@
         </div>
         
     </div>
-    <br>    
+    <br>
+        
     <div class="alertGrid">
 
         <div id="Ev180" class="container">
-            <label for="event180" class="text"><strong>Alert Description:</strong></label>
+            <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180" placeholder="Provide a short description of the type of alert you are sending out..."></textarea>
+                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180" placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
             </div>
             <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
             </div>
         <div id="En360" class="container">
-            <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
+            <label for="alert360" class="text"><strong>Alert Message</strong></label>
             <br>
 
             <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"></textarea>
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360" placeholder="Alert message to be disseminated..."></textarea>
             </div>
             <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
 
         </div>
 
     </div>
-    
-    
+    <br>
+    <div class="checkLine">
+        <input type="checkbox" id="spanchk" name="spanchk">
+        <label for="spanchk" class="text"><strong>Select to Include Spanish Alert</strong></label>
+    </div>
+    <br>
     <div class="alertGrid">
-
         <div id="Ev180sp" class="container">
-            <label for="event180sp" class="text"><strong>Descripcion de Alerta:</strong></label>
+            <label for="event180sp" class="text"><strong>Informacion Adicional Sobre el Area Afectada:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()" maxlength="180" placeholder="Provide a short description of the type of alert you are sending out..."></textarea>
+                <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()" maxlength="180" placeholder="Indica informacion especifica sobre el area que tiene que ver con la alerta..."></textarea>
             </div>
             <p id="wordsLeftEvent180sp" class="text">Characters Left: 180</p>
             </div>
        
 
         <div id="Sp360" class="container">
-            <label for="alertSp360 " class="text "><strong>Your Spanish Alert:</strong></label>
+            <label for="alertSp360 " class="text "><strong>Mensaje de Alerta:</strong></label>
             <br>
             <div class="textarea_style">
-                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"></textarea>
+                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360" placeholder="Mensaje de alerta que se enviara..."></textarea>
             </div>
             <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
         </div>
     </div>
-
+    <br>
     <div class="alertGrid4">
     <div></div>
     <div></div>

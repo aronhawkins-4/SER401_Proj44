@@ -46,6 +46,33 @@ function eventCodeOpt() {
 
 }
 
+//var for scope slected from alert scop dropdown list 
+var scopeCodeOptSelected;
+
+//Saves scope code selectted on option change 
+function scoptOpt() {
+    scopeCodeOptSelected = document.getElementById('scopeDropdown').value;
+    
+    if (scopeCodeOptSelected == "private") {
+        document.getElementById('addressField').disabled = false;
+    } else {
+        document.getElementById('addressField').disabled = true;
+    }
+
+    if (scopeCodeOptSelected == "restricted") {
+        document.getElementById('restrictionField').disabled = false;
+    } else {
+        document.getElementById('restrictionField').disabled = true;
+    }
+
+}
+    
+//Disable fields when page loads 
+function disableFields() {
+    document.getElementById('restrictionField').disabled = true;
+    document.getElementById('addressField').disabled = true;
+}
+
 function countWord() {
 
     var engCount90 = 90;
