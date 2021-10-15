@@ -95,10 +95,11 @@ footer {
 }
 
 
-.resField{
+.resField {
     min-height: 3em;
     width: 97%;
 }
+
 .container {
     padding: 10px;
     border: 1px sold #ededed;
@@ -133,13 +134,13 @@ select {
     border-radius: 2px;
     box-sizing: border-box;
 
-    
+
 }
 
 input[type=email],
 select {
     width: 100%;
-    padding: 6px 10px;    
+    padding: 6px 10px;
     margin: 5px;
     display: inline-block;
     border: 1px solid #229CFF;
@@ -210,14 +211,14 @@ p {
 }
 
 .checkLine {
-    display:inline-flexbox;
+    display: inline-flexbox;
     gap: 20px;
     padding: 0 100px;
 }
 
 #spanCheck {
     padding: 10px;
-    margin: 5px;
+
 }
 
 

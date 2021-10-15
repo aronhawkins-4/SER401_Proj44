@@ -3,9 +3,9 @@ var categoryOptSelected;
 
 //Saves category type selected on option onchange
 function categoryOpt() {
-    
+
     categoryOptSelected = document.getElementById('categoryDropdown').value;
-    
+
 }
 
 //var for option selected from msgType dropdown list
@@ -13,9 +13,9 @@ var msgTypeOptSelected;
 
 //Saves message type selected on option onchange
 function msgTypeOpt() {
-    
+
     msgTypeOptSelected = document.getElementById('msgTypeDropdown').value;
-    
+
 }
 
 //var for option selected from msgStatusDropdownMenu 
@@ -31,9 +31,9 @@ var urgencyOptSelected;
 
 //Saves urgency selected on option onchange
 function urgencyOpt() {
-    
+
     urgencyOptSelected = document.getElementById('urgencyDropdown').value;
-    
+
 }
 
 //var for option selected from event code dropdown list
@@ -52,7 +52,7 @@ var scopeCodeOptSelected;
 //Saves scope code selectted on option change 
 function scoptOpt() {
     scopeCodeOptSelected = document.getElementById('scopeDropdown').value;
-    
+
     if (scopeCodeOptSelected == "private") {
         document.getElementById('addressField').disabled = false;
     } else {
@@ -66,11 +66,27 @@ function scoptOpt() {
     }
 
 }
-    
+
+//var to capture value of include spanish alert checkbox 
+var showSpanSelected;
+
+//Displays or hides the Spanish alert fields 
+function showSpan() {
+    showSpanSelected = document.getElementById('spanchk').checked;
+
+    if (showSpanSelected == true) {
+        document.getElementById('hideSpan').style.display = "block";
+    } else {
+        document.getElementById('hideSpan').style.display = "none";
+    }
+}
+
 //Disable fields when page loads 
 function disableFields() {
     document.getElementById('restrictionField').disabled = true;
     document.getElementById('addressField').disabled = true;
+    document.getElementById('hideSpan').style.display = "none";
+
 }
 
 function countWord() {
