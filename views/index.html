@@ -17,7 +17,7 @@
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
-    <h2 class="text">Enter your alert:</h2>
+    <h2 class="text">ALERT SUBMISSION</h2>
     
     
     <div class="alertGrid4">
@@ -186,6 +186,18 @@
                <br>
             </div>
         </div>
+        <div id = "addressFieldBox" class = "container">
+            <label for="addressBox" class = "text"><strong>Address Field:</strong></label>
+            <div class ="textarea_style">
+                <textarea id="addressField" class="addField" placeholder="Required if scope set to private"></textarea>
+            </div>
+          </div>
+          <div id= "restrictionFieldBox" class ="container">
+            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
+            <div class ="textarea_style">
+                <textarea id="restrictionField" class = "resField" placeholder="Required if scope set to restriced"></textarea>
+            </div>
+        </div> 
         <div id="urgencyDrop" class="container">
             <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
             <br>
@@ -201,28 +213,9 @@
                 <br>
             </div>
         </div>
-        <div id= "restrictionFieldBox" class ="container">
-            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
-            <div class ="textarea_style">
-                <textarea id="restrictionField" class = "resField" placeholder="Required if scope set to restriced"></textarea>
-            </div>
-        </div>
+        
     </div>
-    <br>
-    <div class="alertGrid4">
-        <div id = "addressFieldBox" class = "container">
-            <label for="addressBox" class = "text"><strong>Address Field:</strong></label>
-            <div class ="textarea_style">
-                <textarea id="addressField" class="addField" placeholder="Required if scope set to private"></textarea>
-            </div>
-          </div> 
-          <div id="fileAttach" class="container">
-            <label for="attachFileBox" class="text"><strong>Attach File:</strong></label>
-            <br>
-            <input type="text" id="attachFileBox" name="addFile" maxlength="20" placeholder="ATTACH FILES HERE *FUNCTIONALITY PENDING*" disabled>
-        </div>
-    <br>
-  </div>      
+    <br>    
     <div class="alertGrid">
 
         <div id="Ev180" class="container">
@@ -248,17 +241,14 @@
     
     <div class="alertGrid">
 
-
-        <div id="En360" class="container">
-            <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
-            <br>
-
+        <div id="Ev180sp" class="container">
+            <label for="event180sp" class="text"><strong>Descripcion de Alerta:</strong></label>
             <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"></textarea>
+                <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()" maxlength="180" placeholder="Provide a short description of the type of alert you are sending out..."></textarea>
             </div>
-            <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
-
-        </div>
+            <p id="wordsLeftEvent180sp" class="text">Characters Left: 180</p>
+            </div>
+       
 
         <div id="Sp360" class="container">
             <label for="alertSp360 " class="text "><strong>Your Spanish Alert:</strong></label>
@@ -268,6 +258,17 @@
             </div>
             <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
         </div>
+    </div>
+
+    <div class="alertGrid4">
+    <div></div>
+    <div></div>
+    <div></div>
+        <div id="fileAttach" class="container">
+        <label for="attachFileBox" class="text"><strong>Attach File:</strong></label>
+        <br>
+        <input type="text" id="attachFileBox" name="addFile" maxlength="20" placeholder="ATTACH FILES HERE *FUNCTIONALITY PENDING*" disabled>
+    </div>
     </div>
     <br><br>
     <div id="mapid">

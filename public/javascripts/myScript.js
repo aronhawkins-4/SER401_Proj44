@@ -60,6 +60,7 @@ function countWord() {
     var spanChars90 = document.getElementById("alertSp90");
     var spanChars360 = document.getElementById("alertSp360");
     var eventChars180 = document.getElementById("eventFi180");
+    var eventChars180sp = document.getElementById("eventFi180sp");
     var chars;
     var charsLeft;
     var counter;
@@ -90,6 +91,11 @@ function countWord() {
         charsLeft = 180;
         counter = document.getElementById("wordsLeftEvent180");
         alert = document.querySelector('#eventFi180');
+    } else if (eventChars180sp === document.activeElement) {
+        chars = eventChars180sp.value.length;
+        charsLeft = 180;
+        counter = document.getElementById("wordsLeftEvent180sp");
+        alert = document.querySelector('#eventFi180sp');
     }
 
     // Display it as output
