@@ -3,9 +3,9 @@ var categoryOptSelected;
 
 //Saves category type selected on option onchange
 function categoryOpt() {
-    
+
     categoryOptSelected = document.getElementById('categoryDropdown').value;
-    
+
 }
 
 //var for option selected from msgType dropdown list
@@ -13,9 +13,9 @@ var msgTypeOptSelected;
 
 //Saves message type selected on option onchange
 function msgTypeOpt() {
-    
+
     msgTypeOptSelected = document.getElementById('msgTypeDropdown').value;
-    
+
 }
 
 //var for option selected from msgStatusDropdownMenu 
@@ -31,9 +31,9 @@ var urgencyOptSelected;
 
 //Saves urgency selected on option onchange
 function urgencyOpt() {
-    
+
     urgencyOptSelected = document.getElementById('urgencyDropdown').value;
-    
+
 }
 
 //var for option selected from event code dropdown list
@@ -43,6 +43,49 @@ var eventCodeOptSelected;
 function eventCodeOpt() {
 
     eventCodeOptSelected = document.getElementById('eventCodeDropdown').value;
+
+}
+
+//var for scope slected from alert scop dropdown list 
+var scopeCodeOptSelected;
+
+//Saves scope code selectted on option change 
+function scoptOpt() {
+    scopeCodeOptSelected = document.getElementById('scopeDropdown').value;
+
+    if (scopeCodeOptSelected == "private") {
+        document.getElementById('addressField').disabled = false;
+    } else {
+        document.getElementById('addressField').disabled = true;
+    }
+
+    if (scopeCodeOptSelected == "restricted") {
+        document.getElementById('restrictionField').disabled = false;
+    } else {
+        document.getElementById('restrictionField').disabled = true;
+    }
+
+}
+
+//var to capture value of include spanish alert checkbox 
+var showSpanSelected;
+
+//Displays or hides the Spanish alert fields 
+function showSpan() {
+    showSpanSelected = document.getElementById('spanchk').checked;
+
+    if (showSpanSelected == true) {
+        document.getElementById('hideSpan').style.display = "block";
+    } else {
+        document.getElementById('hideSpan').style.display = "none";
+    }
+}
+
+//Disable fields when page loads 
+function disableFields() {
+    document.getElementById('restrictionField').disabled = true;
+    document.getElementById('addressField').disabled = true;
+    document.getElementById('hideSpan').style.display = "none";
 
 }
 
@@ -60,6 +103,7 @@ function countWord() {
     var spanChars90 = document.getElementById("alertSp90");
     var spanChars360 = document.getElementById("alertSp360");
     var eventChars180 = document.getElementById("eventFi180");
+    var eventChars180sp = document.getElementById("eventFi180sp");
     var chars;
     var charsLeft;
     var counter;
@@ -90,6 +134,11 @@ function countWord() {
         charsLeft = 180;
         counter = document.getElementById("wordsLeftEvent180");
         alert = document.querySelector('#eventFi180');
+    } else if (eventChars180sp === document.activeElement) {
+        chars = eventChars180sp.value.length;
+        charsLeft = 180;
+        counter = document.getElementById("wordsLeftEvent180sp");
+        alert = document.querySelector('#eventFi180sp');
     }
 
     // Display it as output

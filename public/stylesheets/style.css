@@ -74,7 +74,7 @@ footer {
     resize: none;
     border: 1px solid #229CFF;
     border-radius: 2px;
-    width: 98%;
+    width: 95%;
 }
 
 .dropdownMenu_style {
@@ -82,11 +82,6 @@ footer {
     width: auto;
     height: auto;
     font-size: 16px;
-}
-
-.addField{
-    min-height: 3em;
-    width: 97%;
 }
 
 .text {
@@ -95,55 +90,41 @@ footer {
 
 .event180 {
     min-height: 3em;
-    width: 97%;
-    /* min-width: 20em; */
+    width: 95%;
 }
 
-
-.resField{
+.resField {
     min-height: 3em;
-    width: 97%;
+    width: 95%;
 }
+
 .container {
     padding: 10px;
     border: 1px sold #ededed;
-    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-}
-
-.dropdownMenu {
-    margin: 5px;
-    outline: none;
-    resize: none;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
-    width: 98%;
-}
-
-.dropdownMenu_style {
-    margin: 5px;
-    width: auto;
-    height: auto;
-    font-size: 16px;
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
 }
 
 input[type=text],
 select {
-    width: 100%;
-    padding: 6px 10px;
+    width: 95%;
+    padding: 6px 10px 6px;
     margin: 5px;
     display: inline-block;
     border: 1px solid #229CFF;
     border-radius: 2px;
     box-sizing: border-box;
+
+
 }
 
 input[type=email],
 select {
-    width: 100%;
+    width: 95%;
     padding: 6px 10px;
     margin: 5px;
+    /* margin-right: 10px; */
     display: inline-block;
     border: 1px solid #229CFF;
     border-radius: 2px;
@@ -197,106 +178,77 @@ p {
 
 /* Style Page views */
 
-.alertGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "En360 Sp360";
-    gap: 20px;
-    padding: 0 50px;
+#identifier, #sender, #addressField, #restrictionField {
+    margin-top: 11px;
 }
 
-.alert90 {
-    /* height: 4em; */
-    min-height: 5em;
-    width: 97%;
+.alertGridEn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "Ev180 En360";
+    gap: 20px;
+    padding: 20px 100px;
+}
+
+#Ev180 {
+    grid-area: Ev180;
+}
+
+#eventFi180, #eventFi180sp {
+    padding-bottom: 29px;
 }
 
 #En360 {
     grid-area: En360;
-
 }
 
+.alertGridSp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "Ev180sp Sp360";
+    gap: 20px;
+    padding: 20px 100px;
+}
+
+#Ev180sp {
+    grid-area: Ev180sp;
+}
 
 #Sp360 {
-    grid-area: Sp360;
-}
-
-#restrictionTextBox{
-    margin-right: 6em;
-    width: 38%;
-}
-
-#addressTextBox{
-    width: 38%
-}
-.halftext{
-    color: #005287;
-    margin-right: 10em ;
-}
-
-   #Sp360 {
     grid-area: Sp360;
 }
 
 .alertGrid4 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: .5fr .5fr 1fr;
-    grid-template-areas: "msgNum msgSender msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop certaintyDrop eventDrop" "scopeDrop urgencyDrop alertInfoArea ev180";
     gap: 20px;
-    padding: 0 50px;
+    padding: 0 100px;
 }
 
-#msgNum {
-    grid-area: msgNum;
+.checkLine {
+    display: inline-flexbox;
+    gap: 20px;
+    padding: 0 100px;
 }
 
-#msgSender {
-    grid-area: msgSender;
+#spanCheck {
+    padding: 10px;
+
 }
 
-#msgTypeDrop {
-    grid-area: msgTypeDrop;
+#fileAttachDiv {
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    margin-right: 100px;
 }
-
-#msgStatusDrop {
-    grid-area: msgStatusDrop;
+#fileAttach {
+    width: 150px;
+    margin-top: 0px;
 }
-
-#categoryDrop {
-    grid-area: categoryDrop;
-}
-
-#alertTypeDrop {
-    grid-area: alertTypeDrop;
-}
-
-#certaintyDrop {
-    grid-area: certaintyDrop;
-}
-
-#eventDrop {
-    grid-area: eventDrop;
-}
-
-#scopeDrop {
-    grid-area: scopeDrop;
-}
-
-#urgencyDrop {
-    grid-area: urgencyDrop;
-}
-
-#alertInfoArea {
-    grid-area: alertInfoArea;
-}
-
-#ev180 {
-    grid-area: ev180;
-}
-
-
+/* #attachFileBox {
+    font-size: 16px;
+} */
 /*LeafletJS map height*/
 
 #mapid {
@@ -305,13 +257,14 @@ p {
     border-bottom: 7px solid #005287;
     border-left: 17px solid #005287;
     border-right: 17px solid #005287;
+    padding: 10px;
+    margin: 0 50px;
 }
 
 
 /* Style Map */
 
 #map {
-    /*padding: 0 20px 0 20px;*/
     border-top: 7px solid #005287;
     border-bottom: 7px solid #005287;
     border-left: 17px solid #005287;
@@ -323,7 +276,6 @@ p {
 
 button {
     background-color: #4BB543;
-    /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -356,31 +308,59 @@ button:hover {
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 480px) {
-    .alertGrid4 {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr 1.5fr;
-        grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
-        padding: 0px;
-    }
-    .alertGrid {
+@media only screen and (max-width: 768px) {
+    .alertGridEn {
+        padding: 20px 50px;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "En360" "Sp360";
-        padding: 0px;
+        grid-template-areas: "Ev180" "En360";
     }
-    header {
-        /* justify-content: center; */
+    .alertGridSp {
+        padding: 20px 50px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Ev180sp" "Sp360";
+    }
+    .alertGrid4 {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "msgNum msgSender" "msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop" "certaintyDrop eventDrop" "scopeDrop urgencyDrop" "alertInfoArea ev180";
+        padding: 0px 50px;
+    }
+    #fileAttachDiv {
+        margin-right: 50px;
     }
     h1 {
         margin: auto;
     }
-    #header_logo {
+    #headerLink, #footerLink {
         visibility: hidden;
         padding-right: 0px;
         width: 0px;
     }
     #invis {
         width: 0px;
+    }
+    #mapid {
+        height: 450px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .alertGridEn {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Ev180" "En360";
+    }
+    .alertGridSp {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Ev180sp" "Sp360";
+    }
+    .alertGrid4 {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
+        padding: 0px 50px;
     }
 }

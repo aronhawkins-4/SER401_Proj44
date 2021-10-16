@@ -4,27 +4,31 @@
 <head>
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="javascripts/myScript.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 
-<body>
+<body onload="disableFields()">
     <header id="header">
         <p id="invis"></p>
         <h1>AO APP (BETA)</h1>
-        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system" target="_blank">
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
+            target="_blank" id="headerLink">
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
-    <h2 class="text">Enter your alert:</h2>
-    
-    
+    <h2 class="text">ALERT SUBMISSION</h2>
     <div class="alertGrid4">
         <div id="msgNum" class="container">
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
             <br>
-            <input type="text" id="identifier" name="identifier" maxlength="20" placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
+            <input type="text" id="identifier" name="identifier" maxlength="20"
+                placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
         </div>
         <div id="msgSender" class="container">
             <label for="sender" class="text"><strong>Sender's Email:</strong></label>
@@ -35,13 +39,13 @@
             <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
             <br>
             <div id="msgTypeDropdownMenu" class="dropdownMenu_style">
-               <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
-                  <option value="Default">Select Message Type</option>
-                  <option value="Alert">Alert</option>
-                  <option value="Update">Update</option>
-                  <option value="Cancel">Cancel</option>
-               </select>
-               <br>
+                <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
+                    <option value="Default">Select Message Type</option>
+                    <option value="Alert">Alert</option>
+                    <option value="Update">Update</option>
+                    <option value="Cancel">Cancel</option>
+                </select>
+                <br>
             </div>
         </div>
         <div id="msgStatusDrop" class="container">
@@ -110,11 +114,9 @@
                     <option value="Unknown">Unknown</option>
                 </select>
             </div>
-
         </div>
-
         <div id="eventDrop" class="container">
-            <label for="eventDropdownMenu" class="text"><strong>Event Code:</strong></label>
+            <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
             <br>
             <div id="eventDropdownMenu" class="dropdownMenu_style">
                 <select name="eventCodeDropdown" class="dropdownMenu" id="eventDropdown" onchange="eventOpt()">
@@ -177,14 +179,24 @@
             <label for="scopeDropdown" class="text"><strong>Alert Scope:</strong></label>
             <br>
             <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
-               <select name="scopeDropdown" class="dropdownMenu " id="scopeDropdown" onchange="scoptOpt()">
-                  <option value="Default">Select Alert Scope</option>
-                  <option value="public">public</option>
-                  <option value="restricted">restricted</option>
-                  <option value="private">private</option>
-               </select>
-               <br>
+                <select name="scopeDropdown" class="dropdownMenu" id="scopeDropdown" onchange="scoptOpt()">
+                    <option value="Default">Select Alert Scope</option>
+                    <option value="public">public</option>
+                    <option value="restricted">restricted</option>
+                    <option value="private">private</option>
+                </select>
+                <br>
             </div>
+        </div>
+        <div id="addressFieldBox" class="container">
+            <label for="addressBox" class="text"><strong>Address Field:</strong></label>
+            <input type="text" id="addressField" name="addressField"
+                placeholder="Required if scope set to private"></textarea>
+        </div>
+        <div id="restrictionFieldBox" class="container">
+            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
+            <input type="text" id="restrictionField" name="restrictionField"
+                placeholder="Required if scope set to restriced"></textarea>
         </div>
         <div id="urgencyDrop" class="container">
             <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
@@ -201,56 +213,65 @@
                 <br>
             </div>
         </div>
+    </div>
+    <div class="alertGridEn">
         <div id="Ev180" class="container">
-            <label for="event180" class="text"><strong>Alert Description:</strong></label>
+            <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180" placeholder="Provide a short description of the type of alert you are sending out..."></textarea>
+                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180"
+                    placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
             </div>
             <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
         </div>
-        <div id= "restrictionFieldBox" class ="container">
-            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
-            <div class ="textarea_style">
-                <textarea id="restrictionField" class = "resField" placeholder="Required if scope set to restriced"></textarea>
+        <div id="En360" class="container">
+            <label for="alert360" class="text"><strong>Alert Message</strong></label>
+            <br>
+            <div class="textarea_style">
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"
+                    placeholder="Alert message to be disseminated..."></textarea>
+            </div>
+            <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
+        </div>
+    </div>
+    <br>
+    <div class="checkLine" onchange="showSpan()">
+        <input type="checkbox" id="spanchk" name="spanchk">
+        <label for="spanchk" class="text"><strong>Select to Include Spanish Alert</strong></label>
+    </div>
+    <br>
+    <div id="hideSpan">
+        <div class="alertGridSp">
+            <div id="Ev180sp" class="container">
+                <label for="event180sp" class="text"><strong>Informacion Adicional Sobre el Area
+                        Afectada:</strong></label>
+                <div class="textarea_style">
+                    <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()"
+                        maxlength="180"
+                        placeholder="Indica informacion especifica sobre el area que tiene que ver con la alerta..."></textarea>
+                </div>
+                <p id="wordsLeftEvent180sp" class="text">Characters Left: 180</p>
+            </div>
+            <div id="Sp360" class="container">
+                <label for="alertSp360 " class="text "><strong>Mensaje de Alerta:</strong></label>
+                <br>
+                <div class="textarea_style">
+                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"
+                        placeholder="Mensaje de alerta que se enviara..."></textarea>
+                </div>
+                <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
             </div>
         </div>
     </div>
     <br>
-    <div class="alertGrid4">
-        <div id = "addressFieldBox" class = "container">
-            <label for="addressBox" class = "text"><strong>Address Field:</strong></label>
-            <div class ="textarea_style">
-                <textarea id="addressField" class="addField" placeholder="Required if scope set to private"></textarea>
-            </div>
-          </div> 
-          <div id="fileAttach" class="container">
+    <div id="fileAttachDiv">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div id="fileAttach" class="container">
             <label for="attachFileBox" class="text"><strong>Attach File:</strong></label>
             <br>
-            <input type="text" id="attachFileBox" name="addFile" maxlength="20" placeholder="ATTACH FILES HERE *FUNCTIONALITY PENDING*" disabled>
-        </div>
-    <br>
-  </div>      
-    <div class="alertGrid">
-
-
-        <div id="En360" class="container">
-            <label for="alert360" class="text"><strong>Your English Alert:</strong></label>
-            <br>
-
-            <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"></textarea>
-            </div>
-            <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
-
-        </div>
-
-        <div id="Sp360" class="container">
-            <label for="alertSp360 " class="text "><strong>Your Spanish Alert:</strong></label>
-            <br>
-            <div class="textarea_style">
-                <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"></textarea>
-            </div>
-            <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
+            <input type="text" id="attachFileBox" name="addFile" maxlength="20"
+                placeholder="ATTACH FILES HERE *FUNCTIONALITY PENDING*" disabled>
         </div>
     </div>
     <br><br>
@@ -261,7 +282,7 @@
 
             //LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
                 maxZoom: 18,
                 id: 'mapbox/streets-v11',
                 tileSize: 512,
@@ -272,11 +293,11 @@
     </div>
     <br><br>
     <div>
-        <button class="button button1 ">Submit Alert!</button>
+        <button class="button button1">Submit Alert!</button>
     </div>
-    <footer id="footer ">
+    <footer id="footer">
         <p id="phone_number">1 (800) 621-3362</p>
-        <a href="https://www.fema.gov/" target="_blank">
+        <a href="https://www.fema.gov/" target="_blank" id="footerLink">
             <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
         </a>
         <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
