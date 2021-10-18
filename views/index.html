@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="/jquery/jquery.js"></script>
     <script src="javascripts/myScript.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -12,6 +12,29 @@
         crossorigin=""></script>
         <script src="javascripts/xmlwriter.js"></script>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <script>
+        var geoList = new Array;
+
+        var promise = $.get("dbs/geocodes.json", function (data) {
+            geoList = data;
+            console.log(data);
+        });
+
+        promise.done(function (data) {
+            geoList = JSON.stringify(geoList);
+            geoList = JSON.parse(geoList);
+
+            $(document).ready(function () {
+                for (i = 0; i < geoList.length; i++) {
+                    console.log("data " + geoList[i]);
+                    $('#geocodes').append('<option>' + geoList[i].id + " " + geoList[i].name + " " + geoList[i].state + '</option>')
+                }
+            });
+        });
+
+    </script>
 </head>
 
 <body onload="disableFields()">
@@ -116,6 +139,44 @@
                 </select>
             </div>
         </div>
+        <div id="urgencyDrop" class="container">
+            <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
+            <br>
+            <div id="urgencyDropdownMenu" class="dropdownMenu_style">
+                <select name="urgencyDropdown" class="dropdownMenu" id="urgencyDropdown" onchange="urgencyOpt()">
+                    <option value="Default">Select Alert Urgency</option>
+                    <option value="Immediate">Immediate</option>
+                    <option value="Expected">Expected</option>
+                    <option value="Future">Future</option>
+                    <option value="Past">Past</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="scopeDrop" class="container">
+            <label for="scopeDropdown" class="text"><strong>Alert Scope:</strong></label>
+            <br>
+            <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
+                <select name="scopeDropdown" class="dropdownMenu" id="scopeDropdown" onchange="scoptOpt()">
+                    <option value="Default">Select Alert Scope</option>
+                    <option value="public">public</option>
+                    <option value="restricted">restricted</option>
+                    <option value="private">private</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="addressFieldBox" class="container">
+            <label for="addressBox" class="text"><strong>Address Field:</strong></label>
+            <input type="text" id="addressField" name="addressField"
+                placeholder="Required if scope set to private"></textarea>
+        </div>
+        <div id="restrictionFieldBox" class="container">
+            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
+            <input type="text" id="restrictionField" name="restrictionField"
+                placeholder="Required if scope set to restriced"></textarea>
+        </div>
         <div id="eventDrop" class="container">
             <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
             <br>
@@ -176,53 +237,26 @@
                 <br>
             </div>
         </div>
-        <div id="scopeDrop" class="container">
-            <label for="scopeDropdown" class="text"><strong>Alert Scope:</strong></label>
-            <br>
-            <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
-                <select name="scopeDropdown" class="dropdownMenu" id="scopeDropdown" onchange="scoptOpt()">
-                    <option value="Default">Select Alert Scope</option>
-                    <option value="public">public</option>
-                    <option value="restricted">restricted</option>
-                    <option value="private">private</option>
-                </select>
-                <br>
-            </div>
-        </div>
-        <div id="addressFieldBox" class="container">
-            <label for="addressBox" class="text"><strong>Address Field:</strong></label>
-            <input type="text" id="addressField" name="addressField"
-                placeholder="Required if scope set to private"></textarea>
-        </div>
-        <div id="restrictionFieldBox" class="container">
-            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
-            <input type="text" id="restrictionField" name="restrictionField"
-                placeholder="Required if scope set to restriced"></textarea>
-        </div>
-        <div id="urgencyDrop" class="container">
-            <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
-            <br>
-            <div id="urgencyDropdownMenu" class="dropdownMenu_style">
-                <select name="urgencyDropdown" class="dropdownMenu" id="urgencyDropdown" onchange="urgencyOpt()">
-                    <option value="Default">Select Alert Urgency</option>
-                    <option value="Immediate">Immediate</option>
-                    <option value="Expected">Expected</option>
-                    <option value="Future">Future</option>
-                    <option value="Past">Past</option>
-                    <option value="Unknown">Unknown</option>
-                </select>
-                <br>
-            </div>
-        </div>
     </div>
     <div class="alertGridEn">
         <div id="EvSubj180" class="container">
             <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()" maxlength="180"
-                    placeholder="Subject Event for Alert Message..."></textarea>
+                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()"
+                    maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
             </div>
             <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
+        </div>
+        <div id="geoArea" class="container">
+            <label for="geoBlock" class="text"><strong>Select the FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
         </div>
         <div id="Ev180" class="container">
             <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
