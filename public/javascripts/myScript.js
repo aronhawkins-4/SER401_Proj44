@@ -103,6 +103,7 @@ function countWord() {
     var spanChars90 = document.getElementById("alertSp90");
     var spanChars360 = document.getElementById("alertSp360");
     var eventChars180 = document.getElementById("eventFi180");
+    var eventSubjChars180 = document.getElementById("eventSubjFi180");
     var eventChars180sp = document.getElementById("eventFi180sp");
     var chars;
     var charsLeft;
@@ -139,6 +140,11 @@ function countWord() {
         charsLeft = 180;
         counter = document.getElementById("wordsLeftEvent180sp");
         alert = document.querySelector('#eventFi180sp');
+    } else if (eventSubjChars180 === document.activeElement) {
+        chars = eventSubjChars180.value.length;
+        charsLeft = 180;
+        counter = document.getElementById("wordsLeftEventSubj180");
+        alert = document.querySelector('#eventSubjFi180');
     }
 
     // Display it as output
