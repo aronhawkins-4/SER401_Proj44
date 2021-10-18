@@ -6,7 +6,7 @@ npm run start
 or
 npm run dev 
 
-(*** run dev runs nodemon to avoid restarting after chages ***)
+(*** run dev runs nodemon to avoid restarting after changes ***)
 
 http sever will listen on port 3000
 
