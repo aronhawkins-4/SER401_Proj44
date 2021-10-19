@@ -132,6 +132,19 @@ select {
 }
 
 
+input[type=list],
+select {
+    width: 95%;
+    padding: 6px 10px;
+    margin: 5px;
+    /* margin-right: 10px; */
+    display: inline-block;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+
 /* Style Text Areas */
 
 textarea {
@@ -185,7 +198,7 @@ p {
 .alertGridEn {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "Ev180 En360";
+    grid-template-areas: "EvSubj180 geoArea" "Ev180 En360";
     gap: 20px;
     padding: 20px 100px;
 }
@@ -313,7 +326,7 @@ button:hover {
         padding: 20px 50px;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "Ev180" "En360";
+        grid-template-areas: "EvSubj180" "geoArea" "Ev180" "En360";
     }
     .alertGridSp {
         padding: 20px 50px;
@@ -350,7 +363,7 @@ button:hover {
     .alertGridEn {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "Ev180" "En360";
+        grid-template-areas: "EvSubj180" "geoArea" "Ev180" "En360";
     }
     .alertGridSp {
         grid-template-columns: 1fr;

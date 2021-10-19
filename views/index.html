@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="/jquery/jquery.js"></script>
     <script src="javascripts/myScript.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -11,6 +11,39 @@
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="stylesheets/style.css">
+    
+    <script>
+    
+    var myData = new Array;
+    fetch('../dbs/geocodes.json')
+    .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+         
+            for (var i = 0; i < data.length; i++) {
+                myData[i] = data[i];
+                console.log(data[i]);
+            }
+        }
+
+    $(document).ready(function()
+    {
+        for(i=0; i<myData.length; i++)
+        {
+            console.log("data " + myData[i]);
+            $('#geocodes').append('<option>'+myData[i]+'</option>')
+        }
+    });      
+     
+    </script>
 </head>
 
 <body onload="disableFields()">
@@ -22,7 +55,7 @@
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
-    <h2 class="text">ALERT SUBMISSION</h2>
+    <h2 class="text">ALERT SUBMISSION</h2> 
     <div class="alertGrid4">
         <div id="msgNum" class="container">
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
@@ -223,6 +256,15 @@
             </div>
             <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
         </div>
+        <div id="geoArea" class="container">
+            <label for="geoBlock" class="text"><strong>Select your Area Geo Code:</strong></label>
+            <br>
+        <input list="geocodes" id="selectid" name="selectid">
+        <datalist id="geocodes" name="geocodes">
+            <option value=""></option>
+        </datalist>
+        </input>
+        </div> 
         <div id="Ev180" class="container">
             <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
             <div class="textarea_style">
@@ -270,6 +312,7 @@
             </div>
         </div>
     </div>
+    
     <br>
     <div id="fileAttachDiv">
         <div></div>
