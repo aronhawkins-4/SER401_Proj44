@@ -14,7 +14,6 @@ xw.writeElement('sent', +new Date) //just here for test replace with approved da
 xw.writeElement('status', msgStatusOptSelected);
 xw.writeElement('msgType', msgTypeOptSelected);
 xw.writeElement('scope', scopeCodeOptSelected);
-xw.startElement('info'); 
 xw.endDocument();
 let wx = "";
 for (let i =0; i<xw.length;i++){
