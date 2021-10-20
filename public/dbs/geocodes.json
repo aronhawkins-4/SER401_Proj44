@@ -1,6 +1,30 @@
 [
-    "Maricopa", 
-    "Mohave",
-    "Pinal",
-    "Coconino"
+    {
+        "id" : "001",
+        "name" : "Maricopa",
+        "state" : "(AZ)"
+   
+    },
+
+    {
+        "id" : "002",
+        "name" : "Mohave",
+        "state" : "(AZ)"
+   
+    },
+
+    {
+        "id" : "003",
+        "name" : "Pinal",
+        "state" : "(AZ)"
+   
+    },
+
+    {
+        "id" : "004",
+        "name" : "Coconino",
+        "state" : "(AZ)"
+   
+    }
+
 ]

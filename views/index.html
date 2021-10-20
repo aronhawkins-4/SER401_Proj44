@@ -12,37 +12,27 @@
         crossorigin=""></script>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="stylesheets/style.css">
-    
-    <script>
-    
-    var myData = new Array;
-    fetch('../dbs/geocodes.json')
-    .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                appendData(data);
-            })
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });
-        function appendData(data) {
-         
-            for (var i = 0; i < data.length; i++) {
-                myData[i] = data[i];
-                console.log(data[i]);
-            }
-        }
 
-    $(document).ready(function()
-    {
-        for(i=0; i<myData.length; i++)
-        {
-            console.log("data " + myData[i]);
-            $('#geocodes').append('<option>'+myData[i]+'</option>')
-        }
-    });      
-     
+    <script>
+        var geoList = new Array;
+
+        var promise = $.get("dbs/geocodes.json", function (data) {
+            geoList = data;
+            console.log(data);
+        });
+
+        promise.done(function (data) {
+            geoList = JSON.stringify(geoList);
+            geoList = JSON.parse(geoList);
+
+            $(document).ready(function () {
+                for (i = 0; i < geoList.length; i++) {
+                    console.log("data " + geoList[i]);
+                    $('#geocodes').append('<option>' + geoList[i].id+" "+geoList[i].name+" "+ geoList[i].state + '</option>')
+                }
+            });
+        });
+
     </script>
 </head>
 
@@ -55,7 +45,7 @@
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
-    <h2 class="text">ALERT SUBMISSION</h2> 
+    <h2 class="text">ALERT SUBMISSION</h2>
     <div class="alertGrid4">
         <div id="msgNum" class="container">
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
@@ -251,20 +241,26 @@
         <div id="EvSubj180" class="container">
             <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()" maxlength="180"
-                    placeholder="Subject Event for Alert Message..."></textarea>
+                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()"
+                    maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
             </div>
             <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
         </div>
+       
+     
+       
         <div id="geoArea" class="container">
             <label for="geoBlock" class="text"><strong>Select your Area Geo Code:</strong></label>
             <br>
-        <input list="geocodes" id="selectid" name="selectid">
-        <datalist id="geocodes" name="geocodes">
-            <option value=""></option>
-        </datalist>
-        </input>
-        </div> 
+            <input list="geocodes" id="selectid" name="selectid" placeholder="Search by State or County">
+            <datalist id="geocodes" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+  
+       
+       
         <div id="Ev180" class="container">
             <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
             <div class="textarea_style">
@@ -312,7 +308,7 @@
             </div>
         </div>
     </div>
-    
+
     <br>
     <div id="fileAttachDiv">
         <div></div>
