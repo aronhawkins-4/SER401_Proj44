@@ -50,13 +50,17 @@
         <div id="msgNum" class="container">
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
             <br>
-            <input type="text" id="identifier" name="identifier" maxlength="20"
-                placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
+            <div class="inputBox">
+                <input type="text" id="identifier" name="identifier" maxlength="20"
+                    placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
+            </div>
         </div>
         <div id="msgSender" class="container">
             <label for="sender" class="text"><strong>Sender's Email:</strong></label>
             <br>
-            <input type="email" id="sender" name="sender" required>
+            <div class="inputBox">
+                <input type="email" id="sender" name="sender" required>
+            </div>
         </div>
         <div id="msgTypeDrop" class="container">
             <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
@@ -168,13 +172,19 @@
         </div>
         <div id="addressFieldBox" class="container">
             <label for="addressBox" class="text"><strong>Address Field:</strong></label>
-            <input type="text" id="addressField" name="addressField"
-                placeholder="Required if scope set to private"></textarea>
+            <br>
+            <div class="inputBox">
+                <input type="text" id="addressField" name="addressField"
+                    placeholder="Required if scope set to private"></textarea>
+            </div>
         </div>
         <div id="restrictionFieldBox" class="container">
             <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
-            <input type="text" id="restrictionField" name="restrictionField"
-                placeholder="Required if scope set to restriced"></textarea>
+            <br>
+            <div class="inputBox">
+                <input type="text" id="restrictionField" name="restrictionField"
+                    placeholder="Required if scope set to restriced"></textarea>
+            </div>
         </div>
         <div id="eventDrop" class="container">
             <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
@@ -306,9 +316,6 @@
     </div>
     <br>
     <div id="fileAttachDiv">
-        <div></div>
-        <div></div>
-        <div></div>
         <div id="fileAttach" class="container">
             <label for="attachFileBox" class="text"><strong>Attach File:</strong></label>
             <br>
@@ -317,10 +324,14 @@
         </div>
     </div>
     <br><br>
-    <div id="mapid">
+    <div id="mapid">      
+        <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />  
+        <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>  
+
         <script>
+            // CREATE MAP //
             //var to store LeafletJS map initial settings
-            var mymap = L.map('mapid').setView([33.4181255, -111.9323892], 13);
+            var map = L.map('mapid', {drawControl: true}).setView([33.4181255, -111.9323892], 13);
 
             //LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
@@ -330,7 +341,24 @@
                 tileSize: 512,
                 zoomOffset: -1,
                 accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
-            }).addTo(mymap);
+            }).addTo(map);
+            // add Leaflet-Geoman controls with some options to the map  
+            map.pm.addControls({  
+            position: 'topleft',  
+            drawCircle: true,  
+            drawCircleMarker: false,
+            drawRectangle: true,
+            drawPolygon: true,
+            drawPolyline: false,
+            cutPolygon: false,
+            splitMode: false,
+            });
+            map.pm.Toolbar.changeControlOrder([
+                'drawPolygon', 
+                'drawRectangle',
+                'drawCircle',
+            ]);
+     
         </script>
     </div>
     <br><br>
