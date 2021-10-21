@@ -98,6 +98,14 @@ footer {
     width: 95%;
 }
 
+.selectFIPS {
+    
+    width: 97%;
+    border-color: #229CFF;
+    border-width: 1px;
+    
+}
+
 .container {
     padding: 10px;
     border: 1px sold #ededed;
