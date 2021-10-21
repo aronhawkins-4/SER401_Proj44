@@ -165,5 +165,38 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function handleClick() {
-    alert("Alert Submitted");
+    
+    var email = document.getElementById('sender').value;
+
+    if (email.length == 0) {
+        alert("You must enter your email!");
+    } else {
+        var emailCheck = false; 
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        if (email.match(validRegex)) {
+            emailCheck = true; 
+        }
+
+        if (emailCheck == false) {
+            alert("Please enter a valid email!")
+        } else {
+            var today = new Date();
+            var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate();
+            dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
+
+            var msgNumber = dateTime + String(email).substring(0,3).toUpperCase();
+
+            document.getElementById('identifier').value = msgNumber;
+            
+            var jsonStr = [{ name:'identifier', value:msgNumber}];
+            jsonStr.push({name:'sender', value:email});
+
+            //alert(JSON.stringify(jsonStr));
+
+            jsonStr = JSON.stringify(jsonStr);
+
+            $.post("/", jsonStr);
+        }
+    }
 }
