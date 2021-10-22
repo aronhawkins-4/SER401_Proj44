@@ -42,7 +42,7 @@ var eventCodeOptSelected;
 //Saves event code selected on option onchange
 function eventCodeOpt() {
 
-    eventCodeOptSelected = document.getElementById('eventCodeDropdown').value;
+    eventCodeOptSelected = document.getElementById('eventDropdown').value;
 
 }
 
