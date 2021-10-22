@@ -1,1 +1,1 @@
-declare module "xml-writer";
+declare module 'xml-writer';

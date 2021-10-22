@@ -1,3 +1,4 @@
+
 var msgStatusOptSelected = "Actual";
 var msgTypeOptSelected = "Alert";
 var scopeCodeOptSelected = "Public";
