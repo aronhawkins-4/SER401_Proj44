@@ -336,6 +336,9 @@
             // Var to count number of shapes on map
             var shapeNum = 0;
 
+            // Var to count number of vertexes on the map
+            var vertNum = 0;
+
             // LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
@@ -369,18 +372,24 @@
                 'rotateMode',
             ]);
      
-            // Check number of shapes on map
+            // Check number of shapes and vertexes on map
             map.on('pm:drawend', e => {
                 shapeNum++;
+                vertNum++;
                 checkShapeNum(shapeNum);
+                checkVertexNum(vertNum);
             })
             map.on('pm:vertexadded', e => {
                 shapeNum++;
+                vertNum++;
                 checkShapeNum(shapeNum);
+                checkVertexNum(vertNum);
             })
             map.on('pm:remove', e => {
                 shapeNum--;
+                vertNum--;
                 checkShapeNum(shapeNum);
+                checkVertexNum(vertNum);
             })
             // If there are 10 shapes on the map, remove the toolbar to add shapes
             // If the toolbar has been removed and a shape is deleted, bring back the toolbar
@@ -399,6 +408,34 @@
             });
                 } else if (shapeNum == 9) {
                     map.pm.addControls({  
+                        position: 'topleft',  
+                        drawCircle: true,  
+                        drawCircleMarker: false,
+                        drawMarker: false,
+                        drawRectangle: true,
+                        drawPolygon: true,
+                        drawPolyline: false,
+                        cutPolygon: false,
+                        splitMode: false,
+                    });
+                }
+            }
+
+            function checkVertexNum(vertNum) {
+                if (vertNum >= 100) {
+                    map.pm.addControls({
+                        position: 'topleft',
+                        drawCircle: false,  
+                        drawCircleMarker: false,
+                        drawMarker: false,
+                        drawRectangle: false,
+                        drawPolygon: false,
+                        drawPolyline: false,
+                        cutPolygon: false,
+                        splitMode: false,
+                    });
+                } else if (vertNum == 99) {
+                    map.pm.addControls({
                         position: 'topleft',  
                         drawCircle: true,  
                         drawCircleMarker: false,
