@@ -15,26 +15,28 @@ router.post('/', function(req, res, next) {
   var identifier = req.body.identifier;
   var sender = req.body.sender;
   var sent = req.body.sent;
+  var status = req.body.status;
   var msgType = req.body.msgType;
   
   //Call function to generate xml 
-  saveXml(identifier,sender,sent,msgType);
+  saveXml(identifier,sender,sent,status,msgType);
 
   //Call function to generate json
-  saveJson(identifier,sender,sent,msgType);
+  saveJson(identifier,sender,sent,status,msgType);
 
   //Call function to save test page view
-  saveTestPage(identifier,sender,sent,msgType);
+  saveTestPage(identifier,sender,sent,status,msgType);
    
   res.redirect('/test',301);
 });
 
 /* Generate and save xml alert messag data */
-function saveXml(identifier,sender,sent,msgType) {
+function saveXml(identifier,sender,sent,status,msgType) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
   output += "  <sent>"+sent+"</sent>\n";
+  output += "  <status>"+status+"</status>\n";
   output += "  <msgType>"+msgType+"</msgType>\n";
   output += "</alert>"; 
   
@@ -45,12 +47,13 @@ function saveXml(identifier,sender,sent,msgType) {
 }
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber,email,msgTime,alertType) {
+function saveJson(msgNumber,email,msgTime,status,alertType) {
   
   var newObject = {
     identifier:msgNumber,
     sender:email,
     sent: msgTime,
+    status: status,
     msgType: alertType
   }; 
 
@@ -63,11 +66,12 @@ function saveJson(msgNumber,email,msgTime,alertType) {
 }
 
 /* Generate and save xml alert messag data */
-function saveTestPage(identifier,sender,sent,msgType) {
+function saveTestPage(identifier,sender,sent,status,msgType) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
   output += "  <sent>"+sent+"</sent>\n";
+  output += "  <status>"+status+"</status>\n";
   output += "  <msgType>"+msgType+"</msgType>\n";
   output += "</alert>\n"; 
   
