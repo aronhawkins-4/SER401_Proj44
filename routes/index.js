@@ -14,24 +14,28 @@ router.post('/', function(req, res, next) {
   //Retrive all form element vlaues 
   var identifier = req.body.identifier;
   var sender = req.body.sender;
+  var sent = req.body.sent;
+  var msgType = req.body.msgType;
   
   //Call function to generate xml 
-  saveXml(identifier,sender);
+  saveXml(identifier,sender,sent,msgType);
 
   //Call function to generate json
-  saveJson(identifier,sender);
+  saveJson(identifier,sender,sent,msgType);
 
   //Call function to save test page view
-  saveTestPage(identifier,sender);
+  saveTestPage(identifier,sender,sent,msgType);
    
   res.redirect('/test',301);
 });
 
 /* Generate and save xml alert messag data */
-function saveXml(identifier,sender) {
+function saveXml(identifier,sender,sent,msgType) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
+  output += "  <sent>"+sent+"</sent>\n";
+  output += "  <msgType>"+msgType+"</msgType>\n";
   output += "</alert>"; 
   
   fs.writeFile('public/dbs/temp.xml', output , function (err) {
@@ -41,11 +45,13 @@ function saveXml(identifier,sender) {
 }
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber,email) {
+function saveJson(msgNumber,email,msgTime,alertType) {
   
   var newObject = {
     identifier:msgNumber,
-    sender:email
+    sender:email,
+    sent: msgTime,
+    msgType: alertType
   }; 
 
   var output = JSON.stringify(newObject);
@@ -57,10 +63,12 @@ function saveJson(msgNumber,email) {
 }
 
 /* Generate and save xml alert messag data */
-function saveTestPage(identifier,sender) {
+function saveTestPage(identifier,sender,sent,msgType) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
+  output += "  <sent>"+sent+"</sent>\n";
+  output += "  <msgType>"+msgType+"</msgType>\n";
   output += "</alert>\n"; 
   
   var xmlOut = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
