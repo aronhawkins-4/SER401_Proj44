@@ -34,7 +34,7 @@ var msgStatusOptSelected;
 
 //Saves status type selected on option change
 function msgStatusOpt() {
-    msgStatusOptSelected = document.getElementById('msgStatusDropdown').value;
+    msgStatusOptSelected = document.getElementById('status').value;
 }
 
 //var for option selected from urgency dropdown list
@@ -194,7 +194,11 @@ function handleClick() {
 
         if (emailCheck == false) {
             alert("Please enter a valid email!")
-        } else {
+            }else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
+                     
+                alert("You must Select a Status!");
+                     
+            } else {
             //Begin processing form 
             var today = new Date();
             var msgTime
@@ -225,6 +229,7 @@ function handleClick() {
                         identifier: msgNumber,
                         sender: email,
                         sent: msgTime, 
+                        status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected 
                     }; 
                     
@@ -248,7 +253,8 @@ function handleClick() {
                     var newObject = {
                         identifier: msgNumber,
                         sender: email,
-                        sent: msgTime, 
+                        sent: msgTime,
+                        status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected 
                     }; 
                     
@@ -269,12 +275,13 @@ function handleClick() {
 
                 //Set the Alert Number on form 
                 document.getElementById('identifier').value = msgNumber;
-        
+                
                 //Create object from form elements values 
                 var newObject = {
                     identifier: msgNumber,
                     sender: email,
                     sent: msgTime, 
+                    status: msgStatusOptSelected,
                     msgType: msgTypeOptSelected 
                 }; 
                 
