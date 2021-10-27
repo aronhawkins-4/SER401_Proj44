@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
   saveXml(identifier, sender, sent, mStatus, msgType, scope, category);
 
   //Call function to generate json
-  //saveJson(identifier,sender,category);
+  saveJson(identifier,sender,category);
 
   //Call function to save test page view
   saveTestPage(identifier, sender);
@@ -91,6 +91,11 @@ console.log("aww");
   fs.writeFile('public/dbs/temp.xml', xmlString, function (err) {
     if (err) throw err;
     console.log("XML Saved");
+  });
+
+  fs.writeFile('views/test.html', xmlString, function (err) {
+    if (err) throw err;
+    console.log("Test Page Saved");
   });
 }
 
