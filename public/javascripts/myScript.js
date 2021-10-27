@@ -30,6 +30,17 @@ function msgTypeOpt() {
 
     msgTypeOptSelected = document.getElementById('msgTypeDropdown').value;
 
+    if (msgTypeOptSelected == "Update") {
+        document.getElementById('identifier').disabled = false;
+        document.getElementById('identifier').value = "";
+    } else if (msgTypeOptSelected == "Cancel") {
+        document.getElementById('identifier').disabled = false;
+        document.getElementById('identifier').value = "";
+    } else {
+        document.getElementById('identifier').disabled = true;
+        document.getElementById('identifier').value = "";
+    } 
+
 }
 
 //var for option selected from msgStatusDropdownMenu 
@@ -37,7 +48,7 @@ var msgStatusOptSelected;
 
 //Saves status type selected on option change
 function msgStatusOpt() {
-    msgStatusOptSelected = document.getElementById('msgStatusDropdown').value;
+    msgStatusOptSelected = document.getElementById('status').value;
 }
 
 //var for option selected from urgency dropdown list
@@ -56,7 +67,7 @@ var eventCodeOptSelected;
 //Saves event code selected on option onchange
 function eventCodeOpt() {
 
-    eventCodeOptSelected = document.getElementById('eventCodeDropdown').value;
+    eventCodeOptSelected = document.getElementById('eventDropdown').value;
 
 }
 
@@ -178,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+//Perform data validation and alert submission 
 function handleClick() {
     var email = document.getElementById('sender').value;
 
@@ -206,8 +218,6 @@ function handleClick() {
 
             //Set the Alert Number on form 
             document.getElementById('identifier').value = msgNumber;
-          //  var categoryOpt = categoryOptSelected;
-            console.log(msgNumber + email + dateTime + msgStatusOptSelected + msgTypeOptSelected + scopeCodeOptSelected + categoryOptSelected);
             //Create object from form elements values 
             var newObject = {
                 identifier: msgNumber,

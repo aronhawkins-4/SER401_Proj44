@@ -3,6 +3,9 @@ var router = express.Router();
 var XMLWriter = require('xml-writer');
 fs = require('fs');
 
+
+var fs = require('fs'); 
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
@@ -18,7 +21,6 @@ router.post('/', function (req, res, next) {
   var msgType = req.body.msgType;
   var scope = req.body.scope;
   var category = req.body.category;
-  console.log(mStatus);
 
   //Call function to generate xml 
   saveXml(identifier, sender, sent, mStatus, msgType, scope, category);
@@ -40,34 +42,26 @@ function saveXml(identifier, sender, sent, mStatus, msgType, scope, category) {
   // output += "</alert>"; 
 
   xw = new XMLWriter(true);
-console.log("aww");
   xw.startDocument('1.0', 'UTF-8');
   xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
   xw.writeElement('identifier', identifier);
   xw.writeElement('sender', sender);
   xw.writeElement('sent', sent); //Eventually this Must be formatted like "2002-05-24T16:49:00-07:00".
-  console.log("stat");
   xw.writeElement('status', mStatus);
-  console.log("msg");
   xw.writeElement('msgType', msgType);
-  console.log("scope");
   xw.writeElement('scope', scope);
-  console.log("here?");
   xw.writeElement('code', 'IPAWSv1.0');
   xw.startElement('info');
   xw.writeElement('category', category);
-  console.log("1.5");
   //from here down the fields still need to be posted to index JK
   xw.writeElement('event', 'event goes here');
   xw.writeElement('urgency', 'urgency goes here');
   xw.writeElement('severity', 'severity goes here');
-  console.log("2");
   xw.writeElement('certainty', 'certainty goes here');
   xw.startElement('eventCode');
   xw.writeElement('valueName', 'SAME');
   xw.writeElement('value', 'CAE');
   xw.endElement('eventCode');
-  console.log("3");
   xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
   xw.writeElement('senderName', 'sender name goes here');
   xw.writeElement('headline', 'headline goes here');
@@ -81,12 +75,6 @@ console.log("aww");
   xw.startElement('area');
   xw.writeElement('areaDesc', 'ared description goes here');
   xw.endDocument();
-  //let xmlString = "";
-  //for (let i = 0; i < xw.length; i++) {
-  //  xmlString += xw[i];
-  //}
-  console.log(xw.toString());
-  console.log(xw.length);
   let xmlString = xw.toString();
   fs.writeFile('public/dbs/temp.xml', xmlString, function (err) {
     if (err) throw err;
