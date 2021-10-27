@@ -7,7 +7,21 @@ function categoryOpt() {
     categoryOptSelected = document.getElementById('categoryDropdown').value;
 
 }
+//var for option selected from alert type dropdown list
+var alertTypeOptSelected;
 
+//Saves alert type selected on option onchange
+function alertTypeOpt() {
+    alertTypeOptSelected = document.getElementById('alertDropdown').value;
+}
+
+//var for option selected from certainty dropdown list
+var certaintyOptSelected;
+
+//Saves certinty type selected on option onchange
+function certaintyTypeOpt(){
+    certaintyOptSelected = document.getElementById('certaintyDropdown').value;
+}
 //var for option selected from msgType dropdown list
 var msgTypeOptSelected;
 
@@ -192,11 +206,20 @@ function handleClick() {
 
             //Set the Alert Number on form 
             document.getElementById('identifier').value = msgNumber;
-            
+          //  var categoryOpt = categoryOptSelected;
+            console.log(msgNumber + email + dateTime + msgStatusOptSelected + msgTypeOptSelected + scopeCodeOptSelected + categoryOptSelected);
             //Create object from form elements values 
             var newObject = {
                 identifier: msgNumber,
-                sender: email
+                sender: email,
+                sent : dateTime,
+                mStatus: msgStatusOptSelected,
+                msgType: msgTypeOptSelected,
+                scope: scopeCodeOptSelected,
+                category: categoryOptSelected
+                
+                
+                
             }; 
 
             //Send a POST request containing the form elements object  
