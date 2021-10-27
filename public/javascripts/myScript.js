@@ -198,6 +198,10 @@ function handleClick() {
                      
                 alert("You must Select a Status!");
                      
+            }else if(scopeCodeOptSelected == undefined || scopeCodeOptSelected == "Default"){
+                
+                alert("You must Select a Scope!");
+                
             } else {
             //Begin processing form 
             var today = new Date();
@@ -230,7 +234,8 @@ function handleClick() {
                         sender: email,
                         sent: msgTime, 
                         status: msgStatusOptSelected,
-                        msgType: msgTypeOptSelected 
+                        msgType: msgTypeOptSelected,
+                        scope: scopeCodeOptSelected
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -255,7 +260,8 @@ function handleClick() {
                         sender: email,
                         sent: msgTime,
                         status: msgStatusOptSelected,
-                        msgType: msgTypeOptSelected 
+                        msgType: msgTypeOptSelected,
+                        scope: scopeCodeOptSelected
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -282,7 +288,8 @@ function handleClick() {
                     sender: email,
                     sent: msgTime, 
                     status: msgStatusOptSelected,
-                    msgType: msgTypeOptSelected 
+                    msgType: msgTypeOptSelected,
+                    scope: scopeCodeOptSelected
                 }; 
                 
                 //Send a POST request containing the form elements object  
