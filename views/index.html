@@ -318,7 +318,14 @@
     </div>
     <br><br>
     <div id="mapid">
+        <!-- Import necessary files to use LeafletJS Geoman -->
+        <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />  
+        <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
         <script>
+            // CREATE MAP //
+            // Var to store LeafletJS map initial settings
+            var map = L.map('mapid', {drawControl: true}).setView([33.4181255, -111.9323892], 13);
+
             //var to store LeafletJS map initial settings
             var mymap = L.map('mapid').setView([33.4181255, -111.9323892], 13);
 
@@ -331,6 +338,29 @@
                 zoomOffset: -1,
                 accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
             }).addTo(mymap);
+            
+            // Add Leaflet-Geoman controls with some options to the map  
+            map.pm.addControls({  
+            position: 'topleft',  
+            drawCircle: true,  
+            drawCircleMarker: false,
+            drawMarker: false,
+            drawRectangle: true,
+            drawPolygon: true,
+            drawPolyline: false,
+            cutPolygon: false,
+            splitMode: false,
+            });
+
+            // Order buttons
+            map.pm.Toolbar.changeControlOrder([
+                'drawPolygon', 
+                'drawRectangle',
+                'drawCircle',
+                'dragMode',
+                'editMode',
+                'rotateMode',
+            ]);
         </script>
     </div>
     <br><br>
