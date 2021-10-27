@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/jquery/jquery.js">
+            var contents = new Array; 
+            
+            var promise = $.get("dbs/temp.json", function (data) {
+                contents = data;
+            });
+
+            promise.done(function (data) {
+
+                $(document).ready(function () {
+                    $('#content').append('<p>Hello World</p>')
+                });
+            });
+        
+        </script>
+    </head>
+        <body>
+            <h1>XML Preview Test Page</h1>
+            <br>
+            <br>
+            <div class = container>
+                <div id="content"></div>
+            </div>
+        </body>
+</html>
