@@ -189,6 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleClick() {
     
     var email = document.getElementById('sender').value;
+    
+    //Get Subject Event from Form
+    var event = document.getElementById('eventSubjFi180').value;
 
     //Validate the sender's email 
     if (email.length == 0) {
@@ -208,7 +211,11 @@ function handleClick() {
                      
                 alert("You Must Select a Status!");
                      
-            } else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
+            } else if(event == undefined || event == ''){
+            
+                alert("You Must Enter a Subject for Event!");
+                      
+            }else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
              
                 alert("You Must Select a Certainty!");
                 
@@ -259,6 +266,7 @@ function handleClick() {
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
 						scope: scopeCodeOptSelected,
+                        event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected
@@ -288,6 +296,7 @@ function handleClick() {
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
 						scope: scopeCodeOptSelected,
+                        event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected
@@ -319,6 +328,7 @@ function handleClick() {
                     status: msgStatusOptSelected,
                     msgType: msgTypeOptSelected,
 					scope: scopeCodeOptSelected,
+                    event: event,
                     urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected,
                     eventCode: eventCodeOptSelected
