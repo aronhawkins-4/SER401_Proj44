@@ -333,6 +333,9 @@
             //var to store LeafletJS map initial settings
             var map = L.map('mapid', {drawControl: true}).setView([33.4181255, -111.9323892], 13);
 
+            // var to store number of vertices
+            var vertNum = 0;
+
             //LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
@@ -353,12 +356,44 @@
             cutPolygon: false,
             splitMode: false,
             });
+
             map.pm.Toolbar.changeControlOrder([
                 'drawPolygon', 
                 'drawRectangle',
                 'drawCircle',
+                'dragMode',
+                'editMode',
+                'rotateMode',
             ]);
-     
+
+            // function to check number of vertexes on the map 
+            function checkVertexNum(vertNum) {
+                if (vertNum >= 100) {
+                    map.pm.addControls({
+                        position: 'topleft',
+                        drawCircle: false,
+                        drawCircleMarker: false,
+                        drawMarker: false,
+                        drawRectangle: false,
+                        drawPolygon: false,
+                        drawPolyline: false,
+                        cutPolygon: false,
+                        splitMode: false,
+                    });
+                } else if (vertNum < 100) {
+                    map.pm.addControls({
+                        position: 'topleft',
+                        drawCircle: false,
+                        drawCircleMarker: false,
+                        drawMarker: false,
+                        drawRectangle: false,
+                        drawPolygon: false,
+                        drawPolyline: false,
+                        cutPolygon: false,
+                        splitMode: false,
+                    });
+                }
+            }
         </script>
     </div>
     <br><br>
