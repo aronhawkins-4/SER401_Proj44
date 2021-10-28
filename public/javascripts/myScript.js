@@ -216,6 +216,10 @@ function handleClick() {
                      
                 alert("You Must Select an Urgency!");
                      
+            }else if(eventCodeOptSelected == undefined || eventCodeOptSelected == "Default"){
+                     
+                alert("You Must Select an Event Code!");
+                     
             }else {
             //Begin processing form 
             var today = new Date();
@@ -250,7 +254,8 @@ function handleClick() {
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
                         urgency: urgencyOptSelected,
-                        certainty: certaintyOptSelected
+                        certainty: certaintyOptSelected,
+                        eventCode: eventCodeOptSelected
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -277,7 +282,8 @@ function handleClick() {
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
                         urgency: urgencyOptSelected,
-                        certainty: certaintyOptSelected
+                        certainty: certaintyOptSelected,
+                        eventCode: eventCodeOptSelected
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -306,7 +312,8 @@ function handleClick() {
                     status: msgStatusOptSelected,
                     msgType: msgTypeOptSelected,
                     urgency: urgencyOptSelected,
-                    certainty: certaintyOptSelected
+                    certainty: certaintyOptSelected,
+                    eventCode: eventCodeOptSelected
                 }; 
                 
                 //Send a POST request containing the form elements object  

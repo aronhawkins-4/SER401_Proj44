@@ -19,21 +19,22 @@ router.post('/', function(req, res, next) {
   var msgType = req.body.msgType;
   var urgency = req.body.urgency;
   var certainty = req.body.certainty;
+  var eventCode = req.body.eventCode;
   
   //Call function to generate xml 
-  saveXml(identifier,sender,sent,status,msgType,urgency,certainty);
+  saveXml(identifier,sender,sent,status,msgType,urgency,certainty,eventCode);
 
   //Call function to generate json
-  saveJson(identifier,sender,sent,status,msgType,urgency,certainty);
+  saveJson(identifier,sender,sent,status,msgType,urgency,certainty,eventCode);
 
   //Call function to save test page view
-  saveTestPage(identifier,sender,sent,status,msgType,urgency,certainty);
+  saveTestPage(identifier,sender,sent,status,msgType,urgency,certainty,eventCode);
    
   res.redirect('/test',301);
 });
 
 /* Generate and save xml alert messag data */
-function saveXml(identifier,sender,sent,status,msgType,urgency,certainty) {
+function saveXml(identifier,sender,sent,status,msgType,urgency,certainty,eventCode) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
@@ -43,6 +44,10 @@ function saveXml(identifier,sender,sent,status,msgType,urgency,certainty) {
   output += "    <info>\n";
   output += "      <urgency>"+urgency+"</urgency>\n";
   output += "      <certainty>"+certainty+"</certainty>\n";
+  output += "      <eventCode>\n";
+  output += "        <valueName>SAME</valueName>\n";
+  output += "        <value>"+eventCode+"<value>\n";
+  output += "      </eventCode>\n";
   output += "    </info>\n";
   output += "</alert>"; 
   
@@ -53,7 +58,7 @@ function saveXml(identifier,sender,sent,status,msgType,urgency,certainty) {
 }
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber,email,msgTime,status,alertType,urgency,certainty) {
+function saveJson(msgNumber,email,msgTime,status,alertType,urgency,certainty,eventCode) {
   
   var newObject = {
     identifier:msgNumber,
@@ -62,7 +67,8 @@ function saveJson(msgNumber,email,msgTime,status,alertType,urgency,certainty) {
     status: status,
     msgType: alertType,
     urgency: urgency,
-    certainty: certainty
+    certainty: certainty,
+    eventCode: eventCode
   }; 
 
   var output = JSON.stringify(newObject);
@@ -74,7 +80,7 @@ function saveJson(msgNumber,email,msgTime,status,alertType,urgency,certainty) {
 }
 
 /* Generate and save xml alert messag data */
-function saveTestPage(identifier,sender,sent,status,msgType,urgency,certainty) {
+function saveTestPage(identifier,sender,sent,status,msgType,urgency,certainty,eventCode) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
@@ -84,6 +90,10 @@ function saveTestPage(identifier,sender,sent,status,msgType,urgency,certainty) {
   output += "    <info>\n";
   output += "      <urgency>"+urgency+"</urgency>\n";
   output += "      <certainty>"+certainty+"</certainty>\n";
+  output += "      <eventCode>\n";
+  output += "        <valueName>SAME</valueName>\n";
+  output += "        <value>"+eventCode+"<value>\n";
+  output += "      </eventCode>\n";
   output += "    </info>\n";
   output += "</alert>\n"; 
   
