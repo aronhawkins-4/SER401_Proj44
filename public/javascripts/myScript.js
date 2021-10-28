@@ -212,6 +212,10 @@ function handleClick() {
              
                 alert("You Must Select a Certainty!");
                 
+            }else if(urgencyOptSelected == undefined || urgencyOptSelected == "Default"){
+                     
+                alert("You Must Select an Urgency!");
+                     
             }else {
             //Begin processing form 
             var today = new Date();
@@ -245,6 +249,7 @@ function handleClick() {
                         sent: msgTime, 
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
+                        urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected
                     }; 
                     
@@ -271,6 +276,7 @@ function handleClick() {
                         sent: msgTime,
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
+                        urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected
                     }; 
                     
@@ -299,6 +305,7 @@ function handleClick() {
                     sent: msgTime, 
                     status: msgStatusOptSelected,
                     msgType: msgTypeOptSelected,
+                    urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected
                 }; 
                 
