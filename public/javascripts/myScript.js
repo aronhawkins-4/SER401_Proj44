@@ -16,6 +16,17 @@ function msgTypeOpt() {
 
     msgTypeOptSelected = document.getElementById('msgTypeDropdown').value;
 
+    if (msgTypeOptSelected == "Update") {
+        document.getElementById('identifier').disabled = false;
+        document.getElementById('identifier').value = "";
+    } else if (msgTypeOptSelected == "Cancel") {
+        document.getElementById('identifier').disabled = false;
+        document.getElementById('identifier').value = "";
+    } else {
+        document.getElementById('identifier').disabled = true;
+        document.getElementById('identifier').value = "";
+    } 
+
 }
 
 //var for option selected from msgStatusDropdownMenu 
@@ -23,7 +34,7 @@ var msgStatusOptSelected;
 
 //Saves status type selected on option change
 function msgStatusOpt() {
-    msgStatusOptSelected = document.getElementById('msgStatusDropdown').value;
+    msgStatusOptSelected = document.getElementById('status').value;
 }
 
 //var for option selected from urgency dropdown list
@@ -42,7 +53,7 @@ var eventCodeOptSelected;
 //Saves event code selected on option onchange
 function eventCodeOpt() {
 
-    eventCodeOptSelected = document.getElementById('eventCodeDropdown').value;
+    eventCodeOptSelected = document.getElementById('eventDropdown').value;
 
 }
 
@@ -164,6 +175,127 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+//Perform data validation and alert submission 
 function handleClick() {
+<<<<<<< HEAD
     alert("Alert Submitted");
 }
+=======
+    
+    var email = document.getElementById('sender').value;
+
+    //Validate the sender's email 
+    if (email.length == 0) {
+        alert("You must enter your email!");
+    } else {
+        var emailCheck = false; 
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        //Check for valid email format 
+        if (email.match(validRegex)) {
+            emailCheck = true; 
+        }
+
+        if (emailCheck == false) {
+            alert("Please enter a valid email!")
+            }else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
+                     
+                alert("You must Select a Status!");
+                     
+            } else {
+            //Begin processing form 
+            var today = new Date();
+            var msgTime
+
+            //Format current date time to be used in message number 
+            var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate(); 
+            dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
+
+            //Format current date time for message sent field 
+            var msgTime = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate() + "T"; 
+            msgTime +=  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "-05:00";
+
+            // Process the Alert Type field 
+            if (msgTypeOptSelected === undefined || msgTypeOptSelected == "Default") {
+                alert("You must select an Alert Type");
+            } else if (msgTypeOptSelected == "Update") {
+                //Process an Alert Update
+                var msgNumber = document.getElementById('identifier').value;
+        
+                //Validate the Alert Number field 
+                if (msgNumber.length == 0) {
+                    alert("You must include the Alert Number to send an Update!");
+                } else if (msgNumber.length != 20) {
+                    alert("Invalid Message Number - Check your message number and try again");
+                } else {
+                    //Create object from form elements values 
+                    var newObject = {
+                        identifier: msgNumber,
+                        sender: email,
+                        sent: msgTime, 
+                        status: msgStatusOptSelected,
+                        msgType: msgTypeOptSelected 
+                    }; 
+                    
+                    //Send a POST request containing the form elements object  
+                    $.post("/", newObject, function(data,status,xhr){
+                        alert("Alert Submitted");
+                        $(location).attr('href','/test2');
+                    });
+                } 
+            } else if (msgTypeOptSelected == "Cancel") {
+                //Process an Alert Cancellation
+                var msgNumber = document.getElementById('identifier').value;
+        
+                //Validate the Alert Number field 
+                if (msgNumber.length == 0) {
+                    alert("You must include the Alert Number to send a Cancellation!");
+                } else if (msgNumber.length != 20) {
+                    alert("Invalid Message Number - Check your message number and try again");
+                } else {
+                    //Create object from form elements values 
+                    var newObject = {
+                        identifier: msgNumber,
+                        sender: email,
+                        sent: msgTime,
+                        status: msgStatusOptSelected,
+                        msgType: msgTypeOptSelected 
+                    }; 
+                    
+                    //Send a POST request containing the form elements object  
+                    $.post("/", newObject, function(data,status,xhr){
+                        alert("Alert Submitted");
+                        $(location).attr('href','/test2');
+                    });
+                } 
+            } else {
+                //Process a new alert 
+
+
+                //****This is where we add the rest of the fields after processing (Except for cancel and update msgType**********/
+            
+                //Alert number composed of time and first 3 letters of sender's email 
+                var msgNumber = dateTime + String(email).substring(0,3).toUpperCase();
+
+                //Set the Alert Number on form 
+                document.getElementById('identifier').value = msgNumber;
+                
+                //Create object from form elements values 
+                var newObject = {
+                    identifier: msgNumber,
+                    sender: email,
+                    sent: msgTime, 
+                    status: msgStatusOptSelected,
+                    msgType: msgTypeOptSelected 
+                }; 
+                
+                //Send a POST request containing the form elements object  
+                $.post("/", newObject, function(data,status,xhr){
+                    alert("Alert Submitted");
+                    $(location).attr('href','/test2');
+                });
+            }            
+        }
+    }
+}
+>>>>>>> dev
