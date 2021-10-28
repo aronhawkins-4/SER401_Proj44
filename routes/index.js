@@ -17,27 +17,31 @@ router.post('/', function(req, res, next) {
   var sent = req.body.sent;
   var status = req.body.status;
   var msgType = req.body.msgType;
+  var certainty = req.body.certainty;
   
   //Call function to generate xml 
-  saveXml(identifier,sender,sent,status,msgType);
+  saveXml(identifier,sender,sent,status,msgType,certainty);
 
   //Call function to generate json
-  saveJson(identifier,sender,sent,status,msgType);
+  saveJson(identifier,sender,sent,status,msgType,certainty);
 
   //Call function to save test page view
-  saveTestPage(identifier,sender,sent,status,msgType);
+  saveTestPage(identifier,sender,sent,status,msgType,certainty);
    
   res.redirect('/test',301);
 });
 
 /* Generate and save xml alert messag data */
-function saveXml(identifier,sender,sent,status,msgType) {
+function saveXml(identifier,sender,sent,status,msgType,certainty) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
   output += "  <sent>"+sent+"</sent>\n";
   output += "  <status>"+status+"</status>\n";
   output += "  <msgType>"+msgType+"</msgType>\n";
+  output += "    <info>\n";
+  output += "      <certainty>"+certainty+"</certainty>\n";
+  output += "    </info>\n";
   output += "</alert>"; 
   
   fs.writeFile('public/dbs/temp.xml', output , function (err) {
@@ -47,14 +51,15 @@ function saveXml(identifier,sender,sent,status,msgType) {
 }
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber,email,msgTime,status,alertType) {
+function saveJson(msgNumber,email,msgTime,status,alertType,certainty) {
   
   var newObject = {
     identifier:msgNumber,
     sender:email,
     sent: msgTime,
     status: status,
-    msgType: alertType
+    msgType: alertType,
+    certainty: certainty
   }; 
 
   var output = JSON.stringify(newObject);
@@ -66,13 +71,16 @@ function saveJson(msgNumber,email,msgTime,status,alertType) {
 }
 
 /* Generate and save xml alert messag data */
-function saveTestPage(identifier,sender,sent,status,msgType) {
+function saveTestPage(identifier,sender,sent,status,msgType,certainty) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
   output += "  <sent>"+sent+"</sent>\n";
   output += "  <status>"+status+"</status>\n";
   output += "  <msgType>"+msgType+"</msgType>\n";
+  output += "    <info>\n";
+  output += "      <certainty>"+certainty+"</certainty>\n";
+  output += "    </info>\n";
   output += "</alert>\n"; 
   
   var xmlOut = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";

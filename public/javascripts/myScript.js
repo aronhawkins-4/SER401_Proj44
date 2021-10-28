@@ -8,6 +8,16 @@ function categoryOpt() {
 
 }
 
+//Stores Certainty Value Selected
+var certaintyOptSelected;
+
+//Gets Certainty Value Selected from Dropdown Menu on Change
+function certaintyOpt(){
+    
+    certaintyOptSelected = document.getElementById('certaintyDropdown').value;
+    
+}
+
 //var for option selected from msgType dropdown list
 var msgTypeOptSelected;
 
@@ -189,16 +199,20 @@ function handleClick() {
 
         //Check for valid email format 
         if (email.match(validRegex)) {
-            emailCheck = true; 
+            emailCheck = true;
         }
 
         if (emailCheck == false) {
             alert("Please enter a valid email!")
             }else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
                      
-                alert("You must Select a Status!");
+                alert("You Must Select a Status!");
                      
-            } else {
+            } else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
+             
+                alert("You Must Select a Certainty!");
+                
+            }else {
             //Begin processing form 
             var today = new Date();
             var msgTime
@@ -230,7 +244,8 @@ function handleClick() {
                         sender: email,
                         sent: msgTime, 
                         status: msgStatusOptSelected,
-                        msgType: msgTypeOptSelected 
+                        msgType: msgTypeOptSelected,
+                        certainty: certaintyOptSelected
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -255,7 +270,8 @@ function handleClick() {
                         sender: email,
                         sent: msgTime,
                         status: msgStatusOptSelected,
-                        msgType: msgTypeOptSelected 
+                        msgType: msgTypeOptSelected,
+                        certainty: certaintyOptSelected
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -275,14 +291,15 @@ function handleClick() {
 
                 //Set the Alert Number on form 
                 document.getElementById('identifier').value = msgNumber;
-                
+                                
                 //Create object from form elements values 
                 var newObject = {
                     identifier: msgNumber,
                     sender: email,
                     sent: msgTime, 
                     status: msgStatusOptSelected,
-                    msgType: msgTypeOptSelected 
+                    msgType: msgTypeOptSelected,
+                    certainty: certaintyOptSelected
                 }; 
                 
                 //Send a POST request containing the form elements object  
