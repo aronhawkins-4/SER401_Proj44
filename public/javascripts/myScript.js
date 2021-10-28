@@ -220,7 +220,12 @@ function handleClick() {
                      
                 alert("You Must Select an Event Code!");
                      
-            }else {
+            }else if(scopeCodeOptSelected == undefined || scopeCodeOptSelected == "Default"){
+                
+                alert("You must Select a Scope!");
+                
+            } else {
+
             //Begin processing form 
             var today = new Date();
             var msgTime
@@ -253,6 +258,7 @@ function handleClick() {
                         sent: msgTime, 
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
+						scope: scopeCodeOptSelected,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected
@@ -281,6 +287,7 @@ function handleClick() {
                         sent: msgTime,
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
+						scope: scopeCodeOptSelected,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected
@@ -311,6 +318,7 @@ function handleClick() {
                     sent: msgTime, 
                     status: msgStatusOptSelected,
                     msgType: msgTypeOptSelected,
+					scope: scopeCodeOptSelected,
                     urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected,
                     eventCode: eventCodeOptSelected
