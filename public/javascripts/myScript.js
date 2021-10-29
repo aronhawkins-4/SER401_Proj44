@@ -192,6 +192,9 @@ function handleClick() {
     
     //Get Subject Event from Form
     var event = document.getElementById('eventSubjFi180').value;
+    
+    //Get Area Description from Form
+    var areaDesc = document.getElementById('eventFi180').value;
 
     //Validate the sender's email 
     if (email.length == 0) {
@@ -211,9 +214,13 @@ function handleClick() {
                      
                 alert("You Must Select a Status!");
                      
-            } else if(event == undefined || event == ''){
+            }else if(event == undefined || event == ''){
             
                 alert("You Must Enter a Subject for Event!");
+                      
+            }else if(areaDesc == undefined || areaDesc == ''){
+            
+                alert("You Must Enter a Description for Event Area!");
                       
             }else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
              
@@ -269,7 +276,8 @@ function handleClick() {
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
-                        eventCode: eventCodeOptSelected
+                        eventCode: eventCodeOptSelected,
+                        areaDesc: areaDesc
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -299,7 +307,8 @@ function handleClick() {
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
-                        eventCode: eventCodeOptSelected
+                        eventCode: eventCodeOptSelected,
+                        areaDesc: areaDesc
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -331,7 +340,8 @@ function handleClick() {
                     event: event,
                     urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected,
-                    eventCode: eventCodeOptSelected
+                    eventCode: eventCodeOptSelected,
+                    areaDesc: areaDesc
                 }; 
                 
                 //Send a POST request containing the form elements object  
