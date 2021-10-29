@@ -21,22 +21,23 @@ router.post('/', function(req, res, next) {
   var event = req.body.event;
   var urgency = req.body.urgency;
   var certainty = req.body.certainty;
+  var category = req.body.category;
   var eventCode = req.body.eventCode;
   
   //Call function to generate xml 
-  saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode);
+  saveXml(identifier,sender,sent,status,msgType,scope,category,event,urgency,certainty,eventCode);
 
   //Call function to generate json
-  saveJson(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode);
+  saveJson(identifier,sender,sent,status,msgType,scope,category,event,urgency,certainty,eventCode);
 
   //Call function to save test page view
-  saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode);
+  saveTestPage(identifier,sender,sent,status,msgType,scope,category,event,urgency,certainty,eventCode);
    
   res.redirect('/test',301);
 });
 
 /* Generate and save xml alert messag data */
-function saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode) {
+function saveXml(identifier,sender,sent,status,msgType,scope,category,event,urgency,certainty,eventCode) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
@@ -45,6 +46,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certa
   output += "  <msgType>"+msgType+"</msgType>\n";
   output += "  <scope>"+scope+"</scope>\n";
   output += "    <info>\n";
+  output += "      <category>"+category+"</cvategory>\n";
   output += "      <event>"+event+"</event>\n";
   output += "      <urgency>"+urgency+"</urgency>\n";
   output += "      <certainty>"+certainty+"</certainty>\n";
@@ -62,7 +64,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certa
 }
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber,email,msgTime,status,alertType,scope,event,urgency,certainty,eventCode) {
+function saveJson(msgNumber,email,msgTime,status,alertType,category,scope,event,urgency,certainty,eventCode) {
   
   var newObject = {
     identifier:msgNumber,
@@ -70,7 +72,8 @@ function saveJson(msgNumber,email,msgTime,status,alertType,scope,event,urgency,c
     sent: msgTime,
     status: status,
     msgType: alertType,
-	scope: scope,
+	  scope: scope,
+    category: category,
     event: event,
     urgency: urgency,
     certainty: certainty,
@@ -86,7 +89,7 @@ function saveJson(msgNumber,email,msgTime,status,alertType,scope,event,urgency,c
 }
 
 /* Generate and save xml alert messag data */
-function saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode) {
+function saveTestPage(identifier,sender,sent,status,msgType,scope,category,event,urgency,certainty,eventCode) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
@@ -95,6 +98,7 @@ function saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,
   output += "  <msgType>"+msgType+"</msgType>\n";
   output += "  <scope>"+scope+"</scope>\n";
   output += "    <info>\n";
+  output += "      <category>"+category+"</category>\n";
   output += "      <event>"+event+"</event>\n";
   output += "      <urgency>"+urgency+"</urgency>\n";
   output += "      <certainty>"+certainty+"</certainty>\n";

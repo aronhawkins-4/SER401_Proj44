@@ -3,9 +3,7 @@ var categoryOptSelected;
 
 //Saves category type selected on option onchange
 function categoryOpt() {
-
     categoryOptSelected = document.getElementById('categoryDropdown').value;
-
 }
 
 //Stores Certainty Value Selected
@@ -207,7 +205,11 @@ function handleClick() {
 
         if (emailCheck == false) {
             alert("Please enter a valid email!")
-            }else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
+            } else if (categoryOptSelected === undefined || categoryOptSelected == "Default") {
+                
+                alert("You Must Enter an Alert Category!");
+
+            } else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
                      
                 alert("You Must Select a Status!");
                      
@@ -266,6 +268,7 @@ function handleClick() {
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
 						scope: scopeCodeOptSelected,
+                        category: categoryOptSelected,
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
@@ -296,6 +299,7 @@ function handleClick() {
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
 						scope: scopeCodeOptSelected,
+                        category: categoryOptSelected,
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
@@ -328,6 +332,7 @@ function handleClick() {
                     status: msgStatusOptSelected,
                     msgType: msgTypeOptSelected,
 					scope: scopeCodeOptSelected,
+                    category: categoryOptSelected,
                     event: event,
                     urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected,
@@ -342,4 +347,4 @@ function handleClick() {
             }            
         }
     }
-}
+} 
