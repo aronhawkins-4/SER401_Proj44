@@ -53,10 +53,10 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certa
   output += "        <valueName>SAME</valueName>\n";
   output += "        <value>"+eventCode+"<value>\n";
   output += "      </eventCode>\n";
+  output += "      <area>\n";
+  output += "        <areaDesc>"+areaDesc+"</areaDesc>\n";
+  output += "      </area>\n";
   output += "    </info>\n";
-  output += "    <area>\n";
-  output += "      <areaDesc>"+areaDesc+"</areaDesc>\n";
-  output += "    </area>\n";
   output += "</alert>"; 
   
   fs.writeFile('public/dbs/temp.xml', output , function (err) {
@@ -107,10 +107,10 @@ function saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,
   output += "        <valueName>SAME</valueName>\n";
   output += "        <value>"+eventCode+"<value>\n";
   output += "      </eventCode>\n";
+  output += "      <area>\n";
+  output += "        <areaDesc>"+areaDesc+"</areaDesc>\n";
+  output += "      </area>\n";
   output += "    </info>\n";
-  output += "    <area>\n";
-  output += "      <areaDesc>"+areaDesc+"</areaDesc>\n";
-  output += "    </area>\n";
   output += "</alert>\n"; 
   
   var xmlOut = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
