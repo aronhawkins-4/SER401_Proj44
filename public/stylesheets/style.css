@@ -69,12 +69,12 @@ footer {
 }
 
 .dropdownMenu {
-    margin: 5px auto;
+    margin: 5px;
     outline: none;
     resize: none;
     border: 1px solid #229CFF;
     border-radius: 2px;
-    width: 100%;
+    width: 95%;
 }
 
 .dropdownMenu_style {
@@ -90,16 +90,16 @@ footer {
 
 .event180 {
     min-height: 3em;
-    width: 99%;
+    width: 95%;
 }
 
 .resField {
     min-height: 3em;
-    width: 100%;
+    width: 95%;
 }
 
 .selectFIPS {
-    width: 100%;
+    width: 95%;
     padding: 6px 10px 6px;
     margin: 5px;
     display: inline-block;
@@ -118,7 +118,7 @@ footer {
 
 input[type=text],
 select {
-    width: 100%;
+    width: 95%;
     padding: 6px 10px 6px;
     margin: 5px;
     display: inline-block;
@@ -129,7 +129,7 @@ select {
 
 input[type=email],
 select {
-    width: 100%;
+    width: 95%;
     padding: 6px 10px;
     margin: 5px;
     /* margin-right: 10px; */
@@ -142,8 +142,8 @@ select {
 /* Style Text Areas */
 
 textarea {
-    margin: 5px auto;
-    width: 99%;
+    margin: 5px;
+    /* border: none; */
     outline: none;
     resize: none;
     border: 1px solid #229CFF;
@@ -151,7 +151,7 @@ textarea {
 }
 
 .textarea_style {
-    margin: 5px auto;
+    margin: 5px;
     width: auto;
     height: auto;
     font-size: 16px;
@@ -178,27 +178,15 @@ p {
 
 .alert360 {
     min-height: 5em;
-    width: 99%;
+    width: 97%;
     /* min-width: 20em; */
 }
 
 
 /* Style Page views */
 
-.inputBox {
-    height: auto;
-    margin: 5px;
-}
-#addressField, #restrictionField {
-/* padding: 10px 15px; */
-    margin: 5px auto;
-    width: 100%;
-    padding: 6px 10px;
-    /* height: 256px; */
-}
-#identifier, #sender,  #selectid {
-    margin: 6px 0 5px;
-    width: 100%;
+#identifier, #sender, #addressField, #restrictionField, #selectid {
+    margin-top: 11px;
 }
 
 .alertGridEn {
@@ -215,7 +203,6 @@ p {
 
 #eventFi180, #eventFi180sp {
     padding-bottom: 29px;
-    width: 99%;
 }
 
 #En360 {
@@ -273,7 +260,6 @@ p {
 
 #mapid {
     height: 750px;
-    max-height: 95vh;
     border-top: 7px solid #005287;
     border-bottom: 7px solid #005287;
     border-left: 17px solid #005287;
@@ -328,7 +314,7 @@ button:hover {
 /*    TO FORMAT DATA LIST (BETA) */ 
 datalist {
     border-color: #005287;
-    width: 100%;
+    width: 97%;
     position: relative;
     background-color: lightgrey;
     font-family: sans-serif;
@@ -344,7 +330,7 @@ datalist {
 
   #geocodes {
     border-color: #005287;
-    width: 100%;
+    width: 97%;
     position: relative;
     background-color: lightgrey;
     font-family: sans-serif;

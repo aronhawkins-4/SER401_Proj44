@@ -187,10 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
-<<<<<<< HEAD
-    alert("Alert Submitted");
-}
-=======
     
     var email = document.getElementById('sender').value;
     
@@ -347,4 +343,3 @@ function handleClick() {
         }
     }
 }
->>>>>>> dev
