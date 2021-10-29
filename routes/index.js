@@ -20,17 +20,15 @@ router.post('/', function (req, res, next) {
   var status = req.body.status;
   var msgType = req.body.msgType;
   var scope = req.body.scope;
-  var category = req.body.category;
   var event = req.body.event;
   var urgency = req.body.urgency;
   var certainty = req.body.certainty;
   var eventCode = req.body.eventCode;
   //Call function to generate xml 
-  saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
+  var xml = saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
 
   //Call function to generate json
   saveJson(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
-
   //Call function to save test page view
   saveTestPage(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
 
@@ -54,7 +52,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
   xw.writeElement('scope', scope);
   xw.writeElement('code', 'IPAWSv1.0');
   xw.startElement('info');
-  xw.writeElement('category', category);
+  xw.writeElement('category', 'category goes here');
   //from here down the fields still need to be posted to index JK
   xw.writeElement('event', event);
   xw.writeElement('urgency', urgency);
@@ -82,10 +80,11 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
     if (err) throw err;
     console.log("XML Saved");
   });
-
+  console.log(xmlString);
   fs.writeFile('views/test.html', xmlString, function (err) {
     if (err) throw err;
     console.log("Test Page Saved");
+    return xmlString;
   });
 }
 
@@ -115,7 +114,8 @@ function saveJson(msgNumber, email, msgTime, status, alertType, scope, event, ur
 }
 
 /* Generate and save xml alert messag data */
-function saveTestPage(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode) {
+function saveTestPage(xml) {
+  
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
   output += "  <identifier>" + identifier + "</identifier>\n";
   output += "  <sender>" + sender + "</sender>\n";
@@ -137,7 +137,7 @@ function saveTestPage(identifier, sender, sent, status, msgType, scope, event, u
   var xmlOut = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
   xmlOut += output;
 
-  fs.writeFile('views/test.html', xmlOut, function (err) {
+  fs.writeFile('views/test.html', output, function (err) {
     if (err) throw err;
     console.log("Test Page Saved");
   });
