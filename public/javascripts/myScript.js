@@ -195,6 +195,9 @@ function handleClick() {
     
     //Get Area Description from Form
     var areaDesc = document.getElementById('eventFi180').value;
+    
+    //Get Message/Event Description from Form
+    var desc = document.getElementById('alertEn360').value;
 
     //Validate the sender's email 
     if (email.length == 0) {
@@ -217,6 +220,10 @@ function handleClick() {
             }else if(event == undefined || event == ''){
             
                 alert("You Must Enter a Subject for Event!");
+                      
+            }else if(desc == undefined || desc == ''){
+            
+                alert("You Must Enter a Message!");
                       
             }else if(areaDesc == undefined || areaDesc == ''){
             
@@ -277,6 +284,7 @@ function handleClick() {
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
+                        desc: desc,
                         areaDesc: areaDesc
                     }; 
                     
@@ -308,6 +316,7 @@ function handleClick() {
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
+                        desc: desc,
                         areaDesc: areaDesc
                     }; 
                     
@@ -341,6 +350,7 @@ function handleClick() {
                     urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected,
                     eventCode: eventCodeOptSelected,
+                    desc: desc,
                     areaDesc: areaDesc
                 }; 
                 
