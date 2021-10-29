@@ -221,9 +221,9 @@ function handleClick() {
                      
                 alert("You Must Select a Status!");
                      
-            }else if(geoCode == undefined || geoCode.length != 5){
+            }else if(geoCode == undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
             
-                alert("You Must Select a Geocode!");
+                alert("You Must Select a Valid Geocode!");
                       
             }else if(event == undefined || event == ''){
             
@@ -240,10 +240,6 @@ function handleClick() {
             }else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
              
                 alert("You Must Select a Certainty!");
-                
-            }else if(geoCode == undefined){
-             
-                alert("You Must Select a Geocode!");
                 
             }else if(urgencyOptSelected == undefined || urgencyOptSelected == "Default"){
                      

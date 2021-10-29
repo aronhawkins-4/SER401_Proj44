@@ -1,1 +1,1 @@
-{"identifier":"20211028205837865WAS","sender":"wasryan@live.com","sent":"2021-10-28T20:58:37-05:00","status":"Actual","msgType":"Alert","scope":"public","event":"asdfsadf","urgency":"Expected","certainty":"Likely","eventCode":"AVW","desc":"asdfasdf","areaDesc":"asdfasdf","geo":"06003"}
+{"identifier":"202110282116959WAS","sender":"wasryan@live.com","sent":"2021-10-28T21:16:9-05:00","status":"System Test","msgType":"Alert","scope":"public","event":"sgr","urgency":"Immediate","certainty":"Likely","eventCode":"AVA","desc":"zdsrfg","areaDesc":"sdzrg","geo":"01007"}
