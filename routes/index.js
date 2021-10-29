@@ -24,21 +24,22 @@ router.post('/', function(req, res, next) {
   var eventCode = req.body.eventCode;
   var desc = req.body.desc;
   var areaDesc = req.body.areaDesc;
+  var geo = req.body.geo;
   
   //Call function to generate xml 
-  saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc);
+  saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo);
 
   //Call function to generate json
-  saveJson(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc);
+  saveJson(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo);
 
   //Call function to save test page view
-  saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc);
+  saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo);
    
   res.redirect('/test',301);
 });
 
 /* Generate and save xml alert messag data */
-function saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc) {
+function saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
@@ -57,6 +58,10 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certa
   output += "      <description>"+desc+"</description>\n";
   output += "      <area>\n";
   output += "        <areaDesc>"+areaDesc+"</areaDesc>\n";
+  output += "        <geocode>\n";
+  output += "          <valueName>SAME</valueName>\n";
+  output += "          <value>"+geo+"</value>\n";
+  output += "        </geocode>\n";
   output += "      </area>\n";
   output += "    </info>\n";
   output += "</alert>"; 
@@ -68,7 +73,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,urgency,certa
 }
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber,email,msgTime,status,alertType,scope,event,urgency,certainty,eventCode,desc,areaDesc) {
+function saveJson(msgNumber,email,msgTime,status,alertType,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo) {
   
   var newObject = {
     identifier:msgNumber,
@@ -82,7 +87,8 @@ function saveJson(msgNumber,email,msgTime,status,alertType,scope,event,urgency,c
     certainty: certainty,
     eventCode: eventCode,
     desc: desc,
-    areaDesc: areaDesc
+    areaDesc: areaDesc,
+    geo: geo
   }; 
 
   var output = JSON.stringify(newObject);
@@ -94,7 +100,7 @@ function saveJson(msgNumber,email,msgTime,status,alertType,scope,event,urgency,c
 }
 
 /* Generate and save xml alert messag data */
-function saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc) {
+function saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
   output += "  <identifier>"+identifier+"</identifier>\n";
   output += "  <sender>"+sender+"</sender>\n";
@@ -113,6 +119,10 @@ function saveTestPage(identifier,sender,sent,status,msgType,scope,event,urgency,
   output += "      <description>"+desc+"</description>\n";
   output += "      <area>\n";
   output += "        <areaDesc>"+areaDesc+"</areaDesc>\n";
+  output += "        <geocode>\n";
+  output += "          <valueName>SAME</valueName>\n";
+  output += "          <value>"+geo+"</value>\n";
+  output += "        </geocode>\n";
   output += "      </area>\n";
   output += "    </info>\n";
   output += "</alert>\n"; 

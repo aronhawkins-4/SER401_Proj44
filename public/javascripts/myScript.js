@@ -188,6 +188,10 @@ document.addEventListener('DOMContentLoaded', () => {
 //Perform data validation and alert submission 
 function handleClick() {
     
+    //Get Geocode from Form
+    var geoCode = document.getElementById('selectid').value;
+    geoCode = geoCode.substr(0,5);
+    
     var email = document.getElementById('sender').value;
     
     //Get Subject Event from Form
@@ -217,6 +221,10 @@ function handleClick() {
                      
                 alert("You Must Select a Status!");
                      
+            }else if(geoCode == undefined || geoCode.length != 5){
+            
+                alert("You Must Select a Geocode!");
+                      
             }else if(event == undefined || event == ''){
             
                 alert("You Must Enter a Subject for Event!");
@@ -232,6 +240,10 @@ function handleClick() {
             }else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
              
                 alert("You Must Select a Certainty!");
+                
+            }else if(geoCode == undefined){
+             
+                alert("You Must Select a Geocode!");
                 
             }else if(urgencyOptSelected == undefined || urgencyOptSelected == "Default"){
                      
@@ -285,7 +297,8 @@ function handleClick() {
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
                         desc: desc,
-                        areaDesc: areaDesc
+                        areaDesc: areaDesc,
+                        geo: geoCode
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -317,7 +330,8 @@ function handleClick() {
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
                         desc: desc,
-                        areaDesc: areaDesc
+                        areaDesc: areaDesc,
+                        geo: geoCode
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -351,7 +365,8 @@ function handleClick() {
                     certainty: certaintyOptSelected,
                     eventCode: eventCodeOptSelected,
                     desc: desc,
-                    areaDesc: areaDesc
+                    areaDesc: areaDesc,
+                    geo: geoCode
                 }; 
                 
                 //Send a POST request containing the form elements object  

@@ -1,21 +1,21 @@
 <alert xmlns = "urn:oasis:names:tc:emergency:cap:1.2">
-  <identifier>20211028202138196WAS</identifier>
+  <identifier>20211028205837865WAS</identifier>
   <sender>wasryan@live.com</sender>
-  <sent>2021-10-28T20:21:38-05:00</sent>
+  <sent>2021-10-28T20:58:37-05:00</sent>
   <status>Actual</status>
   <msgType>Alert</msgType>
   <scope>public</scope>
     <info>
-      <event>fasdfasdfa</event>
+      <event>asdfsadf</event>
       <urgency>Expected</urgency>
       <certainty>Likely</certainty>
       <eventCode>
         <valueName>SAME</valueName>
-        <value>AVA<value>
+        <value>AVW<value>
       </eventCode>
-      <description>asdfasdfasdfsafdafdMESSAGE</description>
+      <description>asdfasdf</description>
       <area>
-        <areaDesc>assdfasdfasdfasdf</areaDesc>
+        <areaDesc>asdfasdf</areaDesc>
       </area>
     </info>
 </alert>
