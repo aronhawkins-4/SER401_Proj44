@@ -1,14 +1,14 @@
 <alert xmlns = "urn:oasis:names:tc:emergency:cap:1.2">
-  <identifier>2021102816346327WAS</identifier>
-  <sender>wasryan@live.com</sender>
-  <sent>2021-10-28T16:34:6-05:00</sent>
-  <status>Actual</status>
+  <identifier>20211029135636249HAW</identifier>
+  <sender>hawkins.aron@gmail.com</sender>
+  <sent>2021-10-29T13:56:36-05:00</sent>
+  <status>System Test</status>
   <msgType>Alert</msgType>
   <scope>restricted</scope>
     <info>
-      <event>EVENT SUBJECT!123</event>
-      <urgency>Expected</urgency>
-      <certainty>Likely</certainty>
+      <event>asdf</event>
+      <urgency>Future</urgency>
+      <certainty>Possible</certainty>
       <eventCode>
         <valueName>SAME</valueName>
         <value>AVW<value>
