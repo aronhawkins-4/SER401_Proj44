@@ -10,18 +10,16 @@ function categoryOpt() {
 //var for option selected from alert type dropdown list
 var alertTypeOptSelected;
 
-//Saves alert type selected on option onchange
-function alertTypeOpt() {
-    alertTypeOptSelected = document.getElementById('alertDropdown').value;
-}
-
-//var for option selected from certainty dropdown list
+//Stores Certainty Value Selected
 var certaintyOptSelected;
 
-//Saves certinty type selected on option onchange
-function certaintyTypeOpt(){
+//Gets Certainty Value Selected from Dropdown Menu on Change
+function certaintyOpt(){
+    
     certaintyOptSelected = document.getElementById('certaintyDropdown').value;
+    
 }
+
 //var for option selected from msgType dropdown list
 var msgTypeOptSelected;
 
@@ -192,6 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
 //Perform data validation and alert submission 
 function handleClick() {
     var email = document.getElementById('sender').value;
+    
+    //Get Subject Event from Form
+    var event = document.getElementById('eventSubjFi180').value;
 
     //Validate the sender's email 
     if (email.length == 0) {
@@ -202,33 +203,134 @@ function handleClick() {
 
         //Check for valid email format 
         if (email.match(validRegex)) {
-            emailCheck = true; 
+            emailCheck = true;
         }
 
         if (emailCheck == false) {
             alert("Please enter a valid email!")
-        } else {
+            }else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
+                     
+                alert("You Must Select a Status!");
+                     
+            } else if(event == undefined || event == ''){
+            
+                alert("You Must Enter a Subject for Event!");
+                      
+            }else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
+             
+                alert("You Must Select a Certainty!");
+                
+            }else if(urgencyOptSelected == undefined || urgencyOptSelected == "Default"){
+                     
+                alert("You Must Select an Urgency!");
+                     
+            }else if(eventCodeOptSelected == undefined || eventCodeOptSelected == "Default"){
+                     
+                alert("You Must Select an Event Code!");
+                     
+            }else if(scopeCodeOptSelected == undefined || scopeCodeOptSelected == "Default"){
+                
+                alert("You must Select a Scope!");
+                
+            } else {
+
             //Begin processing form 
             var today = new Date();
             var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate();
             dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
 
-            //Alert numebr composed of time and first 3 letters of sender's email 
-            var msgNumber = dateTime + String(email).substring(0,3).toUpperCase();
+            //Format current date time for message sent field 
+            var msgTime = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate() + "T"; 
+            msgTime +=  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "-05:00";
 
-            //Set the Alert Number on form 
-            document.getElementById('identifier').value = msgNumber;
-            //Create object from form elements values 
-            var newObject = {
-                identifier: msgNumber,
-                sender: email,
-                sent : dateTime,
-                mStatus: msgStatusOptSelected,
-                msgType: msgTypeOptSelected,
-                scope: scopeCodeOptSelected,
-                category: categoryOptSelected
-                
-                
+            // Process the Alert Type field 
+            if (msgTypeOptSelected === undefined || msgTypeOptSelected == "Default") {
+                alert("You must select an Alert Type");
+            } else if (msgTypeOptSelected == "Update") {
+                //Process an Alert Update
+                var msgNumber = document.getElementById('identifier').value;
+        
+                //Validate the Alert Number field 
+                if (msgNumber.length == 0) {
+                    alert("You must include the Alert Number to send an Update!");
+                } else if (msgNumber.length != 20) {
+                    alert("Invalid Message Number - Check your message number and try again");
+                } else {
+                    //Create object from form elements values 
+                    var newObject = {
+                        identifier: msgNumber,
+                        sender: email,
+                        sent: msgTime, 
+                        status: msgStatusOptSelected,
+                        msgType: msgTypeOptSelected,
+						scope: scopeCodeOptSelected,
+                        event: event,
+                        urgency: urgencyOptSelected,
+                        certainty: certaintyOptSelected,
+                        eventCode: eventCodeOptSelected
+                    }; 
+                    
+                    //Send a POST request containing the form elements object  
+                    $.post("/", newObject, function(data,status,xhr){
+                        alert("Alert Submitted");
+                        $(location).attr('href','/test2');
+                    });
+                } 
+            } else if (msgTypeOptSelected == "Cancel") {
+                //Process an Alert Cancellation
+                var msgNumber = document.getElementById('identifier').value;
+        
+                //Validate the Alert Number field 
+                if (msgNumber.length == 0) {
+                    alert("You must include the Alert Number to send a Cancellation!");
+                } else if (msgNumber.length != 20) {
+                    alert("Invalid Message Number - Check your message number and try again");
+                } else {
+                    //Create object from form elements values 
+                    var newObject = {
+                        identifier: msgNumber,
+                        sender: email,
+                        sent: msgTime,
+                        status: msgStatusOptSelected,
+                        msgType: msgTypeOptSelected,
+						scope: scopeCodeOptSelected,
+                        event: event,
+                        urgency: urgencyOptSelected,
+                        certainty: certaintyOptSelected,
+                        eventCode: eventCodeOptSelected
+                    }; 
+                    
+                    //Send a POST request containing the form elements object  
+                    $.post("/", newObject, function(data,status,xhr){
+                        alert("Alert Submitted");
+                        $(location).attr('href','/test2');
+                    });
+                } 
+            } else {
+                //Process a new alert 
+
+
+                //****This is where we add the rest of the fields after processing (Except for cancel and update msgType**********/
+            
+                //Alert number composed of time and first 3 letters of sender's email 
+                var msgNumber = dateTime + String(email).substring(0,3).toUpperCase();
+
+                //Set the Alert Number on form 
+                document.getElementById('identifier').value = msgNumber;
+                                
+                //Create object from form elements values 
+                var newObject = {
+                    identifier: msgNumber,
+                    sender: email,
+                    sent: msgTime, 
+                    status: msgStatusOptSelected,
+                    msgType: msgTypeOptSelected,
+					scope: scopeCodeOptSelected,
+                    event: event,
+                    urgency: urgencyOptSelected,
+                    certainty: certaintyOptSelected,
+                    eventCode: eventCodeOptSelected
+                }; 
                 
             }; 
 

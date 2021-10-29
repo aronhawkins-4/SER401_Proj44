@@ -4,7 +4,7 @@ var XMLWriter = require('xml-writer');
 fs = require('fs');
 
 
-var fs = require('fs'); 
+var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -17,25 +17,27 @@ router.post('/', function (req, res, next) {
   var identifier = req.body.identifier;
   var sender = req.body.sender;
   var sent = req.body.sent;
-  var mStatus = req.body.mStatus;
+  var status = req.body.status;
   var msgType = req.body.msgType;
   var scope = req.body.scope;
   var category = req.body.category;
-
+  var event = req.body.event;
+  var urgency = req.body.urgency;
+  var certainty = req.body.certainty;
+  var eventCode = req.body.eventCode;
   //Call function to generate xml 
-  saveXml(identifier, sender, sent, mStatus, msgType, scope, category);
+  saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
 
   //Call function to generate json
-  saveJson(identifier,sender,category);
+  saveJson(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
 
   //Call function to save test page view
-  saveTestPage(identifier, sender);
+  saveTestPage(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
 
   res.redirect('/test', 301);
 });
-
 /* Generate and save xml alert messag data */
-function saveXml(identifier, sender, sent, mStatus, msgType, scope, category) {
+function saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode) {
   //var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
   //output += "  <identifier>"+identifier+"</identifier>\n";
   // output += "  <sender>"+sender+"</sender>\n";
@@ -47,20 +49,20 @@ function saveXml(identifier, sender, sent, mStatus, msgType, scope, category) {
   xw.writeElement('identifier', identifier);
   xw.writeElement('sender', sender);
   xw.writeElement('sent', sent); //Eventually this Must be formatted like "2002-05-24T16:49:00-07:00".
-  xw.writeElement('status', mStatus);
+  xw.writeElement('status', status);
   xw.writeElement('msgType', msgType);
   xw.writeElement('scope', scope);
   xw.writeElement('code', 'IPAWSv1.0');
   xw.startElement('info');
   xw.writeElement('category', category);
   //from here down the fields still need to be posted to index JK
-  xw.writeElement('event', 'event goes here');
-  xw.writeElement('urgency', 'urgency goes here');
+  xw.writeElement('event', event);
+  xw.writeElement('urgency', urgency);
   xw.writeElement('severity', 'severity goes here');
-  xw.writeElement('certainty', 'certainty goes here');
+  xw.writeElement('certainty', certainty);
   xw.startElement('eventCode');
   xw.writeElement('valueName', 'SAME');
-  xw.writeElement('value', 'CAE');
+  xw.writeElement('value', eventCode);
   xw.endElement('eventCode');
   xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
   xw.writeElement('senderName', 'sender name goes here');
@@ -87,13 +89,21 @@ function saveXml(identifier, sender, sent, mStatus, msgType, scope, category) {
   });
 }
 
+
 /* Generate and save json alert message data */
-function saveJson(msgNumber, email, categoryOpt) {
+function saveJson(msgNumber, email, msgTime, status, alertType, scope, event, urgency, certainty, eventCode) {
 
   var newObject = {
     identifier: msgNumber,
     sender: email,
-    category: categoryOpt
+    sent: msgTime,
+    status: status,
+    msgType: alertType,
+    scope: scope,
+    event: event,
+    urgency: urgency,
+    certainty: certainty,
+    eventCode: eventCode
   };
 
   var output = JSON.stringify(newObject);
@@ -105,10 +115,23 @@ function saveJson(msgNumber, email, categoryOpt) {
 }
 
 /* Generate and save xml alert messag data */
-function saveTestPage(identifier, sender) {
+function saveTestPage(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode) {
   var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
   output += "  <identifier>" + identifier + "</identifier>\n";
   output += "  <sender>" + sender + "</sender>\n";
+  output += "  <sent>" + sent + "</sent>\n";
+  output += "  <status>" + status + "</status>\n";
+  output += "  <msgType>" + msgType + "</msgType>\n";
+  output += "  <scope>" + scope + "</scope>\n";
+  output += "    <info>\n";
+  output += "      <event>" + event + "</event>\n";
+  output += "      <urgency>" + urgency + "</urgency>\n";
+  output += "      <certainty>" + certainty + "</certainty>\n";
+  output += "      <eventCode>\n";
+  output += "        <valueName>SAME</valueName>\n";
+  output += "        <value>" + eventCode + "<value>\n";
+  output += "      </eventCode>\n";
+  output += "    </info>\n";
   output += "</alert>\n";
 
   var xmlOut = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
