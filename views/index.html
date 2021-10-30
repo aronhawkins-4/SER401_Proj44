@@ -50,17 +50,13 @@
         <div id="msgNum" class="container">
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
             <br>
-            <div class="inputBox">
-                <input type="text" id="identifier" name="identifier" maxlength="20"
-                    placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
-            </div>
+            <input type="text" id="identifier" value="" name="identifier" maxlength="20"
+                placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
         </div>
         <div id="msgSender" class="container">
             <label for="sender" class="text"><strong>Sender's Email:</strong></label>
             <br>
-            <div class="inputBox">
-                <input type="email" id="sender" name="sender" required>
-            </div>
+            <input type="email" id="sender" name="sender" placeholder="youremail@domain.com" required>
         </div>
         <div id="msgTypeDrop" class="container">
             <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
@@ -172,25 +168,19 @@
         </div>
         <div id="addressFieldBox" class="container">
             <label for="addressBox" class="text"><strong>Address Field:</strong></label>
-            <br>
-            <div class="inputBox">
-                <input type="text" id="addressField" name="addressField"
-                    placeholder="Required if scope set to private"></textarea>
-            </div>
+            <input type="text" id="addressField" name="addressField"
+                placeholder="Required if scope set to private"></textarea>
         </div>
         <div id="restrictionFieldBox" class="container">
             <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
-            <br>
-            <div class="inputBox">
-                <input type="text" id="restrictionField" name="restrictionField"
-                    placeholder="Required if scope set to restriced"></textarea>
-            </div>
+            <input type="text" id="restrictionField" name="restrictionField"
+                placeholder="Required if scope set to restriced"></textarea>
         </div>
         <div id="eventDrop" class="container">
             <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
             <br>
             <div id="eventDropdownMenu" class="dropdownMenu_style">
-                <select name="eventCodeDropdown" class="dropdownMenu" id="eventDropdown" onchange="eventOpt()">
+                <select name="eventCodeDropdown" class="dropdownMenu" id="eventDropdown" onchange="eventCodeOpt()">
                     <option value="Default">Select Event Code</option>
                     <option value="ADR">Administrative Message/Follow up Statement</option>
                     <option value="AVA">Avalanche Watch</option>
@@ -316,6 +306,9 @@
     </div>
     <br>
     <div id="fileAttachDiv">
+        <div></div>
+        <div></div>
+        <div></div>
         <div id="fileAttach" class="container">
             <label for="attachFileBox" class="text"><strong>Attach File:</strong></label>
             <br>
