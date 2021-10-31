@@ -368,28 +368,53 @@
             ]);
      
             // Check number of shapes and vertexes on map
-            map.on('pm:drawend', e => {
-                shapeNum++;
-                vertNum++;
-                checkShapeNum(shapeNum);
-                checkVertexNum(vertNum);
-            })
-            map.on('pm:vertexadded', e => {
-                shapeNum++;
-                vertNum++;
-                checkShapeNum(shapeNum);
-                checkVertexNum(vertNum);
-            })
+            map.on('pm:create', function (e) {
+                var layer = e.layer.toGeoJSON();
+                var coordinates = layer.geometry.coordinates[0];
+                var shape = layer.geometry.type;
+                var vertNumTemp = vertNum;
+
+                if (shape === "Polygon") {
+                    var vertices = coordinates.length - 1;
+                    vertNum += vertices;
+                }
+                else if (shape === "Point") {
+                    vertNum++;
+                }
+                if (vertNum > 100) {
+                    e.layer.remove();
+                    vertNum = vertNumTemp;
+                    alert("Vertice limit exceeded!");
+                } 
+                else {
+                    shapeNum++;
+                    checkShapeVertNums(shapeNum, vertNum);
+                    
+                }
+                console.log(vertNum);
+                console.log(shapeNum);
+            });
+
             map.on('pm:remove', e => {
+                var layer = e.layer.toGeoJSON();
+                var coordinates = layer.geometry.coordinates[0];
+                var shape = layer.geometry.type;
+
+                if (shape === "Polygon") {
+                    var vertices = coordinates.length - 1;
+                    vertNum -= vertices;
+                }
+                else if (shape === "Point") {
+                    vertNum--;
+                }
                 shapeNum--;
-                vertNum--;
-                checkShapeNum(shapeNum);
-                checkVertexNum(vertNum);
-            })
-            // If there are 10 shapes on the map, remove the toolbar to add shapes
-            // If the toolbar has been removed and a shape is deleted, bring back the toolbar
-            function checkShapeNum(shapes) {
-                if (shapes >= 10) {
+                checkShapeVertNums(shapeNum, vertNum);
+            });
+
+            // Check number of shapes on map. If at or over 10, remove shape toolbar visibilty.
+            // If number was at or over 10 and gets brought to under 10, restore shape toolbar visibility.
+            function checkShapeVertNums(shapes, vertices) {
+                if (shapes >= 10 || vertices >= 100) {
                     map.pm.addControls({  
                         position: 'topleft',  
                         drawCircle: false,  
@@ -401,7 +426,7 @@
                         cutPolygon: false,
                         splitMode: false,
             });
-                } else if (shapeNum == 9) {
+                } else if (shapes < 10 && vertices < 100) {
                     map.pm.addControls({  
                         position: 'topleft',  
                         drawCircle: true,  
@@ -416,6 +441,8 @@
                 }
             }
 
+            // Check number of vertices on map. If at or over 100, remove shape toolbar visibilty.
+            // If number was at or over 100 and gets brought to under 100, restore shape toolbar visibility.
             function checkVertexNum(vertNum) {
                 if (vertNum >= 100) {
                     map.pm.addControls({
@@ -429,7 +456,7 @@
                         cutPolygon: false,
                         splitMode: false,
                     });
-                } else if (vertNum == 99) {
+                } else if (vertNum < 100) {
                     map.pm.addControls({
                         position: 'topleft',  
                         drawCircle: true,  
