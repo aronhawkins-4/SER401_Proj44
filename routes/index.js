@@ -26,11 +26,10 @@ router.post('/', function (req, res, next) {
   var eventCode = req.body.eventCode;
   //Call function to generate xml 
   var xml = saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
-
   //Call function to generate json
   saveJson(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
   //Call function to save test page view
-  saveTestPage(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
+  saveTestPage(xml);
 
   res.redirect('/test', 301);
 });
@@ -80,12 +79,12 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
     if (err) throw err;
     console.log("XML Saved");
   });
-  console.log(xmlString);
   fs.writeFile('views/test.html', xmlString, function (err) {
     if (err) throw err;
     console.log("Test Page Saved");
-    return xmlString;
+    
   });
+  return xmlString;
 }
 
 
@@ -115,29 +114,8 @@ function saveJson(msgNumber, email, msgTime, status, alertType, scope, event, ur
 
 /* Generate and save xml alert messag data */
 function saveTestPage(xml) {
-  
-  var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">\n";
-  output += "  <identifier>" + identifier + "</identifier>\n";
-  output += "  <sender>" + sender + "</sender>\n";
-  output += "  <sent>" + sent + "</sent>\n";
-  output += "  <status>" + status + "</status>\n";
-  output += "  <msgType>" + msgType + "</msgType>\n";
-  output += "  <scope>" + scope + "</scope>\n";
-  output += "    <info>\n";
-  output += "      <event>" + event + "</event>\n";
-  output += "      <urgency>" + urgency + "</urgency>\n";
-  output += "      <certainty>" + certainty + "</certainty>\n";
-  output += "      <eventCode>\n";
-  output += "        <valueName>SAME</valueName>\n";
-  output += "        <value>" + eventCode + "<value>\n";
-  output += "      </eventCode>\n";
-  output += "    </info>\n";
-  output += "</alert>\n";
-
-  var xmlOut = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
-  xmlOut += output;
-
-  fs.writeFile('views/test.html', output, function (err) {
+ 
+  fs.writeFile('views/test.html', xml, function (err) {
     if (err) throw err;
     console.log("Test Page Saved");
   });
