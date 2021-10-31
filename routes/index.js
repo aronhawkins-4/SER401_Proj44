@@ -24,17 +24,21 @@ router.post('/', function (req, res, next) {
   var urgency = req.body.urgency;
   var certainty = req.body.certainty;
   var eventCode = req.body.eventCode;
+  var spanCheck = req.body.spanishExists;
+  var spanAreaDesc = req.body.spanishAreaDesc;
+  var spanDesc = req.body.spanishDesc;
+    
   //Call function to generate xml 
-  var xml = saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
+  var xml = saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode, spanCheck, spanAreaDesc, spanDesc);
   //Call function to generate json
-  saveJson(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode);
+  saveJson(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode, spanCheck);
   //Call function to save test page view
   saveTestPage(xml);
 
   res.redirect('/test', 301);
 });
 /* Generate and save xml alert messag data */
-function saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode) {
+function saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode, spanCheck, spanAreaDesc, spanDesc) {
   //var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
   //output += "  <identifier>"+identifier+"</identifier>\n";
   // output += "  <sender>"+sender+"</sender>\n";
@@ -77,7 +81,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
   xw.endElement('area');
   xw.endElement('info');
 
-  if(true){
+  if(spanCheck){
      
     xw.startElement('info');
     xw.writeElement('language', 'es-US');
@@ -94,7 +98,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
     xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
     xw.writeElement('senderName', 'sender name goes here');
     xw.writeElement('headline', 'headline goes here');
-    xw.writeElement('description', 'description goes here');
+    xw.writeElement('description', spanDesc);
     xw.writeElement('instruction', 'instruction goes here');
     xw.writeElement('web', 'http://www.google.com');
     xw.startElement('parameter', 'parameter goes here');
@@ -102,7 +106,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
     xw.writeElement('value', 'value goes here');
     xw.endElement('parameter');
     xw.startElement('area');
-    xw.writeElement('areaDesc', 'ared description goes here');
+    xw.writeElement('areaDesc', spanAreaDesc);
     xw.endElement('area');
     xw.endElement('info');
   
@@ -123,7 +127,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
 
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber, email, msgTime, status, alertType, scope, event, urgency, certainty, eventCode) {
+function saveJson(msgNumber, email, msgTime, status, alertType, scope, event, urgency, certainty, eventCode, spanCheck, spanAreaDesc, spanDesc) {
 
   var newObject = {
     identifier: msgNumber,
@@ -135,7 +139,10 @@ function saveJson(msgNumber, email, msgTime, status, alertType, scope, event, ur
     event: event,
     urgency: urgency,
     certainty: certainty,
-    eventCode: eventCode
+    eventCode: eventCode,
+    spanCheck: spanCheck,
+    spanAreaDesc: spanAreaDesc,
+    spanDesc: spanDesc
   };
 
   var output = JSON.stringify(newObject);

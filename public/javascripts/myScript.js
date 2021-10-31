@@ -193,6 +193,15 @@ function handleClick() {
     
     //Get Subject Event from Form
     var event = document.getElementById('eventSubjFi180').value;
+    
+    //Get Spanish Area Description
+    var spanArDesc = document.getElementById('eventFi180sp').value;
+    
+    //Get Spanish Message
+    var spanDesc = document.getElementById('alertSp360').value;
+    
+    //Check if Spanish Message is Present
+    var spanCheck = document.getElementById('spanchk').checked;
 
     //Validate the sender's email 
     if (email.length == 0) {
@@ -232,6 +241,14 @@ function handleClick() {
                 
                 alert("You must Select a Scope!");
                 
+            }else if(spanCheck && (spanArDesc == undefined || spanArDesc == '')){
+                
+                alert("You must Enter a Spanish Area Description!");
+                
+            }else if(spanCheck && (spanDesc == undefined || spanDesc == '')){
+                
+                alert("You must Enter a Spanish Alert Message!");
+                
             } else {
 
             //Begin processing form 
@@ -267,7 +284,10 @@ function handleClick() {
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
-                        eventCode: eventCodeOptSelected
+                        eventCode: eventCodeOptSelected,
+                        spanishExists: spanCheck,
+                        spanishAreaDesc: spanArDesc,
+                        spanishDesc: spanDesc
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -297,7 +317,10 @@ function handleClick() {
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
-                        eventCode: eventCodeOptSelected
+                        eventCode: eventCodeOptSelected,
+                        spanishExists: spanCheck,
+                        spanishAreaDesc: spanArDesc,
+                        spanishDesc: spanDesc
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -329,7 +352,10 @@ function handleClick() {
                     event: event,
                     urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected,
-                    eventCode: eventCodeOptSelected
+                    eventCode: eventCodeOptSelected,
+                    spanishExists: spanCheck,
+                    spanishAreaDesc: spanArDesc,
+                    spanishDesc: spanDesc
                 }; 
                 
             }; 
