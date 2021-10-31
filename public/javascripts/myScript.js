@@ -7,6 +7,8 @@ function categoryOpt() {
     categoryOptSelected = document.getElementById('categoryDropdown').value;
 
 }
+//var for option selected from alert type dropdown list
+var alertTypeOptSelected;
 
 //Stores Certainty Value Selected
 var certaintyOptSelected;
@@ -187,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
-    
     var email = document.getElementById('sender').value;
     
     //Get Subject Event from Form
@@ -235,10 +236,7 @@ function handleClick() {
 
             //Begin processing form 
             var today = new Date();
-            var msgTime
-
-            //Format current date time to be used in message number 
-            var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate(); 
+            var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate();
             dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
 
             //Format current date time for message sent field 
@@ -334,12 +332,16 @@ function handleClick() {
                     eventCode: eventCodeOptSelected
                 }; 
                 
-                //Send a POST request containing the form elements object  
-                $.post("/", newObject, function(data,status,xhr){
-                    alert("Alert Submitted");
-                    $(location).attr('href','/test2');
-                });
-            }            
+            }; 
+
+            //Send a POST request containing the form elements object  
+            $.post("/", newObject, function(data,status,xhr){
+                alert("Alert Submitted");
+                $(location).attr('href','/test');
+            });
+
+
+            
         }
     }
 }
