@@ -77,7 +77,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
   xw.writeElement('value', 'value goes here');
   xw.endElement('parameter');
   xw.startElement('area');
-  xw.writeElement('areaDesc', 'ared description goes here');
+  xw.writeElement('areaDesc', 'area description goes here');
   xw.endElement('area');
   xw.endElement('info');
 
