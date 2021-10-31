@@ -1,17 +1,60 @@
-<alert xmlns = "urn:oasis:names:tc:emergency:cap:1.2">
-  <identifier>20211030153831715HAW</identifier>
-  <sender>hawkins.aron@gmail.com</sender>
-  <sent>2021-10-30T15:38:31-05:00</sent>
-  <status>Exercise</status>
-  <msgType>Alert</msgType>
-  <scope>restricted</scope>
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+    <identifier>20211031133131236WAS</identifier>
+    <sender>wasryan@live.com</sender>
+    <sent>2021-10-31T13:31:31-05:00</sent>
+    <status>Actual</status>
+    <msgType>Alert</msgType>
+    <scope>public</scope>
+    <code>IPAWSv1.0</code>
     <info>
-      <event>asdf</event>
-      <urgency>Future</urgency>
-      <certainty>Likely</certainty>
-      <eventCode>
-        <valueName>SAME</valueName>
-        <value>BLU<value>
-      </eventCode>
+        <language>en-US</language>
+        <category>category goes here</category>
+        <event>asdf</event>
+        <urgency>Immediate</urgency>
+        <severity>severity goes here</severity>
+        <certainty>Observed</certainty>
+        <eventCode>
+            <valueName>SAME</valueName>
+            <value>ADR</value>
+        </eventCode>
+        <expires>2007-04-22T23:55:00-08:00</expires>
+        <senderName>sender name goes here</senderName>
+        <headline>headline goes here</headline>
+        <description>description goes here</description>
+        <instruction>instruction goes here</instruction>
+        <web>http://www.google.com</web>
+        <parameter>
+            <valueName>valuename goes here</valueName>
+            <value>value goes here</value>
+        </parameter>
+        <area>
+            <areaDesc>ared description goes here</areaDesc>
+        </area>
+    </info>
+    <info>
+        <language>es-US</language>
+        <category>category goes here</category>
+        <event>asdf</event>
+        <urgency>Immediate</urgency>
+        <severity>severity goes here</severity>
+        <certainty>Observed</certainty>
+        <eventCode>
+            <valueName>SAME</valueName>
+            <value>ADR</value>
+        </eventCode>
+        <expires>2007-04-22T23:55:00-08:00</expires>
+        <senderName>sender name goes here</senderName>
+        <headline>headline goes here</headline>
+        <description>description goes here</description>
+        <instruction>instruction goes here</instruction>
+        <web>http://www.google.com</web>
+        <parameter>
+            <valueName>valuename goes here</valueName>
+            <value>value goes here</value>
+        </parameter>
+        <area>
+            <areaDesc>ared description goes here</areaDesc>
+        </area>
     </info>
 </alert>

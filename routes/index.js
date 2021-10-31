@@ -51,6 +51,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
   xw.writeElement('scope', scope);
   xw.writeElement('code', 'IPAWSv1.0');
   xw.startElement('info');
+  xw.writeElement('language', 'en-US');
   xw.writeElement('category', 'category goes here');
   //from here down the fields still need to be posted to index JK
   xw.writeElement('event', event);
@@ -73,6 +74,39 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
   xw.endElement('parameter');
   xw.startElement('area');
   xw.writeElement('areaDesc', 'ared description goes here');
+  xw.endElement('area');
+  xw.endElement('info');
+
+  if(true){
+     
+    xw.startElement('info');
+    xw.writeElement('language', 'es-US');
+    xw.writeElement('category', 'category goes here');
+    //from here down the fields still need to be posted to index JK
+    xw.writeElement('event', event);
+    xw.writeElement('urgency', urgency);
+    xw.writeElement('severity', 'severity goes here');
+    xw.writeElement('certainty', certainty);
+    xw.startElement('eventCode');
+    xw.writeElement('valueName', 'SAME');
+    xw.writeElement('value', eventCode);
+    xw.endElement('eventCode');
+    xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
+    xw.writeElement('senderName', 'sender name goes here');
+    xw.writeElement('headline', 'headline goes here');
+    xw.writeElement('description', 'description goes here');
+    xw.writeElement('instruction', 'instruction goes here');
+    xw.writeElement('web', 'http://www.google.com');
+    xw.startElement('parameter', 'parameter goes here');
+    xw.writeElement('valueName', 'valuename goes here');
+    xw.writeElement('value', 'value goes here');
+    xw.endElement('parameter');
+    xw.startElement('area');
+    xw.writeElement('areaDesc', 'ared description goes here');
+    xw.endElement('area');
+    xw.endElement('info');
+  
+  }
   xw.endDocument();
   let xmlString = xw.toString();
   fs.writeFile('public/dbs/temp.xml', xmlString, function (err) {
