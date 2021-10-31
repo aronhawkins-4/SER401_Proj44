@@ -1,1 +1,1 @@
-{"identifier":"20211029135636249HAW","sender":"hawkins.aron@gmail.com","sent":"2021-10-29T13:56:36-05:00","status":"System Test","msgType":"Alert","scope":"restricted","event":"asdf","urgency":"Future","certainty":"Possible","eventCode":"AVW"}
+{"identifier":"20211030153831715HAW","sender":"hawkins.aron@gmail.com","sent":"2021-10-30T15:38:31-05:00","status":"Exercise","msgType":"Alert","scope":"restricted","event":"asdf","urgency":"Future","certainty":"Likely","eventCode":"BLU"}
