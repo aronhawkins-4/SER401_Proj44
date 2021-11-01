@@ -5,6 +5,8 @@ var categoryOptSelected;
 function categoryOpt() {
     categoryOptSelected = document.getElementById('categoryDropdown').value;
 }
+//var for option selected from alert type dropdown list
+var alertTypeOptSelected;
 
 //Stores Certainty Value Selected
 var certaintyOptSelected;
@@ -185,11 +187,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
+    //Get Geocode from Form
+    var geoCode = document.getElementById('selectid').value;
+    geoCode = geoCode.substr(0,5);
     
     var email = document.getElementById('sender').value;
     
     //Get Subject Event from Form
     var event = document.getElementById('eventSubjFi180').value;
+    
+    //Get Area Description from Form
+    var areaDesc = document.getElementById('eventFi180').value;
+    
+    //Get Message/Event Description from Form
+    var desc = document.getElementById('alertEn360').value;
 
     //Validate the sender's email 
     if (email.length == 0) {
@@ -213,9 +224,21 @@ function handleClick() {
                      
                 alert("You Must Select a Status!");
                      
-            } else if(event == undefined || event == ''){
+            }else if(geoCode == undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
+            
+                alert("You Must Select a Valid Geocode!");
+                      
+            }else if(event == undefined || event == ''){
             
                 alert("You Must Enter a Subject for Event!");
+                      
+            }else if(desc == undefined || desc == ''){
+            
+                alert("You Must Enter a Message!");
+                      
+            }else if(areaDesc == undefined || areaDesc == ''){
+            
+                alert("You Must Enter a Description for Event Area!");
                       
             }else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
              
@@ -237,10 +260,7 @@ function handleClick() {
 
             //Begin processing form 
             var today = new Date();
-            var msgTime
-
-            //Format current date time to be used in message number 
-            var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate(); 
+            var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate();
             dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
 
             //Format current date time for message sent field 
@@ -272,7 +292,10 @@ function handleClick() {
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
-                        eventCode: eventCodeOptSelected
+                        eventCode: eventCodeOptSelected,
+                        desc: desc,
+                        areaDesc: areaDesc,
+                        geo: geoCode
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -303,7 +326,10 @@ function handleClick() {
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
-                        eventCode: eventCodeOptSelected
+                        eventCode: eventCodeOptSelected,
+                        desc: desc,
+                        areaDesc: areaDesc,
+                        geo: geoCode
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -336,15 +362,22 @@ function handleClick() {
                     event: event,
                     urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected,
-                    eventCode: eventCodeOptSelected
+                    eventCode: eventCodeOptSelected,
+                    desc: desc,
+                    areaDesc: areaDesc,
+                    geo: geoCode
                 }; 
                 
-                //Send a POST request containing the form elements object  
-                $.post("/", newObject, function(data,status,xhr){
-                    alert("Alert Submitted");
-                    $(location).attr('href','/test2');
-                });
-            }            
+            }; 
+
+            //Send a POST request containing the form elements object  
+            $.post("/", newObject, function(data,status,xhr){
+                alert("Alert Submitted");
+                $(location).attr('href','/test');
+            });
+
+
+            
         }
     }
 } 
