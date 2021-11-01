@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
     <identifier>2021103114941800WAS</identifier>
@@ -56,5 +57,46 @@
         <area>
             <areaDesc>b</areaDesc>
         </area>
+=======
+<alert xmlns = "urn:oasis:names:tc:emergency:cap:1.2">
+<<<<<<< HEAD
+  <identifier>2021102823314542JES</identifier>
+  <sender>jesus.quiroz@cox.net</sender>
+  <sent>2021-10-28T23:31:45-05:00</sent>
+  <status>Actual</status>
+  <msgType>Alert</msgType>
+  <scope>public</scope>
+    <info>
+      <category>Health</cvategory>
+      <event>tyyyy</event>
+=======
+  <identifier>20211030153831715HAW</identifier>
+  <sender>hawkins.aron@gmail.com</sender>
+  <sent>2021-10-30T15:38:31-05:00</sent>
+  <status>Exercise</status>
+  <msgType>Alert</msgType>
+  <scope>public</scope>
+    <info>
+      <event>asdf</event>
+>>>>>>> dev
+      <urgency>Future</urgency>
+      <certainty>Likely</certainty>
+      <eventCode>
+        <valueName>SAME</valueName>
+<<<<<<< HEAD
+        <value>DSW<value>
+=======
+        <value>BLU<value>
+>>>>>>> dev
+      </eventCode>
+      <description>zdsrfg</description>
+      <area>
+        <areaDesc>sdzrg</areaDesc>
+        <geocode>
+          <valueName>SAME</valueName>
+          <value>01007</value>
+        </geocode>
+      </area>
+>>>>>>> dev
     </info>
 </alert>

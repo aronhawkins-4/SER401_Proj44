@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 {"identifier":"2021103114941800WAS","sender":"wasryan@live.com","sent":"2021-10-31T14:9:41-05:00","status":"Actual","msgType":"Alert","scope":"public","event":"a","urgency":"Immediate","certainty":"Observed","eventCode":"ADR","spanCheck":"false"}
+=======
+<<<<<<< HEAD
+{"identifier":"2021102823314542JES","sender":"jesus.quiroz@cox.net","sent":"2021-10-28T23:31:45-05:00","status":"Actual","msgType":"Alert","scope":"Health","category":"public","event":"tyyyy","urgency":"Future","certainty":"Likely","eventCode":"DSW"}
+=======
+{"identifier":"20211030153831715HAW","sender":"hawkins.aron@gmail.com","sent":"2021-10-30T15:38:31-05:00","status":"Exercise","msgType":"Alert","scope":"restricted","event":"asdf","urgency":"Future","certainty":"Likely","eventCode":"BLU"}
+>>>>>>> dev
+>>>>>>> dev

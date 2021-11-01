@@ -3,9 +3,7 @@ var categoryOptSelected;
 
 //Saves category type selected on option onchange
 function categoryOpt() {
-
     categoryOptSelected = document.getElementById('categoryDropdown').value;
-
 }
 //var for option selected from alert type dropdown list
 var alertTypeOptSelected;
@@ -189,6 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
+    //Get Geocode from Form
+    var geoCode = document.getElementById('selectid').value;
+    geoCode = geoCode.substr(0,5);
+    
     var email = document.getElementById('sender').value;
     
     //Get Subject Event from Form
@@ -202,6 +204,12 @@ function handleClick() {
     
     //Check if Spanish Message is Present
     var spanCheck = document.getElementById('spanchk').checked;
+
+    //Get Area Description from Form
+    var areaDesc = document.getElementById('eventFi180').value;
+    
+    //Get Message/Event Description from Form
+    var desc = document.getElementById('alertEn360').value;
 
     //Validate the sender's email 
     if (email.length == 0) {
@@ -217,13 +225,29 @@ function handleClick() {
 
         if (emailCheck == false) {
             alert("Please enter a valid email!")
-            }else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
+            } else if (categoryOptSelected === undefined || categoryOptSelected == "Default") {
+                
+                alert("You Must Enter an Alert Category!");
+
+            } else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
                      
                 alert("You Must Select a Status!");
                      
-            } else if(event == undefined || event == ''){
+            }else if(geoCode == undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
+            
+                alert("You Must Select a Valid Geocode!");
+                      
+            }else if(event == undefined || event == ''){
             
                 alert("You Must Enter a Subject for Event!");
+                      
+            }else if(desc == undefined || desc == ''){
+            
+                alert("You Must Enter a Message!");
+                      
+            }else if(areaDesc == undefined || areaDesc == ''){
+            
+                alert("You Must Enter a Description for Event Area!");
                       
             }else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
              
@@ -281,10 +305,14 @@ function handleClick() {
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
 						scope: scopeCodeOptSelected,
+                        category: categoryOptSelected,
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
+                        desc: desc,
+                        areaDesc: areaDesc,
+                        geo: geoCode,
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc
@@ -314,13 +342,18 @@ function handleClick() {
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
 						scope: scopeCodeOptSelected,
+                        category: categoryOptSelected,
                         event: event,
                         urgency: urgencyOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
+                        desc: desc,
+                        areaDesc: areaDesc,
+                        geo: geoCode,
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc
+
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -349,25 +382,27 @@ function handleClick() {
                     status: msgStatusOptSelected,
                     msgType: msgTypeOptSelected,
 					scope: scopeCodeOptSelected,
+                    category: categoryOptSelected,
                     event: event,
                     urgency: urgencyOptSelected,
                     certainty: certaintyOptSelected,
                     eventCode: eventCodeOptSelected,
+                    desc: desc,
+                    areaDesc: areaDesc,
+                    geo: geoCode,
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
-                    spanishDesc: spanDesc
+                    spanishDesc: spanDesc             
                 }; 
-                
-            }; 
 
-            //Send a POST request containing the form elements object  
-            $.post("/", newObject, function(data,status,xhr){
-                alert("Alert Submitted");
-                $(location).attr('href','/test');
-            });
-
-
+                //Send a POST request containing the form elements object  
+                $.post("/", newObject, function(data,status,xhr){
+                    alert("Alert Submitted");
+                    $(location).attr('href','/test');
+                });
+            }
             
         }
     }
 }
+

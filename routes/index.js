@@ -23,26 +23,30 @@ router.post('/', function (req, res, next) {
   var event = req.body.event;
   var urgency = req.body.urgency;
   var certainty = req.body.certainty;
+  var category = req.body.category;
   var eventCode = req.body.eventCode;
+  var desc = req.body.desc;
+  var areaDesc = req.body.areaDesc;
+  var geo = req.body.geo;
   var spanCheck = req.body.spanishExists;
   var spanAreaDesc = req.body.spanishAreaDesc;
   var spanDesc = req.body.spanishDesc;
-    
+
   //Call function to generate xml 
-  var xml = saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode, spanCheck, spanAreaDesc, spanDesc);
-  //Call function to generate json
-  saveJson(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode, spanCheck);
-  //Call function to save test page view
-  saveTestPage(xml);
+  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+  
+  //Call function to save msg as json 
+  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+
+  //Call function to save test page that displays xml string 
+  saveTestPage(xmlString);
 
   res.redirect('/test', 301);
 });
+
 /* Generate and save xml alert messag data */
-function saveXml(identifier, sender, sent, status, msgType, scope, event, urgency, certainty, eventCode, spanCheck, spanAreaDesc, spanDesc) {
-  //var output = "<alert xmlns = \"urn:oasis:names:tc:emergency:cap:1.2\">" + "\n";
-  //output += "  <identifier>"+identifier+"</identifier>\n";
-  // output += "  <sender>"+sender+"</sender>\n";
-  // output += "</alert>"; 
+
+function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
 
   xw = new XMLWriter(true);
   xw.startDocument('1.0', 'UTF-8');
@@ -56,7 +60,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
   xw.writeElement('code', 'IPAWSv1.0');
   xw.startElement('info');
   xw.writeElement('language', 'en-US');
-  xw.writeElement('category', 'category goes here');
+  xw.writeElement('category', category);
   //from here down the fields still need to be posted to index JK
   xw.writeElement('event', event);
   xw.writeElement('urgency', urgency);
@@ -69,7 +73,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
   xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
   xw.writeElement('senderName', 'sender name goes here');
   xw.writeElement('headline', 'headline goes here');
-  xw.writeElement('description', 'description goes here');
+  xw.writeElement('description', desc);
   xw.writeElement('instruction', 'instruction goes here');
   xw.writeElement('web', 'http://www.google.com');
   xw.startElement('parameter', 'parameter goes here');
@@ -77,7 +81,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
   xw.writeElement('value', 'value goes here');
   xw.endElement('parameter');
   xw.startElement('area');
-  xw.writeElement('areaDesc', 'area description goes here');
+  xw.writeElement('areaDesc', areaDesc);
   xw.endElement('area');
   xw.endElement('info');
 
@@ -111,35 +115,38 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, urgenc
     xw.endElement('info');
   
   }
+
   xw.endDocument();
   let xmlString = xw.toString();
+  
   fs.writeFile('public/dbs/temp.xml', xmlString, function (err) {
+
     if (err) throw err;
     console.log("XML Saved");
   });
-  fs.writeFile('views/test.html', xmlString, function (err) {
-    if (err) throw err;
-    console.log("Test Page Saved");
-    
-  });
+
   return xmlString;
 }
 
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber, email, msgTime, status, alertType, scope, event, urgency, certainty, eventCode, spanCheck, spanAreaDesc, spanDesc) {
+function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
 
   var newObject = {
-    identifier: msgNumber,
-    sender: email,
-    sent: msgTime,
+    identifier: identifier,
+    sender: sender,
+    sent: sent,
     status: status,
-    msgType: alertType,
+    msgType: msgType,
+    category: category,
     scope: scope,
     event: event,
     urgency: urgency,
     certainty: certainty,
     eventCode: eventCode,
+    desc: desc,
+    areaDesc: areaDesc,
+    geo: geo,
     spanCheck: spanCheck,
     spanAreaDesc: spanAreaDesc,
     spanDesc: spanDesc
