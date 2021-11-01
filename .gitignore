@@ -39,3 +39,10 @@ target/
 
 ### VS Code ###
 .vscode/
+
+### Project temp files ###
+/public/dbs/temp.json
+/public/dbs/temp.xml
+/view/test.html
+/view/test2.html 
+
