@@ -5,6 +5,7 @@ fs = require('fs');
 
 
 var fs = require('fs');
+const { off } = require('process');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -48,7 +49,14 @@ router.post('/', function (req, res, next) {
 /* Generate and save xml alert messag data */
 
 function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
-
+  let now = new Date();
+  let offset = now.getTimezoneOffset()/60;
+  if(offset<10){
+    sent = now.getFullYear() + "-" + now.getMonth() + "-" + now.getDay() + "T" +now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()+"-0" + offset +":00";
+  }
+  else {
+    sent = now.getFullYear() + "-" + now.getMonth() + "-" + now.getDay() + "T" +now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()+"-" + offset +":00";
+  }
   xw = new XMLWriter(true);
   xw.startDocument('1.0', 'UTF-8');
   xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
