@@ -8,6 +8,10 @@ function categoryOpt() {
 //var for option selected from alert type dropdown list
 var alertTypeOptSelected;
 
+function alertTypeOpt() {
+    alertTypeOptSelected = document.getElementById('alertDropdown').value;
+}
+
 //Stores Certainty Value Selected
 var certaintyOptSelected;
 
@@ -229,47 +233,51 @@ function handleClick() {
                 
                 alert("You Must Enter an Alert Category!");
 
-            } else if(msgStatusOptSelected == undefined || msgStatusOptSelected == "Default"){
+            } else if(msgStatusOptSelected === undefined || msgStatusOptSelected == "Default"){
                      
                 alert("You Must Select a Status!");
                      
-            }else if(geoCode == undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
+            }else if(geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
             
                 alert("You Must Select a Valid Geocode!");
                       
-            }else if(event == undefined || event == ''){
+            }else if(event === undefined || event == ''){
             
                 alert("You Must Enter a Subject for Event!");
                       
-            }else if(desc == undefined || desc == ''){
+            }else if(desc === undefined || desc == ''){
             
                 alert("You Must Enter a Message!");
                       
-            }else if(areaDesc == undefined || areaDesc == ''){
+            }else if(areaDesc === undefined || areaDesc == ''){
             
                 alert("You Must Enter a Description for Event Area!");
                       
-            }else if(certaintyOptSelected == undefined || certaintyOptSelected == "Default"){
+            }else if(certaintyOptSelected === undefined || certaintyOptSelected == "Default"){
              
                 alert("You Must Select a Certainty!");
                 
-            }else if(urgencyOptSelected == undefined || urgencyOptSelected == "Default"){
+            } else if (alertTypeOptSelected === undefined || alertTypeOptSelected == "Default") {
+
+                alert("You Must Select a Severity");
+
+            } else if(urgencyOptSelected === undefined || urgencyOptSelected == "Default"){
                      
                 alert("You Must Select an Urgency!");
                      
-            }else if(eventCodeOptSelected == undefined || eventCodeOptSelected == "Default"){
+            }else if(eventCodeOptSelected === undefined || eventCodeOptSelected == "Default"){
                      
                 alert("You Must Select an Event Code!");
                      
-            }else if(scopeCodeOptSelected == undefined || scopeCodeOptSelected == "Default"){
+            }else if(scopeCodeOptSelected === undefined || scopeCodeOptSelected == "Default"){
                 
                 alert("You must Select a Scope!");
                 
-            }else if(spanCheck && (spanArDesc == undefined || spanArDesc == '')){
+            }else if(spanCheck && (spanArDesc === undefined || spanArDesc == '')){
                 
                 alert("You must Enter a Spanish Area Description!");
                 
-            }else if(spanCheck && (spanDesc == undefined || spanDesc == '')){
+            }else if(spanCheck && (spanDesc === undefined || spanDesc == '')){
                 
                 alert("You must Enter a Spanish Alert Message!");
                 
@@ -308,6 +316,7 @@ function handleClick() {
                         category: categoryOptSelected,
                         event: event,
                         urgency: urgencyOptSelected,
+                        severity: alertTypeOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
                         desc: desc,
@@ -345,6 +354,7 @@ function handleClick() {
                         category: categoryOptSelected,
                         event: event,
                         urgency: urgencyOptSelected,
+                        severity: alertTypeOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
                         desc: desc,
@@ -385,6 +395,7 @@ function handleClick() {
                     category: categoryOptSelected,
                     event: event,
                     urgency: urgencyOptSelected,
+                    severity: alertTypeOptSelected,
                     certainty: certaintyOptSelected,
                     eventCode: eventCodeOptSelected,
                     desc: desc,

@@ -22,6 +22,7 @@ router.post('/', function (req, res, next) {
   var scope = req.body.scope;
   var event = req.body.event;
   var urgency = req.body.urgency;
+  var severity = req.body.severity;
   var certainty = req.body.certainty;
   var category = req.body.category;
   var eventCode = req.body.eventCode;
@@ -33,10 +34,10 @@ router.post('/', function (req, res, next) {
   var spanDesc = req.body.spanishDesc;
 
   //Call function to generate xml 
-  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
   
   //Call function to save msg as json 
-  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
 
   //Call function to save test page that displays xml string 
   saveTestPage(xmlString);
@@ -46,7 +47,7 @@ router.post('/', function (req, res, next) {
 
 /* Generate and save xml alert messag data */
 
-function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
+function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
 
   xw = new XMLWriter(true);
   xw.startDocument('1.0', 'UTF-8');
@@ -64,7 +65,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
   //from here down the fields still need to be posted to index JK
   xw.writeElement('event', event);
   xw.writeElement('urgency', urgency);
-  xw.writeElement('severity', 'severity goes here');
+  xw.writeElement('severity', severity);
   xw.writeElement('certainty', certainty);
   xw.startElement('eventCode');
   xw.writeElement('valueName', 'SAME');
@@ -93,7 +94,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
     //from here down the fields still need to be posted to index JK
     xw.writeElement('event', event);
     xw.writeElement('urgency', urgency);
-    xw.writeElement('severity', 'severity goes here');
+    xw.writeElement('severity', severity);
     xw.writeElement('certainty', certainty);
     xw.startElement('eventCode');
     xw.writeElement('valueName', 'SAME');
@@ -130,7 +131,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
 
 
 /* Generate and save json alert message data */
-function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
+function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
 
   var newObject = {
     identifier: identifier,
@@ -142,6 +143,7 @@ function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urg
     scope: scope,
     event: event,
     urgency: urgency,
+    severity: severity,
     certainty: certainty,
     eventCode: eventCode,
     desc: desc,
