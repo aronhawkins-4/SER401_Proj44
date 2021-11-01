@@ -30,12 +30,15 @@ router.post('/', function (req, res, next) {
   var geo = req.body.geo;
   
   //Call function to generate xml 
-  saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo);
+  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo);
 
+  //Call function to save test page that displays xml string 
+  saveTestPage(xmlString);
+  
   //Call function to save msg as json 
   saveJson(msgNumber,email,msgTime,status,alertType,category,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo);
 
-
+  res.redirect('/test', 301);
 });
 
 /* Generate and save xml alert messag data */
@@ -87,9 +90,6 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
     console.log("Test Page Saved");
     
   });
-
-  //Call function to save the xml outpout to test page 
-  saveTestPage(xmlString);
 
   return xmlString;
 }
