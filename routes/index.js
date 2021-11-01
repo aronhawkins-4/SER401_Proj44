@@ -31,12 +31,12 @@ router.post('/', function (req, res, next) {
   
   //Call function to generate xml 
   var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo);
+  
+  //Call function to save msg as json 
+  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo);
 
   //Call function to save test page that displays xml string 
   saveTestPage(xmlString);
-  
-  //Call function to save msg as json 
-  saveJson(msgNumber,email,msgTime,status,alertType,category,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo);
 
   res.redirect('/test', 301);
 });
@@ -85,24 +85,26 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
     if (err) throw err;
     console.log("XML Saved");
   });
+  /*
   fs.writeFile('views/test.html', xmlString, function (err) {
     if (err) throw err;
     console.log("Test Page Saved");
     
   });
-
+  */
+ 
   return xmlString;
 }
 
 
 /* Generate and save json alert message data */
-function saveJson(msgNumber,email,msgTime,status,alertType,category,scope,event,urgency,certainty,eventCode,desc,areaDesc,geo) {
+function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,certainty,eventCode,desc,areaDesc,geo) {
   var newObject = {
-    identifier: msgNumber,
-    sender: email,
-    sent: msgTime,
+    identifier: identifier,
+    sender: sender,
+    sent: sent,
     status: status,
-    msgType: alertType,
+    msgType: msgType,
     category: category,
     scope: scope,
     event: event,
