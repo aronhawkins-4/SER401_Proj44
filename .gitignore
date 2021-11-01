@@ -43,6 +43,6 @@ target/
 ### Project temp files ###
 /public/dbs/temp.json
 /public/dbs/temp.xml
-/view/test.html
-/view/test2.html 
+/views/test.html
+/views/test2.html 
 
