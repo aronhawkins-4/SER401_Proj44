@@ -283,15 +283,49 @@ function handleClick() {
                 
             } else {
 
-            //Begin processing form 
+            //Begin processing form
+            
+            //Format current date time for message sent field 
+             
             var today = new Date();
             var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate();
             dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
 
-            //Format current date time for message sent field 
-            var msgTime = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate() + "T"; 
-            msgTime +=  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "-05:00";
 
+            // Change date format so that single digit dates and time gets zero in from of them - JK
+            var msgTime = today.getFullYear() +"-";
+            var month = (today.getMonth()+1);
+            var date = today.getDate();
+            var hours = today.getHours();
+            var minutues = today.getMinutes();
+            var seconds = today.getSeconds();
+            // We can't "plug in" the UTC offeset because it is based on location
+            var offset = today.getTimezoneOffset()/60;
+            //correct for single digit month
+            if(month<10){
+                msgTime += "0" + month +"-";
+            } else msgTime += month + "-";
+            //correct for single digit day
+            if(date<10){
+                msgTime +="0" + date +"T";
+            } else msgTime += date + "T";
+            //Correct for single digit hour
+            if(hours<10){
+                msgTime += "0" + hours + ":";
+            } else msgTime += hours + ":";
+            //Correct for single digit minute
+            if(minutues<10){
+                msgTime += "0" + minutues + ":";
+            } else msgTime += minutues + ":";
+            //Correct for single digit seconds
+            if(seconds<10){
+                msgTime += "0" + seconds + "-";
+            } else msgTime += seconds + "-";
+            //Correct for single digit offset
+            if(offset<10){
+                msgTime += "0" + offset +":00";
+            } else msgTime += offset +":00";
+            
             // Process the Alert Type field 
             if (msgTypeOptSelected === undefined || msgTypeOptSelected == "Default") {
                 alert("You must select an Alert Type");
