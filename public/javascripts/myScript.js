@@ -324,7 +324,8 @@ function handleClick() {
                         geo: geoCode,
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
-                        spanishDesc: spanDesc
+                        spanishDesc: spanDesc,
+                        coordinates: coordinates    
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -362,8 +363,8 @@ function handleClick() {
                         geo: geoCode,
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
-                        spanishDesc: spanDesc
-
+                        spanishDesc: spanDesc,
+                        coordinates: coordinates    
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -403,7 +404,8 @@ function handleClick() {
                     geo: geoCode,
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
-                    spanishDesc: spanDesc             
+                    spanishDesc: spanDesc,
+                    coordinates: coordinates             
                 }; 
 
                 //Send a POST request containing the form elements object  
@@ -412,100 +414,13 @@ function handleClick() {
                     $(location).attr('href','/test');
                 });
             }
-            
         }
     }
 }
 
- // CREATE MAP //
-            // Var to store LeafletJS map initial settings
-           
-window.onload = () => {
-    console.log("hello");
+// Variable and function to store all map vertice coordinates
+var coordinates = [];
+function addCoordinates(coords) {
+    coordinates.push(coords);
+    console.log(coordinates);
 }
-            function loadMap () {
-                alert('hello');
-                var mapid = document.getElementById("mapid");
-                console.log(someMap);
-                var map = L.map(mapid, {drawControl: true}).setView([33.4181255, -111.9323892], 13);
-                // Var to count number of shapes on map
-                var shapeNum = 0;
-
-                // LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
-                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
-                }).addTo(map);
-
-                // Add Leaflet-Geoman controls with some options to the map  
-                map.pm.addControls({  
-                position: 'topleft',  
-                drawCircle: true,  
-                drawCircleMarker: false,
-                drawMarker: false,
-                drawRectangle: true,
-                drawPolygon: true,
-                drawPolyline: false,
-                cutPolygon: false,
-                splitMode: false,
-                });
-
-                // Order buttons
-                map.pm.Toolbar.changeControlOrder([
-                    'drawPolygon', 
-                    'drawRectangle',
-                    'drawCircle',
-                    'dragMode',
-                    'editMode',
-                    'rotateMode',
-                ]);
-        
-                // Check number of shapes on map
-                map.on('pm:drawend', e => {
-                    shapeNum++;
-                    checkShapeNum(shapeNum);
-                })
-                map.on('pm:vertexadded', e => {
-                    shapeNum++;
-                    checkShapeNum(shapeNum);
-                })
-                map.on('pm:remove', e => {
-                    shapeNum--;
-                    checkShapeNum(shapeNum);
-                })
-                // If there are 10 shapes on the map, remove the toolbar to add shapes
-                // If the toolbar has been removed and a shape is deleted, bring back the toolbar
-                function checkShapeNum(shapes) {
-                    if (shapes >= 10) {
-                        map.pm.addControls({  
-                            position: 'topleft',  
-                            drawCircle: false,  
-                            drawCircleMarker: false,
-                            drawMarker: false,
-                            drawRectangle: false,
-                            drawPolygon: false,
-                            drawPolyline: false,
-                            cutPolygon: false,
-                            splitMode: false,
-                });
-                    } else if (shapeNum == 9) {
-                        map.pm.addControls({  
-                            position: 'topleft',  
-                            drawCircle: true,  
-                            drawCircleMarker: false,
-                            drawMarker: false,
-                            drawRectangle: true,
-                            drawPolygon: true,
-                            drawPolyline: false,
-                            cutPolygon: false,
-                            splitMode: false,
-                        });
-                    }
-                }
-            }
-
-            window.onload = loadMap;

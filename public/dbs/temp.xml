@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20211110431122JES</identifier>
-    <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2021-11-1T0:43:1-05:00</sent>
-    <status>Actual</status>
+    <identifier>202111213015118HAW</identifier>
+    <sender>hawkins.aron@gmail.com</sender>
+    <sent>2021-11-2T1:30:15-05:00</sent>
+    <status>System Test</status>
     <msgType>Alert</msgType>
     <scope>public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Met</category>
-        <event>ggg</event>
-        <urgency>Immediate</urgency>
-        <severity>Severe</severity>
-        <certainty>Observed</certainty>
+        <category>Safety</category>
+        <event>asdf</event>
+        <urgency>Expected</urgency>
+        <severity>Minor</severity>
+        <certainty>Likely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>ADR</value>
+            <value>AVW</value>
         </eventCode>
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>gggg</description>
+        <description>asdf</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,19 +29,19 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>ggg</areaDesc>
+            <areaDesc>asdf</areaDesc>
         </area>
     </info>
     <info>
         <language>es-US</language>
         <category>category goes here</category>
-        <event>ggg</event>
-        <urgency>Immediate</urgency>
-        <severity>Severe</severity>
-        <certainty>Observed</certainty>
+        <event>asdf</event>
+        <urgency>Expected</urgency>
+        <severity>Minor</severity>
+        <certainty>Likely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>ADR</value>
+            <value>AVW</value>
         </eventCode>
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
