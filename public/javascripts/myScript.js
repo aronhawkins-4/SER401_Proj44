@@ -325,7 +325,7 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        coordinates: coordinates    
+                        coords: coordinates     
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -364,7 +364,7 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        coordinates: coordinates    
+                        coords: coordinates   
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -405,7 +405,7 @@ function handleClick() {
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
                     spanishDesc: spanDesc,
-                    coordinates: coordinates             
+                    coords: coordinates             
                 }; 
 
                 //Send a POST request containing the form elements object  
@@ -423,4 +423,17 @@ var coordinates = [];
 function addCoordinates(coords) {
     coordinates.push(coords);
     console.log(coordinates);
+}
+
+function removeCoordinates(coords) {
+    //console.log(coords);
+    if (coordinates.indexOf(coords) != -1) {
+        console.log("true");
+        index = coordinates.indexOf(coords);
+        console.log(index);
+    }
+    var index = coordinates.indexOf(coords);
+    //console.log(index);
+   // coordinates.splice(index,1);
+    //console.log(coordinates);
 }

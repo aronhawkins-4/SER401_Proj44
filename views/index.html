@@ -396,24 +396,26 @@
                     shapeNum++;
                     checkShapeVertNums(shapeNum, vertNum, coordinates);
                 }
-                console.log(vertNum);
-                console.log(shapeNum);
             });
 
             map.on('pm:remove', e => {
                 var layer = e.layer.toGeoJSON();
-                var coordinates = layer.geometry.coordinates[0];
+                var coordinates;
                 var shape = layer.geometry.type;
 
                 if (shape === "Polygon") {
+                    coordinates = layer.geometry.coordinates[0];
                     var vertices = coordinates.length - 1;
                     vertNum -= vertices;
+                    removeCoordinates(coordinates);
                 }
                 else if (shape === "Point") {
+                    coordinates = layer.geometry.coordinates;
                     vertNum--;
+                    removeCoordinates(coordinates);
                 }
                 shapeNum--;
-                checkShapeVertNums(shapeNum, vertNum, cooordinates);
+                checkShapeVertNums(shapeNum, vertNum, coordinates);
             });
 
             // Check number of shapes on map. If at or over 10, remove shape toolbar visibilty.
@@ -445,36 +447,6 @@
                     });
                   
                     addCoordinates(coordinates);
-                }
-            }
-
-            // Check number of vertices on map. If at or over 100, remove shape toolbar visibilty.
-            // If number was at or over 100 and gets brought to under 100, restore shape toolbar visibility.
-            function checkVertexNum(vertNum) {
-                if (vertNum >= 100) {
-                    map.pm.addControls({
-                        position: 'topleft',
-                        drawCircle: false,  
-                        drawCircleMarker: false,
-                        drawMarker: false,
-                        drawRectangle: false,
-                        drawPolygon: false,
-                        drawPolyline: false,
-                        cutPolygon: false,
-                        splitMode: false,
-                    });
-                } else if (vertNum < 100) {
-                    map.pm.addControls({
-                        position: 'topleft',  
-                        drawCircle: true,  
-                        drawCircleMarker: false,
-                        drawMarker: false,
-                        drawRectangle: true,
-                        drawPolygon: true,
-                        drawPolyline: false,
-                        cutPolygon: false,
-                        splitMode: false,
-                    });
                 }
             }
         </script>

@@ -32,12 +32,17 @@ router.post('/', function (req, res, next) {
   var spanCheck = req.body.spanishExists;
   var spanAreaDesc = req.body.spanishAreaDesc;
   var spanDesc = req.body.spanishDesc;
+  var coords = req.body.coords;
+
+  //Array to String
+  var coordString = coords.toString;
+  console.log(coordString);
 
   //Call function to generate xml 
-  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc, coordString);
   
   //Call function to save msg as json 
-  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc, coordString);
 
   //Call function to save test page that displays xml string 
   saveTestPage(xmlString);
@@ -47,7 +52,7 @@ router.post('/', function (req, res, next) {
 
 /* Generate and save xml alert messag data */
 
-function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
+function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc, coordString) {
 
   xw = new XMLWriter(true);
   xw.startDocument('1.0', 'UTF-8');
@@ -83,8 +88,10 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
   xw.endElement('parameter');
   xw.startElement('area');
   xw.writeElement('areaDesc', areaDesc);
+  xw.writeElement('polygon', coordString);
   xw.endElement('area');
   xw.endElement('info');
+
 
   if(spanCheck){
      
