@@ -3,9 +3,23 @@ var categoryOptSelected;
 
 //Saves category type selected on option onchange
 function categoryOpt() {
-
     categoryOptSelected = document.getElementById('categoryDropdown').value;
+}
+//var for option selected from alert type dropdown list
+var alertTypeOptSelected;
 
+function alertTypeOpt() {
+    alertTypeOptSelected = document.getElementById('alertDropdown').value;
+}
+
+//Stores Certainty Value Selected
+var certaintyOptSelected;
+
+//Gets Certainty Value Selected from Dropdown Menu on Change
+function certaintyOpt(){
+    
+    certaintyOptSelected = document.getElementById('certaintyDropdown').value;
+    
 }
 
 //var for option selected from msgType dropdown list
@@ -16,6 +30,17 @@ function msgTypeOpt() {
 
     msgTypeOptSelected = document.getElementById('msgTypeDropdown').value;
 
+    if (msgTypeOptSelected == "Update") {
+        document.getElementById('identifier').disabled = false;
+        document.getElementById('identifier').value = "";
+    } else if (msgTypeOptSelected == "Cancel") {
+        document.getElementById('identifier').disabled = false;
+        document.getElementById('identifier').value = "";
+    } else {
+        document.getElementById('identifier').disabled = true;
+        document.getElementById('identifier').value = "";
+    } 
+
 }
 
 //var for option selected from msgStatusDropdownMenu 
@@ -23,7 +48,7 @@ var msgStatusOptSelected;
 
 //Saves status type selected on option change
 function msgStatusOpt() {
-    msgStatusOptSelected = document.getElementById('msgStatusDropdown').value;
+    msgStatusOptSelected = document.getElementById('status').value;
 }
 
 //var for option selected from urgency dropdown list
@@ -42,7 +67,7 @@ var eventCodeOptSelected;
 //Saves event code selected on option onchange
 function eventCodeOpt() {
 
-    eventCodeOptSelected = document.getElementById('eventCodeDropdown').value;
+    eventCodeOptSelected = document.getElementById('eventDropdown').value;
 
 }
 
@@ -103,6 +128,7 @@ function countWord() {
     var spanChars90 = document.getElementById("alertSp90");
     var spanChars360 = document.getElementById("alertSp360");
     var eventChars180 = document.getElementById("eventFi180");
+    var eventSubjChars180 = document.getElementById("eventSubjFi180");
     var eventChars180sp = document.getElementById("eventFi180sp");
     var chars;
     var charsLeft;
@@ -139,6 +165,11 @@ function countWord() {
         charsLeft = 180;
         counter = document.getElementById("wordsLeftEvent180sp");
         alert = document.querySelector('#eventFi180sp');
+    } else if (eventSubjChars180 === document.activeElement) {
+        chars = eventSubjChars180.value.length;
+        charsLeft = 180;
+        counter = document.getElementById("wordsLeftEventSubj180");
+        alert = document.querySelector('#eventSubjFi180');
     }
 
     // Display it as output
@@ -158,6 +189,231 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+//Perform data validation and alert submission 
 function handleClick() {
-    alert("Alert Submitted");
+    //Get Geocode from Form
+    var geoCode = document.getElementById('selectid').value;
+    geoCode = geoCode.substr(0,5);
+    
+    var email = document.getElementById('sender').value;
+    
+    //Get Subject Event from Form
+    var event = document.getElementById('eventSubjFi180').value;
+    
+    //Get Spanish Area Description
+    var spanArDesc = document.getElementById('eventFi180sp').value;
+    
+    //Get Spanish Message
+    var spanDesc = document.getElementById('alertSp360').value;
+    
+    //Check if Spanish Message is Present
+    var spanCheck = document.getElementById('spanchk').checked;
+
+    //Get Area Description from Form
+    var areaDesc = document.getElementById('eventFi180').value;
+    
+    //Get Message/Event Description from Form
+    var desc = document.getElementById('alertEn360').value;
+
+    //Validate the sender's email 
+    if (email.length == 0) {
+        alert("You must enter your email!");
+    } else {
+        var emailCheck = false; 
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        //Check for valid email format 
+        if (email.match(validRegex)) {
+            emailCheck = true;
+        }
+
+        if (emailCheck == false) {
+            alert("Please enter a valid email!")
+            } else if (categoryOptSelected === undefined || categoryOptSelected == "Default") {
+                
+                alert("You Must Enter an Alert Category!");
+
+            } else if(msgStatusOptSelected === undefined || msgStatusOptSelected == "Default"){
+                     
+                alert("You Must Select a Status!");
+                     
+            }else if(geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
+            
+                alert("You Must Select a Valid Geocode!");
+                      
+            }else if(event === undefined || event == ''){
+            
+                alert("You Must Enter a Subject for Event!");
+                      
+            }else if(desc === undefined || desc == ''){
+            
+                alert("You Must Enter a Message!");
+                      
+            }else if(areaDesc === undefined || areaDesc == ''){
+            
+                alert("You Must Enter a Description for Event Area!");
+                      
+            }else if(certaintyOptSelected === undefined || certaintyOptSelected == "Default"){
+             
+                alert("You Must Select a Certainty!");
+                
+            } else if (alertTypeOptSelected === undefined || alertTypeOptSelected == "Default") {
+
+                alert("You Must Select a Severity");
+
+            } else if(urgencyOptSelected === undefined || urgencyOptSelected == "Default"){
+                     
+                alert("You Must Select an Urgency!");
+                     
+            }else if(eventCodeOptSelected === undefined || eventCodeOptSelected == "Default"){
+                     
+                alert("You Must Select an Event Code!");
+                     
+            }else if(scopeCodeOptSelected === undefined || scopeCodeOptSelected == "Default"){
+                
+                alert("You must Select a Scope!");
+                
+            }else if(spanCheck && (spanArDesc === undefined || spanArDesc == '')){
+                
+                alert("You must Enter a Spanish Area Description!");
+                
+            }else if(spanCheck && (spanDesc === undefined || spanDesc == '')){
+                
+                alert("You must Enter a Spanish Alert Message!");
+                
+            } else {
+
+            //Begin processing form 
+            var today = new Date();
+            var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate();
+            dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
+
+            //Format current date time for message sent field 
+            var msgTime = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate() + "T"; 
+            msgTime +=  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "-05:00";
+
+            // Process the Alert Type field 
+            if (msgTypeOptSelected === undefined || msgTypeOptSelected == "Default") {
+                alert("You must select an Alert Type");
+            } else if (msgTypeOptSelected == "Update") {
+                //Process an Alert Update
+                var msgNumber = document.getElementById('identifier').value;
+        
+                //Validate the Alert Number field 
+                if (msgNumber.length == 0) {
+                    alert("You must include the Alert Number to send an Update!");
+                } else if (msgNumber.length != 20) {
+                    alert("Invalid Message Number - Check your message number and try again");
+                } else {
+                    //Create object from form elements values 
+                    var newObject = {
+                        identifier: msgNumber,
+                        sender: email,
+                        sent: msgTime, 
+                        status: msgStatusOptSelected,
+                        msgType: msgTypeOptSelected,
+						scope: scopeCodeOptSelected,
+                        category: categoryOptSelected,
+                        event: event,
+                        urgency: urgencyOptSelected,
+                        severity: alertTypeOptSelected,
+                        certainty: certaintyOptSelected,
+                        eventCode: eventCodeOptSelected,
+                        desc: desc,
+                        areaDesc: areaDesc,
+                        geo: geoCode,
+                        spanishExists: spanCheck,
+                        spanishAreaDesc: spanArDesc,
+                        spanishDesc: spanDesc
+                    }; 
+                    
+                    //Send a POST request containing the form elements object  
+                    $.post("/", newObject, function(data,status,xhr){
+                        alert("Alert Submitted");
+                        $(location).attr('href','/test2');
+                    });
+                } 
+            } else if (msgTypeOptSelected == "Cancel") {
+                //Process an Alert Cancellation
+                var msgNumber = document.getElementById('identifier').value;
+        
+                //Validate the Alert Number field 
+                if (msgNumber.length == 0) {
+                    alert("You must include the Alert Number to send a Cancellation!");
+                } else if (msgNumber.length != 20) {
+                    alert("Invalid Message Number - Check your message number and try again");
+                } else {
+                    //Create object from form elements values 
+                    var newObject = {
+                        identifier: msgNumber,
+                        sender: email,
+                        sent: msgTime,
+                        status: msgStatusOptSelected,
+                        msgType: msgTypeOptSelected,
+						scope: scopeCodeOptSelected,
+                        category: categoryOptSelected,
+                        event: event,
+                        urgency: urgencyOptSelected,
+                        severity: alertTypeOptSelected,
+                        certainty: certaintyOptSelected,
+                        eventCode: eventCodeOptSelected,
+                        desc: desc,
+                        areaDesc: areaDesc,
+                        geo: geoCode,
+                        spanishExists: spanCheck,
+                        spanishAreaDesc: spanArDesc,
+                        spanishDesc: spanDesc
+
+                    }; 
+                    
+                    //Send a POST request containing the form elements object  
+                    $.post("/", newObject, function(data,status,xhr){
+                        alert("Alert Submitted");
+                        $(location).attr('href','/test2');
+                    });
+                } 
+            } else {
+                //Process a new alert 
+
+
+                //****This is where we add the rest of the fields after processing (Except for cancel and update msgType**********/
+            
+                //Alert number composed of time and first 3 letters of sender's email 
+                var msgNumber = dateTime + String(email).substring(0,3).toUpperCase();
+
+                //Set the Alert Number on form 
+                document.getElementById('identifier').value = msgNumber;
+                                
+                //Create object from form elements values 
+                var newObject = {
+                    identifier: msgNumber,
+                    sender: email,
+                    sent: msgTime, 
+                    status: msgStatusOptSelected,
+                    msgType: msgTypeOptSelected,
+					scope: scopeCodeOptSelected,
+                    category: categoryOptSelected,
+                    event: event,
+                    urgency: urgencyOptSelected,
+                    severity: alertTypeOptSelected,
+                    certainty: certaintyOptSelected,
+                    eventCode: eventCodeOptSelected,
+                    desc: desc,
+                    areaDesc: areaDesc,
+                    geo: geoCode,
+                    spanishExists: spanCheck,
+                    spanishAreaDesc: spanArDesc,
+                    spanishDesc: spanDesc             
+                }; 
+
+                //Send a POST request containing the form elements object  
+                $.post("/", newObject, function(data,status,xhr){
+                    alert("Alert Submitted");
+                    $(location).attr('href','/test');
+                });
+            }
+            
+        }
+    }
 }
+

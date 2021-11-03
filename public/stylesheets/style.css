@@ -98,6 +98,16 @@ footer {
     width: 95%;
 }
 
+.selectFIPS {
+    width: 95%;
+    padding: 6px 10px 6px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid #229CFF;
+    border-radius: 2px;
+    box-sizing: border-box   
+}
+
 .container {
     padding: 10px;
     border: 1px sold #ededed;
@@ -114,9 +124,7 @@ select {
     display: inline-block;
     border: 1px solid #229CFF;
     border-radius: 2px;
-    box-sizing: border-box;
-
-
+    box-sizing: border-box
 }
 
 input[type=email],
@@ -130,7 +138,6 @@ select {
     border-radius: 2px;
     box-sizing: border-box;
 }
-
 
 /* Style Text Areas */
 
@@ -178,14 +185,14 @@ p {
 
 /* Style Page views */
 
-#identifier, #sender, #addressField, #restrictionField {
+#identifier, #sender, #addressField, #restrictionField, #selectid {
     margin-top: 11px;
 }
 
 .alertGridEn {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "Ev180 En360";
+    grid-template-areas: "EvSubj180 geoArea" "Ev180 En360";
     gap: 20px;
     padding: 20px 100px;
 }
@@ -304,7 +311,31 @@ button:hover {
     width: 25%;
     margin: 0 auto;
 }
+/*    TO FORMAT DATA LIST (BETA) */ 
+datalist {
+    border-color: #005287;
+    width: 97%;
+    position: relative;
+    background-color: lightgrey;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+  }
+  
+  option {
+    background-color: #bbb;
+    padding: 4px;
+    margin-bottom: 1px;
+    cursor: pointer;
+  }
 
+  #geocodes {
+    border-color: #005287;
+    width: 97%;
+    position: relative;
+    background-color: lightgrey;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+  }
 
 /* MEDIA QUERIES */
 
@@ -313,7 +344,7 @@ button:hover {
         padding: 20px 50px;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "Ev180" "En360";
+        grid-template-areas: "EvSubj180" "geoArea" "Ev180" "En360";
     }
     .alertGridSp {
         padding: 20px 50px;
@@ -350,7 +381,7 @@ button:hover {
     .alertGridEn {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "Ev180" "En360";
+        grid-template-areas: "EvSubj180" "geoArea" "Ev180" "En360";
     }
     .alertGridSp {
         grid-template-columns: 1fr;
