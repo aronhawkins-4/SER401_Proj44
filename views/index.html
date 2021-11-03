@@ -413,7 +413,7 @@
             // If number was at or over 10 and gets brought to under 10, restore shape toolbar visibility.
             function checkShapeVertNums(shapes, vertices) {
                 // Actual result will be 100, but testing 3 different values (10, 25, 50)
-                if (shapes >= 10 || vertices >= 25) {   
+                if (shapes >= 10 || vertices >= 50) {   
                     map.pm.addControls({  
                         position: 'topleft',  
                         drawCircle: false,  
@@ -425,7 +425,7 @@
                         cutPolygon: false,
                         splitMode: false,
             });
-                } else if (shapes < 10 && vertices < 25) {
+                } else if (shapes < 10 && vertices < 50) {
                     map.pm.addControls({  
                         position: 'topleft',  
                         drawCircle: true,  
@@ -444,7 +444,7 @@
             // If number was at or over 100 and gets brought to under 100, restore shape toolbar visibility.
             function checkVertexNum(vertNum) {
                 // Testing 3 different values (10, 25, 50)
-                if (vertNum >= 25) {
+                if (vertNum >= 50) {
                     map.pm.addControls({
                         position: 'topleft',
                         drawCircle: false,  
@@ -456,7 +456,7 @@
                         cutPolygon: false,
                         splitMode: false,
                     });
-                } else if (vertNum < 25) {
+                } else if (vertNum < 50) {
                     map.pm.addControls({
                         position: 'topleft',  
                         drawCircle: true,  
