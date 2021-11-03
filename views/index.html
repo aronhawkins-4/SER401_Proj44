@@ -407,10 +407,12 @@
                     coordinates = layer.geometry.coordinates[0];
                     var vertices = coordinates.length - 1;
                     vertNum -= vertices;
+                    //arrayEqual();
                     removeCoordinates(coordinates);
                 }
                 else if (shape === "Point") {
                     coordinates = layer.geometry.coordinates;
+                    console.log(coordinates);
                     vertNum--;
                     removeCoordinates(coordinates);
                 }

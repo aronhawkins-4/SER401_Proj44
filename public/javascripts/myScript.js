@@ -298,7 +298,7 @@ function handleClick() {
             } else if (msgTypeOptSelected == "Update") {
                 //Process an Alert Update
                 var msgNumber = document.getElementById('identifier').value;
-        
+                
                 //Validate the Alert Number field 
                 if (msgNumber.length == 0) {
                     alert("You must include the Alert Number to send an Update!");
@@ -325,7 +325,7 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        coords: coordinates     
+                       // coords: coordinates       
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -337,7 +337,7 @@ function handleClick() {
             } else if (msgTypeOptSelected == "Cancel") {
                 //Process an Alert Cancellation
                 var msgNumber = document.getElementById('identifier').value;
-        
+                
                 //Validate the Alert Number field 
                 if (msgNumber.length == 0) {
                     alert("You must include the Alert Number to send a Cancellation!");
@@ -364,7 +364,7 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        coords: coordinates   
+                       // coords: coordinates     
                     }; 
                     
                     //Send a POST request containing the form elements object  
@@ -381,7 +381,7 @@ function handleClick() {
             
                 //Alert number composed of time and first 3 letters of sender's email 
                 var msgNumber = dateTime + String(email).substring(0,3).toUpperCase();
-
+                
                 //Set the Alert Number on form 
                 document.getElementById('identifier').value = msgNumber;
                                 
@@ -405,7 +405,7 @@ function handleClick() {
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
                     spanishDesc: spanDesc,
-                    coords: coordinates             
+                    //coords: coordinates             
                 }; 
 
                 //Send a POST request containing the form elements object  
@@ -420,19 +420,48 @@ function handleClick() {
 
 // Variable and function to store all map vertice coordinates
 var coordinates = [];
+
 function addCoordinates(coords) {
     coordinates.push(coords);
-    console.log(coordinates);
+    //console.log(coordinates);
 }
 
-function removeCoordinates(coords) {
-    //console.log(coords);
-    if (coordinates.indexOf(coords) != -1) {
-        console.log("true");
-        index = coordinates.indexOf(coords);
-        console.log(index);
+function arrayEqual () {
+    var A = [[10],[20]];
+    var B = [[10],[20]];
+    if (A === B) {
+        console.log("EQUAL");
     }
-    var index = coordinates.indexOf(coords);
+    else {
+       // console.log("NOPE");
+    }
+    for (var i = 0; i < A.length; i++) {
+        for (var j = 0; j < A[i].length; j++) {
+            if (A[i][j] === B[i][j]) {
+                console.log("THIS ONE IS TRUE");
+            }
+        }
+    }
+}
+function removeCoordinates(coords) {
+    var index = -1;
+    //console.log(coords);
+    for (var i = 0; i < coordinates.length; i++) {
+        for (var j = 0; j < coordinates[i].length; j++) {
+            for (var k = 0; k < coords[j].length; k++) {
+                var bool = true;
+                if (coords[j][k] != coordinates[i][j][k]) {
+                    bool = false;
+                }
+                if (bool === true) {
+                    index = j;
+                    console.log("true");
+                    console.log(index);
+                    break;
+                }
+            }
+        }
+    }
     //console.log(index);
    // coordinates.splice(index,1);
     //console.log(coordinates);
