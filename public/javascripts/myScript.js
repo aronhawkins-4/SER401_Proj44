@@ -326,6 +326,7 @@ function handleClick() {
                 msgTime += "0" + offset +":00";
             } else msgTime += offset +":00";
             
+            var expires = msgTime;
             // Process the Alert Type field 
             if (msgTypeOptSelected === undefined || msgTypeOptSelected == "Default") {
                 alert("You must select an Alert Type");
