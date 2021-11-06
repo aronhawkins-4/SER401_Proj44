@@ -5,7 +5,7 @@
     <sent>2021-11-04T19:46:03-07:00</sent>
     <status>Actual</status>
     <msgType>Alert</msgType>
-    <scope>public</scope>
+    <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>

@@ -78,13 +78,13 @@ var scopeCodeOptSelected;
 function scoptOpt() {
     scopeCodeOptSelected = document.getElementById('scopeDropdown').value;
 
-    if (scopeCodeOptSelected == "private") {
+    if (scopeCodeOptSelected == "Private") {
         document.getElementById('addressField').disabled = false;
     } else {
         document.getElementById('addressField').disabled = true;
     }
 
-    if (scopeCodeOptSelected == "restricted") {
+    if (scopeCodeOptSelected == "Restricted") {
         document.getElementById('restrictionField').disabled = false;
     } else {
         document.getElementById('restrictionField').disabled = true;
