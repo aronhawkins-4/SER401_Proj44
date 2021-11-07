@@ -91,7 +91,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
      
     xw.startElement('info');
     xw.writeElement('language', 'es-US');
-    xw.writeElement('category', 'category goes here');
+    xw.writeElement('category', category);
     //from here down the fields still need to be posted to index JK
     xw.writeElement('event', event);
     xw.writeElement('urgency', urgency);
