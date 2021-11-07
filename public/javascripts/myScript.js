@@ -16,10 +16,10 @@ function alertTypeOpt() {
 var certaintyOptSelected;
 
 //Gets Certainty Value Selected from Dropdown Menu on Change
-function certaintyOpt(){
-    
+function certaintyOpt() {
+
     certaintyOptSelected = document.getElementById('certaintyDropdown').value;
-    
+
 }
 
 //var for option selected from msgType dropdown list
@@ -39,7 +39,7 @@ function msgTypeOpt() {
     } else {
         document.getElementById('identifier').disabled = true;
         document.getElementById('identifier').value = "";
-    } 
+    }
 
 }
 
@@ -193,25 +193,25 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleClick() {
     //Get Geocode from Form
     var geoCode = document.getElementById('selectid').value;
-    geoCode = geoCode.substr(0,5);
-    
+    geoCode = geoCode.substr(0, 5);
+
     var email = document.getElementById('sender').value;
-    
+
     //Get Subject Event from Form
     var event = document.getElementById('eventSubjFi180').value;
-    
+
     //Get Spanish Area Description
     var spanArDesc = document.getElementById('eventFi180sp').value;
-    
+
     //Get Spanish Message
     var spanDesc = document.getElementById('alertSp360').value;
-    
+
     //Check if Spanish Message is Present
     var spanCheck = document.getElementById('spanchk').checked;
 
     //Get Area Description from Form
     var areaDesc = document.getElementById('eventFi180').value;
-    
+
     //Get Message/Event Description from Form
     var desc = document.getElementById('alertEn360').value;
 
@@ -219,7 +219,7 @@ function handleClick() {
     if (email.length == 0) {
         alert("You must enter your email!");
     } else {
-        var emailCheck = false; 
+        var emailCheck = false;
         var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
         //Check for valid email format 
@@ -229,68 +229,68 @@ function handleClick() {
 
         if (emailCheck == false) {
             alert("Please enter a valid email!")
-            } else if (categoryOptSelected === undefined || categoryOptSelected == "Default") {
-                
-                alert("You Must Enter an Alert Category!");
+        } else if (categoryOptSelected === undefined || categoryOptSelected == "Default") {
 
-            } else if(msgStatusOptSelected === undefined || msgStatusOptSelected == "Default"){
-                     
-                alert("You Must Select a Status!");
-                     
-            }else if(geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
-            
-                alert("You Must Select a Valid Geocode!");
-                      
-            }else if(event === undefined || event == ''){
-            
-                alert("You Must Enter a Subject for Event!");
-                      
-            }else if(desc === undefined || desc == ''){
-            
-                alert("You Must Enter a Message!");
-                      
-            }else if(areaDesc === undefined || areaDesc == ''){
-            
-                alert("You Must Enter a Description for Event Area!");
-                      
-            }else if(certaintyOptSelected === undefined || certaintyOptSelected == "Default"){
-             
-                alert("You Must Select a Certainty!");
-                
-            } else if (alertTypeOptSelected === undefined || alertTypeOptSelected == "Default") {
+            alert("You Must Enter an Alert Category!");
 
-                alert("You Must Select a Severity");
+        } else if (msgStatusOptSelected === undefined || msgStatusOptSelected == "Default") {
 
-            } else if(urgencyOptSelected === undefined || urgencyOptSelected == "Default"){
-                     
-                alert("You Must Select an Urgency!");
-                     
-            }else if(eventCodeOptSelected === undefined || eventCodeOptSelected == "Default"){
-                     
-                alert("You Must Select an Event Code!");
-                     
-            }else if(scopeCodeOptSelected === undefined || scopeCodeOptSelected == "Default"){
-                
-                alert("You must Select a Scope!");
-                
-            }else if(spanCheck && (spanArDesc === undefined || spanArDesc == '')){
-                
-                alert("You must Enter a Spanish Area Description!");
-                
-            }else if(spanCheck && (spanDesc === undefined || spanDesc == '')){
-                
-                alert("You must Enter a Spanish Alert Message!");
-                
-            } else {
+            alert("You Must Select a Status!");
+
+        } else if (geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false) {
+
+            alert("You Must Select a Valid Geocode!");
+
+        } else if (event === undefined || event == '') {
+
+            alert("You Must Enter a Subject for Event!");
+
+        } else if (desc === undefined || desc == '') {
+
+            alert("You Must Enter a Message!");
+
+        } else if (areaDesc === undefined || areaDesc == '') {
+
+            alert("You Must Enter a Description for Event Area!");
+
+        } else if (certaintyOptSelected === undefined || certaintyOptSelected == "Default") {
+
+            alert("You Must Select a Certainty!");
+
+        } else if (alertTypeOptSelected === undefined || alertTypeOptSelected == "Default") {
+
+            alert("You Must Select a Severity");
+
+        } else if (urgencyOptSelected === undefined || urgencyOptSelected == "Default") {
+
+            alert("You Must Select an Urgency!");
+
+        } else if (eventCodeOptSelected === undefined || eventCodeOptSelected == "Default") {
+
+            alert("You Must Select an Event Code!");
+
+        } else if (scopeCodeOptSelected === undefined || scopeCodeOptSelected == "Default") {
+
+            alert("You must Select a Scope!");
+
+        } else if (spanCheck && (spanArDesc === undefined || spanArDesc == '')) {
+
+            alert("You must Enter a Spanish Area Description!");
+
+        } else if (spanCheck && (spanDesc === undefined || spanDesc == '')) {
+
+            alert("You must Enter a Spanish Alert Message!");
+
+        } else {
 
             //Begin processing form 
             var today = new Date();
-            var dateTime = today.getFullYear() + "" + (today.getMonth()+1) + "" + today.getDate();
+            var dateTime = today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
             dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
 
             //Format current date time for message sent field 
-            var msgTime = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate() + "T"; 
-            msgTime +=  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "-05:00";
+            var msgTime = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate() + "T";
+            msgTime += today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "-05:00";
 
             // Process the Alert Type field 
             if (msgTypeOptSelected === undefined || msgTypeOptSelected == "Default") {
@@ -298,7 +298,7 @@ function handleClick() {
             } else if (msgTypeOptSelected == "Update") {
                 //Process an Alert Update
                 var msgNumber = document.getElementById('identifier').value;
-                
+
                 //Validate the Alert Number field 
                 if (msgNumber.length == 0) {
                     alert("You must include the Alert Number to send an Update!");
@@ -309,10 +309,10 @@ function handleClick() {
                     var newObject = {
                         identifier: msgNumber,
                         sender: email,
-                        sent: msgTime, 
+                        sent: msgTime,
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
-						scope: scopeCodeOptSelected,
+                        scope: scopeCodeOptSelected,
                         category: categoryOptSelected,
                         event: event,
                         urgency: urgencyOptSelected,
@@ -325,19 +325,19 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                       // coords: coordinates       
-                    }; 
-                    
+                        // coords: coordinates       
+                    };
+
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function(data,status,xhr){
+                    $.post("/", newObject, function(data, status, xhr) {
                         alert("Alert Submitted");
-                        $(location).attr('href','/test2');
+                        $(location).attr('href', '/test2');
                     });
-                } 
+                }
             } else if (msgTypeOptSelected == "Cancel") {
                 //Process an Alert Cancellation
                 var msgNumber = document.getElementById('identifier').value;
-                
+
                 //Validate the Alert Number field 
                 if (msgNumber.length == 0) {
                     alert("You must include the Alert Number to send a Cancellation!");
@@ -351,7 +351,7 @@ function handleClick() {
                         sent: msgTime,
                         status: msgStatusOptSelected,
                         msgType: msgTypeOptSelected,
-						scope: scopeCodeOptSelected,
+                        scope: scopeCodeOptSelected,
                         category: categoryOptSelected,
                         event: event,
                         urgency: urgencyOptSelected,
@@ -364,35 +364,35 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                       // coords: coordinates     
-                    }; 
-                    
+                        // coords: coordinates     
+                    };
+
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function(data,status,xhr){
+                    $.post("/", newObject, function(data, status, xhr) {
                         alert("Alert Submitted");
-                        $(location).attr('href','/test2');
+                        $(location).attr('href', '/test2');
                     });
-                } 
+                }
             } else {
                 //Process a new alert 
 
 
                 //****This is where we add the rest of the fields after processing (Except for cancel and update msgType**********/
-            
+
                 //Alert number composed of time and first 3 letters of sender's email 
-                var msgNumber = dateTime + String(email).substring(0,3).toUpperCase();
-                
+                var msgNumber = dateTime + String(email).substring(0, 3).toUpperCase();
+
                 //Set the Alert Number on form 
                 document.getElementById('identifier').value = msgNumber;
-                                
+
                 //Create object from form elements values 
                 var newObject = {
                     identifier: msgNumber,
                     sender: email,
-                    sent: msgTime, 
+                    sent: msgTime,
                     status: msgStatusOptSelected,
                     msgType: msgTypeOptSelected,
-					scope: scopeCodeOptSelected,
+                    scope: scopeCodeOptSelected,
                     category: categoryOptSelected,
                     event: event,
                     urgency: urgencyOptSelected,
@@ -405,13 +405,14 @@ function handleClick() {
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
                     spanishDesc: spanDesc,
+                    //hello: someString
                     //coords: coordinates             
-                }; 
+                };
 
                 //Send a POST request containing the form elements object  
-                $.post("/", newObject, function(data,status,xhr){
+                $.post("/", newObject, function(data, status, xhr) {
                     alert("Alert Submitted");
-                    $(location).attr('href','/test');
+                    $(location).attr('href', '/test');
                 });
             }
         }
@@ -420,20 +421,26 @@ function handleClick() {
 
 // Variable and function to store all map vertice coordinates
 var coordinates = [];
+var someString = "hellohello";
 
 function addCoordinates(coords) {
     coordinates.push(coords);
     //console.log(coordinates);
 }
 
-function arrayEqual () {
-    var A = [[10],[20]];
-    var B = [[10],[20]];
+function arrayEqual() {
+    var A = [
+        [10],
+        [20]
+    ];
+    var B = [
+        [10],
+        [20]
+    ];
     if (A === B) {
         console.log("EQUAL");
-    }
-    else {
-       // console.log("NOPE");
+    } else {
+        // console.log("NOPE");
     }
     for (var i = 0; i < A.length; i++) {
         for (var j = 0; j < A[i].length; j++) {
@@ -443,6 +450,7 @@ function arrayEqual () {
         }
     }
 }
+
 function removeCoordinates(coords) {
     var index = -1;
     //console.log(coords);
@@ -463,6 +471,6 @@ function removeCoordinates(coords) {
         }
     }
     //console.log(index);
-   // coordinates.splice(index,1);
+    // coordinates.splice(index,1);
     //console.log(coordinates);
 }
