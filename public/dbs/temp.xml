@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>202111621424839JES</identifier>
-    <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2021-11-06T21:42:48-07:00</sent>
-    <status>Actual</status>
+    <identifier>2021117171941505WAS</identifier>
+    <sender>wasryan@live.com</sender>
+    <sent>2021-11-07T17:19:41-08:00</sent>
+    <status>Exercise</status>
     <msgType>Alert</msgType>
     <scope>public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
         <category>Geo</category>
-        <event>rgrgrgrrgrgg</event>
+        <event>wsrgz</event>
         <urgency>Immediate</urgency>
-        <severity>Severe</severity>
+        <severity>Extreme</severity>
         <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
@@ -21,7 +21,7 @@
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>grgr</description>
+        <description>zsdrg</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,19 +29,19 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>grrgr</areaDesc>
+            <areaDesc>zsedrg</areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004013</value>
+                <value>006003</value>
             </geocode>
         </area>
     </info>
     <info>
         <language>es-US</language>
         <category>Geo</category>
-        <event>rgrgrgrrgrgg</event>
+        <event>wsrgz</event>
         <urgency>Immediate</urgency>
-        <severity>Severe</severity>
+        <severity>Extreme</severity>
         <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
@@ -50,7 +50,7 @@
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>grrgrg</description>
+        <description>esrgdsr</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -58,10 +58,10 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>grrgr</areaDesc>
+            <areaDesc>zsedrg</areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004013</value>
+                <value>006003</value>
             </geocode>
         </area>
     </info>

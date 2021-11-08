@@ -1,27 +1,3 @@
-//var for option selected from category dropdown list
-var categoryOptSelected;
-
-//Saves category type selected on option onchange
-function categoryOpt() {
-    categoryOptSelected = document.getElementById('categoryDropdown').value;
-}
-//var for option selected from alert type dropdown list
-var alertTypeOptSelected;
-
-function alertTypeOpt() {
-    alertTypeOptSelected = document.getElementById('alertDropdown').value;
-}
-
-//Stores Certainty Value Selected
-var certaintyOptSelected;
-
-//Gets Certainty Value Selected from Dropdown Menu on Change
-function certaintyOpt(){
-    
-    certaintyOptSelected = document.getElementById('certaintyDropdown').value;
-    
-}
-
 //var for option selected from msgType dropdown list
 var msgTypeOptSelected;
 
@@ -40,34 +16,6 @@ function msgTypeOpt() {
         document.getElementById('identifier').disabled = true;
         document.getElementById('identifier').value = "";
     } 
-
-}
-
-//var for option selected from msgStatusDropdownMenu 
-var msgStatusOptSelected;
-
-//Saves status type selected on option change
-function msgStatusOpt() {
-    msgStatusOptSelected = document.getElementById('status').value;
-}
-
-//var for option selected from urgency dropdown list
-var urgencyOptSelected;
-
-//Saves urgency selected on option onchange
-function urgencyOpt() {
-
-    urgencyOptSelected = document.getElementById('urgencyDropdown').value;
-
-}
-
-//var for option selected from event code dropdown list
-var eventCodeOptSelected;
-
-//Saves event code selected on option onchange
-function eventCodeOpt() {
-
-    eventCodeOptSelected = document.getElementById('eventDropdown').value;
 
 }
 
@@ -195,6 +143,15 @@ function handleClick() {
     var geoCode = document.getElementById('selectid').value;
     geoCode = geoCode.substr(0,5);
     
+    //Retrieves Values from Form
+    var categoryOptSelected = document.getElementById('categoryDropdown').value;
+    var alertTypeOptSelected = document.getElementById('alertDropdown').value;
+    var certaintyOptSelected = document.getElementById('certaintyDropdown').value;
+    var eventCodeOptSelected = document.getElementById('eventDropdown').value;
+    var msgStatusOptSelected = document.getElementById('status').value;
+    var urgencyOptSelected = document.getElementById('urgencyDropdown').value;
+    
+    //Get Sender Email from Form
     var email = document.getElementById('sender').value;
     
     //Get Subject Event from Form
