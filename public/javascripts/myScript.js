@@ -1,6 +1,7 @@
 //var for option selected from category dropdown list
 var categoryOptSelected;
 
+
 //Saves category type selected on option onchange
 function categoryOpt() {
     categoryOptSelected = document.getElementById('categoryDropdown').value;
@@ -191,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
+    var testString = "hello";
     //Get Geocode from Form
     var geoCode = document.getElementById('selectid').value;
     geoCode = geoCode.substr(0, 5);
@@ -283,14 +285,48 @@ function handleClick() {
 
         } else {
 
-            //Begin processing form 
+            //Begin processing form
+
+            //Format current date time for message sent field 
+
             var today = new Date();
             var dateTime = today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
             dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
 
-            //Format current date time for message sent field 
-            var msgTime = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate() + "T";
-            msgTime += today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "-05:00";
+
+            // Change date format so that single digit dates and time gets zero in from of them - JK
+            var msgTime = today.getFullYear() + "-";
+            var month = (today.getMonth() + 1);
+            var date = today.getDate();
+            var hours = today.getHours();
+            var minutues = today.getMinutes();
+            var seconds = today.getSeconds();
+            // We can't "plug in" the UTC offeset because it is based on location
+            var offset = today.getTimezoneOffset() / 60;
+            //correct for single digit month
+            if (month < 10) {
+                msgTime += "0" + month + "-";
+            } else msgTime += month + "-";
+            //correct for single digit day
+            if (date < 10) {
+                msgTime += "0" + date + "T";
+            } else msgTime += date + "T";
+            //Correct for single digit hour
+            if (hours < 10) {
+                msgTime += "0" + hours + ":";
+            } else msgTime += hours + ":";
+            //Correct for single digit minute
+            if (minutues < 10) {
+                msgTime += "0" + minutues + ":";
+            } else msgTime += minutues + ":";
+            //Correct for single digit seconds
+            if (seconds < 10) {
+                msgTime += "0" + seconds + "-";
+            } else msgTime += seconds + "-";
+            //Correct for single digit offset
+            if (offset < 10) {
+                msgTime += "0" + offset + ":00";
+            } else msgTime += offset + ":00";
 
             // Process the Alert Type field 
             if (msgTypeOptSelected === undefined || msgTypeOptSelected == "Default") {
@@ -325,7 +361,8 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        // coords: coordinates       
+                        shapes: json
+                            // coords: coordinates       
                     };
 
                     //Send a POST request containing the form elements object  
@@ -364,7 +401,8 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        // coords: coordinates     
+                        shapes: json
+                            // coords: coordinates     
                     };
 
                     //Send a POST request containing the form elements object  
@@ -405,8 +443,9 @@ function handleClick() {
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
                     spanishDesc: spanDesc,
-                    //hello: someString
-                    //coords: coordinates             
+                    shapes: json
+                        //hello: someString
+                        //coords: coordinates             
                 };
 
                 //Send a POST request containing the form elements object  
@@ -421,35 +460,73 @@ function handleClick() {
 
 // Variable and function to store all map vertice coordinates
 var coordinates = [];
-var someString = "hellohello";
+var shapes = "";
+var testing =
+    '{"person": [' +
+    '{ "name": "aron"},' +
+    '{ "age": "24"} ]}';
+
+
+var json = JSON.stringify(testing);
+var newJson;
+//console.log(json);
+//console.log(newJson);
+// var testing1 = testing.toString();
+// console.log(testing1);
+
+function addShape(shape) {
+    //shapes.push(shape);
+    shapeToJson(shape);
+    //  console.log(shapes[0].geometry.type);
+}
+
+function shapeToJson(shape) {
+    var json;
+    if (shape.geometry.type === "Point") {
+        json = '{{"type": "circle"}';
+        json += ', {"vertice": "[' + shape.geometry.coordinates + ']"}}';
+
+    } else if (shape.geometry.type === "Polygon") {
+        json = '{{"type": "' + shape.geometry.type + '"}';
+        for (var i = 0; i < shape.geometry.coordinates[0].length; i++) {
+            json += ', {"vertice ' + (i + 1) + '": "[' + shape.geometry.coordinates[0][i] + ']"}';
+        }
+        json += '}';
+    }
+
+    shapes += json;
+    newJson = JSON.parse(shapes);
+    console.log(newJson);
+}
+
 
 function addCoordinates(coords) {
     coordinates.push(coords);
     //console.log(coordinates);
 }
 
-function arrayEqual() {
-    var A = [
-        [10],
-        [20]
-    ];
-    var B = [
-        [10],
-        [20]
-    ];
-    if (A === B) {
-        console.log("EQUAL");
-    } else {
-        // console.log("NOPE");
-    }
-    for (var i = 0; i < A.length; i++) {
-        for (var j = 0; j < A[i].length; j++) {
-            if (A[i][j] === B[i][j]) {
-                console.log("THIS ONE IS TRUE");
-            }
-        }
-    }
-}
+// function arrayEqual() {
+//     var A = [
+//         [10],
+//         [20]
+//     ];
+//     var B = [
+//         [10],
+//         [20]
+//     ];
+//     if (A === B) {
+//         console.log("EQUAL");
+//     } else {
+//         // console.log("NOPE");
+//     }
+//     for (var i = 0; i < A.length; i++) {
+//         for (var j = 0; j < A[i].length; j++) {
+//             if (A[i][j] === B[i][j]) {
+//                 console.log("THIS ONE IS TRUE");
+//             }
+//         }
+//     }
+// }
 
 function removeCoordinates(coords) {
     var index = -1;

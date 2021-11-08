@@ -5,6 +5,7 @@ fs = require('fs');
 
 
 var fs = require('fs');
+const { off } = require('process');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -32,6 +33,8 @@ router.post('/', function(req, res, next) {
     var spanCheck = req.body.spanishExists;
     var spanAreaDesc = req.body.spanishAreaDesc;
     var spanDesc = req.body.spanishDesc;
+    var shapes = req.body.shapes;
+    //console.log(shapes);
     // var hello = req.body.hello;
     //var coords = req.body.coords;
 
@@ -40,10 +43,10 @@ router.post('/', function(req, res, next) {
     //  console.log(coordString);
 
     //Call function to generate xml 
-    var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc);
+    var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, shapes);
 
     //Call function to save msg as json 
-    saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc);
+    saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, shapes);
 
     //Call function to save test page that displays xml string 
     saveTestPage(xmlString);
@@ -53,14 +56,16 @@ router.post('/', function(req, res, next) {
 
 /* Generate and save xml alert messag data */
 
-function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
+function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, shapes) {
 
+    //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
+    geo = "0" + geo;
     xw = new XMLWriter(true);
     xw.startDocument('1.0', 'UTF-8');
     xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
     xw.writeElement('identifier', identifier);
     xw.writeElement('sender', sender);
-    xw.writeElement('sent', sent); //Eventually this Must be formatted like "2002-05-24T16:49:00-07:00".
+    xw.writeElement('sent', sent);
     xw.writeElement('status', status);
     xw.writeElement('msgType', msgType);
     xw.writeElement('scope', scope);
@@ -89,10 +94,14 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.endElement('parameter');
     xw.startElement('area');
     xw.writeElement('areaDesc', areaDesc);
-    xw.writeElement('polygon', coordString);
+    xw.startElement('geocode');
+    xw.writeElement('valueName', 'SAME');
+    xw.writeElement('value', geo);
+    xw.writeElement('TESTING', shapes);
+    // xw.writeElement('shapes', shapes);
+    xw.endElement('geocode');
     xw.endElement('area');
     xw.endElement('info');
-    //   xw.wariteElement('testing', hello);
 
 
     if (spanCheck) {
@@ -140,7 +149,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 
 
 /* Generate and save json alert message data */
-function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, shapes) {
 
     var newObject = {
         identifier: identifier,
@@ -161,7 +170,9 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
         spanDesc: spanDesc,
-        //hello: hello
+        test: test,
+        shapes: shapes
+            //hello: hello
     };
 
     var output = JSON.stringify(newObject);
@@ -182,7 +193,7 @@ function saveTestPage(xml) {
 
 }
 
-/*DEBUG TEST ROUTE */
+// /*DEBUG TEST ROUTE */
 router.get('/test', function(req, res, next) {
     res.render('test', { title: 'Test Page' });
 });
