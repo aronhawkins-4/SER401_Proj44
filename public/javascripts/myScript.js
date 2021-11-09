@@ -361,8 +361,7 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        shapes: json
-                            // coords: coordinates       
+                        // layers: shapes    
                     };
 
                     //Send a POST request containing the form elements object  
@@ -401,8 +400,7 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        shapes: json
-                            // coords: coordinates     
+                        // layers: shapes  
                     };
 
                     //Send a POST request containing the form elements object  
@@ -443,9 +441,7 @@ function handleClick() {
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
                     spanishDesc: spanDesc,
-                    shapes: json
-                        //hello: someString
-                        //coords: coordinates             
+                    // layers: shapes           
                 };
 
                 //Send a POST request containing the form elements object  
@@ -461,18 +457,8 @@ function handleClick() {
 // Variable and function to store all map vertice coordinates
 var coordinates = [];
 var shapes = "";
-var testing =
-    '{"person": [' +
-    '{ "name": "aron"},' +
-    '{ "age": "24"} ]}';
-
-
-var json = JSON.stringify(testing);
+var shapesExist = false;
 var newJson;
-//console.log(json);
-//console.log(newJson);
-// var testing1 = testing.toString();
-// console.log(testing1);
 
 function addShape(shape) {
     //shapes.push(shape);
@@ -483,71 +469,37 @@ function addShape(shape) {
 function shapeToJson(shape) {
     var json;
     if (shape.geometry.type === "Point") {
-        json = '{{"type": "circle"}';
-        json += ', {"vertice": "[' + shape.geometry.coordinates + ']"}}';
+        if (shapesExist) {
+            shapes = shapes.slice(0, -1);
+            json = ', {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ']" } ]';
+        } else {
+            json = '[ {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ']" } ]';
+            shapesExist = true;
+        }
 
     } else if (shape.geometry.type === "Polygon") {
-        json = '{{"type": "' + shape.geometry.type + '"}';
-        for (var i = 0; i < shape.geometry.coordinates[0].length; i++) {
-            json += ', {"vertice ' + (i + 1) + '": "[' + shape.geometry.coordinates[0][i] + ']"}';
+        if (shapesExist) {
+            shapes = shapes.slice(0, -1);
+            json = ', {"type": "Polygon", "coordinates": [';
+
+        } else {
+            json = '[ {"type": "Polygon", "coordinates": [';
+            shapesExist = true;
         }
-        json += '}';
+        for (var i = 0; i < shape.geometry.coordinates[0].length; i++) {
+            if (i === shape.geometry.coordinates[0].length - 1) {
+                json += '"[' + shape.geometry.coordinates[0][i] + ']" ] } ]';
+            } else {
+                json += '"[' + shape.geometry.coordinates[0][i] + ']", ';
+            }
+        }
     }
 
     shapes += json;
     newJson = JSON.parse(shapes);
-    console.log(newJson);
-}
-
-
-function addCoordinates(coords) {
-    coordinates.push(coords);
-    //console.log(coordinates);
-}
-
-// function arrayEqual() {
-//     var A = [
-//         [10],
-//         [20]
-//     ];
-//     var B = [
-//         [10],
-//         [20]
-//     ];
-//     if (A === B) {
-//         console.log("EQUAL");
-//     } else {
-//         // console.log("NOPE");
-//     }
-//     for (var i = 0; i < A.length; i++) {
-//         for (var j = 0; j < A[i].length; j++) {
-//             if (A[i][j] === B[i][j]) {
-//                 console.log("THIS ONE IS TRUE");
-//             }
-//         }
-//     }
-// }
-
-function removeCoordinates(coords) {
-    var index = -1;
-    //console.log(coords);
-    for (var i = 0; i < coordinates.length; i++) {
-        for (var j = 0; j < coordinates[i].length; j++) {
-            for (var k = 0; k < coords[j].length; k++) {
-                var bool = true;
-                if (coords[j][k] != coordinates[i][j][k]) {
-                    bool = false;
-                }
-                if (bool === true) {
-                    index = j;
-                    console.log("true");
-                    console.log(index);
-                    break;
-                }
-            }
-        }
-    }
-    //console.log(index);
-    // coordinates.splice(index,1);
-    //console.log(coordinates);
+    var someVar = JSON.stringify(newJson[0].type);
+    console.log(someVar);
+    // for (var i = 0; i < newJson.length; i++) {
+    //     console.log(newJson[i].type.toLowerCase());
+    // }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>2021117233855126HAW</identifier>
+    <identifier>2021118221134850HAW</identifier>
     <sender>hawkins.aron@gmail.com</sender>
-    <sent>2021-11-07T23:38:55-06:00</sent>
+    <sent>2021-11-08T22:11:34-06:00</sent>
     <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>public</scope>
@@ -21,7 +21,7 @@
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>adf</description>
+        <description>asdf</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -32,8 +32,7 @@
             <areaDesc>asdf</areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>048021</value>
-                <TESTING>"{\"person\": [{ \"name\": \"aron\"},{ \"age\": \"24\"} ]}"</TESTING>
+                <value>048019</value>
             </geocode>
         </area>
     </info>

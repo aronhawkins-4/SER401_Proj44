@@ -17,7 +17,7 @@
 
         var promise = $.get("dbs/geocodes.json", function(data) {
             geoList = data;
-            console.log(data);
+            // console.log(data);
         });
 
         promise.done(function(data) {
@@ -26,7 +26,7 @@
 
             $(document).ready(function() {
                 for (i = 0; i < geoList.length; i++) {
-                    console.log("data " + geoList[i]);
+                    // console.log("data " + geoList[i]);
                     $('#geocodes').append('<option>' + geoList[i].id + " " + geoList[i].name + " " + geoList[i].state + '</option>')
                 }
             });
@@ -394,13 +394,10 @@
                     coordinates = layer.geometry.coordinates[0];
                     var vertices = coordinates.length - 1;
                     vertNum -= vertices;
-                    //arrayEqual();
-                    removeCoordinates(coordinates);
                 } else if (shape === "Point") {
                     coordinates = layer.geometry.coordinates;
                     //  console.log(coordinates);
                     vertNum--;
-                    removeCoordinates(coordinates);
                 }
                 shapeNum--;
                 checkShapeVertNums(shapeNum, vertNum, coordinates);
@@ -433,8 +430,6 @@
                         cutPolygon: false,
                         splitMode: false,
                     });
-
-                    addCoordinates(coordinates);
                 }
             }
         </script>
