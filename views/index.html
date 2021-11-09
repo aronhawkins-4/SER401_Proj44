@@ -2,37 +2,33 @@
 <html>
 
 <head>
-    <script src="/jquery/jquery.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/jquery/jquery.js"></script>
     <script src="javascripts/myScript.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="stylesheets/style.css">
 
     <script>
         var geoList = new Array;
 
-        var promise = $.get("dbs/geocodes.json", function (data) {
+        var promise = $.get("dbs/geocodes.json", function(data) {
             geoList = data;
             console.log(data);
         });
 
-        promise.done(function (data) {
+        promise.done(function(data) {
             geoList = JSON.stringify(geoList);
             geoList = JSON.parse(geoList);
 
-            $(document).ready(function () {
+            $(document).ready(function() {
                 for (i = 0; i < geoList.length; i++) {
                     console.log("data " + geoList[i]);
                     $('#geocodes').append('<option>' + geoList[i].id + " " + geoList[i].name + " " + geoList[i].state + '</option>')
                 }
             });
         });
-
     </script>
 </head>
 
@@ -40,8 +36,7 @@
     <header id="header">
         <p id="invis"></p>
         <h1>AO APP (BETA)</h1>
-        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
-            target="_blank" id="headerLink">
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system" target="_blank" id="headerLink">
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
@@ -50,8 +45,7 @@
         <div id="msgNum" class="container">
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
             <br>
-            <input type="text" id="identifier" value="" name="identifier" maxlength="20"
-                placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
+            <input type="text" id="identifier" value="" name="identifier" maxlength="20" placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
         </div>
         <div id="msgSender" class="container">
             <label for="sender" class="text"><strong>Sender's Email:</strong></label>
@@ -168,13 +162,11 @@
         </div>
         <div id="addressFieldBox" class="container">
             <label for="addressBox" class="text"><strong>Address Field:</strong></label>
-            <input type="text" id="addressField" name="addressField"
-                placeholder="Required if scope set to private"></textarea>
+            <input type="text" id="addressField" name="addressField" placeholder="Required if scope set to private"></textarea>
         </div>
         <div id="restrictionFieldBox" class="container">
             <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
-            <input type="text" id="restrictionField" name="restrictionField"
-                placeholder="Required if scope set to restriced"></textarea>
+            <input type="text" id="restrictionField" name="restrictionField" placeholder="Required if scope set to restriced"></textarea>
         </div>
         <div id="eventDrop" class="container">
             <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
@@ -241,8 +233,7 @@
         <div id="EvSubj180" class="container">
             <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()"
-                    maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
+                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()" maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
             </div>
             <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
         </div>
@@ -250,8 +241,7 @@
             <label for="geoBlock" class="text"><strong>Select the FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid" name="selectid"
-                placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid" name="selectid" placeholder="Search by State or County">
             <datalist id="geocodes" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -260,8 +250,7 @@
         <div id="Ev180" class="container">
             <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180"
-                    placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
+                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180" placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
             </div>
             <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
         </div>
@@ -269,8 +258,7 @@
             <label for="alert360" class="text"><strong>Alert Message</strong></label>
             <br>
             <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"
-                    placeholder="Alert message to be disseminated..."></textarea>
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360" placeholder="Alert message to be disseminated..."></textarea>
             </div>
             <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
         </div>
@@ -287,9 +275,7 @@
                 <label for="event180sp" class="text"><strong>Informacion Adicional Sobre el Area
                         Afectada:</strong></label>
                 <div class="textarea_style">
-                    <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()"
-                        maxlength="180"
-                        placeholder="Indica informacion especifica sobre el area que tiene que ver con la alerta..."></textarea>
+                    <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()" maxlength="180" placeholder="Indica informacion especifica sobre el area que tiene que ver con la alerta..."></textarea>
                 </div>
                 <p id="wordsLeftEvent180sp" class="text">Characters Left: 180</p>
             </div>
@@ -297,8 +283,7 @@
                 <label for="alertSp360 " class="text "><strong>Mensaje de Alerta:</strong></label>
                 <br>
                 <div class="textarea_style">
-                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"
-                        placeholder="Mensaje de alerta que se enviara..."></textarea>
+                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360" placeholder="Mensaje de alerta que se enviara..."></textarea>
                 </div>
                 <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
             </div>
@@ -312,19 +297,20 @@
         <div id="fileAttach" class="container">
             <label for="attachFileBox" class="text"><strong>Attach File:</strong></label>
             <br>
-            <input type="text" id="attachFileBox" name="addFile" maxlength="20"
-                placeholder="ATTACH FILES HERE *FUNCTIONALITY PENDING*" disabled>
+            <input type="text" id="attachFileBox" name="addFile" maxlength="20" placeholder="ATTACH FILES HERE *FUNCTIONALITY PENDING*" disabled>
         </div>
     </div>
     <br><br>
-    <div id="mapid">    
+    <div id="mapid">
         <!-- Import necessary files to use LeafletJS Geoman -->
-        <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />  
-        <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>  
+        <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+        <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
         <script>
             // CREATE MAP //
             // Var to store LeafletJS map initial settings
-            var map = L.map('mapid', {drawControl: true}).setView([33.4181255, -111.9323892], 13);
+            var map = L.map('mapid', {
+                drawControl: true
+            }).setView([33.4181255, -111.9323892], 13);
 
             // Var to count number of shapes on map
             var shapeNum = 0;
@@ -340,28 +326,28 @@
             }).addTo(map);
 
             // Add Leaflet-Geoman controls with some options to the map  
-            map.pm.addControls({  
-            position: 'topleft',  
-            drawCircle: true,  
-            drawCircleMarker: false,
-            drawMarker: false,
-            drawRectangle: true,
-            drawPolygon: true,
-            drawPolyline: false,
-            cutPolygon: false,
-            splitMode: false,
+            map.pm.addControls({
+                position: 'topleft',
+                drawCircle: true,
+                drawCircleMarker: false,
+                drawMarker: false,
+                drawRectangle: true,
+                drawPolygon: true,
+                drawPolyline: false,
+                cutPolygon: false,
+                splitMode: false,
             });
 
             // Order buttons
             map.pm.Toolbar.changeControlOrder([
-                'drawPolygon', 
+                'drawPolygon',
                 'drawRectangle',
                 'drawCircle',
                 'dragMode',
                 'editMode',
                 'rotateMode',
             ]);
-     
+
             // Check number of shapes on map
             map.on('pm:drawend', e => {
                 shapeNum++;
@@ -372,16 +358,16 @@
                 checkShapeNum(shapeNum);
             })
             map.on('pm:remove', e => {
-                shapeNum--;
-                checkShapeNum(shapeNum);
-            })
-            // If there are 10 shapes on the map, remove the toolbar to add shapes
-            // If the toolbar has been removed and a shape is deleted, bring back the toolbar
+                    shapeNum--;
+                    checkShapeNum(shapeNum);
+                })
+                // If there are 10 shapes on the map, remove the toolbar to add shapes
+                // If the toolbar has been removed and a shape is deleted, bring back the toolbar
             function checkShapeNum(shapes) {
                 if (shapes >= 10) {
-                    map.pm.addControls({  
-                        position: 'topleft',  
-                        drawCircle: false,  
+                    map.pm.addControls({
+                        position: 'topleft',
+                        drawCircle: false,
                         drawCircleMarker: false,
                         drawMarker: false,
                         drawRectangle: false,
@@ -389,11 +375,11 @@
                         drawPolyline: false,
                         cutPolygon: false,
                         splitMode: false,
-            });
+                    });
                 } else if (shapeNum == 9) {
-                    map.pm.addControls({  
-                        position: 'topleft',  
-                        drawCircle: true,  
+                    map.pm.addControls({
+                        position: 'topleft',
+                        drawCircle: true,
                         drawCircleMarker: false,
                         drawMarker: false,
                         drawRectangle: true,
