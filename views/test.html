@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>2021119194123129JCA</identifier>
+    <identifier>202111920010725JCA</identifier>
     <sender>jcall3@asu.edu</sender>
-    <sent>2021-11-09T19:41:23-05:00</sent>
-    <status>System Test</status>
+    <sent>2021-11-09T20:00:10-05:00</sent>
+    <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Safety</category>
+        <category>Met</category>
         <event>This is a test to see what prints in XML</event>
-        <urgency>Immediate</urgency>
-        <severity>Severe</severity>
-        <certainty>Observed</certainty>
+        <urgency>Future</urgency>
+        <severity>Minor</severity>
+        <certainty>Unlikely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>RMT</value>
+            <value>FFA</value>
         </eventCode>
-        <expires>2021-11-10T19:41:23-05:00</expires>
+        <expires>2021-11-10T20:00:10-05:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
         <description>Again this is a Test to see what XML prints</description>
@@ -30,9 +30,13 @@
         </parameter>
         <area>
             <areaDesc>A monthly to ensure the system is working as intended</areaDesc>
+            <polygon>-111.898648,33.51546 -111.960437,33.45701 -111.78331,33.474205 -111.810772,33.625377 -111.920618,33.623088 -111.843725,33.561276 -111.898648,33.51546</polygon>
+            <circle>-112.637362,33.653978 14.7</circle>
+            <polygon>-112.376478,33.390489 -112.376478,33.755721 -112.200725,33.755721 -112.200725,33.390489 -112.376478,33.390489</polygon>
+            <polygon>-112.200725,33.390489 -111.960437,33.45701 -112.200725,33.636818 -112.200725,33.390489</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>048345</value>
+                <value>051760</value>
             </geocode>
         </area>
     </info>
