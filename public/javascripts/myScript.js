@@ -462,9 +462,7 @@ var shapesExist = false;
 var newJson;
 
 function addShape(shape) {
-    //shapes.push(shape);
     shapeToJson(shape);
-    //  console.log(shapes[0].geometry.type);
 }
 
 function shapeToJson(shape) {
@@ -499,8 +497,8 @@ function shapeToJson(shape) {
     shapes += json;
     newJson = JSON.parse(shapes);
     var someVar = JSON.stringify(newJson[0].type);
-    console.log(someVar);
+    // console.log(someVar);
     for (var i = 0; i < newJson.length; i++) {
-        console.log(newJson[i].type.toLowerCase());
+        console.log(shapes);
     }
 }

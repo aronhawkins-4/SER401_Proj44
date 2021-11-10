@@ -36,11 +36,11 @@ router.post('/', function(req, res, next) {
     var layers = req.body.layers;
     if (layers.length != 0) {
         var layersJson = JSON.parse(layers);
-        console.log(layersJson);
+        // alert(layersJson);
     }
 
 
-    if (layersJson) {
+    if (layersJson != null) {
         //Call function to generate xml 
         var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson);
         //Call function to save msg as json 
@@ -102,14 +102,14 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.endElement('parameter');
     xw.startElement('area');
     xw.writeElement('areaDesc', areaDesc);
+    if (layersJson != null) {
+        for (var i = 0; i < layersJson.length; i++) {
+            xw.writeElement(layersJson[i].type.toString().toLowerCase(), layersJson[i].coordinates.toString());
+        }
+    }
     xw.startElement('geocode');
     xw.writeElement('valueName', 'SAME');
     xw.writeElement('value', geo);
-    if (layersJson != null) {
-        for (var i = 0; i < layersJson.length; i++) {
-            xw.writeElement(layersJson[i].type.toLowerCase(), layersJson[i].coordinates);
-        }
-    }
     xw.endElement('geocode');
     xw.endElement('area');
     xw.endElement('info');
@@ -163,6 +163,39 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 
 
 /* Generate and save json alert message data */
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson) {
+
+    var newObject = {
+        identifier: identifier,
+        sender: sender,
+        sent: sent,
+        status: status,
+        msgType: msgType,
+        category: category,
+        scope: scope,
+        event: event,
+        urgency: urgency,
+        severity: severity,
+        certainty: certainty,
+        eventCode: eventCode,
+        desc: desc,
+        areaDesc: areaDesc,
+        geo: geo,
+        spanCheck: spanCheck,
+        spanAreaDesc: spanAreaDesc,
+        spanDesc: spanDesc
+
+    };
+
+    var output = JSON.stringify(newObject);
+
+    fs.writeFile('public/dbs/temp.json', output, function(err) {
+        if (err) throw err;
+        console.log("JSON Saved");
+    });
+}
+
+/* Generate and save json alert message data */
 function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
 
     var newObject = {
@@ -183,8 +216,7 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         geo: geo,
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
-        spanDesc: spanDesc,
-        // layersJson: layersJson
+        spanDesc: spanDesc
     };
 
     var output = JSON.stringify(newObject);

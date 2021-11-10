@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>2021111004352139HAW</identifier>
+    <identifier>202111101160578HAW</identifier>
     <sender>hawkins.aron@gmail.com</sender>
-    <sent>2021-11-10T00:43:52-06:00</sent>
-    <status>Actual</status>
+    <sent>2021-11-10T01:16:00-06:00</sent>
+    <status>Exercise</status>
     <msgType>Alert</msgType>
     <scope>public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Met</category>
+        <category>Geo</category>
         <event>asdf</event>
-        <urgency>Expected</urgency>
-        <severity>Severe</severity>
+        <urgency>Immediate</urgency>
+        <severity>Extreme</severity>
         <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>ADR</value>
+            <value>AVA</value>
         </eventCode>
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
@@ -30,22 +30,23 @@
         </parameter>
         <area>
             <areaDesc>asdf</areaDesc>
+            <polygon>[-111.960812,33.425688],[-111.960812,33.451759],[-111.933174,33.451759],[-111.933174,33.425688],[-111.960812,33.425688]</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>048011</value>
+                <value>048013</value>
             </geocode>
         </area>
     </info>
     <info>
         <language>es-US</language>
-        <category>Met</category>
+        <category>Geo</category>
         <event>asdf</event>
-        <urgency>Expected</urgency>
-        <severity>Severe</severity>
+        <urgency>Immediate</urgency>
+        <severity>Extreme</severity>
         <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>ADR</value>
+            <value>AVA</value>
         </eventCode>
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
@@ -61,7 +62,7 @@
             <areaDesc>asdf</areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>048011</value>
+                <value>048013</value>
             </geocode>
         </area>
     </info>
