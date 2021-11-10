@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20211116201928740JES</identifier>
-    <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2021-11-16T20:19:28-07:00</sent>
-    <status>Actual</status>
+    <identifier>2021119194123129JCA</identifier>
+    <sender>jcall3@asu.edu</sender>
+    <sent>2021-11-09T19:41:23-05:00</sent>
+    <status>System Test</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Geo</category>
-        <event>ythyt</event>
+        <category>Safety</category>
+        <event>This is a test to see what prints in XML</event>
         <urgency>Immediate</urgency>
-        <severity>Extreme</severity>
-        <certainty>Likely</certainty>
+        <severity>Severe</severity>
+        <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>ADR</value>
+            <value>RMT</value>
         </eventCode>
-        <expires>2021-11-17T20:19:28-07:00</expires>
+        <expires>2021-11-10T19:41:23-05:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>geege</description>
+        <description>Again this is a Test to see what XML prints</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,13 +29,10 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>gerge</areaDesc>
-            <circle>-111.977291,33.424542 2.4</circle>
-            <polygon>-111.921844,33.413366 -111.921844,33.427408 -111.912575,33.427408 -111.912575,33.413366 -111.921844,33.413366</polygon>
-            <polygon>-111.954803,33.39273 -111.939697,33.45047 -111.925793,33.397317 -111.954803,33.39273</polygon>
+            <areaDesc>A monthly to ensure the system is working as intended</areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>000000</value>
+                <value>048345</value>
             </geocode>
         </area>
     </info>
