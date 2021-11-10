@@ -35,10 +35,10 @@ router.post('/', function (req, res, next) {
   var spanDesc = req.body.spanishDesc;
 
   //Call function to generate xml 
-  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
-  
+  var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc);
+
   //Call function to save msg as json 
-  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+  saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc);
 
   //Call function to save test page that displays xml string 
   saveTestPage(xmlString);
@@ -48,14 +48,14 @@ router.post('/', function (req, res, next) {
 
 /* Generate and save xml alert messag data */
 
-function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
-  
+function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
+  var fipsGeo = 0+geo;
   xw = new XMLWriter(true);
   xw.startDocument('1.0', 'UTF-8');
   xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
   xw.writeElement('identifier', identifier);
   xw.writeElement('sender', sender);
-  xw.writeElement('sent', sent); 
+  xw.writeElement('sent', sent);
   xw.writeElement('status', status);
   xw.writeElement('msgType', msgType);
   xw.writeElement('scope', scope);
@@ -84,14 +84,18 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
   xw.endElement('parameter');
   xw.startElement('area');
   xw.writeElement('areaDesc', areaDesc);
+  xw.startElement('geocode');
+  xw.writeElement('valueName', 'SAME');
+  xw.writeElement('value', fipsGeo);
+  xw.endElement('geocode');
   xw.endElement('area');
   xw.endElement('info');
 
-  if(spanCheck){
-     
+  if (spanCheck) {
+
     xw.startElement('info');
     xw.writeElement('language', 'es-US');
-    xw.writeElement('category', 'category goes here');
+    xw.writeElement('category', category);
     //from here down the fields still need to be posted to index JK
     xw.writeElement('event', event);
     xw.writeElement('urgency', urgency);
@@ -113,14 +117,18 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
     xw.endElement('parameter');
     xw.startElement('area');
     xw.writeElement('areaDesc', spanAreaDesc);
+    xw.startElement('geocode');
+    xw.writeElement('valueName', 'SAME');
+    xw.writeElement('value', fipsGeo);
+    xw.endElement('geocode');
     xw.endElement('area');
     xw.endElement('info');
-  
+
   }
 
   xw.endDocument();
   let xmlString = xw.toString();
-  
+
   fs.writeFile('public/dbs/temp.xml', xmlString, function (err) {
 
     if (err) throw err;
@@ -132,7 +140,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
 
 
 /* Generate and save json alert message data */
-function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
 
   var newObject = {
     identifier: identifier,
@@ -165,7 +173,7 @@ function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urg
 
 /* Generate and save xml alert messag data */
 function saveTestPage(xml) {
- 
+
   fs.writeFile('views/test.html', xml, function (err) {
     if (err) throw err;
     console.log("Test Page Saved");
