@@ -172,6 +172,9 @@ function handleClick() {
     //Get Message/Event Description from Form
     var desc = document.getElementById('alertEn360').value;
 
+    //Parse geoCode to be used for number range validation 
+    var geoNumber = parseInt(geoCode);
+
     //Validate the sender's email 
     if (email.length == 0) {
         alert("You must enter your email!");
@@ -198,6 +201,10 @@ function handleClick() {
             
                 alert("You Must Select a Valid Geocode!");
                       
+            }else if (geoNumber < 1000 || geoNumber > 56045) {
+                
+                alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
+
             }else if(event === undefined || event == ''){
             
                 alert("You Must Enter a Subject for Event!");
