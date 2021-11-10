@@ -361,7 +361,7 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        // layers: shapes    
+                        layers: shapes
                     };
 
                     //Send a POST request containing the form elements object  
@@ -400,7 +400,8 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        // layers: shapes  
+                        layers: shapes
+
                     };
 
                     //Send a POST request containing the form elements object  
@@ -441,7 +442,7 @@ function handleClick() {
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
                     spanishDesc: spanDesc,
-                    // layers: shapes           
+                    layers: shapes
                 };
 
                 //Send a POST request containing the form elements object  
@@ -457,13 +458,12 @@ function handleClick() {
 // Variable and function to store all map vertice coordinates
 var coordinates = [];
 var shapes = "";
+console.log(shapes.length);
 var shapesExist = false;
 var newJson;
 
 function addShape(shape) {
-    //shapes.push(shape);
     shapeToJson(shape);
-    //  console.log(shapes[0].geometry.type);
 }
 
 function shapeToJson(shape) {
@@ -471,9 +471,9 @@ function shapeToJson(shape) {
     if (shape.geometry.type === "Point") {
         if (shapesExist) {
             shapes = shapes.slice(0, -1);
-            json = ', {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ']" } ]';
+            json = ', {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" } ]';
         } else {
-            json = '[ {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ']" } ]';
+            json = '[ {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" } ]';
             shapesExist = true;
         }
 
@@ -498,8 +498,8 @@ function shapeToJson(shape) {
     shapes += json;
     newJson = JSON.parse(shapes);
     var someVar = JSON.stringify(newJson[0].type);
-    console.log(someVar);
-    // for (var i = 0; i < newJson.length; i++) {
-    //     console.log(newJson[i].type.toLowerCase());
-    // }
+    // console.log(someVar);
+    for (var i = 0; i < newJson.length; i++) {
+        console.log(shapes);
+    }
 }
