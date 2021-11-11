@@ -139,6 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
+    
+    //Check if Spanish Message is Present
+    var spanCheck = document.getElementById('spanchk').checked;
+    
     //Get Geocode from Form
     var geoCode = document.getElementById('selectid').value;
     geoCode = geoCode.substr(0,5);
@@ -162,9 +166,6 @@ function handleClick() {
     
     //Get Spanish Message
     var spanDesc = document.getElementById('alertSp360').value;
-    
-    //Check if Spanish Message is Present
-    var spanCheck = document.getElementById('spanchk').checked;
 
     //Get Area Description from Form
     var areaDesc = document.getElementById('eventFi180').value;

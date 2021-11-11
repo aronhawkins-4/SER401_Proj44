@@ -93,12 +93,11 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
   xw.endElement('area');
   xw.endElement('info');
 
-  if(spanCheck){
+  if(spanCheck == true){
  
     xw.startElement('info');
     xw.writeElement('language', 'es-US');
     xw.writeElement('category', category);
-    //from here down the fields still need to be posted to index JK
     xw.writeElement('event', event);
     xw.writeElement('urgency', urgency);
     xw.writeElement('severity', severity);
@@ -118,7 +117,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
     xw.writeElement('value', 'value goes here');
     xw.endElement('parameter');
     xw.startElement('area');
-    xw.writeElement('areaDesc', areaDesc);
+    xw.writeElement('areaDesc', spanAreaDesc);
     xw.startElement('geocode');
     xw.writeElement('valueName', 'SAME');
     xw.writeElement('value', geo);
