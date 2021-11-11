@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-//var for option selected from category dropdown list
-var categoryOptSelected;
-
-
-//Saves category type selected on option onchange
-function categoryOpt() {
-    categoryOptSelected = document.getElementById('categoryDropdown').value;
-}
-//var for option selected from alert type dropdown list
-var alertTypeOptSelected;
-
-function alertTypeOpt() {
-    alertTypeOptSelected = document.getElementById('alertDropdown').value;
-}
-
-//Stores Certainty Value Selected
-var certaintyOptSelected;
-
-//Gets Certainty Value Selected from Dropdown Menu on Change
-function certaintyOpt() {
-
-    certaintyOptSelected = document.getElementById('certaintyDropdown').value;
-
-}
-
-=======
->>>>>>> dev
 //var for option selected from msgType dropdown list
 var msgTypeOptSelected;
 
@@ -170,12 +142,8 @@ function handleClick() {
     var testString = "hello";
     //Get Geocode from Form
     var geoCode = document.getElementById('selectid').value;
-<<<<<<< HEAD
     geoCode = geoCode.substr(0, 5);
 
-=======
-    geoCode = geoCode.substr(0,5);
-    
     //Retrieves Values from Form
     var categoryOptSelected = document.getElementById('categoryDropdown').value;
     var alertTypeOptSelected = document.getElementById('alertDropdown').value;
@@ -183,9 +151,8 @@ function handleClick() {
     var eventCodeOptSelected = document.getElementById('eventDropdown').value;
     var msgStatusOptSelected = document.getElementById('status').value;
     var urgencyOptSelected = document.getElementById('urgencyDropdown').value;
-    
+
     //Get Sender Email from Form
->>>>>>> dev
     var email = document.getElementById('sender').value;
 
     //Get Subject Event from Form
@@ -223,7 +190,6 @@ function handleClick() {
 
         if (emailCheck == false) {
             alert("Please enter a valid email!")
-<<<<<<< HEAD
         } else if (categoryOptSelected === undefined || categoryOptSelected == "Default") {
 
             alert("You Must Enter an Alert Category!");
@@ -235,6 +201,10 @@ function handleClick() {
         } else if (geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false) {
 
             alert("You Must Select a Valid Geocode!");
+
+        } else if (geoNumber < 1000 || geoNumber > 56045) {
+
+            alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
 
         } else if (event === undefined || event == '') {
 
@@ -277,65 +247,6 @@ function handleClick() {
             alert("You must Enter a Spanish Alert Message!");
 
         } else {
-=======
-            } else if (categoryOptSelected === undefined || categoryOptSelected == "Default") {
-                
-                alert("You Must Enter an Alert Category!");
-
-            } else if(msgStatusOptSelected === undefined || msgStatusOptSelected == "Default"){
-                     
-                alert("You Must Select a Status!");
-                     
-            }else if(geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
-            
-                alert("You Must Select a Valid Geocode!");
-                      
-            }else if (geoNumber < 1000 || geoNumber > 56045) {
-                
-                alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
-
-            }else if(event === undefined || event == ''){
-            
-                alert("You Must Enter a Subject for Event!");
-                      
-            }else if(desc === undefined || desc == ''){
-            
-                alert("You Must Enter a Message!");
-                      
-            }else if(areaDesc === undefined || areaDesc == ''){
-            
-                alert("You Must Enter a Description for Event Area!");
-                      
-            }else if(certaintyOptSelected === undefined || certaintyOptSelected == "Default"){
-             
-                alert("You Must Select a Certainty!");
-                
-            } else if (alertTypeOptSelected === undefined || alertTypeOptSelected == "Default") {
-
-                alert("You Must Select a Severity");
-
-            } else if(urgencyOptSelected === undefined || urgencyOptSelected == "Default"){
-                     
-                alert("You Must Select an Urgency!");
-                     
-            }else if(eventCodeOptSelected === undefined || eventCodeOptSelected == "Default"){
-                     
-                alert("You Must Select an Event Code!");
-                     
-            }else if(scopeCodeOptSelected === undefined || scopeCodeOptSelected == "Default"){
-                
-                alert("You must Select a Scope!");
-                
-            }else if(spanCheck && (spanArDesc === undefined || spanArDesc == '')){
-                
-                alert("You must Enter a Spanish Area Description!");
-                
-            }else if(spanCheck && (spanDesc === undefined || spanDesc == '')){
-                
-                alert("You must Enter a Spanish Alert Message!");
-                
-            } else {
->>>>>>> dev
 
             //Begin processing form
 
@@ -507,77 +418,72 @@ function handleClick() {
     }
 }
 
-// Variable and function to store all map vertice coordinates
-var coordinates = [];
+// Variable and function to store all map shape information
 var shapes = "";
-console.log(shapes.length);
-var shapesExist = false;
 var shapesNum = 0
-var newJson;
-
+    // var newJson;
 
 function addShape(shape) {
     var json;
     if (shape.geometry.type === "Point") {
-        if (shapesExist) {
+        if (shapesNum > 0) {
             shapes = shapes.slice(0, -1);
-            json = ', {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" } ]';
+            json = ',{"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']"}]';
         } else {
-            json = '[ {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" } ]';
-            shapesExist = true;
+            json = '[{"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']"}]';
         }
     } else if (shape.geometry.type === "Polygon") {
-        if (shapesExist) {
+        if (shapesNum > 0) {
             shapes = shapes.slice(0, -1);
-            json = ', {"type": "Polygon", "coordinates": [';
-
+            json = ',{"type": "polygon", "coordinates": "[';
         } else {
-            json = '[ {"type": "Polygon", "coordinates": [';
-            shapesExist = true;
+            json = '[{"type": "polygon", "coordinates": "[';
         }
         for (var i = 0; i < shape.geometry.coordinates[0].length; i++) {
             if (i === shape.geometry.coordinates[0].length - 1) {
-                json += '"[' + shape.geometry.coordinates[0][i] + ']" ] } ]';
+                json += '[' + shape.geometry.coordinates[0][i] + ']]"}]';
             } else {
-                json += '"[' + shape.geometry.coordinates[0][i] + ']", ';
+                json += '[' + shape.geometry.coordinates[0][i] + '],';
             }
         }
     }
-
     shapesNum++;
     shapes += json;
-    newJson = JSON.parse(shapes);
-    console.log(shapes);
+    // newJson = JSON.parse(shapes);
 }
 
 function deleteShape(shape) {
     var temp;
+    console.log(shape.geometry.type);
     if (shape.geometry.type === "Point") {
-        temp = '[ {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" } ]';
+        if (shapesNum > 1) {
+            temp = '[{"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']"}';
+        } else {
+            temp = '[{"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']"}]';
+        }
         if (shapes.substr(0, 75) != temp.substr(0, 75)) {
-            temp = ', {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" }';
+            temp = ',{"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']"}';
         }
     } else if (shape.geometry.type === "Polygon") {
-        temp = '[ {"type": "Polygon", "coordinates": [';
+        temp = '[{"type": "polygon", "coordinates": "[';
         for (var i = 0; i < shape.geometry.coordinates[0].length; i++) {
             if (i === shape.geometry.coordinates[0].length - 1) {
                 if (shapesNum > 1) {
-                    temp += '"[' + shape.geometry.coordinates[0][i] + ']" ] }';
+                    temp += '[' + shape.geometry.coordinates[0][i] + ']]"}';
                 } else {
-                    temp += '"[' + shape.geometry.coordinates[0][i] + ']" ] } ]';
+                    temp += '[' + shape.geometry.coordinates[0][i] + ']]"}]';
                 }
-
             } else {
-                temp += '"[' + shape.geometry.coordinates[0][i] + ']", ';
+                temp += '[' + shape.geometry.coordinates[0][i] + '],';
             }
         }
         if (shapes.substr(0, 75) != temp.substr(0, 75)) {
-            temp = ', {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" }';
+            temp = ',{"type": "polygon", "coordinates": "[';
             for (var i = 0; i < shape.geometry.coordinates[0].length; i++) {
                 if (i === shape.geometry.coordinates[0].length - 1) {
-                    temp += '"[' + shape.geometry.coordinates[0][i] + ']" ] }';
+                    temp += '[' + shape.geometry.coordinates[0][i] + ']]"}';
                 } else {
-                    temp += '"[' + shape.geometry.coordinates[0][i] + ']", ';
+                    temp += '[' + shape.geometry.coordinates[0][i] + '],';
                 }
             }
         }
@@ -589,17 +495,10 @@ function deleteShape(shape) {
         shapesExist = false;
     }
     updateShapes(shapes);
-    console.log(temp);
-    console.log(shapesNum);
-    // console.log(shapes);
-
 }
 
 function updateShapes() {
-    console.log(shapes[0]);
     if (shapes[0] === ",") {
         shapes = shapes.replace(",", "[");
-        // console.log("HELLO");
     }
-    console.log(shapes);
 }
