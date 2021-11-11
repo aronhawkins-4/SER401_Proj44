@@ -231,7 +231,7 @@ function handleClick() {
 
             alert("You Must Select a Valid Geocode!");
 
-        } else if (geoNumber < 1000 || geoNumber > 56045) {
+        } else if (geoNumber < 0000 || geoNumber > 56045) {
 
             alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
 
@@ -520,7 +520,7 @@ function handleClick() {
                     };
 
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function(data, status, xhr) {
+                    $.post("/", newObject, function (data, status, xhr) {
                         alert("Alert Submitted");
                         $(location).attr('href', '/test2');
                     });
@@ -561,7 +561,7 @@ function handleClick() {
                     };
 
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function(data, status, xhr) {
+                    $.post("/", newObject, function (data, status, xhr) {
                         alert("Alert Submitted");
                         $(location).attr('href', '/test2');
                     });
@@ -603,7 +603,7 @@ function handleClick() {
                 };
 
                 //Send a POST request containing the form elements object  
-                $.post("/", newObject, function(data, status, xhr) {
+                $.post("/", newObject, function (data, status, xhr) {
                     alert("Alert Submitted");
                     $(location).attr('href', '/test');
                 });
@@ -615,7 +615,7 @@ function handleClick() {
 // Variable and function to store all map shape information
 var shapes = "";
 var shapesNum = 0
-    // var newJson;
+// var newJson;
 
 function addShape(shape) {
     var json;
