@@ -396,11 +396,13 @@
                     var vertices = coordinates.length - 1;
                     vertNum -= vertices;
                 } else if (shape === "Point") {
+                    layer.properties.radius = e.layer.getRadius();
                     coordinates = layer.geometry.coordinates;
                     //  console.log(coordinates);
                     vertNum--;
                 }
                 shapeNum--;
+                deleteShape(layer);
                 checkShapeVertNums(shapeNum, vertNum, coordinates);
             });
 

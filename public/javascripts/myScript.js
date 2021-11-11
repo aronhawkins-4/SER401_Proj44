@@ -460,13 +460,11 @@ var coordinates = [];
 var shapes = "";
 console.log(shapes.length);
 var shapesExist = false;
+var shapesNum = 0
 var newJson;
 
-function addShape(shape) {
-    shapeToJson(shape);
-}
 
-function shapeToJson(shape) {
+function addShape(shape) {
     var json;
     if (shape.geometry.type === "Point") {
         if (shapesExist) {
@@ -476,7 +474,6 @@ function shapeToJson(shape) {
             json = '[ {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" } ]';
             shapesExist = true;
         }
-
     } else if (shape.geometry.type === "Polygon") {
         if (shapesExist) {
             shapes = shapes.slice(0, -1);
@@ -495,11 +492,62 @@ function shapeToJson(shape) {
         }
     }
 
+    shapesNum++;
     shapes += json;
     newJson = JSON.parse(shapes);
-    var someVar = JSON.stringify(newJson[0].type);
-    // console.log(someVar);
-    for (var i = 0; i < newJson.length; i++) {
-        console.log(shapes);
+    console.log(shapes);
+}
+
+function deleteShape(shape) {
+    var temp;
+    if (shape.geometry.type === "Point") {
+        temp = '[ {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" } ]';
+        if (shapes.substr(0, 75) != temp.substr(0, 75)) {
+            temp = ', {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" }';
+        }
+    } else if (shape.geometry.type === "Polygon") {
+        temp = '[ {"type": "Polygon", "coordinates": [';
+        for (var i = 0; i < shape.geometry.coordinates[0].length; i++) {
+            if (i === shape.geometry.coordinates[0].length - 1) {
+                if (shapesNum > 1) {
+                    temp += '"[' + shape.geometry.coordinates[0][i] + ']" ] }';
+                } else {
+                    temp += '"[' + shape.geometry.coordinates[0][i] + ']" ] } ]';
+                }
+
+            } else {
+                temp += '"[' + shape.geometry.coordinates[0][i] + ']", ';
+            }
+        }
+        if (shapes.substr(0, 75) != temp.substr(0, 75)) {
+            temp = ', {"type": "circle", "coordinates": "[' + shape.geometry.coordinates + ',' + shape.properties.radius + ']" }';
+            for (var i = 0; i < shape.geometry.coordinates[0].length; i++) {
+                if (i === shape.geometry.coordinates[0].length - 1) {
+                    temp += '"[' + shape.geometry.coordinates[0][i] + ']" ] }';
+                } else {
+                    temp += '"[' + shape.geometry.coordinates[0][i] + ']", ';
+                }
+            }
+        }
     }
+
+    shapes = shapes.replace(temp, "");
+    shapesNum--;
+    if (shapesNum === 0) {
+        shapesExist = false;
+    }
+    updateShapes(shapes);
+    console.log(temp);
+    console.log(shapesNum);
+    // console.log(shapes);
+
+}
+
+function updateShapes() {
+    console.log(shapes[0]);
+    if (shapes[0] === ",") {
+        shapes = shapes.replace(",", "[");
+        // console.log("HELLO");
+    }
+    console.log(shapes);
 }
