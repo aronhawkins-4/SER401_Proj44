@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"identifier":"2021111012655697HAW","sender":"hawkins.aron@gmail.com","sent":"2021-11-10T01:26:55-06:00","status":"Actual","msgType":"Alert","category":"Met","scope":"public","event":"asdf","urgency":"Immediate","severity":"Severe","certainty":"Observed","eventCode":"ADR","desc":"asdfasdfaf","areaDesc":"asdfasdfs","geo":"48021","spanCheck":"false","spanAreaDesc":"","spanDesc":""}
+=======
+{"identifier":"2021119235240608JES","sender":"jesus.a.quiroz@gmail.com","sent":"2021-11-09T23:52:40-07:00","status":"Actual","msgType":"Alert","category":"Geo","scope":"public","event":"rfgeggr","urgency":"Immediate","severity":"Extreme","certainty":"Observed","eventCode":"ADR","desc":"egegeg","areaDesc":"egegege","geo":"01000","spanCheck":"false","spanAreaDesc":"","spanDesc":""}
+>>>>>>> dev
