@@ -27,6 +27,7 @@ router.post('/', function (req, res, next) {
   var certainty = req.body.certainty;
   var category = req.body.category;
   var eventCode = req.body.eventCode;
+  var expires = req.body.expires;
   var desc = req.body.desc;
   var areaDesc = req.body.areaDesc;
   var geo = req.body.geo;
@@ -35,10 +36,10 @@ router.post('/', function (req, res, next) {
   var spanDesc = req.body.spanishDesc;
 
   //Call function to generate xml 
-  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+  var xmlString = saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,expires,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
   
   //Call function to save msg as json 
-  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
+  saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,expires,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc);
 
   //Call function to save test page that displays xml string 
   saveTestPage(xmlString);
@@ -48,10 +49,11 @@ router.post('/', function (req, res, next) {
 
 /* Generate and save xml alert messag data */
 
-function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
+function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,expires,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
 
   //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
   geo = "0" + geo; 
+
   xw = new XMLWriter(true);
   xw.startDocument('1.0', 'UTF-8');
   xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
@@ -74,7 +76,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
   xw.writeElement('valueName', 'SAME');
   xw.writeElement('value', eventCode);
   xw.endElement('eventCode');
-  xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
+  xw.writeElement('expires', expires);
   xw.writeElement('senderName', 'sender name goes here');
   xw.writeElement('headline', 'headline goes here');
   xw.writeElement('description', desc);
@@ -107,7 +109,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
     xw.writeElement('valueName', 'SAME');
     xw.writeElement('value', eventCode);
     xw.endElement('eventCode');
-    xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
+    xw.writeElement('expires', expires);
     xw.writeElement('senderName', 'sender name goes here');
     xw.writeElement('headline', 'headline goes here');
     xw.writeElement('description', spanDesc);
@@ -142,7 +144,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
 
 
 /* Generate and save json alert message data */
-function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
+function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,expires,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
 
   var newObject = {
     identifier: identifier,
@@ -157,6 +159,7 @@ function saveJson(identifier,sender,sent,status,msgType,scope,event,category,urg
     severity: severity,
     certainty: certainty,
     eventCode: eventCode,
+    expires: expires,
     desc: desc,
     areaDesc: areaDesc,
     geo: geo,
