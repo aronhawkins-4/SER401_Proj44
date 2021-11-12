@@ -93,7 +93,7 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
   xw.endElement('area');
   xw.endElement('info');
 
-  if(spanCheck == true){
+  if(spanCheck === "true"){
  
     xw.startElement('info');
     xw.writeElement('language', 'es-US');
