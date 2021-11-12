@@ -1,3 +1,27 @@
+//var for option selected from category dropdown list
+var categoryOptSelected;
+
+//Saves category type selected on option onchange
+function categoryOpt() {
+    categoryOptSelected = document.getElementById('categoryDropdown').value;
+}
+//var for option selected from alert type dropdown list
+var alertTypeOptSelected;
+
+function alertTypeOpt() {
+    alertTypeOptSelected = document.getElementById('alertDropdown').value;
+}
+
+//Stores Certainty Value Selected
+var certaintyOptSelected;
+
+//Gets Certainty Value Selected from Dropdown Menu on Change
+function certaintyOpt() {
+
+    certaintyOptSelected = document.getElementById('certaintyDropdown').value;
+
+}
+
 //var for option selected from msgType dropdown list
 var msgTypeOptSelected;
 
@@ -26,13 +50,13 @@ var scopeCodeOptSelected;
 function scoptOpt() {
     scopeCodeOptSelected = document.getElementById('scopeDropdown').value;
 
-    if (scopeCodeOptSelected == "private") {
+    if (scopeCodeOptSelected == "Private") {
         document.getElementById('addressField').disabled = false;
     } else {
         document.getElementById('addressField').disabled = true;
     }
 
-    if (scopeCodeOptSelected == "restricted") {
+    if (scopeCodeOptSelected == "Restricted") {
         document.getElementById('restrictionField').disabled = false;
     } else {
         document.getElementById('restrictionField').disabled = true;
@@ -142,6 +166,7 @@ function handleClick() {
     var testString = "hello";
     //Get Geocode from Form
     var geoCode = document.getElementById('selectid').value;
+
     geoCode = geoCode.substr(0, 5);
 
     //Retrieves Values from Form
@@ -190,6 +215,7 @@ function handleClick() {
 
         if (emailCheck == false) {
             alert("Please enter a valid email!")
+
         } else if (categoryOptSelected === undefined || categoryOptSelected == "Default") {
 
             alert("You Must Enter an Alert Category!");
@@ -247,7 +273,6 @@ function handleClick() {
             alert("You must Enter a Spanish Alert Message!");
 
         } else {
-
             //Begin processing form
 
             //Format current date time for message sent field 
@@ -258,7 +283,8 @@ function handleClick() {
 
 
             // Change date format so that single digit dates and time gets zero in from of them - JK
-            var msgTime = today.getFullYear() + "-";
+            var year = today.getFullYear()
+            var msgTime = year + "-";
             var month = (today.getMonth() + 1);
             var date = today.getDate();
             var hours = today.getHours();
@@ -291,6 +317,168 @@ function handleClick() {
                 msgTime += "0" + offset + ":00";
             } else msgTime += offset + ":00";
 
+            //set expiresTime to 24 hours after msgTime
+            //first account for december 31st
+            var expiresTime = "";
+            if (date == 31 & month == 12) {
+                year++;
+                expiresTime += year + "-01-01T";
+                if (hours < 10) {
+                    expiresTime += "0" + hours + ":";
+                } else expiresTime += hours + ":";
+                //Correct for single digit minute
+                if (minutues < 10) {
+                    expiresTime += "0" + minutues + ":";
+                } else expiresTime += minutues + ":";
+                //Correct for single digit seconds
+                if (seconds < 10) {
+                    expiresTime += "0" + seconds + "-";
+                } else expiresTime += seconds + "-";
+                //Correct for single digit offset
+                if (offset < 10) {
+                    expiresTime += "0" + offset + ":00";
+                } else expiresTime += offset + ":00";
+            }
+            //next account for february 29th leap year
+            else if (date == 29 && month == 2) {
+                expiresTime += year + "-03" + "-01T";
+                //Correct for single digit hours
+                if (hours < 10) {
+                    expiresTime += "0" + hours + ":";
+                } else expiresTime += hours + ":";
+                //Correct for single digit minute
+                if (minutues < 10) {
+                    expiresTime += "0" + minutues + ":";
+                } else expiresTime += minutues + ":";
+                //Correct for single digit seconds
+                if (seconds < 10) {
+                    expiresTime += "0" + seconds + "-";
+                } else expiresTime += seconds + "-";
+                //Correct for single digit offset
+                if (offset < 10) {
+                    expiresTime += "0" + offset + ":00";
+                } else expiresTime += offset + ":00";
+            }
+            //next account for febuary 28th
+            else if (date == 28 && month == 2) {
+                var isLeapYear = (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
+                if (isLeapYear) {
+                    expiresTime += year + "-02-29T";
+                    //Correct for single digit hours
+                    if (hours < 10) {
+                        expiresTime += "0" + hours + ":";
+                    } else expiresTime += hours + ":";
+                    //Correct for single digit minute
+                    if (minutues < 10) {
+                        expiresTime += "0" + minutues + ":";
+                    } else expiresTime += minutues + ":";
+                    //Correct for single digit seconds
+                    if (seconds < 10) {
+                        expiresTime += "0" + seconds + "-";
+                    } else expiresTime += seconds + "-";
+                    //Correct for single digit offset
+                    if (offset < 10) {
+                        expiresTime += "0" + offset + ":00";
+                    } else expiresTime += offset + ":00";
+                } else {
+                    expiresTime += year + "-03-01T";
+                    if (hours < 10) {
+                        expiresTime += "0" + hours + ":";
+                    } else expiresTime += hours + ":";
+                    //Correct for single digit minute
+                    if (minutues < 10) {
+                        expiresTime += "0" + minutues + ":";
+                    } else expiresTime += minutues + ":";
+                    //Correct for single digit seconds
+                    if (seconds < 10) {
+                        expiresTime += "0" + seconds + "-";
+                    } else expiresTime += seconds + "-";
+                    //Correct for single digit offset
+                    if (offset < 10) {
+                        expiresTime += "0" + offset + ":00";
+                    } else expiresTime += offset + ":00";
+                }
+            }
+            //acount for months with 30 days
+            else if (date == 30 && (month == 04 || month == 06 || month == 09 || month == 11)) {
+                month++;
+                expiresTime += year + "-";
+                if (month < 10) {
+                    expiresTime += "0" + month + "-";
+                } else expiresTime += month + "-";
+                expiresTime += "01T";
+                if (hours < 10) {
+                    expiresTime += "0" + hours + ":";
+                } else expiresTime += hours + ":";
+                //Correct for single digit minute
+                if (minutues < 10) {
+                    expiresTime += "0" + minutues + ":";
+                } else expiresTime += minutues + ":";
+                //Correct for single digit seconds
+                if (seconds < 10) {
+                    expiresTime += "0" + seconds + "-";
+                } else expiresTime += seconds + "-";
+                //Correct for single digit offset
+                if (offset < 10) {
+                    expiresTime += "0" + offset + ":00";
+                } else expiresTime += offset + ":00";
+            }
+            //acount for other months with 31 days
+            else if (date == 31) {
+                month++;
+                expiresTime += year + "-";
+                //Correct for single digit month
+                if (month < 10) {
+                    expiresTime += "0" + month + "-";
+                } else expiresTime += month + "-";
+                expiresTime += "01T";
+                //Correct for single digit hours
+                if (hours < 10) {
+                    expiresTime += "0" + hours + ":";
+                } else expiresTime += hours + ":";
+                //Correct for single digit minute
+                if (minutues < 10) {
+                    expiresTime += "0" + minutues + ":";
+                } else expiresTime += minutues + ":";
+                //Correct for single digit seconds
+                if (seconds < 10) {
+                    expiresTime += "0" + seconds + "-";
+                } else expiresTime += seconds + "-";
+                //Correct for single digit offset
+                if (offset < 10) {
+                    expiresTime += "0" + offset + ":00";
+                } else expiresTime += offset + ":00";
+            }
+            //finally if none of the above incriment date by 1
+            else {
+                date++;
+                expiresTime += year + "-";
+                //Corect for single digit month
+                if (month < 10) {
+                    expiresTime += "0" + month + "-";
+                } else expiresTime += month + "-";
+                //correct for single digit day
+                if (date < 10) {
+                    expiresTime += "0" + date + "T";
+                } else expiresTime += date + "T";
+                //Correct for single digit hours
+                if (hours < 10) {
+                    expiresTime += "0" + hours + ":";
+                } else expiresTime += hours + ":";
+                //Correct for single digit minute
+                if (minutues < 10) {
+                    expiresTime += "0" + minutues + ":";
+                } else expiresTime += minutues + ":";
+                //Correct for single digit seconds
+                if (seconds < 10) {
+                    expiresTime += "0" + seconds + "-";
+                } else expiresTime += seconds + "-";
+                //Correct for single digit offset
+                if (offset < 10) {
+                    expiresTime += "0" + offset + ":00";
+                } else expiresTime += offset + ":00";
+
+            }
             // Process the Alert Type field 
             if (msgTypeOptSelected === undefined || msgTypeOptSelected == "Default") {
                 alert("You must select an Alert Type");
@@ -318,6 +506,7 @@ function handleClick() {
                         severity: alertTypeOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
+                        expires: expiresTime,
                         desc: desc,
                         areaDesc: areaDesc,
                         geo: geoCode,
@@ -357,6 +546,7 @@ function handleClick() {
                         severity: alertTypeOptSelected,
                         certainty: certaintyOptSelected,
                         eventCode: eventCodeOptSelected,
+                        expires: expiresTime,
                         desc: desc,
                         areaDesc: areaDesc,
                         geo: geoCode,
@@ -399,6 +589,7 @@ function handleClick() {
                     severity: alertTypeOptSelected,
                     certainty: certaintyOptSelected,
                     eventCode: eventCodeOptSelected,
+                    expires: expiresTime,
                     desc: desc,
                     areaDesc: areaDesc,
                     geo: geoCode,
