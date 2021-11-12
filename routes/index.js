@@ -50,7 +50,10 @@ router.post('/', function (req, res, next) {
 /* Generate and save xml alert messag data */
 
 function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urgency,severity,certainty,eventCode,expires,desc,areaDesc,geo,spanCheck, spanAreaDesc, spanDesc) {
-  
+
+  //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
+  geo = "0" + geo; 
+
   xw = new XMLWriter(true);
   xw.startDocument('1.0', 'UTF-8');
   xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
@@ -85,14 +88,18 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
   xw.endElement('parameter');
   xw.startElement('area');
   xw.writeElement('areaDesc', areaDesc);
+  xw.startElement('geocode');
+  xw.writeElement('valueName', 'SAME');
+  xw.writeElement('value', geo);
+  xw.endElement('geocode');
   xw.endElement('area');
   xw.endElement('info');
 
   if(spanCheck){
-     
+ 
     xw.startElement('info');
     xw.writeElement('language', 'es-US');
-    xw.writeElement('category', 'category goes here');
+    xw.writeElement('category', category);
     //from here down the fields still need to be posted to index JK
     xw.writeElement('event', event);
     xw.writeElement('urgency', urgency);
@@ -113,7 +120,11 @@ function saveXml(identifier,sender,sent,status,msgType,scope,event,category,urge
     xw.writeElement('value', 'value goes here');
     xw.endElement('parameter');
     xw.startElement('area');
-    xw.writeElement('areaDesc', spanAreaDesc);
+    xw.writeElement('areaDesc', areaDesc);
+    xw.startElement('geocode');
+    xw.writeElement('valueName', 'SAME');
+    xw.writeElement('value', geo);
+    xw.endElement('geocode');
     xw.endElement('area');
     xw.endElement('info');
   
