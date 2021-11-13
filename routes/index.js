@@ -65,6 +65,7 @@ router.post('/', function(req, res, next) {
 
 /* Generate and save xml alert messag data */
 
+
 function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson) {
 
     //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
@@ -82,7 +83,6 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.startElement('info');
     xw.writeElement('language', 'en-US');
     xw.writeElement('category', category);
-    //from here down the fields still need to be posted to index JK
     xw.writeElement('event', event);
     xw.writeElement('urgency', urgency);
     xw.writeElement('severity', severity);
@@ -115,7 +115,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.endElement('area');
     xw.endElement('info');
 
-    if (spanCheck) {
+    if (spanCheck==="true") {
 
         xw.startElement('info');
         xw.writeElement('language', 'es-US');
@@ -140,7 +140,12 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
         xw.writeElement('value', 'value goes here');
         xw.endElement('parameter');
         xw.startElement('area');
-        xw.writeElement('areaDesc', areaDesc);
+        xw.writeElement('areaDesc', spanAreaDesc);
+		if (layersJson != null) {
+			for (var i = 0; i < layersJson.length; i++) {
+				xw.writeElement(layersJson[i].type.toString().toLowerCase(), layersJson[i].coordinates.toString());
+			}
+		}
         xw.startElement('geocode');
         xw.writeElement('valueName', 'SAME');
         xw.writeElement('value', geo);

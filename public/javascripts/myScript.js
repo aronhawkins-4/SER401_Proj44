@@ -163,7 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
+
     var testString = "hello";
+
     //Get Geocode from Form
     var geoCode = document.getElementById('selectid').value;
 
@@ -191,6 +193,7 @@ function handleClick() {
 
     //Check if Spanish Message is Present
     var spanCheck = document.getElementById('spanchk').checked;
+
 
     //Get Area Description from Form
     var areaDesc = document.getElementById('eventFi180').value;
