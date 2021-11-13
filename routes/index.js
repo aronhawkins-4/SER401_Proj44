@@ -37,11 +37,7 @@ router.post('/', function(req, res, next) {
     var layers = req.body.layers;
     if (layers.length != 0) {
         var layersJson = JSON.parse(layers);
-        // alert(layersJson);
-        console.log(layersJson); 
-        console.log("The length = " + layersJson.length); 
     }
-
 
     if (layersJson != null) {
         //Call function to generate xml 
@@ -57,8 +53,6 @@ router.post('/', function(req, res, next) {
 
     }
 
-
-
     //Call function to save test page that displays xml string 
     saveTestPage(xmlString);
 
@@ -66,8 +60,6 @@ router.post('/', function(req, res, next) {
 });
 
 /* Generate and save xml alert messag data */
-
-
 function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson) {
 
     //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
@@ -170,7 +162,11 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     
                 if (shape == "circle") {
                     var separateCircle = coordinates.lastIndexOf(",");
-                    coordinates = coordinates.substring(0,separateCircle) + " " + coordinates.substring(separateCircle + 1, coordinates.length - 1);
+                    //The radius needs to be convereted from meters to kilometers 
+                    var radiusMeters = parseFloat(coordinates.substring(separateCircle + 1, coordinates.length - 1));
+                    var radiusKm = radiusMeters * 0.001; 
+                    radiusKm = radiusKm.toFixed(1);
+                    coordinates = coordinates.substring(0,separateCircle) + " " + radiusKm;
                 }
     
                 xw.writeElement(shape, coordinates);
@@ -196,98 +192,6 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 
     return xmlString;
 }
-
-// function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
-
-//     //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
-//     geo = "0" + geo;
-//     xw = new XMLWriter(true);
-//     xw.startDocument('1.0', 'UTF-8');
-//     xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
-//     xw.writeElement('identifier', identifier);
-//     xw.writeElement('sender', sender);
-//     xw.writeElement('sent', sent);
-//     xw.writeElement('status', status);
-//     xw.writeElement('msgType', msgType);
-//     xw.writeElement('scope', scope);
-//     xw.writeElement('code', 'IPAWSv1.0');
-//     xw.startElement('info');
-//     xw.writeElement('language', 'en-US');
-//     xw.writeElement('category', category);
-//     //from here down the fields still need to be posted to index JK
-//     xw.writeElement('event', event);
-//     xw.writeElement('urgency', urgency);
-//     xw.writeElement('severity', severity);
-//     xw.writeElement('certainty', certainty);
-//     xw.startElement('eventCode');
-//     xw.writeElement('valueName', 'SAME');
-//     xw.writeElement('value', eventCode);
-//     xw.endElement('eventCode');
-//     xw.writeElement('expires', expires);
-//     xw.writeElement('senderName', 'sender name goes here');
-//     xw.writeElement('headline', 'headline goes here');
-//     xw.writeElement('description', desc);
-//     xw.writeElement('instruction', 'instruction goes here');
-//     xw.writeElement('web', 'http://www.google.com');
-//     xw.startElement('parameter', 'parameter goes here');
-//     xw.writeElement('valueName', 'valuename goes here');
-//     xw.writeElement('value', 'value goes here');
-//     xw.endElement('parameter');
-//     xw.startElement('area');
-//     xw.writeElement('areaDesc', areaDesc);
-//     xw.startElement('geocode');
-//     xw.writeElement('valueName', 'SAME');
-//     xw.writeElement('value', geo);
-//     xw.endElement('geocode');
-//     xw.endElement('area');
-//     xw.endElement('info');
-
-//     if (spanCheck) {
-
-//         xw.startElement('info');
-//         xw.writeElement('language', 'es-US');
-//         xw.writeElement('category', category);
-//         //from here down the fields still need to be posted to index JK
-//         xw.writeElement('event', event);
-//         xw.writeElement('urgency', urgency);
-//         xw.writeElement('severity', severity);
-//         xw.writeElement('certainty', certainty);
-//         xw.startElement('eventCode');
-//         xw.writeElement('valueName', 'SAME');
-//         xw.writeElement('value', eventCode);
-//         xw.endElement('eventCode');
-//         xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
-//         xw.writeElement('senderName', 'sender name goes here');
-//         xw.writeElement('headline', 'headline goes here');
-//         xw.writeElement('description', spanDesc);
-//         xw.writeElement('instruction', 'instruction goes here');
-//         xw.writeElement('web', 'http://www.google.com');
-//         xw.startElement('parameter', 'parameter goes here');
-//         xw.writeElement('valueName', 'valuename goes here');
-//         xw.writeElement('value', 'value goes here');
-//         xw.endElement('parameter');
-//         xw.startElement('area');
-//         xw.writeElement('areaDesc', areaDesc);
-//         xw.startElement('geocode');
-//         xw.writeElement('valueName', 'SAME');
-//         xw.writeElement('value', geo);
-//         xw.endElement('geocode');
-//         xw.endElement('area');
-//         xw.endElement('info');
-
-//     }
-
-//     xw.endDocument();
-//     let xmlString = xw.toString();
-
-//     fs.writeFile('public/dbs/temp.xml', xmlString, function(err) {
-
-//         if (err) throw err;
-//         console.log("XML Saved");
-//     });
-
-//     return xmlString;
-// }
 
 /* Generate and save json alert message data */
 function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson) {
@@ -365,8 +269,6 @@ function saveTestPage(xml) {
     });
 
 }
-
-
 
 /*DEBUG TEST ROUTE */
 router.get('/test', function(req, res, next) {
