@@ -38,6 +38,8 @@ router.post('/', function(req, res, next) {
     if (layers.length != 0) {
         var layersJson = JSON.parse(layers);
         // alert(layersJson);
+        console.log(layersJson); 
+        console.log("The length = " + layersJson.length); 
     }
 
 
@@ -105,7 +107,23 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.writeElement('areaDesc', areaDesc);
     if (layersJson != null) {
         for (var i = 0; i < layersJson.length; i++) {
-            xw.writeElement(layersJson[i].type.toString().toLowerCase(), layersJson[i].coordinates.toString());
+            var coordinates = layersJson[i].coordinates.toString();            
+            coordinates = coordinates.split("[").join(""); 
+            coordinates = coordinates.split("],").join(" ");
+            coordinates = coordinates.split("]]").join(""); 
+            
+            var shape = layersJson[i].type.toString().toLowerCase();
+
+            if (shape == "circle") {
+                var separateCircle = coordinates.lastIndexOf(",");
+                //The radius needs to be convereted from meters to kilometers 
+                var radiusMeters = parseFloat(coordinates.substring(separateCircle + 1, coordinates.length - 1));
+                var radiusKm = radiusMeters * 0.001; 
+                radiusKm = radiusKm.toFixed(1);
+                coordinates = coordinates.substring(0,separateCircle) + " " + radiusKm;
+            }
+
+            xw.writeElement(shape, coordinates);
         }
     }
     xw.startElement('geocode');
@@ -143,8 +161,20 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
         xw.writeElement('areaDesc', spanAreaDesc);
 		if (layersJson != null) {
 			for (var i = 0; i < layersJson.length; i++) {
-				xw.writeElement(layersJson[i].type.toString().toLowerCase(), layersJson[i].coordinates.toString());
-			}
+                var coordinates = layersJson[i].coordinates.toString();            
+                coordinates = coordinates.split("[").join(""); 
+                coordinates = coordinates.split("],").join(" ");
+                coordinates = coordinates.split("]]").join(""); 
+                
+                var shape = layersJson[i].type.toString().toLowerCase();
+    
+                if (shape == "circle") {
+                    var separateCircle = coordinates.lastIndexOf(",");
+                    coordinates = coordinates.substring(0,separateCircle) + " " + coordinates.substring(separateCircle + 1, coordinates.length - 1);
+                }
+    
+                xw.writeElement(shape, coordinates);
+            }
 		}
         xw.startElement('geocode');
         xw.writeElement('valueName', 'SAME');
@@ -335,6 +365,8 @@ function saveTestPage(xml) {
     });
 
 }
+
+
 
 /*DEBUG TEST ROUTE */
 router.get('/test', function(req, res, next) {
