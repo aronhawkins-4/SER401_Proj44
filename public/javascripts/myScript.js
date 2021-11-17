@@ -235,6 +235,10 @@ function handleClick() {
 
             alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
 
+        } else if (geoNumber >= 1 && geoNumber <= 999) {
+
+            alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
+
         } else if (event === undefined || event == '') {
 
             alert("You Must Enter a Subject for Event!");
