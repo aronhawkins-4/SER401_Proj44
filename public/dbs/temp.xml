@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20211117194420450JCA</identifier>
+    <identifier>2021111719538481JCA</identifier>
     <sender>jcall3@asu.edu</sender>
-    <sent>2021-11-17T19:44:20-05:00</sent>
-    <status>Actual</status>
+    <sent>2021-11-17T19:53:08-05:00</sent>
+    <status>System Test</status>
     <msgType>Alert</msgType>
-    <scope>Private</scope>
+    <scope>Restricted</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Other</category>
-        <event>Test for XML read on the Address field if Scope is set to Private</event>
-        <urgency>Immediate</urgency>
-        <severity>Moderate</severity>
-        <certainty>Observed</certainty>
+        <category>Met</category>
+        <event>Test on if Restricted Field works</event>
+        <urgency>Future</urgency>
+        <severity>Severe</severity>
+        <certainty>Unlikely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>VOW</value>
+            <value>BZW</value>
         </eventCode>
-        <expires>2021-11-18T19:44:20-05:00</expires>
+        <expires>2021-11-18T19:53:08-05:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>Test for XML read on the Address field if Scope is set to Private</description>
+        <description>Test on if Restricted Field works</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,28 +29,31 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>Test for XML read on the Address field if Scope is set to Private</areaDesc>
+            <areaDesc>Test on if Restricted Field works</areaDesc>
+            <circle>-112.018841,33.45417 4.7</circle>
+            <polygon>-111.905562,33.410736 -111.905562,33.455174 -111.822835,33.455174 -111.822835,33.410736 -111.905562,33.410736</polygon>
+            <polygon>-112.018841,33.45417 -111.964605,33.374165 -111.822835,33.455174 -112.018841,33.45417</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>000000</value>
+                <value>001001</value>
             </geocode>
         </area>
     </info>
     <info>
         <language>es-US</language>
-        <category>Other</category>
-        <event>Test for XML read on the Address field if Scope is set to Private</event>
-        <urgency>Immediate</urgency>
-        <severity>Moderate</severity>
-        <certainty>Observed</certainty>
+        <category>Met</category>
+        <event>Test on if Restricted Field works</event>
+        <urgency>Future</urgency>
+        <severity>Severe</severity>
+        <certainty>Unlikely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>VOW</value>
+            <value>BZW</value>
         </eventCode>
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>Test for XML read on the Address field if Scope is set to Private</description>
+        <description>Test on if Restricted Field works</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -58,10 +61,13 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>Test for XML read on the Address field if Scope is set to Private</areaDesc>
+            <areaDesc>Test on if Restricted Field works</areaDesc>
+            <circle>-112.018841,33.45417 4.7</circle>
+            <polygon>-111.905562,33.410736 -111.905562,33.455174 -111.822835,33.455174 -111.822835,33.410736 -111.905562,33.410736</polygon>
+            <polygon>-112.018841,33.45417 -111.964605,33.374165 -111.822835,33.455174 -112.018841,33.45417</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>000000</value>
+                <value>001001</value>
             </geocode>
         </area>
     </info>
