@@ -48,7 +48,7 @@ var scopeCodeOptSelected;
 
 //Saves scope code selectted on option change 
 function scoptOpt() {
-    scopeCodeOptSelected = document.getElementById('scopeDropdown').value;
+    scopeCodeOptSelected = "Public";
 
     if (scopeCodeOptSelected == "Private") {
         document.getElementById('addressField').disabled = false;
@@ -163,6 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
+    
+    scopeCodeOptSelected = "Public";
 
     var testString = "hello";
 
