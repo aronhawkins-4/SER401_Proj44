@@ -6,7 +6,6 @@ var numCodesSelected;
 
 function numCodesOpt() {
     numCodesSelected = document.getElementById('numCodesDropdown').value;
-    alert(numCodesSelected);
 }
 
 //Saves category type selected on option onchange
