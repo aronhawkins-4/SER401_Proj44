@@ -1,6 +1,14 @@
 //var for option selected from category dropdown list
 var categoryOptSelected;
 
+//Stores selected number of Geocodes
+var numCodesSelected;
+
+function numCodesOpt() {
+    numCodesSelected = document.getElementById('numCodesDropdown').value;
+    alert(numCodesSelected);
+}
+
 //Saves category type selected on option onchange
 function categoryOpt() {
     categoryOptSelected = document.getElementById('categoryDropdown').value;
@@ -48,7 +56,7 @@ var scopeCodeOptSelected;
 
 //Saves scope code selectted on option change 
 function scoptOpt() {
-    scopeCodeOptSelected = document.getElementById('scopeDropdown').value;
+    scopeCodeOptSelected = "Public";
 
     if (scopeCodeOptSelected == "Private") {
         document.getElementById('addressField').disabled = false;
