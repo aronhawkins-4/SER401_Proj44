@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var XMLWriter = require('xml-writer');
+const soap = require('soap')
+const wsdlUrl = 'http://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS?wsdl'
 fs = require('fs');
 
 

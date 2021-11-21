@@ -22,6 +22,7 @@
     "jquery": "^3.6.0",
     "morgan": "~1.9.1",
     "nodeunit": "^0.11.3",
+    "soap": "^0.43.0",
     "xml-writer": "^1.7.0"
   },
   "devDependencies": {
