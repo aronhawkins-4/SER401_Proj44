@@ -1,6 +1,8 @@
 //var for option selected from category dropdown list
 var categoryOptSelected;
 
+var numGeoCodes;
+
 //Saves category type selected on option onchange
 function categoryOpt() {
     categoryOptSelected = document.getElementById('categoryDropdown').value;
