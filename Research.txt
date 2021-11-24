@@ -1,0 +1,2 @@
+- I have been working with XCode learining app developement with SWIFT for IOS 
+- I have also been testing communication with IPAWS using Postman  
