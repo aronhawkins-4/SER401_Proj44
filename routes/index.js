@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var XMLWriter = require('xml-writer');
-const soap = require('soap')
-const wsdlUrl = 'http://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS?wsdl'
+const soap = require('soap');
+const wsdlUrl = 'http://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS?wsdl';
+const endpoint = 'https://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS';
 fs = require('fs');
 
 
@@ -272,6 +273,9 @@ function saveTestPage(xml) {
 
 }
 
+function createSoapDocument(xml){
+
+}
 /*DEBUG TEST ROUTE */
 router.get('/test', function(req, res, next) {
     res.render('test', { title: 'Test Page' });
