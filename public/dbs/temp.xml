@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>2021111719538481JCA</identifier>
+    <identifier>2021112415149550JCA</identifier>
     <sender>jcall3@asu.edu</sender>
-    <sent>2021-11-17T19:53:08-05:00</sent>
-    <status>System Test</status>
+    <sent>2021-11-24T15:14:09-05:00</sent>
+    <status>Actual</status>
     <msgType>Alert</msgType>
-    <scope>Restricted</scope>
+    <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Met</category>
-        <event>Test on if Restricted Field works</event>
-        <urgency>Future</urgency>
-        <severity>Severe</severity>
-        <certainty>Unlikely</certainty>
+        <category>Geo</category>
+        <event>Earthquake imminent, potential threat expected around 0600 MST. More to fill in and see if we can reach the character limit that is set to 180 characters in this specific text box.</event>
+        <urgency>Immediate</urgency>
+        <severity>Extreme</severity>
+        <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>BZW</value>
+            <value>EQW</value>
         </eventCode>
-        <expires>2021-11-18T19:53:08-05:00</expires>
+        <expires>2021-11-25T15:14:09-05:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>Test on if Restricted Field works</description>
+        <description>Earthquake imminent, potential threat expected around 0600 MST. More to fill in and see if we can reach the character limit that is set to 180 characters in this specific text box.Earthquake imminent, potential threat expected around 0600 MST. More to fill in and see if we can reach the character limit that is set to 180 characters in this specific text box.</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,31 +29,38 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>Test on if Restricted Field works</areaDesc>
-            <circle>-112.018841,33.45417 4.7</circle>
-            <polygon>-111.905562,33.410736 -111.905562,33.455174 -111.822835,33.455174 -111.822835,33.410736 -111.905562,33.410736</polygon>
-            <polygon>-112.018841,33.45417 -111.964605,33.374165 -111.822835,33.455174 -112.018841,33.45417</polygon>
+            <areaDesc>Earthquake imminent, potential threat expected around 0600 MST. More to fill in and see if we can reach the character limit that is set to 180 characters in this specific text box.</areaDesc>
+            <circle>-112.025535,33.453112 2.9</circle>
+            <circle>-111.967351,33.459705 3.5</circle>
+            <circle>-112.029139,33.443223 3.1</circle>
+            <circle>-111.969925,33.404658 2.3</circle>
+            <circle>-111.913286,33.425448 2.2</circle>
+            <circle>-112.041325,33.406379 3.1</circle>
+            <circle>-111.986917,33.428745 4.6</circle>
+            <circle>-111.863169,33.459561 1.3</circle>
+            <circle>-111.861967,33.426022 4.5</circle>
+            <circle>-111.907794,33.461138 1.9</circle>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>001001</value>
+                <value>000000</value>
             </geocode>
         </area>
     </info>
     <info>
         <language>es-US</language>
-        <category>Met</category>
-        <event>Test on if Restricted Field works</event>
-        <urgency>Future</urgency>
-        <severity>Severe</severity>
-        <certainty>Unlikely</certainty>
+        <category>Geo</category>
+        <event>Earthquake imminent, potential threat expected around 0600 MST. More to fill in and see if we can reach the character limit that is set to 180 characters in this specific text box.</event>
+        <urgency>Immediate</urgency>
+        <severity>Extreme</severity>
+        <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>BZW</value>
+            <value>EQW</value>
         </eventCode>
         <expires>2007-04-22T23:55:00-08:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>Test on if Restricted Field works</description>
+        <description>Earthquake imminent, potential threat expected around 0600 MST. More to fill in and see if we can reach the character limit that is set to 180 characters in this specific text box.Earthquake imminent, potential threat expected around 0600 MST. More to fill in and see if we can reach the character limit that is set to 180 characters in this specific text box.</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -61,13 +68,20 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>Test on if Restricted Field works</areaDesc>
-            <circle>-112.018841,33.45417 4.7</circle>
-            <polygon>-111.905562,33.410736 -111.905562,33.455174 -111.822835,33.455174 -111.822835,33.410736 -111.905562,33.410736</polygon>
-            <polygon>-112.018841,33.45417 -111.964605,33.374165 -111.822835,33.455174 -112.018841,33.45417</polygon>
+            <areaDesc>Earthquake imminent, potential threat expected around 0600 MST. More to fill in and see if we can reach the character limit that is set to 180 characters in this specific text box.</areaDesc>
+            <circle>-112.025535,33.453112 2.9</circle>
+            <circle>-111.967351,33.459705 3.5</circle>
+            <circle>-112.029139,33.443223 3.1</circle>
+            <circle>-111.969925,33.404658 2.3</circle>
+            <circle>-111.913286,33.425448 2.2</circle>
+            <circle>-112.041325,33.406379 3.1</circle>
+            <circle>-111.986917,33.428745 4.6</circle>
+            <circle>-111.863169,33.459561 1.3</circle>
+            <circle>-111.861967,33.426022 4.5</circle>
+            <circle>-111.907794,33.461138 1.9</circle>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>001001</value>
+                <value>000000</value>
             </geocode>
         </area>
     </info>
