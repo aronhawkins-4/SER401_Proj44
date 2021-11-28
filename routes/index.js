@@ -6,6 +6,7 @@ fs = require('fs');
 
 var fs = require('fs');
 const { off } = require('process');
+const { Console } = require('console');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -227,6 +228,11 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
     });
 }
 
+/* Save the current alert to the log */
+function updateLog(add) {
+    console.log("I'm here ");
+}
+
 /* Generate and save json alert message data */
 function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
 
@@ -258,7 +264,10 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         if (err) throw err;
         console.log("JSON Saved");
     });
+
+    
 }
+
 
 /* Generate and save xml alert messag data */
 function saveTestPage(xml) {
