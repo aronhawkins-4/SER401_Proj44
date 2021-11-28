@@ -99,20 +99,20 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.writeElement('areaDesc', areaDesc);
     if (layersJson != null) {
         for (var i = 0; i < layersJson.length; i++) {
-            var coordinates = layersJson[i].coordinates.toString();            
-            coordinates = coordinates.split("[").join(""); 
+            var coordinates = layersJson[i].coordinates.toString();
+            coordinates = coordinates.split("[").join("");
             coordinates = coordinates.split("],").join(" ");
-            coordinates = coordinates.split("]]").join(""); 
-            
+            coordinates = coordinates.split("]]").join("");
+
             var shape = layersJson[i].type.toString().toLowerCase();
 
             if (shape == "circle") {
                 var separateCircle = coordinates.lastIndexOf(",");
                 //The radius needs to be convereted from meters to kilometers 
                 var radiusMeters = parseFloat(coordinates.substring(separateCircle + 1, coordinates.length - 1));
-                var radiusKm = radiusMeters * 0.001; 
+                var radiusKm = radiusMeters * 0.001;
                 radiusKm = radiusKm.toFixed(1);
-                coordinates = coordinates.substring(0,separateCircle) + " " + radiusKm;
+                coordinates = coordinates.substring(0, separateCircle) + " " + radiusKm;
             }
 
             xw.writeElement(shape, coordinates);
@@ -125,7 +125,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.endElement('area');
     xw.endElement('info');
 
-    if (spanCheck==="true") {
+    if (spanCheck === "true") {
 
         xw.startElement('info');
         xw.writeElement('language', 'es-US');
@@ -151,27 +151,27 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
         xw.endElement('parameter');
         xw.startElement('area');
         xw.writeElement('areaDesc', spanAreaDesc);
-		if (layersJson != null) {
-			for (var i = 0; i < layersJson.length; i++) {
-                var coordinates = layersJson[i].coordinates.toString();            
-                coordinates = coordinates.split("[").join(""); 
+        if (layersJson != null) {
+            for (var i = 0; i < layersJson.length; i++) {
+                var coordinates = layersJson[i].coordinates.toString();
+                coordinates = coordinates.split("[").join("");
                 coordinates = coordinates.split("],").join(" ");
-                coordinates = coordinates.split("]]").join(""); 
-                
+                coordinates = coordinates.split("]]").join("");
+
                 var shape = layersJson[i].type.toString().toLowerCase();
-    
+
                 if (shape == "circle") {
                     var separateCircle = coordinates.lastIndexOf(",");
                     //The radius needs to be convereted from meters to kilometers 
                     var radiusMeters = parseFloat(coordinates.substring(separateCircle + 1, coordinates.length - 1));
-                    var radiusKm = radiusMeters * 0.001; 
+                    var radiusKm = radiusMeters * 0.001;
                     radiusKm = radiusKm.toFixed(1);
-                    coordinates = coordinates.substring(0,separateCircle) + " " + radiusKm;
+                    coordinates = coordinates.substring(0, separateCircle) + " " + radiusKm;
                 }
-    
+
                 xw.writeElement(shape, coordinates);
             }
-		}
+        }
         xw.startElement('geocode');
         xw.writeElement('valueName', 'SAME');
         xw.writeElement('value', geo);

@@ -44,25 +44,7 @@ function msgTypeOpt() {
 }
 
 //var for scope slected from alert scop dropdown list 
-var scopeCodeOptSelected;
-
-//Saves scope code selectted on option change 
-function scoptOpt() {
-    scopeCodeOptSelected = document.getElementById('scopeDropdown').value;
-
-    if (scopeCodeOptSelected == "Private") {
-        document.getElementById('addressField').disabled = false;
-    } else {
-        document.getElementById('addressField').disabled = true;
-    }
-
-    if (scopeCodeOptSelected == "Restricted") {
-        document.getElementById('restrictionField').disabled = false;
-    } else {
-        document.getElementById('restrictionField').disabled = true;
-    }
-
-}
+var scopeCodeOptSelected = "Public";
 
 //var to capture value of include spanish alert checkbox 
 var showSpanSelected;
@@ -80,10 +62,7 @@ function showSpan() {
 
 //Disable fields when page loads 
 function disableFields() {
-    document.getElementById('restrictionField').disabled = true;
-    document.getElementById('addressField').disabled = true;
     document.getElementById('hideSpan').style.display = "none";
-
 }
 
 function countWord() {
@@ -266,10 +245,6 @@ function handleClick() {
         } else if (eventCodeOptSelected === undefined || eventCodeOptSelected == "Default") {
 
             alert("You Must Select an Event Code!");
-
-        } else if (scopeCodeOptSelected === undefined || scopeCodeOptSelected == "Default") {
-
-            alert("You must Select a Scope!");
 
         } else if (spanCheck && (spanArDesc === undefined || spanArDesc == '')) {
 
@@ -524,7 +499,7 @@ function handleClick() {
                     };
 
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function (data, status, xhr) {
+                    $.post("/", newObject, function(data, status, xhr) {
                         alert("Alert Submitted");
                         $(location).attr('href', '/test2');
                     });
@@ -565,7 +540,7 @@ function handleClick() {
                     };
 
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function (data, status, xhr) {
+                    $.post("/", newObject, function(data, status, xhr) {
                         alert("Alert Submitted");
                         $(location).attr('href', '/test2');
                     });
@@ -607,7 +582,7 @@ function handleClick() {
                 };
 
                 //Send a POST request containing the form elements object  
-                $.post("/", newObject, function (data, status, xhr) {
+                $.post("/", newObject, function(data, status, xhr) {
                     alert("Alert Submitted");
                     $(location).attr('href', '/test');
                 });
@@ -619,7 +594,6 @@ function handleClick() {
 // Variable and function to store all map shape information
 var shapes = "";
 var shapesNum = 0
-// var newJson;
 
 function addShape(shape) {
     var json;
@@ -647,7 +621,6 @@ function addShape(shape) {
     }
     shapesNum++;
     shapes += json;
-    // newJson = JSON.parse(shapes);
 }
 
 function deleteShape(shape) {

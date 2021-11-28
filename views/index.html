@@ -44,7 +44,7 @@
         </a>
     </header>
     <h2 class="text">ALERT SUBMISSION</h2>
-    <div class="alertGrid4">
+    <div class="alertGrid3">
         <div id="msgNum" class="container">
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
             <br>
@@ -150,7 +150,7 @@
                 <br>
             </div>
         </div>
-        <div id="scopeDrop" class="container">
+        <!-- <div id="scopeDrop" class="container">
             <label for="scopeDropdown" class="text"><strong>Alert Scope:</strong></label>
             <br>
             <div id="scopeTypeDropdownMenu" class=dropdownMenu_style>
@@ -162,15 +162,7 @@
                 </select>
                 <br>
             </div>
-        </div>
-        <div id="addressFieldBox" class="container">
-            <label for="addressBox" class="text"><strong>Address Field:</strong></label>
-            <input type="text" id="addressField" name="addressField" placeholder="Required if scope set to private"></textarea>
-        </div>
-        <div id="restrictionFieldBox" class="container">
-            <label for="restrictionBox" class="text"><strong>Restriction Field:</strong></label>
-            <input type="text" id="restrictionField" name="restrictionField" placeholder="Required if scope set to restriced"></textarea>
-        </div>
+        </div> -->
         <div id="eventDrop" class="container">
             <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
             <br>
@@ -233,13 +225,6 @@
         </div>
     </div>
     <div class="alertGridEn">
-        <div id="EvSubj180" class="container">
-            <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
-            <div class="textarea_style">
-                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()" maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
-            </div>
-            <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
-        </div>
         <div id="geoArea" class="container">
             <label for="geoBlock" class="text"><strong>Select the FIPS Code for Applicable County or
                     State:</strong></label>
@@ -250,6 +235,14 @@
             </datalist>
             </input>
         </div>
+        <div id="EvSubj180" class="container">
+            <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
+            <div class="textarea_style">
+                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()" maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
+            </div>
+            <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
+        </div>
+
         <div id="Ev180" class="container">
             <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
             <div class="textarea_style">
