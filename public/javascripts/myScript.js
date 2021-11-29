@@ -1076,25 +1076,25 @@ function msgTypeOpt() {
 }
 
 //var for scope slected from alert scop dropdown list 
-var scopeCodeOptSelected;
+var scopeCodeOptSelected = "Public";
 
-//Saves scope code selectted on option change 
-function scoptOpt() {
-    scopeCodeOptSelected = "Public";
-
-    if (scopeCodeOptSelected == "Private") {
-        document.getElementById('addressField').disabled = false;
-    } else {
-        document.getElementById('addressField').disabled = true;
-    }
-
-    if (scopeCodeOptSelected == "Restricted") {
-        document.getElementById('restrictionField').disabled = false;
-    } else {
-        document.getElementById('restrictionField').disabled = true;
-    }
-
-}
+////Saves scope code selectted on option change 
+//function scoptOpt() {
+//    scopeCodeOptSelected = "Public";
+//
+//    if (scopeCodeOptSelected == "Private") {
+//        document.getElementById('addressField').disabled = false;
+//    } else {
+//        document.getElementById('addressField').disabled = true;
+//    }
+//
+//    if (scopeCodeOptSelected == "Restricted") {
+//        document.getElementById('restrictionField').disabled = false;
+//    } else {
+//        document.getElementById('restrictionField').disabled = true;
+//    }
+//
+//}
 
 //Calls functions on page body load
 function pageLoad(){
@@ -1241,12 +1241,64 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleClick() {
 
     var testString = "hello";
+    var tempGeocode = "";
+    var tempSelectID = "";
+    var tempIndex = "";
+    var geocodesValid = true;
+    var fipsValid = true;
 
     //Get Geocode from Form
     var geoCode = document.getElementById('selectid').value;
 
     geoCode = geoCode.substr(0, 5);
+    
+    //Parse geoCode to be used for number range validation 
+    var geoNumber = parseInt(geoCode);
+    
+    if(geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
+       
+       geocodesValid = false;
+       
+    }
+    
+    if((geoNumber < 0000 || geoNumber > 56045) || (geoNumber >= 1 && geoNumber <= 999)){
+                
+        fipsValid = false;
+                
+    }
 
+    for(var i = 1; i < 31; i++){
+        
+        if(numCodesSelected > i){
+            
+            tempIndex = i.toString();
+            
+            tempSelectID = "selectid" + tempIndex;
+        
+            tempGeocode = document.getElementById(tempSelectID).value;
+        
+            tempGeocode = tempGeocode.substr(0, 5);
+            
+            geoNumber = parseInt(tempGeocode);
+            
+           if(tempGeocode === undefined || tempGeocode.length != 5 || /^\d+$/.test(tempGeocode) == false){
+                
+                geocodesValid = false;
+                
+            }
+            
+            if((geoNumber < 0000 || geoNumber > 56045) || (geoNumber >= 1 && geoNumber <= 999)){
+                
+                fipsValid = false;
+                
+            }
+        
+            geoCode = geoCode + "," + tempGeocode;
+       
+        }
+        
+    }
+    
     //Retrieves Values from Form
     var categoryOptSelected = document.getElementById('categoryDropdown').value;
     var alertTypeOptSelected = document.getElementById('alertDropdown').value;
@@ -1277,9 +1329,6 @@ function handleClick() {
     //Get Message/Event Description from Form
     var desc = document.getElementById('alertEn360').value;
 
-    //Parse geoCode to be used for number range validation 
-    var geoNumber = parseInt(geoCode);
-
     //Validate the sender's email 
     if (email.length == 0) {
         alert("You must enter your email!");
@@ -1303,17 +1352,17 @@ function handleClick() {
 
             alert("You Must Select a Status!");
 
-        } else if (geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false) {
+        } else if (geocodesValid == false) {
 
-            alert("You Must Select a Valid Geocode!");
+            alert("You Must Select a Valid Geocode for all Geocode Fields!");
 
-        } else if (geoNumber < 0000 || geoNumber > 56045) {
+        } else if (fipsValid == false) {
 
-            alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
+            alert("FIPS Value Not In The List. You Must Select a Valid Geocode for All Fields!");
 
-        } else if (geoNumber >= 1 && geoNumber <= 999) {
+        } else if (fipsValid == false) {
 
-            alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
+            alert("FIPS Value Not In The List. You Must Select a Valid Geocode for All Fields!");
 
         } else if (event === undefined || event == '') {
 
@@ -1342,10 +1391,6 @@ function handleClick() {
         } else if (eventCodeOptSelected === undefined || eventCodeOptSelected == "Default") {
 
             alert("You Must Select an Event Code!");
-
-        } else if (scopeCodeOptSelected === undefined || scopeCodeOptSelected == "Default") {
-
-            alert("You must Select a Scope!");
 
         } else if (spanCheck && (spanArDesc === undefined || spanArDesc == '')) {
 
@@ -1596,7 +1641,9 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        layers: shapes
+                        layers: shapes,
+                        numGeocodes: numCodesSelected
+                        
                     };
 
                     //Send a POST request containing the form elements object  
@@ -1636,7 +1683,8 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        layers: shapes
+                        layers: shapes,
+                        numGeocodes: numCodesSelected
 
                     };
 
@@ -1679,7 +1727,9 @@ function handleClick() {
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
                     spanishDesc: spanDesc,
-                    layers: shapes
+                    layers: shapes,
+                    numGeocodes: numCodesSelected
+                    
                 };
 
                 //Send a POST request containing the form elements object  
