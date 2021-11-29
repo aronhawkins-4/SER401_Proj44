@@ -37,6 +37,7 @@ router.post('/', function(req, res, next) {
     var spanCheck = req.body.spanishExists;
     var spanAreaDesc = req.body.spanishAreaDesc;
     var spanDesc = req.body.spanishDesc;
+    var numGeocodes = req.body.numGeocodes;
     var layers = req.body.layers;
     if (layers.length != 0) {
         var layersJson = JSON.parse(layers);
@@ -44,15 +45,15 @@ router.post('/', function(req, res, next) {
 
     if (layersJson != null) {
         //Call function to generate xml 
-        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson);
+        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
         //Call function to save msg as json 
-        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson);
+        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
 
     } else {
         //Call function to generate xml 
-        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc);
+        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
         //Call function to save msg as json 
-        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc);
+        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
 
     }
 
@@ -63,7 +64,7 @@ router.post('/', function(req, res, next) {
 });
 
 /* Generate and save xml alert messag data */
-function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson) {
+function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
 
     //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
     geo = "0" + geo;
@@ -197,7 +198,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 }
 
 /* Generate and save json alert message data */
-function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson) {
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson, numGeocodes) {
 
     var newObject = {
         identifier: identifier,
@@ -219,7 +220,8 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
         spanDesc: spanDesc,
-        layersJson: layersJson
+        layersJson: layersJson,
+        numGeocodes: numGeocodes
     };
 
     var output = JSON.stringify(newObject);
@@ -231,7 +233,7 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
 }
 
 /* Generate and save json alert message data */
-function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes) {
 
     var newObject = {
         identifier: identifier,
@@ -252,7 +254,8 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         geo: geo,
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
-        spanDesc: spanDesc
+        spanDesc: spanDesc,
+        numGeocodes: numGeocodes
     };
 
     var output = JSON.stringify(newObject);
