@@ -16,3 +16,21 @@ newKey.p12 is the name that I chose for my file but you can choose any name you 
 ```
 ```
 ipawsopen is the password that I chose for my newKey.p12 file but once again choose any password you like just make sure that your remember it since you'll need it for the SoapUI keystore
+```
+
+---
+## Setting up SoapUI with a new project for IPAWS
+
+Install soapUI and open it up. Create a new SOAP project by clicking on the soap button in the menu bar. Type in the name of your project and where it says inital WSDL paste this address into the box. SoapUI is weird with right-click pastes(at least on the windows version) so you will have to do ctrl-v or whatever keys paste on your system. After that click ok.
+https://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS?wsdl
+
+<br>
+You should see a new project in the sidebar that has 3 options if you expand: getMessage, getRequest, and postCap. Open up any of the 3 and each will have a soap template on how they should be formatted. This is important since breaking the format will result in an invalid message
+
+---
+## Adding the security key and header authorization
+
+
+
+
+
