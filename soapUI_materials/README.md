@@ -39,7 +39,7 @@ Another box will appear. Here's a screenshot of the information that needs to be
 
 The keystore is the .p12 file that you created so the name might be different and the password is the same password that you chose when you created that file. The other information is also provided on page 11 of the IPAWS-OPEN v4.0 Interface Design Guide (That 111 page one sent in the mail).
 
-(outgoingWSS.png)
+![security](outgoingWSS.png)
 
 After this is setup up you can close the tabs, everything is already saved once it's entered.
 
@@ -49,9 +49,12 @@ After this is setup up you can close the tabs, everything is already saved once 
 
 You'll notice that each of the three request have a Request 1 under them. Double click on any one of them. See how the address up to starts with an http:// ? That is incorrect due to bad information in the wsdl file. Click the dropdown arrow at the end of the box and choose edit current endpoint. A popup box will appear. Change the http to https. All of the request will now have the correct endpoint.
 
+---
 ## Adding the keystore to the requests
 
 On the sidebar near the bottom there's a box underneath the words: **Request Properies** select SSL Keystore in the box and choose your key. IT should be the only one available. Now we're going to set up the authorization for the get request which is the easiest one to setup to test if the certificate is working. Double click the Request 1 under the getRequest. You should see some options on the bottom. Click the one that says Auth. Selected add new Authorization and choose basic. Under outgoing WSS click on the box and you should see the name you chose on the outgoing WSS option box a little while back. Select that name and close the Auth box. Our security configurations should be set up now and we can send a simple getAck message in the next step
+
+---
 
 ## Sending your first getRequest
 
