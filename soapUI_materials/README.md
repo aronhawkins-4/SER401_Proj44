@@ -30,6 +30,40 @@ You should see a new project in the sidebar that has 3 options if you expand: ge
 ---
 ## Adding the security key and header authorization
 
+Double click on the main folder in the sidebar and a new window should open up with 4 tabs on top. Click the WS-Security Configurations tab. Then click the keystores tab underneath. Click the plus(+) button to add a new key. Go to the folder where you saved your .p12 key and choose that key and enter the password the you chose for the key. A new key should appear in the box underneath. The status should read OK if you entered the password correctly. You do not need to enter any information in the defaul alias or alias password box.
+<br>
+Next click the tab that says Outgoing WS-Security Configurations. Click the plus(+) button to add a new outgoing WSS Configuration. You don't need to put anything in the default username, default password or alias field but make sure that must understand is checked. 
+<br>
+Now click the plus button that is underneath the name that you chose to add a new WSS entry. A popup box will appear. Choose the signature option in the box.
+Another box will appear. Here's a screenshot of the information that needs to be in the box.
+
+The keystore is the .p12 file that you created so the name might be different and the password is the same password that you chose when you created that file. The other information is also provided on page 11 of the IPAWS-OPEN v4.0 Interface Design Guide (That 111 page one sent in the mail).
+
+(outgoingWSS.png)
+
+After this is setup up you can close the tabs, everything is already saved once it's entered.
+
+---
+
+## Fixing a wsdl error in the endpoint.
+
+You'll notice that each of the three request have a Request 1 under them. Double click on any one of them. See how the address up to starts with an http:// ? That is incorrect due to bad information in the wsdl file. Click the dropdown arrow at the end of the box and choose edit current endpoint. A popup box will appear. Change the http to https. All of the request will now have the correct endpoint.
+
+## Adding the keystore to the requests
+
+On the sidebar near the bottom there's a box underneath the words: **Request Properies** select SSL Keystore in the box and choose your key. IT should be the only one available. Now we're going to set up the authorization for the get request which is the easiest one to setup to test if the certificate is working. Double click the Request 1 under the getRequest. You should see some options on the bottom. Click the one that says Auth. Selected add new Authorization and choose basic. Under outgoing WSS click on the box and you should see the name you chose on the outgoing WSS option box a little while back. Select that name and close the Auth box. Our security configurations should be set up now and we can send a simple getAck message in the next step
+
+## Sending your first getRequest
+
+Double click Request 1 under getRequest. Here you only need to put in 3 field for this to work. You can leave the ? in the other fields. 
+```
+loginCogId enter 120075
+requestAPI enter REQUEST1
+requestOperation enter getAck
+```
+
+hit the green send button and you should see the reply in the other window. There should be an ACK and PONG if you setup everthing correctly.
+
 
 
 
