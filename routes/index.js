@@ -3,6 +3,8 @@ var router = express.Router();
 var XMLWriter = require('xml-writer');
 fs = require('fs');
 
+const geocodes = [];
+
 
 var fs = require('fs');
 const { off } = require('process');
@@ -62,9 +64,23 @@ router.post('/', function(req, res, next) {
 
 /* Generate and save xml alert messag data */
 function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
-
+    
+    var tempGeo = geo;
+    var tempAddGeo = "";
+    
     //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
-    geo = "0" + geo;
+    
+    for(var j = 0; j < numGeocodes; j++){
+        
+        tempAddGeo = "0" + tempGeo.substr(0, 5);
+        tempGeo = tempGeo.substr(6);
+        
+        geocodes.push(tempAddGeo);
+        
+        j++;
+        
+    }
+    
     xw = new XMLWriter(true);
     xw.startDocument('1.0', 'UTF-8');
     xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
@@ -121,8 +137,22 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     }
     xw.startElement('geocode');
     xw.writeElement('valueName', 'SAME');
-    xw.writeElement('value', geo);
+    xw.writeElement('value', geocodes[0]);
     xw.endElement('geocode');
+    
+    if(numGeocodes > 1){
+       
+       for(var k = 1; k < numGeocodes; k++){
+           
+            xw.startElement('geocode');
+            xw.writeElement('valueName', 'SAME');
+            xw.writeElement('value', geocodes[k]);
+            xw.endElement('geocode');
+           
+       }
+       
+    }
+    
     xw.endElement('area');
     xw.endElement('info');
 
@@ -175,8 +205,22 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 		}
         xw.startElement('geocode');
         xw.writeElement('valueName', 'SAME');
-        xw.writeElement('value', geo);
+        xw.writeElement('value', geocodes[0]);
         xw.endElement('geocode');
+        
+        if(numGeocodes > 1){
+       
+            for(var u = 1; u < numGeocodes; u++){
+           
+                xw.startElement('geocode');
+                xw.writeElement('valueName', 'SAME');
+                xw.writeElement('value', geocodes[u]);
+                xw.endElement('geocode');
+           
+            }
+       
+        }
+        
         xw.endElement('area');
         xw.endElement('info');
 
