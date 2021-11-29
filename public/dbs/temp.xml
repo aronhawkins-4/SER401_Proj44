@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20211127235823864JES</identifier>
+    <identifier>202111291416150JES</identifier>
     <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2021-11-27T23:58:23-07:00</sent>
-    <status>Exercise</status>
+    <sent>2021-11-29T01:04:16-07:00</sent>
+    <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Geo</category>
-        <event>ffff</event>
+        <category>Health</category>
+        <event>fdrfff</event>
         <urgency>Immediate</urgency>
         <severity>Extreme</severity>
         <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>AVA</value>
+            <value>ADR</value>
         </eventCode>
-        <expires>2021-11-28T23:58:23-07:00</expires>
+        <expires>2021-11-30T01:04:16-07:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>ffff</description>
+        <description>fffff</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -30,9 +30,11 @@
         </parameter>
         <area>
             <areaDesc>ffff</areaDesc>
+            <polygon>-111.969566,33.407491 -111.969566,33.42225 -111.95034,33.42225 -111.95034,33.407491 -111.969566,33.407491</polygon>
+            <circle>-111.927509,33.409498 1.5</circle>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004013</value>
+                <value>004012</value>
             </geocode>
         </area>
     </info>

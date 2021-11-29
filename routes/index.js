@@ -226,11 +226,8 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         if (err) throw err;
         console.log("JSON Saved");
     });
-}
 
-/* Save the current alert to the log */
-function updateLog(add) {
-    console.log("I'm here ");
+    updateLog(output);
 }
 
 /* Generate and save json alert message data */
@@ -265,9 +262,40 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         console.log("JSON Saved");
     });
 
-    
+    updateLog(output);
 }
 
+/* Save current alert to the message log */
+function updateLog(add) {
+    
+    fs.readFile('public/dbs/alertlog.json', 'utf-8', (err, jsonString) => {
+        if (err) {
+            console.log(err);
+        } else {
+            //Check if nothing has been written to the log yet
+            if (jsonString.length == 0) {
+                var alertArray = [];
+                alertArray.push(add);
+
+                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                    if (err) throw err;
+                    console.log("Alert Saved to Log - New Log Started");
+                });
+
+            } else {
+                //Log contains messages, retrieve and add new alert to the log 
+                var alertArray = []; 
+                alertArray.push(add);
+                alertArray.push(jsonString);
+                
+                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                    if (err) throw err;
+                    console.log("Alert Saved to Log - Log Updated");
+                });
+            }
+        }
+    }); 
+}
 
 /* Generate and save xml alert messag data */
 function saveTestPage(xml) {
