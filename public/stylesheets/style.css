@@ -192,7 +192,7 @@ p {
 .alertGridEn {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "EvSubj180 geoArea" "Ev180 En360";
+    grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
     gap: 20px;
     padding: 20px 100px;
 }
@@ -344,7 +344,7 @@ datalist {
         padding: 20px 50px;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "EvSubj180" "geoArea" "Ev180" "En360";
+        grid-template-areas: "EvSubj180" "Ev180" "En360" "geoArea";
     }
     .alertGridSp {
         padding: 20px 50px;
@@ -381,7 +381,7 @@ datalist {
     .alertGridEn {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "EvSubj180" "geoArea" "Ev180" "En360";
+        grid-template-areas: "EvSubj180" "Ev180" "En360" "geArea";
     }
     .alertGridSp {
         grid-template-columns: 1fr;
