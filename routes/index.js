@@ -41,15 +41,19 @@ router.post('/', function(req, res, next) {
         var layersJson = JSON.parse(layers);
     }
 
+    //Array to hold individual geocode values and used with saveXml functions 
+    var geoArray = [];
+    geoArray = geo.split(",");
+
     if (layersJson != null) {
         //Call function to generate xml 
-        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
+        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geoArray, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
         //Call function to save msg as json 
         saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
 
     } else {
         //Call function to generate xml 
-        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
+        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geoArray, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
         //Call function to save msg as json 
         saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
 
@@ -65,7 +69,10 @@ router.post('/', function(req, res, next) {
 function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
 
     //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
-    geo = "0" + geo;
+    for (var i = 0; i < geo.length; i++) {
+        geo[i] = "0" + geo[i];
+    }
+
     xw = new XMLWriter(true);
     xw.startDocument('1.0', 'UTF-8');
     xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
@@ -120,10 +127,14 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
             xw.writeElement(shape, coordinates);
         }
     }
-    xw.startElement('geocode');
-    xw.writeElement('valueName', 'SAME');
-    xw.writeElement('value', geo);
-    xw.endElement('geocode');
+    
+    for (var i = 0; i < geo.length; i++) {
+        xw.startElement('geocode');
+        xw.writeElement('valueName', 'SAME');
+        xw.writeElement('value', geo[i]);
+        xw.endElement('geocode');
+    }
+    
     xw.endElement('area');
     xw.endElement('info');
 
@@ -174,10 +185,14 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
                 xw.writeElement(shape, coordinates);
             }
 		}
-        xw.startElement('geocode');
-        xw.writeElement('valueName', 'SAME');
-        xw.writeElement('value', geo);
-        xw.endElement('geocode');
+        
+        for (var i = 0; i < geo.length; i++) {
+            xw.startElement('geocode');
+            xw.writeElement('valueName', 'SAME');
+            xw.writeElement('value', geo[i]);
+            xw.endElement('geocode');
+        }
+
         xw.endElement('area');
         xw.endElement('info');
 
