@@ -8,7 +8,7 @@
     "dev": "nodemon ./bin/www"
   },
   "keywords": [],
-  "author": "Jesus Quiroz",
+  "author": "Jesus Quiroz, Aron Hawkins, Ryan Was, Jackson Call, John Kalafus",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
