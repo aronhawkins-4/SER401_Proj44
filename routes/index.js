@@ -72,6 +72,8 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     for (var i = 0; i < geo.length; i++) {
         geo[i] = "0" + geo[i];
     }
+    // Using the username part of the email by removing the domain  
+    let nameSender = sender.substring(0, sender.lastIndexOf("@")); 
 
     xw = new XMLWriter(true);
     xw.startDocument('1.0', 'UTF-8');
@@ -95,7 +97,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.writeElement('value', eventCode);
     xw.endElement('eventCode');
     xw.writeElement('expires', expires);
-    xw.writeElement('senderName', 'sender name goes here');
+    xw.writeElement('senderName', nameSender);
     xw.writeElement('headline', 'headline goes here');
     xw.writeElement('description', desc);
     xw.writeElement('instruction', 'instruction goes here');
@@ -153,7 +155,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
         xw.writeElement('value', eventCode);
         xw.endElement('eventCode');
         xw.writeElement('expires', "2007-04-22T23:55:00-08:00");
-        xw.writeElement('senderName', 'sender name goes here');
+        xw.writeElement('senderName', nameSender);
         xw.writeElement('headline', 'headline goes here');
         xw.writeElement('description', spanDesc);
         xw.writeElement('instruction', 'instruction goes here');
