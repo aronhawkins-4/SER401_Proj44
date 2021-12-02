@@ -1,6 +1,1038 @@
 //var for option selected from category dropdown list
 var categoryOptSelected;
 
+//Stores selected number of Geocodes
+var numCodesSelected;
+
+function numCodesOpt() {
+    numCodesSelected = document.getElementById('numCodesDropdown').value;
+
+    if (numCodesSelected == 1) {
+
+        document.getElementById('geoArea1').style.display = "none";
+        document.getElementById('geoArea2').style.display = "none";
+        document.getElementById('geoArea3').style.display = "none";
+        document.getElementById('geoArea4').style.display = "none";
+        document.getElementById('geoArea5').style.display = "none";
+        document.getElementById('geoArea6').style.display = "none";
+        document.getElementById('geoArea7').style.display = "none";
+        document.getElementById('geoArea8').style.display = "none";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 2) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "none";
+        document.getElementById('geoArea3').style.display = "none";
+        document.getElementById('geoArea4').style.display = "none";
+        document.getElementById('geoArea5').style.display = "none";
+        document.getElementById('geoArea6').style.display = "none";
+        document.getElementById('geoArea7').style.display = "none";
+        document.getElementById('geoArea8').style.display = "none";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 3) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "none";
+        document.getElementById('geoArea4').style.display = "none";
+        document.getElementById('geoArea5').style.display = "none";
+        document.getElementById('geoArea6').style.display = "none";
+        document.getElementById('geoArea7').style.display = "none";
+        document.getElementById('geoArea8').style.display = "none";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 4) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "none";
+        document.getElementById('geoArea5').style.display = "none";
+        document.getElementById('geoArea6').style.display = "none";
+        document.getElementById('geoArea7').style.display = "none";
+        document.getElementById('geoArea8').style.display = "none";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 5) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "none";
+        document.getElementById('geoArea6').style.display = "none";
+        document.getElementById('geoArea7').style.display = "none";
+        document.getElementById('geoArea8').style.display = "none";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 6) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "none";
+        document.getElementById('geoArea7').style.display = "none";
+        document.getElementById('geoArea8').style.display = "none";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 7) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "none";
+        document.getElementById('geoArea8').style.display = "none";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 8) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "none";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 9) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "none";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 10) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "none";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 11) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "none";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 12) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "none";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 13) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "none";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 14) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "none";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 15) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "none";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 16) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "none";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 17) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "none";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 18) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "none";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 19) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "none";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 20) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "none";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 21) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "none";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 22) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "none";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 23) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "none";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 24) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "block";
+        document.getElementById('geoArea24').style.display = "none";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 25) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "block";
+        document.getElementById('geoArea24').style.display = "block";
+        document.getElementById('geoArea25').style.display = "none";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 26) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "block";
+        document.getElementById('geoArea24').style.display = "block";
+        document.getElementById('geoArea25').style.display = "block";
+        document.getElementById('geoArea26').style.display = "none";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 27) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "block";
+        document.getElementById('geoArea24').style.display = "block";
+        document.getElementById('geoArea25').style.display = "block";
+        document.getElementById('geoArea26').style.display = "block";
+        document.getElementById('geoArea27').style.display = "none";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 28) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "block";
+        document.getElementById('geoArea24').style.display = "block";
+        document.getElementById('geoArea25').style.display = "block";
+        document.getElementById('geoArea26').style.display = "block";
+        document.getElementById('geoArea27').style.display = "block";
+        document.getElementById('geoArea28').style.display = "none";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 29) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "block";
+        document.getElementById('geoArea24').style.display = "block";
+        document.getElementById('geoArea25').style.display = "block";
+        document.getElementById('geoArea26').style.display = "block";
+        document.getElementById('geoArea27').style.display = "block";
+        document.getElementById('geoArea28').style.display = "block";
+        document.getElementById('geoArea29').style.display = "none";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 30) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "block";
+        document.getElementById('geoArea24').style.display = "block";
+        document.getElementById('geoArea25').style.display = "block";
+        document.getElementById('geoArea26').style.display = "block";
+        document.getElementById('geoArea27').style.display = "block";
+        document.getElementById('geoArea28').style.display = "block";
+        document.getElementById('geoArea29').style.display = "block";
+        document.getElementById('geoArea30').style.display = "none";
+
+    } else if (numCodesSelected == 31) {
+
+        document.getElementById('geoArea1').style.display = "block";
+        document.getElementById('geoArea2').style.display = "block";
+        document.getElementById('geoArea3').style.display = "block";
+        document.getElementById('geoArea4').style.display = "block";
+        document.getElementById('geoArea5').style.display = "block";
+        document.getElementById('geoArea6').style.display = "block";
+        document.getElementById('geoArea7').style.display = "block";
+        document.getElementById('geoArea8').style.display = "block";
+        document.getElementById('geoArea9').style.display = "block";
+        document.getElementById('geoArea10').style.display = "block";
+        document.getElementById('geoArea11').style.display = "block";
+        document.getElementById('geoArea12').style.display = "block";
+        document.getElementById('geoArea13').style.display = "block";
+        document.getElementById('geoArea14').style.display = "block";
+        document.getElementById('geoArea15').style.display = "block";
+        document.getElementById('geoArea16').style.display = "block";
+        document.getElementById('geoArea17').style.display = "block";
+        document.getElementById('geoArea18').style.display = "block";
+        document.getElementById('geoArea19').style.display = "block";
+        document.getElementById('geoArea20').style.display = "block";
+        document.getElementById('geoArea21').style.display = "block";
+        document.getElementById('geoArea22').style.display = "block";
+        document.getElementById('geoArea23').style.display = "block";
+        document.getElementById('geoArea24').style.display = "block";
+        document.getElementById('geoArea25').style.display = "block";
+        document.getElementById('geoArea26').style.display = "block";
+        document.getElementById('geoArea27').style.display = "block";
+        document.getElementById('geoArea28').style.display = "block";
+        document.getElementById('geoArea29').style.display = "block";
+        document.getElementById('geoArea30').style.display = "block";
+
+    }
+}
+
 //Saves category type selected on option onchange
 function categoryOpt() {
     categoryOptSelected = document.getElementById('categoryDropdown').value;
@@ -46,6 +1078,32 @@ function msgTypeOpt() {
 //var for scope slected from alert scop dropdown list 
 var scopeCodeOptSelected = "Public";
 
+////Saves scope code selectted on option change 
+//function scoptOpt() {
+//    scopeCodeOptSelected = "Public";
+//
+//    if (scopeCodeOptSelected == "Private") {
+//        document.getElementById('addressField').disabled = false;
+//    } else {
+//        document.getElementById('addressField').disabled = true;
+//    }
+//
+//    if (scopeCodeOptSelected == "Restricted") {
+//        document.getElementById('restrictionField').disabled = false;
+//    } else {
+//        document.getElementById('restrictionField').disabled = true;
+//    }
+//
+//}
+
+//Calls functions on page body load
+function pageLoad() {
+
+    disableFields();
+    hideFIPS();
+
+}
+
 //var to capture value of include spanish alert checkbox 
 var showSpanSelected;
 
@@ -58,6 +1116,42 @@ function showSpan() {
     } else {
         document.getElementById('hideSpan').style.display = "none";
     }
+}
+
+//Hides additional FIPS code fields
+function hideFIPS() {
+
+    document.getElementById('geoArea1').style.display = "none";
+    document.getElementById('geoArea2').style.display = "none";
+    document.getElementById('geoArea3').style.display = "none";
+    document.getElementById('geoArea4').style.display = "none";
+    document.getElementById('geoArea5').style.display = "none";
+    document.getElementById('geoArea6').style.display = "none";
+    document.getElementById('geoArea7').style.display = "none";
+    document.getElementById('geoArea8').style.display = "none";
+    document.getElementById('geoArea9').style.display = "none";
+    document.getElementById('geoArea10').style.display = "none";
+    document.getElementById('geoArea11').style.display = "none";
+    document.getElementById('geoArea12').style.display = "none";
+    document.getElementById('geoArea13').style.display = "none";
+    document.getElementById('geoArea14').style.display = "none";
+    document.getElementById('geoArea15').style.display = "none";
+    document.getElementById('geoArea16').style.display = "none";
+    document.getElementById('geoArea17').style.display = "none";
+    document.getElementById('geoArea18').style.display = "none";
+    document.getElementById('geoArea19').style.display = "none";
+    document.getElementById('geoArea20').style.display = "none";
+    document.getElementById('geoArea21').style.display = "none";
+    document.getElementById('geoArea22').style.display = "none";
+    document.getElementById('geoArea23').style.display = "none";
+    document.getElementById('geoArea24').style.display = "none";
+    document.getElementById('geoArea25').style.display = "none";
+    document.getElementById('geoArea26').style.display = "none";
+    document.getElementById('geoArea27').style.display = "none";
+    document.getElementById('geoArea28').style.display = "none";
+    document.getElementById('geoArea29').style.display = "none";
+    document.getElementById('geoArea30').style.display = "none";
+
 }
 
 //Disable fields when page loads 
@@ -144,11 +1238,63 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleClick() {
 
     var testString = "hello";
+    var tempGeocode = "";
+    var tempSelectID = "";
+    var tempIndex = "";
+    var geocodesValid = true;
+    var fipsValid = true;
 
     //Get Geocode from Form
     var geoCode = document.getElementById('selectid').value;
 
     geoCode = geoCode.substr(0, 5);
+
+    //Parse geoCode to be used for number range validation 
+    var geoNumber = parseInt(geoCode);
+
+    if (geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false) {
+
+        geocodesValid = false;
+
+    }
+
+    if ((geoNumber < 0000 || geoNumber > 56045) || (geoNumber >= 1 && geoNumber <= 999)) {
+
+        fipsValid = false;
+
+    }
+
+    for (var i = 1; i < 31; i++) {
+
+        if (numCodesSelected > i) {
+
+            tempIndex = i.toString();
+
+            tempSelectID = "selectid" + tempIndex;
+
+            tempGeocode = document.getElementById(tempSelectID).value;
+
+            tempGeocode = tempGeocode.substr(0, 5);
+
+            geoNumber = parseInt(tempGeocode);
+
+            if (tempGeocode === undefined || tempGeocode.length != 5 || /^\d+$/.test(tempGeocode) == false) {
+
+                geocodesValid = false;
+
+            }
+
+            if ((geoNumber < 0000 || geoNumber > 56045) || (geoNumber >= 1 && geoNumber <= 999)) {
+
+                fipsValid = false;
+
+            }
+
+            geoCode = geoCode + "," + tempGeocode;
+
+        }
+
+    }
 
     //Retrieves Values from Form
     var categoryOptSelected = document.getElementById('categoryDropdown').value;
@@ -180,9 +1326,6 @@ function handleClick() {
     //Get Message/Event Description from Form
     var desc = document.getElementById('alertEn360').value;
 
-    //Parse geoCode to be used for number range validation 
-    var geoNumber = parseInt(geoCode);
-
     //Validate the sender's email 
     if (email.length == 0) {
         alert("You must enter your email!");
@@ -206,17 +1349,17 @@ function handleClick() {
 
             alert("You Must Select a Status!");
 
-        } else if (geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false) {
+        } else if (geocodesValid == false) {
 
-            alert("You Must Select a Valid Geocode!");
+            alert("You Must Select a Valid Geocode for all Geocode Fields!");
 
-        } else if (geoNumber < 0000 || geoNumber > 56045) {
+        } else if (fipsValid == false) {
 
-            alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
+            alert("FIPS Value Not In The List. You Must Select a Valid Geocode for All Fields!");
 
-        } else if (geoNumber >= 1 && geoNumber <= 999) {
+        } else if (fipsValid == false) {
 
-            alert("FIPS Value Not In The List. You Must Select a Valid Geocode!");
+            alert("FIPS Value Not In The List. You Must Select a Valid Geocode for All Fields!");
 
         } else if (event === undefined || event == '') {
 
@@ -495,7 +1638,9 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        layers: shapes
+                        layers: shapes,
+                        numGeocodes: numCodesSelected
+
                     };
 
                     //Send a POST request containing the form elements object  
@@ -535,7 +1680,8 @@ function handleClick() {
                         spanishExists: spanCheck,
                         spanishAreaDesc: spanArDesc,
                         spanishDesc: spanDesc,
-                        layers: shapes
+                        layers: shapes,
+                        numGeocodes: numCodesSelected
 
                     };
 
@@ -578,7 +1724,9 @@ function handleClick() {
                     spanishExists: spanCheck,
                     spanishAreaDesc: spanArDesc,
                     spanishDesc: spanDesc,
-                    layers: shapes
+                    layers: shapes,
+                    numGeocodes: numCodesSelected
+
                 };
 
                 //Send a POST request containing the form elements object  

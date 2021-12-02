@@ -6,6 +6,7 @@ fs = require('fs');
 
 var fs = require('fs');
 const { off } = require('process');
+const { Console } = require('console');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -34,22 +35,27 @@ router.post('/', function(req, res, next) {
     var spanCheck = req.body.spanishExists;
     var spanAreaDesc = req.body.spanishAreaDesc;
     var spanDesc = req.body.spanishDesc;
+    var numGeocodes = req.body.numGeocodes;
     var layers = req.body.layers;
     if (layers.length != 0) {
         var layersJson = JSON.parse(layers);
     }
 
+    //Array to hold individual geocode values and used with saveXml functions 
+    var geoArray = [];
+    geoArray = geo.split(",");
+
     if (layersJson != null) {
         //Call function to generate xml 
-        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson);
+        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geoArray, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
         //Call function to save msg as json 
-        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson);
+        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
 
     } else {
         //Call function to generate xml 
-        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc);
+        var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geoArray, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
         //Call function to save msg as json 
-        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc);
+        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
 
     }
 
@@ -60,10 +66,13 @@ router.post('/', function(req, res, next) {
 });
 
 /* Generate and save xml alert messag data */
-function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson) {
+function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
 
     //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
-    geo = "0" + geo;
+    for (var i = 0; i < geo.length; i++) {
+        geo[i] = "0" + geo[i];
+    }
+
     xw = new XMLWriter(true);
     xw.startDocument('1.0', 'UTF-8');
     xw.startElement('alert').writeAttribute('xmlns', 'urn:oasis:names:tc:emergency:cap:1.2');
@@ -118,10 +127,14 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
             xw.writeElement(shape, coordinates);
         }
     }
-    xw.startElement('geocode');
-    xw.writeElement('valueName', 'SAME');
-    xw.writeElement('value', geo);
-    xw.endElement('geocode');
+
+    for (var i = 0; i < geo.length; i++) {
+        xw.startElement('geocode');
+        xw.writeElement('valueName', 'SAME');
+        xw.writeElement('value', geo[i]);
+        xw.endElement('geocode');
+    }
+
     xw.endElement('area');
     xw.endElement('info');
 
@@ -172,10 +185,14 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
                 xw.writeElement(shape, coordinates);
             }
         }
-        xw.startElement('geocode');
-        xw.writeElement('valueName', 'SAME');
-        xw.writeElement('value', geo);
-        xw.endElement('geocode');
+
+        for (var i = 0; i < geo.length; i++) {
+            xw.startElement('geocode');
+            xw.writeElement('valueName', 'SAME');
+            xw.writeElement('value', geo[i]);
+            xw.endElement('geocode');
+        }
+
         xw.endElement('area');
         xw.endElement('info');
 
@@ -194,7 +211,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 }
 
 /* Generate and save json alert message data */
-function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson) {
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson, numGeocodes) {
 
     var newObject = {
         identifier: identifier,
@@ -216,7 +233,8 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
         spanDesc: spanDesc,
-        layersJson: layersJson
+        layersJson: layersJson,
+        numGeocodes: numGeocodes
     };
 
     var output = JSON.stringify(newObject);
@@ -225,10 +243,12 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         if (err) throw err;
         console.log("JSON Saved");
     });
+
+    updateLog(output);
 }
 
 /* Generate and save json alert message data */
-function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc) {
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes) {
 
     var newObject = {
         identifier: identifier,
@@ -249,7 +269,8 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         geo: geo,
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
-        spanDesc: spanDesc
+        spanDesc: spanDesc,
+        numGeocodes: numGeocodes
     };
 
     var output = JSON.stringify(newObject);
@@ -257,6 +278,40 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
     fs.writeFile('public/dbs/temp.json', output, function(err) {
         if (err) throw err;
         console.log("JSON Saved");
+    });
+
+    updateLog(output);
+}
+
+/* Save current alert to the message log */
+function updateLog(add) {
+
+    fs.readFile('public/dbs/alertlog.json', 'utf-8', (err, jsonString) => {
+        if (err) {
+            console.log(err);
+        } else {
+            //Check if nothing has been written to the log yet
+            if (jsonString.length == 0) {
+                var alertArray = [];
+                alertArray.push(add);
+
+                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                    if (err) throw err;
+                    console.log("Alert Saved to Log - New Log Started");
+                });
+
+            } else {
+                //Log contains messages, retrieve and add new alert to the log 
+                var alertArray = [];
+                alertArray.push(add);
+                alertArray.push(jsonString);
+
+                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                    if (err) throw err;
+                    console.log("Alert Saved to Log - Log Updated");
+                });
+            }
+        }
     });
 }
 
