@@ -6,9 +6,9 @@ var numCodesSelected;
 
 function numCodesOpt() {
     numCodesSelected = document.getElementById('numCodesDropdown').value;
-    
+
     if (numCodesSelected == 1) {
-        
+
         document.getElementById('geoArea1').style.display = "none";
         document.getElementById('geoArea2').style.display = "none";
         document.getElementById('geoArea3').style.display = "none";
@@ -39,9 +39,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 2){
-    
+
+    } else if (numCodesSelected == 2) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "none";
         document.getElementById('geoArea3').style.display = "none";
@@ -72,9 +72,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-    
-    } else if(numCodesSelected == 3){
-    
+
+    } else if (numCodesSelected == 3) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "none";
@@ -105,9 +105,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 4){
-    
+
+    } else if (numCodesSelected == 4) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -138,9 +138,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 5){
-    
+
+    } else if (numCodesSelected == 5) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -171,9 +171,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 6){
-    
+
+    } else if (numCodesSelected == 6) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -204,9 +204,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 7){
-    
+
+    } else if (numCodesSelected == 7) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -237,9 +237,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 8){
-    
+
+    } else if (numCodesSelected == 8) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -270,9 +270,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 9){
-    
+
+    } else if (numCodesSelected == 9) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -303,9 +303,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 10){
-    
+
+    } else if (numCodesSelected == 10) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -336,9 +336,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 11){
-    
+
+    } else if (numCodesSelected == 11) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -369,9 +369,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 12){
-    
+
+    } else if (numCodesSelected == 12) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -402,9 +402,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 13){
-    
+
+    } else if (numCodesSelected == 13) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -435,9 +435,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 14){
-    
+
+    } else if (numCodesSelected == 14) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -468,9 +468,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 15){
-    
+
+    } else if (numCodesSelected == 15) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -501,9 +501,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 16){
-    
+
+    } else if (numCodesSelected == 16) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -534,9 +534,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 17){
-    
+
+    } else if (numCodesSelected == 17) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -567,9 +567,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 18){
-    
+
+    } else if (numCodesSelected == 18) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -600,9 +600,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 19){
-    
+
+    } else if (numCodesSelected == 19) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -633,9 +633,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 20){
-    
+
+    } else if (numCodesSelected == 20) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -666,9 +666,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 21){
-    
+
+    } else if (numCodesSelected == 21) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -699,9 +699,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 22){
-    
+
+    } else if (numCodesSelected == 22) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -732,9 +732,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 23){
-    
+
+    } else if (numCodesSelected == 23) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -765,9 +765,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 24){
-    
+
+    } else if (numCodesSelected == 24) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -798,9 +798,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 25){
-    
+
+    } else if (numCodesSelected == 25) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -831,9 +831,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 26){
-    
+
+    } else if (numCodesSelected == 26) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -864,9 +864,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 27){
-    
+
+    } else if (numCodesSelected == 27) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -897,9 +897,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 28){
-    
+
+    } else if (numCodesSelected == 28) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -930,9 +930,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "none";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 29){
-    
+
+    } else if (numCodesSelected == 29) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -963,9 +963,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "block";
         document.getElementById('geoArea29').style.display = "none";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 30){
-    
+
+    } else if (numCodesSelected == 30) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -996,9 +996,9 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "block";
         document.getElementById('geoArea29').style.display = "block";
         document.getElementById('geoArea30').style.display = "none";
-        
-    } else if(numCodesSelected == 31){
-    
+
+    } else if (numCodesSelected == 31) {
+
         document.getElementById('geoArea1').style.display = "block";
         document.getElementById('geoArea2').style.display = "block";
         document.getElementById('geoArea3').style.display = "block";
@@ -1029,7 +1029,7 @@ function numCodesOpt() {
         document.getElementById('geoArea28').style.display = "block";
         document.getElementById('geoArea29').style.display = "block";
         document.getElementById('geoArea30').style.display = "block";
-        
+
     }
 }
 
@@ -1097,11 +1097,11 @@ var scopeCodeOptSelected = "Public";
 //}
 
 //Calls functions on page body load
-function pageLoad(){
-    
+function pageLoad() {
+
     disableFields();
     hideFIPS();
-    
+
 }
 
 //var to capture value of include spanish alert checkbox 
@@ -1119,8 +1119,8 @@ function showSpan() {
 }
 
 //Hides additional FIPS code fields
-function hideFIPS(){
-    
+function hideFIPS() {
+
     document.getElementById('geoArea1').style.display = "none";
     document.getElementById('geoArea2').style.display = "none";
     document.getElementById('geoArea3').style.display = "none";
@@ -1151,15 +1151,12 @@ function hideFIPS(){
     document.getElementById('geoArea28').style.display = "none";
     document.getElementById('geoArea29').style.display = "none";
     document.getElementById('geoArea30').style.display = "none";
-    
+
 }
 
 //Disable fields when page loads 
 function disableFields() {
-    document.getElementById('restrictionField').disabled = true;
-    document.getElementById('addressField').disabled = true;
     document.getElementById('hideSpan').style.display = "none";
-
 }
 
 function countWord() {
@@ -1251,54 +1248,54 @@ function handleClick() {
     var geoCode = document.getElementById('selectid').value;
 
     geoCode = geoCode.substr(0, 5);
-    
+
     //Parse geoCode to be used for number range validation 
     var geoNumber = parseInt(geoCode);
-    
-    if(geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false){
-       
-       geocodesValid = false;
-       
-    }
-    
-    if((geoNumber < 0000 || geoNumber > 56045) || (geoNumber >= 1 && geoNumber <= 999)){
-                
-        fipsValid = false;
-                
+
+    if (geoCode === undefined || geoCode.length != 5 || /^\d+$/.test(geoCode) == false) {
+
+        geocodesValid = false;
+
     }
 
-    for(var i = 1; i < 31; i++){
-        
-        if(numCodesSelected > i){
-            
-            tempIndex = i.toString();
-            
-            tempSelectID = "selectid" + tempIndex;
-        
-            tempGeocode = document.getElementById(tempSelectID).value;
-        
-            tempGeocode = tempGeocode.substr(0, 5);
-            
-            geoNumber = parseInt(tempGeocode);
-            
-           if(tempGeocode === undefined || tempGeocode.length != 5 || /^\d+$/.test(tempGeocode) == false){
-                
-                geocodesValid = false;
-                
-            }
-            
-            if((geoNumber < 0000 || geoNumber > 56045) || (geoNumber >= 1 && geoNumber <= 999)){
-                
-                fipsValid = false;
-                
-            }
-        
-            geoCode = geoCode + "," + tempGeocode;
-       
-        }
-        
+    if ((geoNumber < 0000 || geoNumber > 56045) || (geoNumber >= 1 && geoNumber <= 999)) {
+
+        fipsValid = false;
+
     }
-    
+
+    for (var i = 1; i < 31; i++) {
+
+        if (numCodesSelected > i) {
+
+            tempIndex = i.toString();
+
+            tempSelectID = "selectid" + tempIndex;
+
+            tempGeocode = document.getElementById(tempSelectID).value;
+
+            tempGeocode = tempGeocode.substr(0, 5);
+
+            geoNumber = parseInt(tempGeocode);
+
+            if (tempGeocode === undefined || tempGeocode.length != 5 || /^\d+$/.test(tempGeocode) == false) {
+
+                geocodesValid = false;
+
+            }
+
+            if ((geoNumber < 0000 || geoNumber > 56045) || (geoNumber >= 1 && geoNumber <= 999)) {
+
+                fipsValid = false;
+
+            }
+
+            geoCode = geoCode + "," + tempGeocode;
+
+        }
+
+    }
+
     //Retrieves Values from Form
     var categoryOptSelected = document.getElementById('categoryDropdown').value;
     var alertTypeOptSelected = document.getElementById('alertDropdown').value;
@@ -1643,11 +1640,11 @@ function handleClick() {
                         spanishDesc: spanDesc,
                         layers: shapes,
                         numGeocodes: numCodesSelected
-                        
+
                     };
 
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function (data, status, xhr) {
+                    $.post("/", newObject, function(data, status, xhr) {
                         alert("Alert Submitted");
                         $(location).attr('href', '/test2');
                     });
@@ -1689,7 +1686,7 @@ function handleClick() {
                     };
 
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function (data, status, xhr) {
+                    $.post("/", newObject, function(data, status, xhr) {
                         alert("Alert Submitted");
                         $(location).attr('href', '/test2');
                     });
@@ -1729,11 +1726,11 @@ function handleClick() {
                     spanishDesc: spanDesc,
                     layers: shapes,
                     numGeocodes: numCodesSelected
-                    
+
                 };
 
                 //Send a POST request containing the form elements object  
-                $.post("/", newObject, function (data, status, xhr) {
+                $.post("/", newObject, function(data, status, xhr) {
                     alert("Alert Submitted");
                     $(location).attr('href', '/test');
                 });
@@ -1745,7 +1742,6 @@ function handleClick() {
 // Variable and function to store all map shape information
 var shapes = "";
 var shapesNum = 0
-// var newJson;
 
 function addShape(shape) {
     var json;
@@ -1773,7 +1769,6 @@ function addShape(shape) {
     }
     shapesNum++;
     shapes += json;
-    // newJson = JSON.parse(shapes);
 }
 
 function deleteShape(shape) {
