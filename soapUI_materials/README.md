@@ -90,5 +90,9 @@ You can try to post a cap message by using the template and filling in the field
 
 Good luck!
 
+## Link to screencaset
+
+[SoapUI Walkthrough Video](https://youtu.be/u30fiVYCDCo)
+
 
 
