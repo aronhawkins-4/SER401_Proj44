@@ -105,7 +105,7 @@ footer {
     display: inline-block;
     border: 1px solid #229CFF;
     border-radius: 2px;
-    box-sizing: border-box   
+    box-sizing: border-box
 }
 
 .container {
@@ -138,6 +138,7 @@ select {
     border-radius: 2px;
     box-sizing: border-box;
 }
+
 
 /* Style Text Areas */
 
@@ -185,14 +186,18 @@ p {
 
 /* Style Page views */
 
-#identifier, #sender, #addressField, #restrictionField, #selectid {
+#identifier,
+#sender,
+#addressField,
+#restrictionField,
+#selectid {
     margin-top: 11px;
 }
 
 .alertGridEn {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "EvSubj180 geoArea" "Ev180 En360";
+    grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
     gap: 20px;
     padding: 20px 100px;
 }
@@ -201,7 +206,8 @@ p {
     grid-area: Ev180;
 }
 
-#eventFi180, #eventFi180sp {
+#eventFi180,
+#eventFi180sp {
     padding-bottom: 29px;
 }
 
@@ -225,9 +231,9 @@ p {
     grid-area: Sp360;
 }
 
-.alertGrid4 {
+.alertGrid3 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     padding: 0 100px;
 }
@@ -240,7 +246,6 @@ p {
 
 #spanCheck {
     padding: 10px;
-
 }
 
 #fileAttachDiv {
@@ -249,13 +254,18 @@ p {
     justify-content: right;
     margin-right: 100px;
 }
+
 #fileAttach {
     width: 163px;
     margin-top: 0px;
 }
+
+
 /* #attachFileBox {
     font-size: 16px;
 } */
+
+
 /*LeafletJS map height*/
 
 #mapid {
@@ -311,7 +321,10 @@ button:hover {
     width: 25%;
     margin: 0 auto;
 }
-/*    TO FORMAT DATA LIST (BETA) */ 
+
+
+/*    TO FORMAT DATA LIST (BETA) */
+
 datalist {
     border-color: #005287;
     width: 97%;
@@ -319,23 +332,24 @@ datalist {
     background-color: lightgrey;
     font-family: sans-serif;
     font-size: 0.8rem;
-  }
-  
-  option {
+}
+
+option {
     background-color: #bbb;
     padding: 4px;
     margin-bottom: 1px;
     cursor: pointer;
-  }
+}
 
-  #geocodes {
+#geocodes {
     border-color: #005287;
     width: 97%;
     position: relative;
     background-color: lightgrey;
     font-family: sans-serif;
     font-size: 0.8rem;
-  }
+}
+
 
 /* MEDIA QUERIES */
 
@@ -344,7 +358,7 @@ datalist {
         padding: 20px 50px;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "EvSubj180" "geoArea" "Ev180" "En360";
+        grid-template-areas: "EvSubj180" "Ev180" "En360" "geoArea";
     }
     .alertGridSp {
         padding: 20px 50px;
@@ -352,9 +366,9 @@ datalist {
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "Ev180sp" "Sp360";
     }
-    .alertGrid4 {
+    .alertGrid3 {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: "msgNum msgSender" "msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop" "certaintyDrop eventDrop" "scopeDrop urgencyDrop" "alertInfoArea ev180";
         padding: 0px 50px;
     }
@@ -364,7 +378,8 @@ datalist {
     h1 {
         margin: auto;
     }
-    #headerLink, #footerLink {
+    #headerLink,
+    #footerLink {
         visibility: hidden;
         padding-right: 0px;
         width: 0px;
@@ -381,14 +396,14 @@ datalist {
     .alertGridEn {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "EvSubj180" "geoArea" "Ev180" "En360";
+        grid-template-areas: "EvSubj180" "Ev180" "En360" "geArea";
     }
     .alertGridSp {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "Ev180sp" "Sp360";
     }
-    .alertGrid4 {
+    .alertGrid3 {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
