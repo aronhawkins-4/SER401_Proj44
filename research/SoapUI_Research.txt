@@ -1,0 +1,6 @@
+After looking into how to work with SoapUI, John released a video to help the team
+setup SoapUI on our devices. It took a bit of time, but I was able to get it set up 
+with a few trial and errors. I'll be looking into more of SoapUI's capabilities and 
+functionalityas time progresses, but for right now setting this up was a good spot.
+
+I know that SOAP stands for Simple Object Access Protocol and it relies heavily on XML.
