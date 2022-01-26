@@ -4,3 +4,16 @@ with a few trial and errors. I'll be looking into more of SoapUI's capabilities 
 functionalityas time progresses, but for right now setting this up was a good spot.
 
 I know that SOAP stands for Simple Object Access Protocol and it relies heavily on XML.
+
+=======
+SoapUI
+=======
+I found that SoapUI is simple so it allows both technical and non-technical useres to use this seamlessly
+It allows for functional, regression, compliance, and load testing.
+SoapUI also allows for us to test performance and security.
+When our program submits an alert it writes out the XML code that is required by FEMA.
+After our program writes out the XML code we can simply plug it into the required spot in SoapUI and test our message to the server.
+John was already quite ahead of the group so he has been actively working hard on getting the security to work.
+Currently the security is what is giving us the hardest time.
+
+Update: Still can't get the security to work. But talks of switching to Java are happening so ending this here to look into other options.
