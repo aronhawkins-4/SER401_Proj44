@@ -1,0 +1,28 @@
+=================
+Angular JS
+=================
+
+I wanted to try and find some JavaScript libraries that would allow us to create a clean,
+easy to read, and consistent user interface. In doing so I landed upon Angular JS.
+
+There are several different libraries that branch off from Angular as a whole, but my focus is:
+Angular Material.
+
+=================
+Angular Material
+=================
+
+Unfortunately, the big factor is that Angular Material is not a free service. They do provide
+free trials, but obviously that won't last very long if you're using this for a business, but
+it could potentially be worth the cost, but the cost isn't really shown until you are fully commited
+to using Angular Material. Another downside that man members of the community have stated is that
+Angular Material is very large and can cause problems on start up and when actually trying to run
+your code.
+
+However, Angular Material offers several different components that would be beneficial to our design.
+In these components the ones that prove to be most beneficial to us are as follows:
+Autocomplete, Button, Checkbox, Input, Select, and Grid list.
+Now obviously we have all of these implemented currently in our code, but it makes it easier when
+translating this to an app version. It seems like the community has also had a big uproar for the
+drag and drop features, so it's very easy to just translate where we'd like our information to be
+stored and not have to waste time trying to code it in the perfect spot.
