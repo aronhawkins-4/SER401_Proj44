@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var XMLWriter = require('xml-writer');
+var soap = require('soap');
 fs = require('fs');
 
 
@@ -65,7 +66,7 @@ router.post('/', function(req, res, next) {
     res.redirect('/test', 301);
 });
 
-/* Generate and save xml alert messag data */
+// Generate and save xml alert messag data //
 function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
 
     //geocodes are a 5 digit FIPS code plus a leading digit indicating no subdivision or 1/9th area sub-division 
@@ -335,6 +336,13 @@ router.get('/test', function(req, res, next) {
 /*DEBUG TEST ROUTE 2*/
 router.get('/test2', function(req, res, next) {
     res.render('test2', { title: 'Test Page2' });
+});
+
+
+//Testing soap 
+router.post('/soaptest', function(req, res, next) {
+    //Bloack to implement SOP actions 
+    console.log("SOAP TEST"); 
 });
 
 module.exports = router;

@@ -1236,7 +1236,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Perform data validation and alert submission 
 function handleClick() {
-
+    /* Commenteed out for testing 
     var testString = "hello";
     var tempGeocode = "";
     var tempSelectID = "";
@@ -1695,7 +1695,7 @@ function handleClick() {
                 //Process a new alert 
 
 
-                //****This is where we add the rest of the fields after processing (Except for cancel and update msgType**********/
+                //This is where we add the rest of the fields after processing (Except for cancel and update msgType//
 
                 //Alert number composed of time and first 3 letters of sender's email 
                 var msgNumber = dateTime + String(email).substring(0, 3).toUpperCase();
@@ -1736,7 +1736,14 @@ function handleClick() {
                 });
             }
         }
-    }
+    }*/ //Commented out for testing 
+
+    //Send a POST request containing the form elements object  
+    $.post("/soaptest", newObject, function(data, status, xhr) {
+        alert("Alert Submitted");
+        $(location).attr('href', '/test');
+    });
+
 }
 
 // Variable and function to store all map shape information
