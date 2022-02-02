@@ -1738,10 +1738,14 @@ function handleClick() {
         }
     }*/ //Commented out for testing 
 
-    //Send a POST request containing the form elements object  
+    //Send a POST request containing the form elements object 
+    var newObject = {
+        one: "test",
+        two: "this"
+    } 
     $.post("/soaptest", newObject, function(data, status, xhr) {
         alert("Alert Submitted");
-        $(location).attr('href', '/test');
+        //$(location).attr('href', '/test');
     });
 
 }

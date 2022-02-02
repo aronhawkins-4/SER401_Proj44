@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var XMLWriter = require('xml-writer');
 var soap = require('soap');
-fs = require('fs');
-
-
 var fs = require('fs');
-const { off } = require('process');
-const { Console } = require('console');
+
+
+//var fs = require('fs');
+//const { off } = require('process');
+//const { Console } = require('console');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
