@@ -343,6 +343,26 @@ router.get('/test2', function(req, res, next) {
 router.post('/soaptest', function(req, res, next) {
     //Bloack to implement SOP actions 
     console.log("SOAP TEST"); 
+
+    const keyPath = 'cert/newKey.p12'; 
+    var privateKey = fs.readFileSync(keyPath); 
+    var password = "ipawsopen"; 
+
+
+    var wsdlOptions = {
+        xmlKey: 'wsdl.xml'
+      };
+      
+      soap.createClient(__dirname + '/cert/', wsdlOptions, function (err, client) {
+        // your code
+
+       var wsSecurity = new soap.WSSecurityCert(privateKey,privateKey,password);
+       client.setSecurity(wsSecurity);
+
+      });
+
+    console.log("SOAP FINISHED TEST"); 
+
 });
 
 module.exports = router;
