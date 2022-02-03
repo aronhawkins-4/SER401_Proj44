@@ -11,6 +11,41 @@
 		<jaxws:serviceBean>
 			<bean class="com.bharath.trainings.ws.SumWSImpl" />
 		</jaxws:serviceBean>
+		<jaxws:inInterceptors>
+			<bean
+				class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+				<constructor-arg>
+					<map>
+						<entry key="action" value="UsernameToken Encrypt" />
+						<entry key="passwordType" value="PasswordText" />
+						<entry key="passwordCallbackRef"
+							value-ref="myPasswordCallback" />
+							<entry key="decryptionPropFile"
+							value="etc/serviceKeystore.properties" />
+					</map>
+				</constructor-arg>
+			</bean>
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<bean
+				class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+				<constructor-arg>
+					<map>
+						<entry key="action" value="Encrypt" />
+						<entry key="passwordCallbackRef"
+							value-ref="myPasswordCallback" />
+							<entry key="encryptionPropFile"
+							value="etc/serviceKeystore.properties" />
+							<entry key="encryptionUser" value="myclientkey"/>
+					</map>
+				</constructor-arg>
+			</bean>
+		</jaxws:outInterceptors>
 	</jaxws:server>
-
+	<bean id="myPasswordCallback" class="com.bharath.trainings.ws.PasswordCallbackHandler"/>
+	<cxf:bus>
+		<cxf:features>
+			<cxf:logging />
+		</cxf:features>
+	</cxf:bus>
 </beans>
