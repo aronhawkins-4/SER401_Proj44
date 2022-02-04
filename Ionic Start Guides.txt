@@ -1,0 +1,19 @@
+Ionic Official Getting Started Guide
+
+https://ionicframework.com/getting-started
+
+Udemy Ionic + Angular Course (Warning, I have read that Angular reached EOL recently)
+
+https://www.udemy.com/course/ionic-2-the-practical-guide-to-building-ios-android-apps/
+
+IonicAdacemy Start Guide for Ionic 4
+
+https://ionicacademy.com/getting-started-with-ionic-4/
+
+Ionic Framework First App Tutorial
+
+https://ionicframework.com/docs/angular/your-first-app
+
+"Converting Your Website Into an Android App in 5 Min.'
+
+https://www.youtube.com/watch?v=FxkB_oiG3RI
