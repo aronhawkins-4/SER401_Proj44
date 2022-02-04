@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>202212394513802JCA</identifier>
+    <identifier>20222418611455JCA</identifier>
     <sender>jcall3@asu.edu</sender>
-    <sent>2022-01-23T09:45:13-05:00</sent>
-    <status>Exercise</status>
+    <sent>2022-02-04T18:06:11-05:00</sent>
+    <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>CBRNE</category>
-        <event>Inserting text here to ensure field works properly</event>
-        <urgency>Expected</urgency>
-        <severity>Severe</severity>
+        <category>Geo</category>
+        <event>EARTHQUAKE ACTIVE NOW!</event>
+        <urgency>Immediate</urgency>
+        <severity>Extreme</severity>
         <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>NUW</value>
+            <value>EQW</value>
         </eventCode>
-        <expires>2022-01-24T09:45:13-05:00</expires>
+        <expires>2022-02-05T18:06:11-05:00</expires>
         <senderName>sender name goes here</senderName>
         <headline>headline goes here</headline>
-        <description>Inserting text here to ensure field works properly</description>
+        <description>EARTHQUAKE IN PROGRESS CURRENTLY IN OURAY COUNTY. TOWN IS BEING HIT HARD. FIND SHELTER IMMEDIATELY!</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,10 +29,11 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>Inserting text here to ensure field works properly</areaDesc>
+            <areaDesc>EARTHQUAKE IN PROGRESS CURRENTLY IN OURAY COUNTY. TOWN IS BEING HIT HARD. FIND SHELTER IMMEDIATELY!</areaDesc>
+            <polygon>-107.682333,38.050475 -107.68671,38.048446 -107.685508,38.037826 -107.691516,38.029235 -107.70353,38.027003 -107.702243,38.018342 -107.688169,38.009749 -107.676154,38.00826 -107.675039,38.013403 -107.671263,38.006907 -107.659592,38.011914 -107.664912,38.018139 -107.643801,38.023552 -107.653584,38.036135 -107.663539,38.031738 -107.671177,38.036609 -107.643801,38.055074 -107.66414,38.048784 -107.67358,38.052707 -107.682333,38.050475</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>001035,02050,18067</value>
+                <value>008091</value>
             </geocode>
         </area>
     </info>
