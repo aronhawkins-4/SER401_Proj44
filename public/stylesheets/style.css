@@ -29,6 +29,29 @@ h1 {
     color: white;
 }
 
+#aboutHeader {
+
+    display: flex;
+    justify-content: center;
+    color: black;
+
+}
+
+#aboutPDIV {
+
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 1em;
+    
+}
+
+#aboutP {
+
+    font-size: 1em;
+
+}
+
 .femaLogo {
     width: 125px;
     align-self: center;
