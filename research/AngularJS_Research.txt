@@ -26,3 +26,32 @@ Now obviously we have all of these implemented currently in our code, but it mak
 translating this to an app version. It seems like the community has also had a big uproar for the
 drag and drop features, so it's very easy to just translate where we'd like our information to be
 stored and not have to waste time trying to code it in the perfect spot.
+
+=======================
+Angular vs React Native
+=======================
+
+Based on: https://fullscale.io/blog/react-native-vs-angular-for-mobile-apps/
+
+*React Native*
+~ Is a hybrid JavaScript framework
+~ Can render mobile apps on both iOS and Android
+~ Maintained by Facebook
+~ Very Simple
+~ Uses server-side rendering so the programs deliver optimum performance
+~ Codes are easier to understand and launch
+~ Has XSS, Cross-site Scripting, protection for security
+~ Most used platform for mobile apps
+~ 'Codemod' feature that automates most processes needed for development
+~ Framework is robust for content-focused mobile apps
+~ Highly detailed and highly-supported documentation containing HTML-based syntax
+
+*Angular JS*
+~ Google supports Angular JS
+~ Structured to be compatible with multiple code editors
+~ Seamless updates when using the Angular CLI
+~ Has a huge community of developers
+~ Improved support for error handling
+~ Built-in support on HTML and AJAX
+~ Framework with a maximized performance for high-quality and secure mobile app development
+~ Takes a smaller space in your computer without compromising investable features
