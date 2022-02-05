@@ -337,4 +337,9 @@ router.get('/test2', function(req, res, next) {
     res.render('test2', { title: 'Test Page2' });
 });
 
+//About Page Get Request
+router.get('/about', function(req, res, next) {
+    res.render('about', { title: 'About Page' });
+});
+
 module.exports = router;
