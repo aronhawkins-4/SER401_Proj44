@@ -5,8 +5,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="/jquery/jquery.js">
         </script> -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
     <script src="javascripts/myScript.js"></script>
@@ -16,16 +20,16 @@
     <script>
         var geoList = new Array;
 
-        var promise = $.get("dbs/geocodes.json", function(data) {
+        var promise = $.get("dbs/geocodes.json", function (data) {
             geoList = data;
             // console.log(data);
         });
 
-        promise.done(function(data) {
+        promise.done(function (data) {
             geoList = JSON.stringify(geoList);
             geoList = JSON.parse(geoList);
 
-            $(document).ready(function() {
+            $(document).ready(function () {
                 for (i = 0; i < geoList.length; i++) {
                     // console.log("data " + geoList[i]);
                     $('#geocodes').append('<option>' + geoList[i].id + " " + geoList[i].name + " " + geoList[i].state + '</option>')
@@ -39,7 +43,8 @@
     <header id="header">
         <p id="invis"></p>
         <h1>AO APP (BETA)</h1>
-        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system" target="_blank" id="headerLink">
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
+            target="_blank" id="headerLink">
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
@@ -48,7 +53,8 @@
         <div id="msgNum" class="container">
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
             <br>
-            <input type="text" id="identifier" value="" name="identifier" maxlength="20" placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
+            <input type="text" id="identifier" value="" name="identifier" maxlength="20"
+                placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
         </div>
         <div id="msgSender" class="container">
             <label for="sender" class="text"><strong>Sender's Email:</strong></label>
@@ -150,47 +156,6 @@
                 <br>
             </div>
         </div>
-        <div id="numCodesDrop" class="container">
-            <label for="numCodesDropdown" class="text"><strong>Number of Geocodes:</strong></label>
-            <br>
-            <div id="numCodesDropdownMenu" class=dropdownMenu_style>
-                <select name="numCodesDropdown" class="dropdownMenu" id="numCodesDropdown" onchange="numCodesOpt()">
-                    <option value="Default">Select Number of Geocodes (1 Included by Default)</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                </select>
-                <br>
-            </div>
-        </div>
         <div id="eventDrop" class="container">
             <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
             <br>
@@ -251,19 +216,62 @@
                 <br>
             </div>
         </div>
+        <div id="numCodesDrop" class="container">
+            <label for="numCodesDropdown" class="text"><strong>Number of Geocodes:</strong></label>
+            <br>
+            <div id="numCodesDropdownMenu" class=dropdownMenu_style>
+                <select name="numCodesDropdown" class="dropdownMenu" id="numCodesDropdown" onchange="numCodesOpt()">
+                    <option value="Default">Select Number of Geocodes (1 Included by Default)</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <br>
+            </div>
+        </div>
     </div>
     <div class="alertGridEn">
         <div id="EvSubj180" class="container">
             <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()" maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
+                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()"
+                    maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
             </div>
             <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
         </div>
         <div id="Ev180" class="container">
             <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
             <div class="textarea_style">
-                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180" placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
+                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180"
+                    placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
             </div>
             <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
         </div>
@@ -271,7 +279,8 @@
             <label for="alert360" class="text"><strong>Alert Message</strong></label>
             <br>
             <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360" placeholder="Alert message to be disseminated..."></textarea>
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"
+                    placeholder="Alert message to be disseminated..."></textarea>
             </div>
             <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
         </div>
@@ -279,7 +288,8 @@
             <label for="geoBlock" class="text"><strong>Select the FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -289,7 +299,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid1" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid1" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes1" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -299,7 +310,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid2" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid2" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes2" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -309,7 +321,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid3" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid3" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes3" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -319,7 +332,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid4" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid4" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes4" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -329,7 +343,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid5" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid5" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes5" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -339,7 +354,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid6" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid6" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes6" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -349,7 +365,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid7" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid7" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes7" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -359,7 +376,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid8" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid8" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes8" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -369,7 +387,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid9" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid9" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes9" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -379,7 +398,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid10" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid10" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes10" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -389,7 +409,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid11" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid11" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes11" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -399,7 +420,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid12" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid12" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes12" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -409,7 +431,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid13" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid13" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes13" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -419,7 +442,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid14" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid14" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes14" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -429,7 +453,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid15" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid15" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes15" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -439,7 +464,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid16" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid16" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes16" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -449,7 +475,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid17" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid17" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes17" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -459,7 +486,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid18" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid18" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes18" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -469,7 +497,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid19" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid19" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes19" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -479,7 +508,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid20" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid20" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes20" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -489,7 +519,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid21" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid21" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes21" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -499,7 +530,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid22" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid22" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes22" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -509,7 +541,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid23" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid23" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes23" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -519,7 +552,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid24" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid24" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes24" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -529,7 +563,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid25" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid25" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes25" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -539,7 +574,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid26" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid26" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes26" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -549,7 +585,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid27" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid27" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes27" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -559,7 +596,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid28" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid28" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes28" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -569,7 +607,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid29" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid29" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes29" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -579,7 +618,8 @@
             <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
                     State:</strong></label>
             <br>
-            <input list="geocodes" class="selectFIPS" id="selectid30" name="selectid" placeholder="Search by State or County">
+            <input list="geocodes" class="selectFIPS" id="selectid30" name="selectid"
+                placeholder="Search by State or County">
             <datalist id="geocodes30" name="geocodes">
                 <option value=""></option>
             </datalist>
@@ -598,7 +638,9 @@
                 <label for="event180sp" class="text"><strong>Informacion Adicional Sobre el Area
                         Afectada:</strong></label>
                 <div class="textarea_style">
-                    <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()" maxlength="180" placeholder="Indica informacion especifica sobre el area que tiene que ver con la alerta..."></textarea>
+                    <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()"
+                        maxlength="180"
+                        placeholder="Indica informacion especifica sobre el area que tiene que ver con la alerta..."></textarea>
                 </div>
                 <p id="wordsLeftEvent180sp" class="text">Characters Left: 180</p>
             </div>
@@ -606,7 +648,8 @@
                 <label for="alertSp360 " class="text "><strong>Mensaje de Alerta:</strong></label>
                 <br>
                 <div class="textarea_style">
-                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360" placeholder="Mensaje de alerta que se enviara..."></textarea>
+                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"
+                        placeholder="Mensaje de alerta que se enviara..."></textarea>
                 </div>
                 <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
             </div>
@@ -664,7 +707,7 @@
             ]);
 
             // Check number of shapes and vertexes on map
-            map.on('pm:create', function(e) {
+            map.on('pm:create', function (e) {
                 var layer = e.layer.toGeoJSON();
                 var coordinates;
                 var shape = layer.geometry.type;
