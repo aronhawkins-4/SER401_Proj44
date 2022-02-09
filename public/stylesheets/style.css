@@ -389,6 +389,7 @@ option {
     }
     #mapid {
         height: 450px;
+        
     }
 }
 
@@ -397,16 +398,25 @@ option {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "EvSubj180" "Ev180" "En360" "geArea";
+        padding: 0px 25px;
     }
     .alertGridSp {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "Ev180sp" "Sp360";
+        padding: 0px 25px;
     }
     .alertGrid3 {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
-        padding: 0px 50px;
+        padding: 0px 25px;
+    }
+    #mapid {
+        height: 400px;
+    }
+    .button1 {
+        width: 50%;
+        margin: 0 auto;
     }
 }
