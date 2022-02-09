@@ -1,7 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-        <body>
-            <h1>ALERT LOG PAGE</h1>
-        </body>
+
+<head>
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script>
+        var alertLog = new Array;
+
+        var promise = $.get("dbs/alertlog.json", function(data) {
+            alertLog = data;
+        });
+        
+        promise.done(function(data) {
+            alertLog = JSON.stringify(alertLog);
+            alertLog = JSON.parse(alertLog);
+
+
+            $(document).ready(function() {
+                for (i = 0; i < alertLog.length; i++) {
+                    $('#demo').append(alertLog[i].identifier + '<br>'); 
+                }
+
+            });
+        })
+
+    </script>
+</head>
+
+<body>
+    <header id="header">
+        <p id="invis"></p>
+        <h1>AO APP</h1>
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system" target="_blank" id="headerLink">
+            <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
+        </a>
+    </header>
+    <h2>Alert Log:</h2>
+    <div id="demo">
+    
+    </div>
+
+    <footer id="footer">
+        <p id="phone_number">1 (800) 621-3362</p>
+        <a href="https://www.fema.gov/" target="_blank" id="footerLink">
+            <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+        </a>
+        <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+    </footer>
+</body>
+
 </html>
