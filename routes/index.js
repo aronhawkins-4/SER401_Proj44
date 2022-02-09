@@ -13,6 +13,11 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+/* GET Alert Log Page */ 
+router.get('/alertlog', function(req, res, next) {
+    res.render('alertlog', { title: 'Alert Log' });
+});
+
 /* Process POST from home page*/
 router.post('/', function(req, res, next) {
     //Retrive all form element vlaues 
