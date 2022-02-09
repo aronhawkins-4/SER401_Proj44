@@ -353,7 +353,7 @@ option {
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 768px) {
+ @media only screen and (max-width: 768px) {
     .alertGridEn {
         padding: 20px 50px;
         grid-template-columns: 1fr;
@@ -378,12 +378,12 @@ option {
     h1 {
         margin: auto;
     }
-    #headerLink,
+    /* #headerLink,
     #footerLink {
         visibility: hidden;
         padding-right: 0px;
         width: 0px;
-    }
+    } */
     #invis {
         width: 0px;
     }
@@ -414,9 +414,11 @@ option {
     }
     #mapid {
         height: 400px;
+        align-items: center;
+        margin: 0 25px;
     }
     .button1 {
         width: 50%;
         margin: 0 auto;
     }
-}
+} 
