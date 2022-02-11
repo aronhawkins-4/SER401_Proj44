@@ -18,21 +18,21 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 public interface CAPserviceInterface {
 
-    @WebMethod(action = "https://gov.fema.ipaws.services/IPAWS_CAPService/getMessage")
+    @WebMethod(action = "http://gov.fema.ipaws.services/IPAWS_CAPService/getMessage")
     @WebResult(name = "messageResponseTypeDef", targetNamespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", partName = "parameters")
     public MessageResponseTypeDef getMessage(
         @WebParam(partName = "parameters", name = "getMessageTypeDef", targetNamespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/")
         services.ipaws.fema.gov.caprequest.RequestParameterList parameters
     ) throws CAPSoapException;
 
-    @WebMethod(action = "https://gov.fema.ipaws.services/IPAWS_CAPService/postCAP")
+    @WebMethod(action = "http://gov.fema.ipaws.services/IPAWS_CAPService/postCAP")
     @WebResult(name = "postCAPResponseTypeDef", targetNamespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", partName = "parameters")
     public services.ipaws.fema.gov.capresponse.ResponseParameterList postCAP(
         @WebParam(partName = "parameters", name = "postCAPRequestTypeDef", targetNamespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/")
         PostCAPRequestTypeDef parameters
     ) throws CAPSoapException;
 
-    @WebMethod(action = "https://gov.fema.ipaws.services/IPAWS_CAPService/getRequest")
+    @WebMethod(action = "http://gov.fema.ipaws.services/IPAWS_CAPService/getRequest")
     @WebResult(name = "getResponseTypeDef", targetNamespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", partName = "parameters")
     public services.ipaws.fema.gov.capresponse.ResponseParameterList getRequest(
         @WebParam(partName = "parameters", name = "getRequestTypeDef", targetNamespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/")
