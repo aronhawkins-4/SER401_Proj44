@@ -408,9 +408,10 @@ option {
     }
     .alertGrid3 {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
         padding: 0px 25px;
+        margin-bottom: -20px;
     }
     #mapid {
         height: 400px;
@@ -420,5 +421,9 @@ option {
     .button1 {
         width: 50%;
         margin: 0 auto;
+    }
+    .checkLine {
+        padding: 0px 25px;
+        margin-top: 40px;
     }
 } 
