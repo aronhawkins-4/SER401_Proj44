@@ -37,6 +37,13 @@ h1 {
 
 }
 
+#aboutHomeButton {
+
+    display: flex;
+    justify-content: center;
+
+}
+
 #aboutPDIV {
 
     display: flex;
