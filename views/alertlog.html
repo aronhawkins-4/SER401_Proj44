@@ -19,7 +19,9 @@
 
             $(document).ready(function() {
                 for (i = 0; i < alertLog.length; i++) {
-                    $('#demo').append(alertLog[i].identifier + '<br>'); 
+                    $('#msglog').append('<tr><td><a href=/retrievemsg/'+alertLog[i].identifier+">"+alertLog[i].identifier+'</a></td><td>'+
+                        alertLog[i].sent+'</td><td>'+alertLog[i].sender+'</td><td>'+alertLog[i].status+'</td><td>'+alertLog[i].msgType+
+                            '</td><td>'+alertLog[i].geo+'</td><td>'+alertLog[i].desc+'</td></tr>'); 
                 }
 
             });
@@ -37,10 +39,19 @@
         </a>
     </header>
     <h2>Alert Log:</h2>
-    <div id="demo">
-    
-    </div>
-
+    <div class="logGrid">
+    <table id="msglog">
+        <tr>
+            <th>Alert Number</th>
+            <th>Sent Date/Time</th>
+            <th>Sender's Email</th>
+            <th>Submission Type</th>
+            <th>Alert Type</th>
+            <th>Geocode(s)</th>
+            <th>Alert Message</th>
+        </tr>
+    </table> 
+    </div> 
     <footer id="footer">
         <p id="phone_number">1 (800) 621-3362</p>
         <a href="https://www.fema.gov/" target="_blank" id="footerLink">

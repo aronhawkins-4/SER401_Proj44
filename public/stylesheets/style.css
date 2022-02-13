@@ -139,6 +139,20 @@ select {
     box-sizing: border-box;
 }
 
+table {
+    border-collapse: collapse;
+    border: 2px solid #3399CC; 
+}
+
+table, th, td {
+    border: 2px solid #3399CC;
+    padding: 0.5em;
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background-color: #F5FAFC;
+}
 
 /* Style Text Areas */
 
@@ -198,6 +212,13 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
+    gap: 20px;
+    padding: 20px 100px;
+}
+
+.logGrid {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px 100px;
 }
@@ -360,6 +381,13 @@ option {
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "EvSubj180" "Ev180" "En360" "geoArea";
     }
+
+    .logGrid {
+        padding: 20px 50px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
     .alertGridSp {
         padding: 20px 50px;
         grid-template-columns: 1fr;
@@ -398,6 +426,12 @@ option {
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "EvSubj180" "Ev180" "En360" "geArea";
     }
+
+    .logGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
     .alertGridSp {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
