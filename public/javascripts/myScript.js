@@ -1400,12 +1400,8 @@ function handleClick() {
         } else {
             //Begin processing form
 
-            //Format current date time for message sent field 
-
+            //Retrieve current date to be used with message number and expiration 
             var today = new Date();
-            var dateTime = today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
-            dateTime += today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + today.getUTCMilliseconds();
-
 
             // Change date format so that single digit dates and time gets zero in from of them - JK
             var year = today.getFullYear()
@@ -1693,12 +1689,64 @@ function handleClick() {
                 }
             } else {
                 //Process a new alert 
+                
+                //Retrieve time/day elements 
+                var msgYear = today.getFullYear();
+                var msgMonth = today.getMonth() + 1;
+                var msgDay = today.getDate();
+                var msgHour = today.getHours();
+                var msgMinute = today.getMinutes();
+                var msgSecond = today.getSeconds();
+                var msgMilliSeconds = today.getUTCMilliseconds(); 
 
-
-                //****This is where we add the rest of the fields after processing (Except for cancel and update msgType**********/
+                //Format month string in ## format 
+                var monthStr = ""; 
+                if (msgMonth < 10) {
+                    monthStr = "0" + msgMonth; 
+                } else {
+                    monthStr += msgMonth;  
+                }
+                //Format day string in ## format 
+                var dayStr = "";
+                if (msgDay < 10) {
+                    dayStr = "0" + msgDay;
+                } else {
+                    dayStr += msgDay; 
+                }
+                //Format hour string in ## format 
+                var hourStr = "";
+                if (msgHour < 10) {
+                    hourStr = "0" + msgHour;
+                } else {
+                    hourStr += msgHour;
+                }
+                //Format minutes string in ## format 
+                var minuteStr = "";
+                if (msgMinute < 10) {
+                    minuteStr = "0" + msgMinute; 
+                } else {
+                    minuteStr += msgMinute; 
+                }
+                //Format seconds string in ## format 
+                var secondStr = "";
+                if (msgSecond < 10) {
+                    secondStr = "0" + msgSecond;
+                } else {
+                    secondStr += msgSecond; 
+                }
+                //Format milliseconds in ### format 
+                var milliStr = "";
+                if (msgMilliSeconds  > 10 && msgMilliSeconds < 100) {
+                    milliStr = "0" + msgMilliSeconds; 
+                } else if (msgMilliSeconds < 10) {
+                    milliStr = "00" + msgMilliSeconds;
+                } else {
+                    milliStr += msgMilliSeconds; 
+                }
 
                 //Alert number composed of time and first 3 letters of sender's email 
-                var msgNumber = dateTime + String(email).substring(0, 3).toUpperCase();
+                var msgNumber = msgYear + monthStr + dayStr + hourStr + minuteStr + secondStr 
+                    + milliStr + String(email).substring(0, 3).toUpperCase();
 
                 //Set the Alert Number on form 
                 document.getElementById('identifier').value = msgNumber;

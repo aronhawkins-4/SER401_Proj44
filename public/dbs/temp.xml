@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>2022290195229JES</identifier>
+    <identifier>20220212221048070JES</identifier>
     <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2022-02-09T00:19:05-07:00</sent>
-    <status>Actual</status>
+    <sent>2022-02-12T22:10:48-07:00</sent>
+    <status>Exercise</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>CBRNE</category>
-        <event>dgsd</event>
-        <urgency>Immediate</urgency>
+        <category>Fire</category>
+        <event>fhgrgfg</event>
+        <urgency>Expected</urgency>
         <severity>Extreme</severity>
-        <certainty>Likely</certainty>
+        <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
             <value>TOE</value>
         </eventCode>
-        <expires>2022-02-10T00:19:05-07:00</expires>
+        <expires>2022-02-13T22:10:48-07:00</expires>
         <senderName>jesus.a.quiroz</senderName>
         <headline>headline goes here</headline>
-        <description>sggsg</description>
+        <description>hfh</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,11 +29,11 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>sgsg</areaDesc>
-            <polygon>-111.934547,33.411024 -111.934547,33.429364 -111.910172,33.429364 -111.910172,33.411024 -111.934547,33.411024</polygon>
+            <areaDesc>fhf</areaDesc>
+            <circle>-111.933861,33.410165 1.1</circle>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004017</value>
+                <value>004009</value>
             </geocode>
         </area>
     </info>
