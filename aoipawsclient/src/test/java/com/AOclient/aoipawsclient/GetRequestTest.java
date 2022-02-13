@@ -43,28 +43,26 @@ public class GetRequestTest {
 
 		// Create Client and Dummy Header
 		Client client = ClientProxy.getClient(port);
-		List<Header> headers = new ArrayList<Header>();
-		Header dummyHeader;
-		try {
-			dummyHeader = new Header(new QName("CAPHeaderTypeDef", "logonCogId"), 120075,
-					new JAXBDataBinding(Integer.class));
-			headers.add(dummyHeader);
-		} catch (JAXBException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
+		
 
 		// Create user in in typeDef might not be needed or used correctly
 		ObjectFactory of = new ObjectFactory();
 		CAPHeaderTypeDef info = of.createCAPHeaderTypeDef();
 		info.setLogonCogId(of.createCAPHeaderTypeDefLogonCogId(120075));
 		info.setLogonUser(of.createCAPHeaderTypeDefLogonUser("ipawsopen120075"));
-
+		List<Header> headers = new ArrayList<Header>();
+		Header dummyHeader;
+		try {
+			dummyHeader = new Header(new QName("http://gov.fema.ipaws.services/IPAWS_CAPService/", "CAPHeaderTypeDef"), info, new JAXBDataBinding(CAPHeaderTypeDef.class));
+			headers.add(dummyHeader);
+		} catch (JAXBException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		// print statement checks to see if value is correct
 		System.out.println(info.getLogonCogId().getValue());
 
 		client.getRequestContext().put(Header.HEADER_LIST, headers);
-		client.getRequestContext().put("Stuff", info);
 		Endpoint endpoint = client.getEndpoint();
 
 		// Create the request parameters list that will be in the message body
@@ -91,7 +89,7 @@ public class GetRequestTest {
 		
 		WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps);
 		
-		// Add the interceptos to the endpoint
+		// Add the interceptors to the endpoint
 		endpoint.getOutInterceptors().add(wssOut);
 
 		// Create the response parameter list to check for the response for the outbound request
@@ -109,9 +107,7 @@ public class GetRequestTest {
 		
 		// Print out the response to the console
 		System.out.println(list2.getParameterListItem().get(0).getParameterName());
-		System.out.println(list2.getParameterListItem().get(0).getSubParaListItem().get(0).getSubParameterName());
-		System.out.println(list2.getParameterListItem().get(0).getSubParaListItem().get(0).getSubParameterValue());
-		System.out.println(list2.getParameterListItem().get(0).getSubParaListItem().size());
+		assertEquals(list2.getParameterListItem().get(0).getParameterName(),"ACK");
 	}
 
 }
