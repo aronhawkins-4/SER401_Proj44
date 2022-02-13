@@ -56,12 +56,31 @@ h1 {
 #aboutP {
 
     font-size: 1em;
+    border-bottom: 2px solid #005287;
+    padding-bottom: 1px;
+    padding-top: 25px;
 
 }
 
 .femaLogo {
     width: 125px;
     align-self: center;
+}
+
+#techStack {
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+
+}
+
+#techList {
+
+    list-style-type: none;
+    font-size: 1em;
+    margin-right: 2%;
+
 }
 
 #header_logo {
