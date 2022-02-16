@@ -418,6 +418,28 @@ option {
     #mapid {
         height: 450px;
     }
+
+    table, thead, tbody, th, td, tr {
+        border-collapse: collapse;
+        border: 2px solid #3399CC; 
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #ededed;
+        position: relative; 
+    }
+
+    td:before {
+        position: absolute;
+        white-space: nowrap; 
+    }
+    
 }
 
 @media only screen and (max-width: 480px) {
