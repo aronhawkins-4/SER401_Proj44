@@ -85,10 +85,10 @@ public class PostCAPTest {
 		fields.setMsgType("Alert");
 		fields.setStatus("Actual");
 		fields.setScope("Public");
-
+		fields.getCode().add("IPAWSv1.0");
 		Info infoFields = new Info();
 		infoFields.setLanguage("en-US");
-		infoFields.getCategory().add("GEO");
+		infoFields.getCategory().add("Geo");
 		infoFields.setEvent("Some bad stuff");
 		infoFields.setUrgency("Immediate");
 		infoFields.setSeverity("Extreme");
