@@ -29,6 +29,24 @@ h1 {
     color: white;
 }
 
+#alertPage {
+	
+	display: flex;
+	justify-content: center;
+	color: black;
+	font-size: 1em;
+	
+	}
+
+#alertTest {
+    font-size: 2em;
+}
+
+#alertPageButton {
+    display: flex;
+    justify-content: center;
+}
+
 .femaLogo {
     width: 125px;
     align-self: center;
