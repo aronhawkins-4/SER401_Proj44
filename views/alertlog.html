@@ -15,13 +15,25 @@
         promise.done(function(data) {
             alertLog = JSON.stringify(alertLog);
             alertLog = JSON.parse(alertLog);
-
+            var alertMessage; 
+            var alertGeos; 
 
             $(document).ready(function() {
                 for (i = 0; i < alertLog.length; i++) {
+                    //Limit alert message output to 180 characters 
+                    alertMessage = alertLog[i].desc;
+                    if (alertMessage.length > 180) {
+                        alertMessage = alertMessage.substring(0,180) + " ..."; 
+                    }
+                    //Limit geocodes output to 2 geocodes 
+                    alertGeos = alertLog[i].geo;
+                    if (alertGeos.length >= 12) {
+                        alertGeos = alertGeos.substring(0,11) + "..."; 
+                    }
+
                     $('#msglog').append('<tr><td><a href=/retrievemsg/'+alertLog[i].identifier+">"+alertLog[i].identifier+'</a></td><td>'+
                         alertLog[i].sent+'</td><td>'+alertLog[i].sender+'</td><td>'+alertLog[i].status+'</td><td>'+alertLog[i].msgType+
-                            '</td><td>'+alertLog[i].geo+'</td><td>'+alertLog[i].desc+'</td></tr>'); 
+                            '</td><td>'+alertGeos+'</td><td>'+alertMessage+'</td></tr>'); 
                 }
 
             });
