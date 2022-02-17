@@ -12,7 +12,7 @@ export default function App() {
     <SafeAreaView style = {{flex:1}}>
       <WebView
       // PUT YOUR OWN COMPUTER'S IP ADDRESS BELOW
-      source = {{uri:"http://192.168.0.206:3000/"}}
+      source = {{uri:"http://192.168.0.52:3000/"}}
       // ref = {"webView"}
       onNavigationStateChange = {this.onNavigationStateChange}
       ></WebView>
@@ -29,11 +29,11 @@ export default function App() {
 //   const [urgency, setUrgency] = useState('Unknown');
 //   const [geoNum, setGeoNum] = useState('Unknown');
 //   const [code, setCode] = useState('Unknown');
-  
+
 //   return (
 //     <SafeAreaView style={styles.container}>
 //       <ScrollView showsVerticalScrollIndicator={false}>
-//     <Picker 
+//     <Picker
 //       selectedValue={type}
 //       style={styles.picker}
 //       onValueChange={(value, index) => setType(value)}
@@ -43,7 +43,7 @@ export default function App() {
 //       <Picker.Item label="Update" value="Update" color="white"/>
 //       <Picker.Item label="Cancel" value="Cancel" color="white"/>
 //     </Picker>
-//     <Picker 
+//     <Picker
 //       selectedValue={status}
 //       style={styles.picker}
 //       onValueChange={(value, index) => setStatus(value)}
@@ -54,7 +54,7 @@ export default function App() {
 //       <Picker.Item label="System Test" value="System Test" color="white"/>
 //       <Picker.Item label="Draft" value="Draft" color="white"/>
 //     </Picker>
-//     <Picker 
+//     <Picker
 //       selectedValue={category}
 //       style={styles.picker}
 //       onValueChange={(value, index) => setCategory(value)}
@@ -75,7 +75,7 @@ export default function App() {
 //       <Picker.Item label="Rescue and Recovery" value="Rescue and Recovery" color="white"/>
 //       <Picker.Item label="Utility, Telecommunication, Other Non-Transport Infrastructure" value="Utility, Telecommunication, Other Non-Transport Infrastructure" color="white"/>
 //     </Picker>
-//     <Picker 
+//     <Picker
 //       selectedValue={severity}
 //       style={styles.picker}
 //       onValueChange={(value, index) => setSeverity(value)}
@@ -87,7 +87,7 @@ export default function App() {
 //       <Picker.Item label="Minor - Minimal to no known threat to life or property" value="Minor - Minimal to no known threat to life or property" color="white"/>
 //       <Picker.Item label="Unknown - Severity unknown" value="Unknown - Severity unknown" color="white"/>
 //     </Picker>
-//     <Picker 
+//     <Picker
 //       selectedValue={certainty}
 //       style={styles.picker}
 //       onValueChange={(value, index) => setCertainty(value)}
@@ -99,7 +99,7 @@ export default function App() {
 //       <Picker.Item label="Unlikely" value="Unlikely" color="white"/>
 //       <Picker.Item label="Unknown" value="Unknown" color="white"/>
 //     </Picker>
-//     <Picker 
+//     <Picker
 //       selectedValue={urgency}
 //       style={styles.picker}
 //       onValueChange={(value, index) => setUrgency(value)}
@@ -111,7 +111,7 @@ export default function App() {
 //       <Picker.Item label="Past" value="Past" color="white"/>
 //       <Picker.Item label="Unknown" value="Unknown" color="white"/>
 //     </Picker>
-//     <Picker 
+//     <Picker
 //       selectedValue={geoNum}
 //       style={styles.picker}
 //       onValueChange={(value, index) => setGeoNum(value)}
@@ -149,7 +149,7 @@ export default function App() {
 //       <Picker.Item label="30" value="30" color="white"/>
 //       <Picker.Item label="31" value="31" color="white"/>
 //     </Picker>
-//     <Picker 
+//     <Picker
 //       selectedValue={code}
 //       style={styles.picker}
 //       onValueChange={(value, index) => setCode(value)}
