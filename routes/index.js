@@ -13,6 +13,16 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+/* GET Alert Log Page */ 
+router.get('/alertlog', function(req, res, next) {
+    res.render('alertlog', { title: 'Alert Log' });
+});
+
+/* GET Retrieve a Message from Log*/ 
+router.get('/retrievemsg/:id', function(req, res, next) {
+    res.send('The message # to be displayed is: ' + req.params.id);
+});
+
 /* Process POST from home page*/
 router.post('/', function(req, res, next) {
     //Retrive all form element vlaues 
@@ -297,7 +307,7 @@ function updateLog(add) {
                 var alertArray = [];
                 alertArray.push(add);
 
-                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                fs.writeFile('public/dbs/alertlog.json', "["+alertArray+"]", 'utf-8', function(err) {
                     if (err) throw err;
                     console.log("Alert Saved to Log - New Log Started");
                 });
@@ -305,10 +315,11 @@ function updateLog(add) {
             } else {
                 //Log contains messages, retrieve and add new alert to the log 
                 var alertArray = [];
+                var arrayString = jsonString.substring(1,jsonString.length -1);
                 alertArray.push(add);
-                alertArray.push(jsonString);
+                alertArray.push(arrayString);
 
-                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                fs.writeFile('public/dbs/alertlog.json', "["+alertArray+"]", 'utf-8', function(err) {
                     if (err) throw err;
                     console.log("Alert Saved to Log - Log Updated");
                 });
