@@ -95,6 +95,7 @@ h1 {
 
 #techList {
 
+    text-align:center;
     list-style-type: none;
     font-size: 1em;
     margin-right: 2%;
@@ -111,6 +112,8 @@ h1 {
 
 #developerList {
 
+    text-align: center;
+    justify-content: center;
     list-style-type: none;
     font-size: 1em;
     margin-right: 2%;
