@@ -342,6 +342,8 @@ router.get('/test2', function (req, res, next) {
 router.get('/about', function(req, res, next) {
     res.render('about', { title: 'About Page' });
 
+});
+
 router.get('/alert', function (req, res, next) {
     res.render('alert', { title: 'Alert Submission Page' });
 

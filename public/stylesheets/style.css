@@ -78,6 +78,8 @@ h1 {
     padding-bottom: 1px;
     padding-top: 25px;
 
+}
+
 #alertPage {
 	
 	display: flex;
@@ -85,7 +87,7 @@ h1 {
 	color: black;
 	font-size: 1em;
 	
-	}
+}
 
 #alertTest {
     font-size: 2em;
