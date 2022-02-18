@@ -78,6 +78,22 @@ h1 {
     padding-bottom: 1px;
     padding-top: 25px;
 
+#alertPage {
+	
+	display: flex;
+	justify-content: center;
+	color: black;
+	font-size: 1em;
+	
+	}
+
+#alertTest {
+    font-size: 2em;
+}
+
+#alertPageButton {
+    display: flex;
+    justify-content: center;
 }
 
 .femaLogo {

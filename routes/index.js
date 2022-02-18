@@ -9,12 +9,12 @@ const { off } = require('process');
 const { Console } = require('console');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
 /* Process POST from home page*/
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
     //Retrive all form element vlaues 
     var identifier = req.body.identifier;
     var sender = req.body.sender;
@@ -73,7 +73,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
         geo[i] = "0" + geo[i];
     }
     // Using the username part of the email by removing the domain  
-    let nameSender = sender.substring(0, sender.lastIndexOf("@")); 
+    let nameSender = sender.substring(0, sender.lastIndexOf("@"));
 
     xw = new XMLWriter(true);
     xw.startDocument('1.0', 'UTF-8');
@@ -203,7 +203,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.endDocument();
     let xmlString = xw.toString();
 
-    fs.writeFile('public/dbs/temp.xml', xmlString, function(err) {
+    fs.writeFile('public/dbs/temp.xml', xmlString, function (err) {
 
         if (err) throw err;
         console.log("XML Saved");
@@ -241,7 +241,7 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
 
     var output = JSON.stringify(newObject);
 
-    fs.writeFile('public/dbs/temp.json', output, function(err) {
+    fs.writeFile('public/dbs/temp.json', output, function (err) {
         if (err) throw err;
         console.log("JSON Saved");
     });
@@ -277,7 +277,7 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
 
     var output = JSON.stringify(newObject);
 
-    fs.writeFile('public/dbs/temp.json', output, function(err) {
+    fs.writeFile('public/dbs/temp.json', output, function (err) {
         if (err) throw err;
         console.log("JSON Saved");
     });
@@ -297,7 +297,7 @@ function updateLog(add) {
                 var alertArray = [];
                 alertArray.push(add);
 
-                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function (err) {
                     if (err) throw err;
                     console.log("Alert Saved to Log - New Log Started");
                 });
@@ -308,7 +308,7 @@ function updateLog(add) {
                 alertArray.push(add);
                 alertArray.push(jsonString);
 
-                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function (err) {
                     if (err) throw err;
                     console.log("Alert Saved to Log - Log Updated");
                 });
@@ -320,7 +320,7 @@ function updateLog(add) {
 /* Generate and save xml alert messag data */
 function saveTestPage(xml) {
 
-    fs.writeFile('views/test.html', xml, function(err) {
+    fs.writeFile('views/test.html', xml, function (err) {
         if (err) throw err;
         console.log("Test Page Saved");
     });
@@ -328,18 +328,23 @@ function saveTestPage(xml) {
 }
 
 /*DEBUG TEST ROUTE */
-router.get('/test', function(req, res, next) {
+router.get('/test', function (req, res, next) {
     res.render('test', { title: 'Test Page' });
 });
 
 /*DEBUG TEST ROUTE 2*/
-router.get('/test2', function(req, res, next) {
+router.get('/test2', function (req, res, next) {
     res.render('test2', { title: 'Test Page2' });
 });
+
 
 //About Page Get Request
 router.get('/about', function(req, res, next) {
     res.render('about', { title: 'About Page' });
+
+router.get('/alert', function (req, res, next) {
+    res.render('alert', { title: 'Alert Submission Page' });
+
 });
 
 module.exports = router;
