@@ -42,7 +42,7 @@ public class PostCAPTest {
 	public void test() throws DatatypeConfigurationException, CAPSoapException {
 		IPAWS service = new IPAWS();
 		System.setProperty("javax.xml.bind.JAXBContext", "com.sun.xml.internal.bind.v2.ContextFactory");
-
+		
 		service.addPort(service.SERVICE, "service2", "https://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS");
 
 		// Create port
@@ -78,7 +78,7 @@ public class PostCAPTest {
 
 		// Create the request parameters list that will be in the message body
 		Alert fields = new Alert();
-		fields.setIdentifier("20211128173229666WAS");
+		fields.setIdentifier("202111281234373229666WAS");
 		fields.setSender("jkalafus@asu.edu");
 		fields.setSent(value);
 		fields.setStatus("Actual");
