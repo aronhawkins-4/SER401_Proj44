@@ -156,47 +156,6 @@
                 <br>
             </div>
         </div>
-        <div id="numCodesDrop" class="container">
-            <label for="numCodesDropdown" class="text"><strong>Number of Geocodes:</strong></label>
-            <br>
-            <div id="numCodesDropdownMenu" class=dropdownMenu_style>
-                <select name="numCodesDropdown" class="dropdownMenu" id="numCodesDropdown" onchange="numCodesOpt()">
-                    <option value="Default">Select Number of Geocodes (1 Included by Default)</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                </select>
-                <br>
-            </div>
-        </div>
         <div id="eventDrop" class="container">
             <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
             <br>
@@ -257,32 +216,46 @@
                 <br>
             </div>
         </div>
-    </div>
-    <div class="alertGridEn">
-        <div id="EvSubj180" class="container">
-            <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
-            <div class="textarea_style">
-                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()"
-                    maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
-            </div>
-            <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
-        </div>
-        <div id="Ev180" class="container">
-            <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
-            <div class="textarea_style">
-                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180"
-                    placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
-            </div>
-            <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
-        </div>
-        <div id="En360" class="container">
-            <label for="alert360" class="text"><strong>Alert Message</strong></label>
+        <div id="numCodesDrop" class="container">
+            <label for="numCodesDropdown" class="text"><strong>Number of Geocodes:</strong></label>
             <br>
-            <div class="textarea_style">
-                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"
-                    placeholder="Alert message to be disseminated..."></textarea>
+            <div id="numCodesDropdownMenu" class=dropdownMenu_style>
+                <select name="numCodesDropdown" class="dropdownMenu" id="numCodesDropdown" onchange="numCodesOpt()">
+                    <option value="Default">Select Number of Geocodes (1 Included by Default)</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <br>
             </div>
-            <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
         </div>
         <div id="geoArea" class="container">
             <label for="geoBlock" class="text"><strong>Select the FIPS Code for Applicable County or
@@ -626,6 +599,33 @@
             </input>
         </div>
     </div>
+    <div class="alertGridEn">
+        <div id="EvSubj180" class="container">
+            <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
+            <div class="textarea_style">
+                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()"
+                    maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
+            </div>
+            <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
+        </div>
+        <div id="Ev180" class="container">
+            <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
+            <div class="textarea_style">
+                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180"
+                    placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
+            </div>
+            <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
+        </div>
+        <div id="En360" class="container">
+            <label for="alert360" class="text"><strong>Alert Message</strong></label>
+            <br>
+            <div class="textarea_style">
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"
+                    placeholder="Alert message to be disseminated..."></textarea>
+            </div>
+            <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
+        </div>
+    </div>
     <br>
     <div class="checkLine" onchange="showSpan()">
         <input type="checkbox" id="spanchk" name="spanchk">
@@ -675,7 +675,7 @@
 
             // LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery Â© <a href="https://www.mapbox.com/ ">Mapbox</a>',
                 maxZoom: 18,
                 id: 'mapbox/streets-v11',
                 tileSize: 512,
@@ -683,7 +683,7 @@
                 accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
             }).addTo(map);
 
-            // Add Leaflet-Geoman controls with some options to the map
+            // Add Leaflet-Geoman controls with some options to the map  
             map.pm.addControls({
                 position: 'topleft',
                 drawCircle: true,
