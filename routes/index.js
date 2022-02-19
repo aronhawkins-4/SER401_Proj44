@@ -8,9 +8,15 @@ var fs = require('fs');
 const { off } = require('process');
 const { Console } = require('console');
 
-/* GET home page. */
+/*******       DEFINE GET ROUTES               *******/
+/* GET Home Page */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: 'Home' });
+});
+
+/* GET Alert Submission Page */
+router.get('/alert', function (req, res, next) {
+    res.render('alert', { title: 'Alert Submission' });
 });
 
 /* GET Alert Log Page */ 
@@ -18,10 +24,12 @@ router.get('/alertlog', function(req, res, next) {
     res.render('alertlog', { title: 'Alert Log' });
 });
 
-/* GET Retrieve a Message from Log*/ 
+/* GET Retrieve Previous Message View Page  */ 
 router.get('/retrievemsg/:id', function(req, res, next) {
     res.send('The message # to be displayed is: ' + req.params.id);
 });
+
+/*******       DEFINE POST ROUTES               *******/
 
 /* Process POST from home page*/
 router.post('/', function(req, res, next) {
@@ -74,6 +82,8 @@ router.post('/', function(req, res, next) {
 
     res.redirect('/test', 301);
 });
+
+/*******       DEFINE FUNCTIONS               *******/
 
 /* Generate and save xml alert messag data */
 function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
@@ -338,6 +348,8 @@ function saveTestPage(xml) {
 
 }
 
+
+/************        TEST ROUTE BLOCK  (WILL DELETE ON FINAL DELIVERABLE)    *********/
 /*DEBUG TEST ROUTE */
 router.get('/test', function(req, res, next) {
     res.render('test', { title: 'Test Page' });
@@ -347,5 +359,7 @@ router.get('/test', function(req, res, next) {
 router.get('/test2', function(req, res, next) {
     res.render('test2', { title: 'Test Page2' });
 });
+/************************************************************************************* */
+
 
 module.exports = router;
