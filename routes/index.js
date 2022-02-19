@@ -19,6 +19,12 @@ router.get('/alert', function (req, res, next) {
     res.render('alert', { title: 'Alert Submission' });
 });
 
+/* GET About Page */
+router.get('/about', function(req, res, next) {
+    res.render('about', { title: 'About' });
+
+});
+
 /* GET Alert Log Page */ 
 router.get('/alertlog', function(req, res, next) {
     res.render('alertlog', { title: 'Alert Log' });

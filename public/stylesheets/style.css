@@ -68,6 +68,14 @@ footer {
     text-decoration: none;
 }
 
+#aboutLink {
+    font-size: 16px;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+
 .dropdownMenu {
     margin: 5px;
     outline: none;
@@ -170,6 +178,92 @@ tr:nth-child(odd) {
 #alertPageButton {
     display: flex;
     justify-content: center;
+}
+
+#aboutHeader {
+
+    display: flex;
+    justify-content: center;
+    color: black;
+
+}
+
+#aboutHomeButton {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+#aboutPDIV {
+
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 1em;
+    
+}
+
+#aboutP {
+
+    font-size: 1em;
+    border-bottom: 2px solid #005287;
+    padding-bottom: 1px;
+    padding-top: 25px;
+
+}
+
+#devPDIV {
+
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 1em;
+    
+}
+
+#devP {
+
+    font-size: 1em;
+    border-bottom: 2px solid #005287;
+    padding-bottom: 1px;
+    padding-top: 25px;
+
+}
+
+#techStack {
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+
+}
+
+#techList {
+
+    text-align:center;
+    list-style-type: none;
+    font-size: 1em;
+    margin-right: 2%;
+
+}
+
+#developers {
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+
+}
+
+#developerList {
+
+    text-align: center;
+    justify-content: center;
+    list-style-type: none;
+    font-size: 1em;
+    margin-right: 2%;
+
 }
 
 /* Style Text Areas */
