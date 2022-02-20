@@ -1,16 +1,11 @@
-Run npm install to install node_modules 
+Researched a way to use dynamic URLs to pass the message 
+number in the url in order to retrieve that message number 
+from the log 
 
-Execute server by entering 
+This will be doing by using a dynamic url and need to pull
+the id value in the router to route accordingly
 
-npm run start 
-or
-npm run dev 
-
-(*** run dev runs nodemon to avoid restarting after chages ***)
-
-http sever will listen on port 3000
-
-Once server is running go to: 
-
-http://localhost:3000
- 
+will also include a special character in order to parse the 
+message number from the url. The route will be something 
+along the lines of /msg? followed by the message ID and that 
+way I can parse the string by looking up the ? character 
