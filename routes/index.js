@@ -32,7 +32,7 @@ router.get('/alertlog', function(req, res, next) {
 
 /* GET Retrieve Previous Message View Page  */ 
 router.get('/retrievemsg/:id', function(req, res, next) {
-    res.send('The message # to be displayed is: ' + req.params.id);
+    res.render('alerthist', { title: 'Submitted Alert' });
 });
 
 /*******       DEFINE POST ROUTES               *******/
