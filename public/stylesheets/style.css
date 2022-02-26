@@ -364,6 +364,13 @@ p {
     grid-area: Sp360;
 }
 
+.alertGrid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 100px;
+}
+
 .alertGrid3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
