@@ -31,8 +31,14 @@ router.get('/alertlog', function(req, res, next) {
 });
 
 /* GET Retrieve Previous Message View Page  */ 
-router.get('/retrievemsg/:id', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
     res.render('alerthist', { title: 'Submitted Alert' });
+    //res.send("the ID is = " + req.params.id);
+
+    /*res.redirect(url.format({
+        pathname: '/about',
+        query: req.params.id
+    }));*/
 });
 
 /*******       DEFINE POST ROUTES               *******/

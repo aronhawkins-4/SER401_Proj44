@@ -31,7 +31,7 @@
                         alertGeos = alertGeos.substring(0,11) + "..."; 
                     }
 
-                    $('#msglog').append('<tr><td><a href=/retrievemsg/'+alertLog[i].identifier+">"+alertLog[i].identifier+'</a></td><td>'+
+                    $('#msglog').append('<tr><td><a href=/msg?'+alertLog[i].identifier+">"+alertLog[i].identifier+'</a></td><td>'+
                         alertLog[i].sent+'</td><td>'+alertLog[i].sender+'</td><td>'+alertLog[i].status+'</td><td>'+alertLog[i].msgType+
                             '</td><td>'+alertGeos+'</td><td>'+alertMessage+'</td></tr>'); 
                 }
