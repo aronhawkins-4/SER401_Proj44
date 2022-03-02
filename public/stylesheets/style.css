@@ -96,6 +96,11 @@ footer {
     color: #005287
 }
 
+.alertLogo {
+    display: flex;
+    justify-content: center;
+}
+
 .event180 {
     min-height: 3em;
     width: 95%;
