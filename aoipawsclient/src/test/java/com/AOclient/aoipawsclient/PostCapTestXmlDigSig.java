@@ -79,7 +79,7 @@ public class PostCapTestXmlDigSig {
 		KeyFactory keyFactory = null;
 		keyFactory = KeyFactory.getInstance("RSA");
 		XMLSignatureFactory xmlSigFactory = XMLSignatureFactory.getInstance("DOM");
-		byte[] keydata = signingKey.getEncoded();
+		byte[] keydata = cert.getEncoded();
 		byte[] pkeydata = signingKey.getEncoded();
 		PKCS8EncodedKeySpec encodedPrivateKey = new PKCS8EncodedKeySpec(pkeydata);
 		X509EncodedKeySpec encodedPublicKey = new X509EncodedKeySpec(keydata);
