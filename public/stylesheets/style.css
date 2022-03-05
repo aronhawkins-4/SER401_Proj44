@@ -1,314 +1,372 @@
-body {
-    margin: 0;
-    /* padding: 0 50px 50px 50px; */
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #f7f7f7;
-}
-
-
 /* Style General Elements */
-
+body {
+  margin: 0;
+  /* padding: 0 50px 50px 50px; */
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+header {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #005287;
+}
+h1 {
+  justify-self: center;
+  align-self: center;
+  color: white;
+}
+h2 {
+  padding: 0 100px;
+}
+p {
+  float: right;
+  font-size: 10px;
+}
 a {
-    color: #00B7FF;
+  color: #00b7ff;
+}
+button {
+  background-color: #4bb543;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 0 auto;
+  text-align: center;
+  align-content: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.1s;
+}
+button:hover {
+  background-color: #ff0f0f;
+}
+footer {
+  height: 90px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #005287;
+  margin: 50px 0 0 0;
+  /* font-size: 16px; */
+  color: white;
 }
 
-header {
-    height: 90px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #005287;
+/* About Page Specific Elements */
+#aboutPDIV {
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 1em;
+}
+#aboutP {
+  font-size: 1em;
+  border-bottom: 2px solid #005287;
+  padding-bottom: 1px;
+  padding-top: 25px;
+}
+#techStack {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+#techList {
+  text-align: center;
+  list-style-type: none;
+  font-size: 1em;
+  margin-right: 2%;
+}
+#devPDIV {
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 1em;
+}
+#devP {
+  font-size: 1em;
+  border-bottom: 2px solid #005287;
+  padding-bottom: 1px;
+  padding-top: 25px;
+}
+#developers {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+/* Alert Log Page Specific Elements */
+.logGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px 100px;
+}
+table {
+  border-collapse: collapse;
+  border: 2px solid #3399cc;
+}
+table,
+th,
+td {
+  border: 2px solid #3399cc;
+  padding: 0.5em;
+  text-align: center;
+}
+tr:nth-child(odd) {
+  background-color: #f5fafc;
+}
+
+/* Alert Page Specific Elements */
+.alertGrid3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 0 100px;
+}
+.alertGridEn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
+  gap: 20px;
+  padding: 20px 100px;
+}
+.alertGridSp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "Ev180sp Sp360";
+  gap: 20px;
+  padding: 20px 100px;
+}
+.dropdownMenu {
+  margin: 5px;
+  outline: none;
+  resize: none;
+  border: 1px solid #229cff;
+  border-radius: 2px;
+  width: 95%;
+}
+.dropdownMenu_style {
+  margin: 5px;
+  width: auto;
+  height: auto;
+  font-size: 16px;
+}
+.checkLine {
+  display: inline-flexbox;
+  gap: 20px;
+  padding: 0 100px;
+}
+#Ev180 {
+  grid-area: Ev180;
+}
+#eventFi180,
+#eventFi180sp {
+  padding-bottom: 29px;
+}
+#En360 {
+  grid-area: En360;
+}
+#Ev180sp {
+  grid-area: Ev180sp;
+}
+#Sp360 {
+  grid-area: Sp360;
+}
+.event180 {
+  min-height: 3em;
+  width: 95%;
+}
+.selectFIPS {
+  width: 95%;
+  padding: 6px 10px 6px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid #229cff;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+input[type="text"],
+select {
+  width: 95%;
+  padding: 6px 10px 6px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid #229cff;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+input[type="email"],
+select {
+  width: 95%;
+  padding: 6px 10px;
+  margin: 5px;
+  /* margin-right: 10px; */
+  display: inline-block;
+  border: 1px solid #229cff;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+#mapid {
+  height: 80vh;
+  border-top: 7px solid #005287;
+  border-bottom: 7px solid #005287;
+  border-left: 17px solid #005287;
+  border-right: 17px solid #005287;
+  padding: 10px;
+  margin: 0 50px;
+}
+#map {
+  border-top: 7px solid #005287;
+  border-bottom: 7px solid #005287;
+  border-left: 17px solid #005287;
+  border-right: 17px solid #005287;
 }
 
 #invis {
-    width: 200px;
-}
-
-h1 {
-    justify-self: center;
-    align-self: center;
-    color: white;
+  width: 200px;
 }
 
 .femaLogo {
-    width: 125px;
-    align-self: center;
+  width: 125px;
+  align-self: center;
 }
 
 #header_logo {
-    padding-top: 20px;
-    padding-right: 50px;
+  padding-top: 20px;
+  padding-right: 50px;
 }
 
-h2 {
-    padding: 0 100px;
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
-
-footer {
-    height: 90px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #005287;
-    margin: 50px 0 0 0;
-    /* font-size: 16px; */
-    color: white;
+#index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+  margin: 0 20px;
 }
-
 #phone_number {
-    /* color: white; */
-    font-size: 16px;
-    padding: 5px;
-    /* justify-self: left; */
+  /* color: white; */
+  font-size: 16px;
+  padding: 5px;
+  /* justify-self: left; */
 }
 
 #email {
-    font-size: 16px;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
+  font-size: 16px;
+  padding: 5px;
+  color: white;
+  text-decoration: none;
 }
 
 #aboutLink {
-    font-size: 16px;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-}
-
-
-.dropdownMenu {
-    margin: 5px;
-    outline: none;
-    resize: none;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
-    width: 95%;
-}
-
-.dropdownMenu_style {
-    margin: 5px;
-    width: auto;
-    height: auto;
-    font-size: 16px;
+  font-size: 16px;
+  padding: 5px;
+  color: white;
+  text-decoration: none;
 }
 
 .text {
-    color: #005287
-}
-
-.event180 {
-    min-height: 3em;
-    width: 95%;
+  color: #005287;
 }
 
 .resField {
-    min-height: 3em;
-    width: 95%;
-}
-
-.selectFIPS {
-    width: 95%;
-    padding: 6px 10px 6px;
-    margin: 5px;
-    display: inline-block;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
-    box-sizing: border-box
+  min-height: 3em;
+  width: 95%;
 }
 
 .container {
-    padding: 10px;
-    border: 1px sold #ededed;
-    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
-    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
-}
-
-input[type=text],
-select {
-    width: 95%;
-    padding: 6px 10px 6px;
-    margin: 5px;
-    display: inline-block;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
-    box-sizing: border-box
-}
-
-input[type=email],
-select {
-    width: 95%;
-    padding: 6px 10px;
-    margin: 5px;
-    /* margin-right: 10px; */
-    display: inline-block;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
-    box-sizing: border-box;
-}
-
-table {
-    border-collapse: collapse;
-    border: 2px solid #3399CC; 
-}
-
-table, th, td {
-    border: 2px solid #3399CC;
-    padding: 0.5em;
-    text-align: center;
-}
-
-tr:nth-child(odd) {
-    background-color: #F5FAFC;
+  padding: 10px;
+  border: 1px sold #ededed;
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.07);
 }
 
 #alertPage {
-	
-	display: flex;
-	justify-content: center;
-	color: black;
-	font-size: 1em;
-	
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 1em;
 }
 
 #alertTest {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 #alertPageButton {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  width: 200px;
 }
 
 #aboutHeader {
-
-    display: flex;
-    justify-content: center;
-    color: black;
-
+  display: flex;
+  justify-content: center;
+  color: black;
 }
 
-#aboutHomeButton {
-
-    display: flex;
-    justify-content: center;
-
-}
-
-#aboutPDIV {
-
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-size: 1em;
-    
-}
-
-#aboutP {
-
-    font-size: 1em;
-    border-bottom: 2px solid #005287;
-    padding-bottom: 1px;
-    padding-top: 25px;
-
-}
-
-#devPDIV {
-
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-size: 1em;
-    
-}
-
-#devP {
-
-    font-size: 1em;
-    border-bottom: 2px solid #005287;
-    padding-bottom: 1px;
-    padding-top: 25px;
-
-}
-
-#techStack {
-
-    display: flex;
-    justify-content: center;
-    padding-bottom: 50px;
-
-}
-
-#techList {
-
-    text-align:center;
-    list-style-type: none;
-    font-size: 1em;
-    margin-right: 2%;
-
-}
-
-#developers {
-
-    display: flex;
-    justify-content: center;
-    padding-bottom: 50px;
-
+#aboutHomeButton,
+#alertLogHomeButton {
+  display: flex;
+  justify-content: center;
 }
 
 #developerList {
-
-    text-align: center;
-    justify-content: center;
-    list-style-type: none;
-    font-size: 1em;
-    margin-right: 2%;
-
+  text-align: center;
+  justify-content: center;
+  list-style-type: none;
+  font-size: 1em;
+  margin-right: 2%;
 }
 
 /* Style Text Areas */
 
 textarea {
-    margin: 5px;
-    /* border: none; */
-    outline: none;
-    resize: none;
-    border: 1px solid #229CFF;
-    border-radius: 2px;
+  margin: 5px;
+  /* border: none; */
+  outline: none;
+  resize: none;
+  border: 1px solid #229cff;
+  border-radius: 2px;
 }
 
 .textarea_style {
-    margin: 5px;
-    width: auto;
-    height: auto;
-    font-size: 16px;
+  margin: 5px;
+  width: auto;
+  height: auto;
+  font-size: 16px;
 }
 
 .textarea_style:hover {
-    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    /* border: 1px solid #229CFF; */
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+  /* border: 1px solid #229CFF; */
 }
 
 .textarea_style:focus {
-    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
-    /* border: 1px solid #229CFF; */
-}
-
-p {
-    float: right;
-    font-size: 10px;
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+  /* border: 1px solid #229CFF; */
 }
 
 .alert360 {
-    min-height: 5em;
-    width: 97%;
-    /* min-width: 20em; */
+  min-height: 5em;
+  width: 97%;
+  /* min-width: 20em; */
 }
-
 
 /* Style Page views */
 
@@ -317,281 +375,178 @@ p {
 #addressField,
 #restrictionField,
 #selectid {
-    margin-top: 11px;
-}
-
-.alertGridEn {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
-    gap: 20px;
-    padding: 20px 100px;
-}
-
-.logGrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px 100px;
-}
-
-#Ev180 {
-    grid-area: Ev180;
-}
-
-#eventFi180,
-#eventFi180sp {
-    padding-bottom: 29px;
-}
-
-#En360 {
-    grid-area: En360;
-}
-
-.alertGridSp {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "Ev180sp Sp360";
-    gap: 20px;
-    padding: 20px 100px;
-}
-
-#Ev180sp {
-    grid-area: Ev180sp;
-}
-
-#Sp360 {
-    grid-area: Sp360;
-}
-
-.alertGrid3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 0 100px;
-}
-
-.checkLine {
-    display: inline-flexbox;
-    gap: 20px;
-    padding: 0 100px;
+  margin-top: 11px;
 }
 
 #spanCheck {
-    padding: 10px;
+  padding: 10px;
 }
 
 #fileAttachDiv {
-    display: flex;
-    align-items: flex-end;
-    justify-content: right;
-    margin-right: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+  margin-right: 100px;
 }
 
 #fileAttach {
-    width: 163px;
-    margin-top: 0px;
+  width: 163px;
+  margin-top: 0px;
 }
-
 
 /* #attachFileBox {
     font-size: 16px;
 } */
 
-
 /*LeafletJS map height*/
 
-#mapid {
-    height: 750px;
-    border-top: 7px solid #005287;
-    border-bottom: 7px solid #005287;
-    border-left: 17px solid #005287;
-    border-right: 17px solid #005287;
-    padding: 10px;
-    margin: 0 50px;
-}
-
-
-/* Style Map */
-
-#map {
-    border-top: 7px solid #005287;
-    border-bottom: 7px solid #005287;
-    border-left: 17px solid #005287;
-    border-right: 17px solid #005287;
-}
-
-
-/* Style Buttons */
-
-button {
-    background-color: #4BB543;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    margin: 0 auto;
-    text-align: center;
-    align-content: center;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: .1s;
-}
-
-button:hover {
-    background-color: #ff0f0f;
-}
-
 .translate {
-    padding: 5px 10px;
+  padding: 5px 10px;
 }
 
 .button1 {
-    width: 25%;
-    margin: 0 auto;
+  width: 25%;
+  margin: 0 auto;
 }
-
 
 /*    TO FORMAT DATA LIST (BETA) */
 
 datalist {
-    border-color: #005287;
-    width: 97%;
-    position: relative;
-    background-color: lightgrey;
-    font-family: sans-serif;
-    font-size: 0.8rem;
+  border-color: #005287;
+  width: 97%;
+  position: relative;
+  background-color: lightgrey;
+  font-family: sans-serif;
+  font-size: 0.8rem;
 }
 
 option {
-    background-color: #bbb;
-    padding: 4px;
-    margin-bottom: 1px;
-    cursor: pointer;
+  background-color: #bbb;
+  padding: 4px;
+  margin-bottom: 1px;
+  cursor: pointer;
 }
 
 #geocodes {
-    border-color: #005287;
-    width: 97%;
-    position: relative;
-    background-color: lightgrey;
-    font-family: sans-serif;
-    font-size: 0.8rem;
+  border-color: #005287;
+  width: 97%;
+  position: relative;
+  background-color: lightgrey;
+  font-family: sans-serif;
+  font-size: 0.8rem;
 }
-
 
 /* MEDIA QUERIES */
 
- @media only screen and (max-width: 768px) {
-    .alertGridEn {
-        padding: 20px 50px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "EvSubj180" "Ev180" "En360" "geoArea";
-    }
+@media only screen and (max-width: 768px) {
+  .alertGridEn {
+    padding: 20px 50px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "EvSubj180" "Ev180" "En360" "geoArea";
+  }
 
-    .logGrid {
-        padding: 20px 50px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-    }
+  .logGrid {
+    padding: 20px 50px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
 
-    .alertGridSp {
-        padding: 20px 50px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "Ev180sp" "Sp360";
-    }
-    .alertGrid3 {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-areas: "msgNum msgSender" "msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop" "certaintyDrop eventDrop" "scopeDrop urgencyDrop" "alertInfoArea ev180";
-        padding: 0px 50px;
-    }
-    #fileAttachDiv {
-        margin-right: 50px;
-    }
-    h1 {
-        margin: auto;
-    }
-    /* #headerLink,
+  .alertGridSp {
+    padding: 20px 50px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "Ev180sp" "Sp360";
+  }
+  .alertGrid3 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "msgNum msgSender" "msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop" "certaintyDrop eventDrop" "scopeDrop urgencyDrop" "alertInfoArea ev180";
+    padding: 0px 50px;
+  }
+  #fileAttachDiv {
+    margin-right: 50px;
+  }
+  h1 {
+    margin: auto;
+  }
+  /* #headerLink,
     #footerLink {
         visibility: hidden;
         padding-right: 0px;
         width: 0px;
     } */
-    #invis {
-        width: 0px;
-    }
-    #mapid {
-        height: 450px;
-        
-    }
+  #invis {
+    width: 0px;
+  }
+  #mapid {
+    height: 450px;
+  }
 
-    table, thead, tbody, th, td, tr {
-        border-collapse: collapse;
-        border: 2px solid #3399CC; 
-        display: block;
-    }
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    border-collapse: collapse;
+    border: 2px solid #3399cc;
+    display: block;
+  }
 
-    thead tr {
-        position: absolute;
-    }
+  thead tr {
+    position: absolute;
+  }
 
-    td {
-        border: none;
-        border-bottom: 1px solid #ededed;
-        position: relative; 
-    }
+  td {
+    border: none;
+    border-bottom: 1px solid #ededed;
+    position: relative;
+  }
 
-    td:before {
-        position: absolute;
-        white-space: nowrap; 
-    }
-    
+  td:before {
+    position: absolute;
+    white-space: nowrap;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-    .alertGridEn {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "EvSubj180" "Ev180" "En360" "geArea";
-        padding: 0px 25px;
-    }
+  .alertGridEn {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "EvSubj180" "Ev180" "En360" "geArea";
+    padding: 0px 25px;
+  }
 
-    .logGrid {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-    }
+  .logGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
 
-    .alertGridSp {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "Ev180sp" "Sp360";
-        padding: 0px 25px;
-    }
-    .alertGrid3 {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
-        padding: 0px 25px;
-        margin-bottom: -20px;
-    }
-    #mapid {
-        height: 400px;
-        align-items: center;
-        margin: 0 25px;
-    }
-    .button1 {
-        width: 50%;
-        margin: 0 auto;
-    }
-    .checkLine {
-        padding: 0px 25px;
-        margin-top: 40px;
-    }
-} 
+  .alertGridSp {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "Ev180sp" "Sp360";
+    padding: 0px 25px;
+  }
+  .alertGrid3 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
+    padding: 0px 25px;
+    margin-bottom: -20px;
+  }
+  #mapid {
+    height: 400px;
+    align-items: center;
+    margin: 0 25px;
+  }
+  .button1 {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .checkLine {
+    padding: 0px 25px;
+    margin-top: 40px;
+  }
+}
