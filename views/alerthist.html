@@ -45,11 +45,19 @@
         });
 
         promise.done(function (data) {
+           
+           
+           
             alertLog = JSON.stringify(alertLog);
             alertLog = JSON.parse(alertLog);
             
             $(document).ready(function () {
+                
+                document.getElementById("msgTypeDropdown").value = alertLog[1].msgType;
+                
                 document.getElementById("identifier").value = alertLog[1].identifier; 
+
+
             });
         });
 
@@ -81,8 +89,8 @@
         <div id="msgTypeDrop" class="container">
             <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
             <br>
-            <div id="msgTypeDropdownMenu" class="dropdownMenu_style">
-                <select name="msgTypeDropdown" class="dropdownMenu" id="msgTypeDropdown" onchange="msgTypeOpt()">
+            <div id="msgTypeDropdownMenu" class="text">
+                <select name="msgTypeDropdown" class="text" id="msgTypeDropdown" >
                     <option value="Default">Select Message Type</option>
                     <option value="Alert">Alert</option>
                     <option value="Update">Update</option>

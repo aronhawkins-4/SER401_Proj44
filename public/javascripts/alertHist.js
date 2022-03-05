@@ -3,21 +3,8 @@ fs = require('fs');
 var msgNumber = window.location.href;
 msgNumber = msgNumber.substring(msgNumber.indexOf("?") + 1,msgNumber.length); 
 
-var alertLog; 
 
 /*
-var promise = $.get("dbs/alertlog.json", function (data) {
-    alertLog = data;
-    // console.log(data);
-});
-
-promise.done(function (data) {
-    alertLog = JSON.stringify(alertLog);
-    alertLog = JSON.parse(alertLog);
-});
-*/
-
-
 function retrieveLog() {
 
    
@@ -38,14 +25,14 @@ function retrieveLog() {
         }
     });
 }
-    
+ */   
 
 
 
 
 function pageLoad() {
+    
     hideFIPS()
-    alert("Test"); 
 
 }
 
