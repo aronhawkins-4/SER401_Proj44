@@ -63,12 +63,13 @@ public class PostCapTestXmlDigSig {
 
 	@Test
 	public void test() throws KeyStoreException, Exception, CertificateException, FileNotFoundException, IOException {
-		String originalXmlFilePath = "temp.xml";
+		String originalXmlFilePath = "src/main/resources/temp.xml";
 		String destnSignedXmlFilePath = "src/test/java/finish.xml";
 		String privateKeyFilePath = "src/main/resources/keystore/IPAWSOPEN120075.jks";
 		String publicKeyFilePath = "src/main/resources/keystore/IPAWSOPEN120075.jks";
 		KeyStore ks = KeyStore.getInstance("JKS");
 		Document doc = getXmlDocument(originalXmlFilePath);
+		System.out.println(doc.toString());
 		char[] pwdArray = "KPO0$o7eaa".toCharArray();
 		char[] prvtKey = "PK#4Pzzg5w".toCharArray();
 		ks.load(new FileInputStream("src/main/resources/keystore/IPAWSOPEN120075.jks"), pwdArray);
@@ -79,7 +80,8 @@ public class PostCapTestXmlDigSig {
 		KeyFactory keyFactory = null;
 		keyFactory = KeyFactory.getInstance("RSA");
 		XMLSignatureFactory xmlSigFactory = XMLSignatureFactory.getInstance("DOM");
-		byte[] keydata = cert.getEncoded();
+		byte[] keydata = cert.getPublicKey().getEncoded();
+		
 		byte[] pkeydata = signingKey.getEncoded();
 		PKCS8EncodedKeySpec encodedPrivateKey = new PKCS8EncodedKeySpec(pkeydata);
 		X509EncodedKeySpec encodedPublicKey = new X509EncodedKeySpec(keydata);
