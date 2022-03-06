@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20220219150827550JES</identifier>
-    <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2022-02-19T15:08:27-07:00</sent>
+    <identifier>20220305233501504JCA</identifier>
+    <sender>jcall3@asu.edu</sender>
+    <sent>2022-03-05T23:35:01-05:00</sent>
     <status>Exercise</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>CBRNE</category>
-        <event>rdgefdfgd</event>
-        <urgency>Expected</urgency>
-        <severity>Extreme</severity>
-        <certainty>Likely</certainty>
+        <category>Fire</category>
+        <event>Fire observed spreading through parts of Florida and Georgia</event>
+        <urgency>Immediate</urgency>
+        <severity>Severe</severity>
+        <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>TOE</value>
+            <value>FRW</value>
         </eventCode>
-        <expires>2022-02-20T15:08:27-07:00</expires>
-        <senderName>jesus.a.quiroz</senderName>
+        <expires>2022-03-06T23:35:01-05:00</expires>
+        <senderName>jcall3</senderName>
         <headline>headline goes here</headline>
-        <description>dgdgdgddggd</description>
+        <description>IMMEDIATELY EVACUATE THE AREA</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,45 +29,19 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>dggdgd</areaDesc>
-            <polygon>-111.944847,33.423347 -111.91618,33.442973 -111.90382,33.42263 -111.944847,33.423347</polygon>
-            <polygon>-111.960983,33.407155 -111.960983,33.444262 -111.948967,33.444262 -111.948967,33.407155 -111.960983,33.407155</polygon>
-            <circle>-111.907425,33.404433 1.5</circle>
+            <areaDesc>Information here</areaDesc>
+            <circle>-84.067839,31.92554 42.7</circle>
+            <polygon>-83.529594,30.188123 -83.529594,31.081984 -81.99175,31.081984 -81.99175,30.188123 -83.529594,30.188123</polygon>
+            <polygon>-83.073733,31.64988 -84.430331,31.241905 -83.815193,30.784949 -84.501731,30.287848 -83.738301,30.226125 -83.606486,31.246604 -82.167504,31.514086 -81.733612,31.114931 -81.645736,32.037437 -83.073733,31.64988</polygon>
+            <circle>-81.755581,30.002652 22.9</circle>
+            <polygon>-82.985856,29.439372 -82.985856,29.7405 -82.370719,29.7405 -82.370719,29.439372 -82.985856,29.439372</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004009</value>
+                <value>012000</value>
             </geocode>
-        </area>
-    </info>
-    <info>
-        <language>es-US</language>
-        <category>CBRNE</category>
-        <event>rdgefdfgd</event>
-        <urgency>Expected</urgency>
-        <severity>Extreme</severity>
-        <certainty>Likely</certainty>
-        <eventCode>
-            <valueName>SAME</valueName>
-            <value>TOE</value>
-        </eventCode>
-        <expires>2007-04-22T23:55:00-08:00</expires>
-        <senderName>jesus.a.quiroz</senderName>
-        <headline>headline goes here</headline>
-        <description>gdgddggdgddgdg</description>
-        <instruction>instruction goes here</instruction>
-        <web>http://www.google.com</web>
-        <parameter>
-            <valueName>valuename goes here</valueName>
-            <value>value goes here</value>
-        </parameter>
-        <area>
-            <areaDesc>dgdgdggdgd</areaDesc>
-            <polygon>-111.944847,33.423347 -111.91618,33.442973 -111.90382,33.42263 -111.944847,33.423347</polygon>
-            <polygon>-111.960983,33.407155 -111.960983,33.444262 -111.948967,33.444262 -111.948967,33.407155 -111.960983,33.407155</polygon>
-            <circle>-111.907425,33.404433 1.5</circle>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004009</value>
+                <value>013000</value>
             </geocode>
         </area>
     </info>
