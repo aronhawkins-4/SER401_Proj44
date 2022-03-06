@@ -16,26 +16,6 @@
     <link rel="stylesheet" href="stylesheets/style.css">
 
     <script>
-        /*
-        var geoList = new Array;
-
-        var promise = $.get("dbs/geocodes.json", function (data) {
-            geoList = data;
-            // console.log(data);
-        });
-
-        promise.done(function (data) {
-            geoList = JSON.stringify(geoList);
-            geoList = JSON.parse(geoList);
-
-            $(document).ready(function () {
-                for (i = 0; i < geoList.length; i++) {
-                    // console.log("data " + geoList[i]);
-                    $('#geocodes').append('<option>' + geoList[i].id + " " + geoList[i].name + " " + geoList[i].state + '</option>')
-                }
-            });
-        });*/
-        
         var alertLog;
         var msg;
         var geocodes = []; 
@@ -55,7 +35,7 @@
             
             //Find the index for the alert number 
             
-            for (let i = 0; i < alertLog.length; i++){
+            for (i = 0; i < alertLog.length; i++){
                 if (alertLog[i].identifier === msgNumber) {
                     msg = i; 
                 }
@@ -88,7 +68,7 @@
                 document.getElementById("urgencyDropdown").value = alertLog[msg].urgency;
                 
                 $('#eventDropdown').prop('disabled', true);
-                document.getElementById("eventDropdown").value = eventSubjFi180;
+                document.getElementById("eventDropdown").value = alertLog[msg].eventCode;
                 
                 //Retrieve the number of geocodes form from the comma separated values 
                 if (alertLog[msg].geo.length == 5 ) {
@@ -118,6 +98,35 @@
                     document.getElementById("alertSp360").value = alertLog[msg].spanDesc;                    
                } else {  
                     $('#hideSpan').hide();
+               }
+            });
+        });
+
+    
+        var geoList = new Array;
+
+        //Populate the FIPS fields
+        var promise = $.get("dbs/geocodes.json", function (data) {
+            geoList = data;
+        });
+        promise.done(function (data) {
+            geoList = JSON.stringify(geoList);
+            geoList = JSON.parse(geoList);
+
+            $(document).ready(function () {
+               if (geocodes.length > 5) {
+                    //TODO populate all FIPS codes when you have multiple 
+               } else {
+                   var index; 
+
+                   for (i = 0; i < geoList.length; i++) {
+                       if (geocodes[0] === geoList[i].id) {
+                           index = i;
+                       }
+                   }
+                   
+                   $('#selectid').prop('disabled', true);
+                   document.getElementById("selectid").value = "" + geoList[index].id + " " + geoList[index].name + " " + geoList[index].state;
                }
             });
         });
