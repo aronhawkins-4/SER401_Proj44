@@ -22,14 +22,29 @@
     <div id="alertPage">
         <p id="alertTest">Please select the appropriate task below:</p>
     </div>
-    <div id="alertPageButton">
-        <form action="/alert" method="get"><button>Send Alert</button></form>
-    </div>
-    <div id="alertPageButton">
-        <form action="/alertlog" method="get"><button>Alert Log</button></form>
-    </div>
-    <div id="alertPageButton">
-        <form action="/about" method="get"><button>About AO APP</button></form>
+    <div class="alertGrid2">
+        <div id="alertPageButton" class="container">
+            <a href="/alert" id="alertIcon">
+                <img id="alert_logo" class="alertLogo" src="images/WEA_ALERT_ICON.jpg" alt="Send an Alert Page">
+            </a>
+            <br>
+            <label class="text"><strong>Send Alert</strong></label>
+        </div>
+        <div id="alertPageButton" class="container">
+            <a href="/alertlog" id="alertLogIcon">
+                <img id="alert_log_logo" class="alertLogo" src="images/WEA_LOG_ICON.png" alt="Log Page">
+            </a>
+            <br>
+            <label class="text"><strong>Alert Log</strong></label>
+        </div>
+        <div id="alertPageButton" class="container">
+            <a href="/about" id="aboutIcon">
+                <img id="alert_log_logo" class="alertLogo" src="images/WEA_MEET_OUR_TEAM_ICON.png"
+                    alt="Meet our Team Page">
+            </a>
+            <br>
+            <label class="text"><strong>About Us</strong></label>
+        </div>
     </div>
     <br><br>
     <footer id="footer">
