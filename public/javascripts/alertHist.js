@@ -1,35 +1,3 @@
-fs = require('fs');
-
-var msgNumber = window.location.href;
-msgNumber = msgNumber.substring(msgNumber.indexOf("?") + 1,msgNumber.length); 
-
-
-/*
-function retrieveLog() {
-
-   
-    fs.readFileSync('dbs/alertlog.json', 'utf-8', (err, jsonString) => {
-        if (err) {
-            console.log(err);
-        } else {
-            let tempJson = JSON.parse(jsonString);
-            
-            alertLog = tempJson; 
-            //for (var i = 0; i < tempJson.length; i++) {
-            //    alert(tempJson[i].identifier); 
-                //if (tempJson[i].identifier == msgNumber) {
-                //    jsonAlert = tempJson[i].identifier;
-                //    break;
-                //}
-            //}
-        }
-    });
-}
- */   
-
-
-
-
 function pageLoad() {
     
     hideFIPS()

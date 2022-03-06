@@ -2,9 +2,7 @@
 <html>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src="/jquery/jquery.js">
-        </script> -->
+    <script src="/jquery/jquery.js"></script> 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
@@ -38,26 +36,89 @@
             });
         });*/
         
-        var aletLog; 
+        var alertLog;
+        var msg;
+        var geocodes = []; 
 
+        //Retreive alert log from file and store it 
         var promise = $.get("dbs/alertlog.json", function (data) {
             alertLog = data;
-        });
-
+        }); 
         promise.done(function (data) {
-           
-           
-           
+            //Retreive alert number from the url 
+            var msgNumber = window.location.href;
+            msgNumber = msgNumber.substring(msgNumber.indexOf("?") + 1,msgNumber.length); 
+            
+            //Parse alert log to json format 
             alertLog = JSON.stringify(alertLog);
             alertLog = JSON.parse(alertLog);
             
+            //Find the index for the alert number 
+            
+            for (let i = 0; i < alertLog.length; i++){
+                if (alertLog[i].identifier === msgNumber) {
+                    msg = i; 
+                }
+            }
+
             $(document).ready(function () {
+                //Populate element values and disable them so they can be read only 
+                $('#identifier').prop('disabled', true);
+                document.getElementById("identifier").value = alertLog[msg].identifier;
                 
-                document.getElementById("msgTypeDropdown").value = alertLog[1].msgType;
+                $('#sender').prop('disabled', true);
+                document.getElementById("sender").value = alertLog[msg].sender;
                 
-                document.getElementById("identifier").value = alertLog[1].identifier; 
+                $('#msgTypeDropdown').prop('disabled', true);
+                document.getElementById("msgTypeDropdown").value = alertLog[msg].msgType;
 
+                $('#status').prop('disabled', true);
+                document.getElementById("status").value = alertLog[msg].status;
+                 
+                $('#categoryDropdown').prop('disabled', true);
+                document.getElementById("categoryDropdown").value = alertLog[msg].category;
 
+                $('#alertDropdown').prop('disabled', true);
+                document.getElementById("alertDropdown").value = alertLog[msg].severity;
+                
+                $('#certaintyDropdown').prop('disabled', true);
+                document.getElementById("certaintyDropdown").value = alertLog[msg].certainty;
+
+                $('#urgencyDropdown').prop('disabled', true);
+                document.getElementById("urgencyDropdown").value = alertLog[msg].urgency;
+                
+                $('#eventDropdown').prop('disabled', true);
+                document.getElementById("eventDropdown").value = eventSubjFi180;
+                
+                //Retrieve the number of geocodes form from the comma separated values 
+                if (alertLog[msg].geo.length == 5 ) {
+                    geocodes.push(alertLog[msg].geo)
+                } else {
+                    let geos = alertLog[msg].geo;
+                    geocodes = geos.split(',');
+                }
+
+                $('#numCodesDropdown').prop('disabled', true);
+                document.getElementById("numCodesDropdown").value = geocodes.length;
+                
+                $('#eventSubjFi180').prop('disabled', true);
+                document.getElementById("eventSubjFi180").value = alertLog[msg].event;
+
+                $('#eventFi180').prop('disabled', true);
+                document.getElementById("eventFi180").value = alertLog[msg].areaDesc;
+
+                $('#alertEn360').prop('disabled', true);
+                document.getElementById("alertEn360").value = alertLog[msg].desc;
+                
+               if (alertLog[msg].spanCheck === "true") {
+                    $('#eventFi180sp').prop('disabled', true);
+                    document.getElementById("eventFi180sp").value = alertLog[msg].spanAreaDesc;
+
+                    $('#alertSp360').prop('disabled', true);
+                    document.getElementById("alertSp360").value = alertLog[msg].spanDesc;                    
+               } else {  
+                    $('#hideSpan').hide();
+               }
             });
         });
 
@@ -79,7 +140,7 @@
             <label for="identifier" class="text"><strong>Alert Number:</strong></label>
             <br>
             <input type="text" id="identifier" value="" name="identifier" maxlength="20"
-                placeholder="ALERT # WILL BE GENERATED ON SUBMISSION" disabled>
+                placeholder="ALERT # WILL BE GENERATED ON SUBMISSION">
         </div>
         <div id="msgSender" class="container">
             <label for="sender" class="text"><strong>Sender's Email:</strong></label>
@@ -631,7 +692,6 @@
                 <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()"
                     maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
             </div>
-            <p id="wordsLeftEventSubj180" class="text">Characters Left: 180</p>
         </div>
         <div id="Ev180" class="container">
             <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
@@ -639,7 +699,6 @@
                 <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180"
                     placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
             </div>
-            <p id="wordsLeftEvent180" class="text">Characters Left: 180</p>
         </div>
         <div id="En360" class="container">
             <label for="alert360" class="text"><strong>Alert Message</strong></label>
@@ -648,13 +707,7 @@
                 <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"
                     placeholder="Alert message to be disseminated..."></textarea>
             </div>
-            <p id="wordsLeftEn360" class="text">Characters Left: 360</p>
         </div>
-    </div>
-    <br>
-    <div class="checkLine" onchange="showSpan()">
-        <input type="checkbox" id="spanchk" name="spanchk">
-        <label for="spanchk" class="text"><strong>Select to Include Spanish Alert</strong></label>
     </div>
     <br>
     <div id="hideSpan">
@@ -667,7 +720,6 @@
                         maxlength="180"
                         placeholder="Indica informacion especifica sobre el area que tiene que ver con la alerta..."></textarea>
                 </div>
-                <p id="wordsLeftEvent180sp" class="text">Characters Left: 180</p>
             </div>
             <div id="Sp360" class="container">
                 <label for="alertSp360 " class="text "><strong>Mensaje de Alerta:</strong></label>
@@ -676,7 +728,6 @@
                     <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"
                         placeholder="Mensaje de alerta que se enviara..."></textarea>
                 </div>
-                <p id="wordsLeftSp360" class="text ">Characters Left: 360</p>
             </div>
         </div>
     </div>
@@ -817,7 +868,9 @@
     </div>
     <br><br>
     <div>
-        <button class="button button1">Submit Alert!</button>
+    <form action="/alertlog" method="get">
+        <button class="button button1">Back to Alert Log</button>
+    </form>
     </div>
     <footer id="footer">
         <p id="phone_number">1 (800) 621-3362</p>
