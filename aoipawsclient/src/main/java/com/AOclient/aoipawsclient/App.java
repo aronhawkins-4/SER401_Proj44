@@ -1,13 +1,17 @@
 package com.AOclient.aoipawsclient;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        App app = new App();
+        if(args[0].equals("getCog") ){
+        app.getCog();
+        }
+    }
+    
+    private void getCog() {
+    	
     }
 }
