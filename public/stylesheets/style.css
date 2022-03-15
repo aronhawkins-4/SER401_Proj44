@@ -164,6 +164,15 @@ tr:nth-child(odd) {
 #Ev180 {
   grid-area: Ev180;
 }
+.alertLogo {
+  display: flex;
+  justify-content: center;
+}
+
+.event180 {
+  min-height: 3em;
+  width: 95%;
+}
 #eventFi180,
 #eventFi180sp {
   padding-bottom: 29px;
@@ -268,6 +277,17 @@ select {
   color: white;
   text-decoration: none;
 }
+#alertLogHomeButton {
+  display: flex;
+  justify-content: center;
+}
+
+#aboutPDIV {
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 1em;
+}
 
 #aboutLink {
   font-size: 16px;
@@ -283,6 +303,26 @@ select {
 .resField {
   min-height: 3em;
   width: 95%;
+}
+#sponsorPDIV {
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 1em;
+}
+
+#sponsorP {
+  font-size: 1em;
+  border-bottom: 2px solid #005287;
+  padding-bottom: 1px;
+  padding-top: 25px;
+}
+
+#devP {
+  font-size: 1em;
+  border-bottom: 2px solid #005287;
+  padding-bottom: 1px;
+  padding-top: 25px;
 }
 
 .container {
@@ -320,6 +360,20 @@ select {
 #alertLogHomeButton {
   display: flex;
   justify-content: center;
+}
+
+#sponsors {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+#sponsorList {
+  text-align: center;
+  justify-content: center;
+  list-style-type: none;
+  font-size: 1em;
+  margin-right: 2%;
 }
 
 #developerList {
@@ -376,6 +430,70 @@ textarea {
 #restrictionField,
 #selectid {
   margin-top: 11px;
+}
+
+.alertGridEn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
+  gap: 20px;
+  padding: 20px 100px;
+}
+
+.logGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px 100px;
+}
+
+#Ev180 {
+  grid-area: Ev180;
+}
+
+#eventFi180,
+#eventFi180sp {
+  padding-bottom: 29px;
+}
+
+#En360 {
+  grid-area: En360;
+}
+
+.alertGridSp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "Ev180sp Sp360";
+  gap: 20px;
+  padding: 20px 100px;
+}
+
+#Ev180sp {
+  grid-area: Ev180sp;
+}
+
+#Sp360 {
+  grid-area: Sp360;
+}
+
+.alertGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0 100px;
+}
+
+.alertGrid3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 0 100px;
+}
+
+.checkLine {
+  display: inline-flexbox;
+  gap: 20px;
+  padding: 0 100px;
 }
 
 #spanCheck {
