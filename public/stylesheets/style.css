@@ -53,6 +53,9 @@ footer {
   align-items: center;
   background-color: #005287;
   margin: 50px 0 0 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
   /* font-size: 16px; */
   color: white;
 }
@@ -105,6 +108,8 @@ footer {
   grid-template-columns: 1fr;
   gap: 20px;
   padding: 20px 100px;
+  justify-content: center;
+  align-content: center;
 }
 table {
   border-collapse: collapse;
@@ -167,6 +172,7 @@ tr:nth-child(odd) {
 .alertLogo {
   display: flex;
   justify-content: center;
+  height: 100px;
 }
 
 .event180 {
@@ -250,10 +256,11 @@ select {
   padding-right: 50px;
 }
 
-#footer {
-  position: relative;
+#home-footer {
+  position: absolute;
   bottom: 0;
   width: 100%;
+  margin-top: auto;
 }
 #index-container {
   display: flex;
@@ -298,6 +305,8 @@ select {
 
 .text {
   color: #005287;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .resField {
@@ -343,11 +352,19 @@ select {
 #alertTest {
   font-size: 2em;
 }
-
-#alertPageButton {
+.homeIcon {
+  text-decoration: none;
+}
+.home-body {
+  height: 100vh;
+}
+.alertPageButton {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 200px;
+  align-items: center;
+  /* width: 200px; */
+  margin: 0;
 }
 
 #aboutHeader {
@@ -475,12 +492,13 @@ textarea {
 #Sp360 {
   grid-area: Sp360;
 }
-
 .alertGrid2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-content: center;
   gap: 20px;
-  padding: 0 100px;
+  margin: 0 300px;
 }
 
 .alertGrid3 {
