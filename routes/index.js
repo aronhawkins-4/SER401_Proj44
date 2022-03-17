@@ -25,6 +25,12 @@ router.get('/about', function(req, res, next) {
 
 });
 
+/* GET Are You Sure? Page */
+router.get('/sure', function(req, res, next) {
+    res.render('sure', { title: 'Are You Sure?' });
+
+});
+
 /* GET Alert Log Page */ 
 router.get('/alertlog', function(req, res, next) {
     res.render('alertlog', { title: 'Alert Log' });
