@@ -6,6 +6,7 @@ body {
   background-color: #f7f7f7;
 }
 header {
+  max-height: 90px;
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -172,7 +173,7 @@ tr:nth-child(odd) {
 .alertLogo {
   display: flex;
   justify-content: center;
-  height: 100px;
+  height: 90px;
 }
 
 .event180 {
@@ -246,9 +247,21 @@ select {
   width: 200px;
 }
 
+.backLogo {
+  display: flex;
+  justify-content: center;
+  height: 90px;
+}
+
 .femaLogo {
   width: 125px;
   align-self: center;
+}
+
+#back_button {
+  max-height: 90px;
+  max-width: 90px;
+  padding-right: 50px;
 }
 
 #header_logo {
