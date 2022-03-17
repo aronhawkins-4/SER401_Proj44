@@ -12,6 +12,8 @@ public class App
     }
     
     private void getCog() {
+    	CogProfile getCog = new CogProfile();
+    	getCog.displayResponse(getCog.getRequest());
     	
     }
 }
