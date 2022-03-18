@@ -101,6 +101,11 @@ footer {
   justify-content: center;
   padding-bottom: 50px;
 }
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Alert Log Page Specific Elements */
 .logGrid {
@@ -250,7 +255,10 @@ select {
   width: 125px;
   align-self: center;
 }
-
+#header a {
+  text-decoration: none;
+  color: white;
+}
 #header_logo {
   padding-top: 20px;
   padding-right: 50px;
