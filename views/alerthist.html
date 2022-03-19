@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <script src="/jquery/jquery.js"></script> 
+    <script src="/jquery/jquery.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
@@ -18,26 +18,26 @@
     <script>
         var alertLog;
         var msg;
-        var geocodes = []; 
+        var geocodes = [];
 
         //Retreive alert log from file and store it 
         var promise = $.get("dbs/alertlog.json", function (data) {
             alertLog = data;
-        }); 
+        });
         promise.done(function (data) {
             //Retreive alert number from the url 
             var msgNumber = window.location.href;
-            msgNumber = msgNumber.substring(msgNumber.indexOf("?") + 1,msgNumber.length); 
-            
+            msgNumber = msgNumber.substring(msgNumber.indexOf("?") + 1, msgNumber.length);
+
             //Parse alert log to json format 
             alertLog = JSON.stringify(alertLog);
             alertLog = JSON.parse(alertLog);
-            
+
             //Find the index for the alert number 
-            
-            for (i = 0; i < alertLog.length; i++){
+
+            for (i = 0; i < alertLog.length; i++) {
                 if (alertLog[i].identifier === msgNumber) {
-                    msg = i; 
+                    msg = i;
                 }
             }
 
@@ -45,33 +45,33 @@
                 //Populate element values and disable them so they can be read only 
                 $('#identifier').prop('disabled', true);
                 document.getElementById("identifier").value = alertLog[msg].identifier;
-                
+
                 $('#sender').prop('disabled', true);
                 document.getElementById("sender").value = alertLog[msg].sender;
-                
+
                 $('#msgTypeDropdown').prop('disabled', true);
                 document.getElementById("msgTypeDropdown").value = alertLog[msg].msgType;
 
                 $('#status').prop('disabled', true);
                 document.getElementById("status").value = alertLog[msg].status;
-                 
+
                 $('#categoryDropdown').prop('disabled', true);
                 document.getElementById("categoryDropdown").value = alertLog[msg].category;
 
                 $('#alertDropdown').prop('disabled', true);
                 document.getElementById("alertDropdown").value = alertLog[msg].severity;
-                
+
                 $('#certaintyDropdown').prop('disabled', true);
                 document.getElementById("certaintyDropdown").value = alertLog[msg].certainty;
 
                 $('#urgencyDropdown').prop('disabled', true);
                 document.getElementById("urgencyDropdown").value = alertLog[msg].urgency;
-                
+
                 $('#eventDropdown').prop('disabled', true);
                 document.getElementById("eventDropdown").value = alertLog[msg].eventCode;
-                
+
                 //Retrieve the number of geocodes form from the comma separated values 
-                if (alertLog[msg].geo.length == 5 ) {
+                if (alertLog[msg].geo.length == 5) {
                     geocodes.push(alertLog[msg].geo)
                 } else {
                     let geos = alertLog[msg].geo;
@@ -80,7 +80,7 @@
 
                 $('#numCodesDropdown').prop('disabled', true);
                 document.getElementById("numCodesDropdown").value = geocodes.length;
-                
+
                 $('#eventSubjFi180').prop('disabled', true);
                 document.getElementById("eventSubjFi180").value = alertLog[msg].event;
 
@@ -89,20 +89,20 @@
 
                 $('#alertEn360').prop('disabled', true);
                 document.getElementById("alertEn360").value = alertLog[msg].desc;
-                
-               if (alertLog[msg].spanCheck === "true") {
+
+                if (alertLog[msg].spanCheck === "true") {
                     $('#eventFi180sp').prop('disabled', true);
                     document.getElementById("eventFi180sp").value = alertLog[msg].spanAreaDesc;
 
                     $('#alertSp360').prop('disabled', true);
-                    document.getElementById("alertSp360").value = alertLog[msg].spanDesc;                    
-               } else {  
+                    document.getElementById("alertSp360").value = alertLog[msg].spanDesc;
+                } else {
                     $('#hideSpan').hide();
-               }
+                }
             });
         });
 
-    
+
         var geoList = new Array;
 
         //Populate the FIPS fields
@@ -114,20 +114,20 @@
             geoList = JSON.parse(geoList);
 
             $(document).ready(function () {
-               if (geocodes.length > 5) {
+                if (geocodes.length > 5) {
                     //TODO populate all FIPS codes when you have multiple 
-               } else {
-                   var index; 
+                } else {
+                    var index;
 
-                   for (i = 0; i < geoList.length; i++) {
-                       if (geocodes[0] === geoList[i].id) {
-                           index = i;
-                       }
-                   }
-                   
-                   $('#selectid').prop('disabled', true);
-                   document.getElementById("selectid").value = "" + geoList[index].id + " " + geoList[index].name + " " + geoList[index].state;
-               }
+                    for (i = 0; i < geoList.length; i++) {
+                        if (geocodes[0] === geoList[i].id) {
+                            index = i;
+                        }
+                    }
+
+                    $('#selectid').prop('disabled', true);
+                    document.getElementById("selectid").value = "" + geoList[index].id + " " + geoList[index].name + " " + geoList[index].state;
+                }
             });
         });
 
@@ -136,7 +136,9 @@
 
 <body onload="pageLoad()">
     <header id="header">
-        <p id="invis"></p>
+        <a href="./" id="backButton">
+            <img id="back_button" class="alertLogo" src="images/back_arrow_header_icon.png" alt="Back button"></img>
+        </a>
         <h1>AO APP (BETA)</h1>
         <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
             target="_blank" id="headerLink">
@@ -160,7 +162,7 @@
             <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
             <br>
             <div id="msgTypeDropdownMenu" class="text">
-                <select name="msgTypeDropdown" class="text" id="msgTypeDropdown" >
+                <select name="msgTypeDropdown" class="text" id="msgTypeDropdown">
                     <option value="Default">Select Message Type</option>
                     <option value="Alert">Alert</option>
                     <option value="Update">Update</option>
@@ -877,9 +879,9 @@
     </div>
     <br><br>
     <div>
-    <form action="/alertlog" method="get">
-        <button class="button button1">Back to Alert Log</button>
-    </form>
+        <form action="/alertlog" method="get">
+            <button class="button button1">Back to Alert Log</button>
+        </form>
     </div>
     <footer id="footer">
         <p id="phone_number">1 (800) 621-3362</p>
