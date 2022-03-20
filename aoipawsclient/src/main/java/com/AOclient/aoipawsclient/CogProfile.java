@@ -113,6 +113,27 @@ public class CogProfile {
 	}
 
 	public void displayResponse(ResponseParameterList response) {
-
+		//display 8 main fields
+		for (int i = 0; i<response.getParameterListItem().size()-2;i++) {
+			System.out.print(response.getParameterListItem().get(i).getParameterName() + ": ");
+			System.out.print(response.getParameterListItem().get(i).getParameterValue());
+			System.out.println();
+		}
+		
+		//display all eventCodes
+		System.out.println(response.getParameterListItem().get(8).getParameterName());
+		for(int i = 0; i<response.getParameterListItem().get(8).getSubParaListItem().size();i++) {
+			System.out.print(response.getParameterListItem().get(8).getSubParaListItem().get(i).getSubParameterName() + ": ");
+			System.out.print(response.getParameterListItem().get(8).getSubParaListItem().get(i).getSubParameterValue());
+			System.out.println();
+		}
+		
+		//display all geoCodes
+		System.out.println(response.getParameterListItem().get(9).getParameterName());
+		for(int i = 0; i<response.getParameterListItem().get(9).getSubParaListItem().size();i++) {
+			System.out.print(response.getParameterListItem().get(9).getSubParaListItem().get(i).getSubParameterName() + ": ");
+			System.out.print(response.getParameterListItem().get(9).getSubParaListItem().get(i).getSubParameterValue());
+			System.out.println();
+		}
 	}
 }
