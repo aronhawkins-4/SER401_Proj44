@@ -1,18 +1,9 @@
 /* Style General Elements */
-html {
-  scroll-behavior: smooth;
-  margin: 0px !important;
-  padding: 0px !important;
-  width: 100%;
-  overflow-x: hidden;
-  /* height: 100%; */
-}
 body {
   margin: 0;
   /* padding: 0 50px 50px 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #f7f7f7;
-  overflow-x: hidden;
 }
 header {
   height: 90px;
@@ -91,8 +82,7 @@ footer {
   text-align: center;
   list-style-type: none;
   font-size: 1em;
-  /* margin-right: 2%; */
-  padding: 0;
+  margin-right: 2%;
 }
 #devPDIV {
   display: flex;
@@ -109,7 +99,6 @@ footer {
 #developers {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding-bottom: 50px;
 }
 
@@ -390,35 +379,26 @@ select {
   justify-content: center;
 }
 
-#sponsorList {
-  text-align: center;
-  justify-content: center;
-  list-style-type: none;
-  font-size: 1em;
-  /* margin-right: 2%; */
-  margin: 0;
-  padding: 0;
-}
-#aboutPDIV,
-#devPDIV,
-#sponsorPDIV,
-#sponsors {
-  padding-right: 25px;
-  padding-left: 25px;
-}
 #sponsors {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
 }
+
+#sponsorList {
+  text-align: center;
+  justify-content: center;
+  list-style-type: none;
+  font-size: 1em;
+  margin-right: 2%;
+}
+
 #developerList {
   text-align: center;
   justify-content: center;
   list-style-type: none;
   font-size: 1em;
-  /* margin-right: 2%; */
-  margin: 0;
-  padding: 0;
+  margin-right: 2%;
 }
 
 /* Style Text Areas */
@@ -705,25 +685,4 @@ option {
     padding: 0px 25px;
     margin-top: 40px;
   }
-  .alertGrid2 {
-    grid-template-columns: 1fr;
-    margin: 0 50px 50px 50px;
-    /* height: 100vh; */
-  }
-  #alertPage {
-    margin: 0 50px;
-  }
-  #headerLink,
-  #email,
-  #phone_number {
-    visibility: hidden;
-    width: 0;
-  }
-  #home-footer {
-    position: relative;
-    bottom: 0;
-  }
-  /* .alertPageButton {
-    width: 50px;
-  } */
 }
