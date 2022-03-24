@@ -136,4 +136,52 @@ public class CogProfile {
 			System.out.println();
 		}
 	}
+	
+	public void writeResponse(ResponseParameterList response) {
+		JSONObject cogProfile = new JSONObject();
+		JSONObject eventCodes = new JSONObject();
+		JSONObject geoCodes = new JSONObject();
+		//obj.put("COGPROFILE", "stuff");
+		JSONArray list = new JSONArray();
+		
+		for (int i = 0; i<response.getParameterListItem().size()-2;i++) {
+		JSONObject obj = new JSONObject();
+		obj.put(response.getParameterListItem().get(i).getParameterName(),
+					response.getParameterListItem().get(i).getParameterValue());
+		list.add(obj);	
+		}
+		
+		//System.out.println(list.toJSONString());
+		JSONArray eventCodesList = new JSONArray();
+		for(int i = 0; i<response.getParameterListItem().get(8).getSubParaListItem().size();i++) {
+			JSONObject obj = new JSONObject();
+			obj.put(response.getParameterListItem().get(8).getSubParaListItem().get(i).getSubParameterName(),
+					response.getParameterListItem().get(8).getSubParaListItem().get(i).getSubParameterValue());
+			eventCodesList.add(obj);
+		}
+		eventCodes.put("event codes", eventCodesList);
+		list.add(eventCodes);
+		
+		JSONArray geoCodesList = new JSONArray();
+		for(int i = 0; i<response.getParameterListItem().get(9).getSubParaListItem().size();i++) {
+			JSONObject obj = new JSONObject();
+			obj.put(response.getParameterListItem().get(9).getSubParaListItem().get(i).getSubParameterName(),
+				response.getParameterListItem().get(9).getSubParaListItem().get(i).getSubParameterValue());
+			geoCodesList.add(obj);
+			}
+		geoCodes.put("geo codes", geoCodesList);
+		list.add(geoCodes);
+		cogProfile.put("CogProfile", list);
+		try {
+	         FileWriter file = new FileWriter("output.json");
+	         file.write(cogProfile.toJSONString());
+	         file.close();
+	      } catch (IOException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }
+	      System.out.println("JSON file created: " + cogProfile);
+	   
+		System.out.println(cogProfile.toJSONString());
+	}
 }
