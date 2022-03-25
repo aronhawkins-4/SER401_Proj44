@@ -1,7 +1,7 @@
     var alertLog;
     var msg;
     var geocodes = [];
-    var shapes = [];  
+    var shapes;  
 
     document.getElementById('geoArea1').style.display = "none";
     document.getElementById('geoArea2').style.display = "none";
@@ -81,7 +81,86 @@
             
             $('#eventDropdown').prop('disabled', true);
             document.getElementById("eventDropdown").value = alertLog[msg].eventCode;
+
+            shapes = alertLog[msg].layersJson; 
             
+            // CREATE MAP //
+            // Var to store LeafletJS map initial settings
+            var map = L.map('mapid', {
+                drawControl: true
+            }).setView([33.4181255, -111.9323892], 13);
+            
+            // LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
+            }).addTo(map);
+
+            if (shapes != "0") {
+                var shapesArray = JSON.parse(shapes);
+                //alert(shapesArray[0].type);
+                //alert(shapesArray[0].coordinates);
+               /* 
+               var testShapes = {
+                    
+                        "type": "FeatureCollection",
+                        "features": [
+                          {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [
+                                    [[-104.05, 48.99], [-97.22,  48.98], 
+                                    [-96.58,  45.94], [-104.03, 45.94], 
+                                    [-104.05, 48.99]]
+                                ]
+                            }
+                          }, 
+                          {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [
+                                    [[-109.05, 41.00], [-102.06, 40.99], 
+                                    [-102.03, 36.99], [-109.04, 36.99], 
+                                    [-109.05, 41.00]]
+                                ]
+                            }
+                          }
+                        ]
+                      }
+                */
+                      /*
+                      var testShapes = {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [
+                                    [[-104.05, 48.99], [-97.22,  48.98], 
+                                    [-96.58,  45.94], [-104.03, 45.94], 
+                                    [-104.05, 48.99]]
+                                ]
+                            }
+                          }*/
+                        
+                          /*
+                          var myobject = [];
+                    
+                          var testShapes = {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": shapesArray[0].type,
+                                "coordinates": shapesArray[0].coordinates
+                            }
+                          }
+               L.geoJSON(testShapes).addTo(map);
+               */
+            }
+
             //Retrieve the number of geocodes form from the comma separated values 
             if (alertLog[msg].geo.length == 5 ) {
                 geocodes.push(alertLog[msg].geo)
@@ -173,133 +252,8 @@
     });
 });
 
-   // CREATE MAP //
-    // Var to store LeafletJS map initial settings
-    var map = L.map('mapid', {
-        drawControl: true
-    }).setView([33.4181255, -111.9323892], 13);
 
-    // Var to count number of shapes on map
-    var shapeNum = 0;
-
-    // Var to count number of vertexes on the map
-    var vertNum = 0;
-
-    // LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
-    }).addTo(map);
 
     
-    // Add Leaflet-Geoman controls with some options to the map  
-    /*
-    map.pm.addControls({
-        position: 'topleft',
-        drawCircle: true,
-        drawCircleMarker: false,
-        drawMarker: false,
-        drawRectangle: true,
-        drawPolygon: true,
-        drawPolyline: false,
-        cutPolygon: false,
-        splitMode: false,
-    });
-
-    // Order buttons
-    map.pm.Toolbar.changeControlOrder([
-        'drawPolygon',
-        'drawRectangle',
-        'drawCircle',
-        'dragMode',
-        'editMode',
-        'rotateMode',
-    ]);
-
-    // Check number of shapes and vertexes on map
-    map.on('pm:create', function (e) {
-        var layer = e.layer.toGeoJSON();
-        var coordinates;
-        var shape = layer.geometry.type;
-        var vertNumTemp = vertNum;
-
-        if (shape === "Polygon") {
-            coordinates = layer.geometry.coordinates[0];
-            var vertices = coordinates.length - 1;
-            vertNum += vertices;
-            // console.log(coordinates);
-
-        } else if (shape === "Point") {
-
-            layer.properties.radius = e.layer.getRadius();
-            coordinates = layer.geometry.coordinates;
-            vertNum++;
-            // console.log(coordinates);
-            //console.log(layer.properties.radius);
-
-        }
-        if (vertNum > 100) {
-            e.layer.remove();
-            vertNum = vertNumTemp;
-            alert("Vertice limit exceeded!");
-        } else {
-            shapeNum++;
-            addShape(layer);
-            checkShapeVertNums(shapeNum, vertNum, coordinates);
-        }
-    });
-
-    map.on('pm:remove', e => {
-        var layer = e.layer.toGeoJSON();
-        var coordinates;
-        var shape = layer.geometry.type;
-
-        if (shape === "Polygon") {
-            coordinates = layer.geometry.coordinates[0];
-            var vertices = coordinates.length - 1;
-            vertNum -= vertices;
-        } else if (shape === "Point") {
-            layer.properties.radius = e.layer.getRadius();
-            coordinates = layer.geometry.coordinates;
-            //  console.log(coordinates);
-            vertNum--;
-        }
-        shapeNum--;
-        deleteShape(layer);
-        checkShapeVertNums(shapeNum, vertNum, coordinates);
-    });
-
-    // Check number of shapes on map. If at or over 10, remove shape toolbar visibilty.
-    // If number was at or over 10 and gets brought to under 10, restore shape toolbar visibility.
-    function checkShapeVertNums(shapes, vertices, coordinates) {
-        if (shapes >= 10 || vertices >= 100) {
-            map.pm.addControls({
-                position: 'topleft',
-                drawCircle: false,
-                drawCircleMarker: false,
-                drawMarker: false,
-                drawRectangle: false,
-                drawPolygon: false,
-                drawPolyline: false,
-                cutPolygon: false,
-                splitMode: false,
-            });
-        } else if (shapes < 10 && vertices < 100) {
-            map.pm.addControls({
-                position: 'topleft',
-                drawCircle: true,
-                drawCircleMarker: false,
-                drawMarker: false,
-                drawRectangle: true,
-                drawPolygon: true,
-                drawPolyline: false,
-                cutPolygon: false,
-                splitMode: false,
-            });
-        }
-    }*/
+ 
 

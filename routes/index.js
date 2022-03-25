@@ -72,8 +72,6 @@ router.post('/', function(req, res, next) {
         var layersJson = JSON.parse(layers);
     }
     
-    var jsonstr = JSON.stringify(layersJson); 
-    console.log(jsonstr);
     //Array to hold individual geocode values and used with saveXml functions 
     var geoArray = [];
     geoArray = geo.split(",");
@@ -248,8 +246,8 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 }
 
 /* Generate and save json alert message data */
-function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson, numGeocodes) {
-
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
+    let myShapes = JSON.stringify(layersJson);
     var newObject = {
         identifier: identifier,
         sender: sender,
@@ -270,7 +268,7 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
         spanDesc: spanDesc,
-        layersJson: JSON.stringify(layersJson),
+        layersJson: myShapes,
         numGeocodes: numGeocodes
     };
 
