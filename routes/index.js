@@ -92,8 +92,59 @@ router.post('/', function(req, res, next) {
     //Call function to save test page that displays xml string 
     saveTestPage(xmlString);
 
-    res.redirect('/test', 301);
+    res.redirect('/sure', 301);
 });
+
+// router.post('/alert', function(req, res, next) {
+//     //Retrive all form element vlaues 
+//     var identifier = req.body.identifier;
+//     var sender = req.body.sender;
+//     var sent = req.body.sent;
+//     var status = req.body.status;
+//     var msgType = req.body.msgType;
+//     var scope = req.body.scope;
+//     var event = req.body.event;
+//     var urgency = req.body.urgency;
+//     var severity = req.body.severity;
+//     var certainty = req.body.certainty;
+//     var category = req.body.category;
+//     var eventCode = req.body.eventCode;
+//     var expires = req.body.expires;
+//     var desc = req.body.desc;
+//     var areaDesc = req.body.areaDesc;
+//     var geo = req.body.geo;
+//     var spanCheck = req.body.spanishExists;
+//     var spanAreaDesc = req.body.spanishAreaDesc;
+//     var spanDesc = req.body.spanishDesc;
+//     var numGeocodes = req.body.numGeocodes;
+//     var layers = req.body.layers;
+//     if (layers.length != 0) {
+//         var layersJson = JSON.parse(layers);
+//     }
+
+//     //Array to hold individual geocode values and used with saveXml functions 
+//     var geoArray = [];
+//     geoArray = geo.split(",");
+
+//     if (layersJson != null) {
+//         //Call function to generate xml 
+//         var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geoArray, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
+//         //Call function to save msg as json 
+//         saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson);
+
+//     } else {
+//         //Call function to generate xml 
+//         var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geoArray, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
+//         //Call function to save msg as json 
+//         saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
+
+//     }
+
+//     //Call function to save test page that displays xml string 
+//     saveTestPage(xmlString);
+
+//     res.redirect('/sure', 301);
+// });
 
 /*******       DEFINE FUNCTIONS               *******/
 

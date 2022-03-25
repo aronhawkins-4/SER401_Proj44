@@ -1641,7 +1641,7 @@ function handleClick() {
 
                     //Send a POST request containing the form elements object  
                     $.post("/", newObject, function(data, status, xhr) {
-                        alert("Alert Submitted");
+                        // alert("Alert Submitted");
                         $(location).attr('href', '/sure');
                     });
                 }
@@ -1683,7 +1683,7 @@ function handleClick() {
 
                     //Send a POST request containing the form elements object  
                     $.post("/", newObject, function(data, status, xhr) {
-                        alert("Alert Submitted");
+                        // alert("Alert Submitted");
                         $(location).attr('href', '/sure');
                     });
                 }
@@ -1779,7 +1779,7 @@ function handleClick() {
 
                 //Send a POST request containing the form elements object  
                 $.post("/", newObject, function(data, status, xhr) {
-                    alert("Alert Submitted");
+                    // alert("Alert Submitted");
                     $(location).attr('href', '/sure');
                 });
             }
