@@ -13,7 +13,8 @@ public class App
     
     private void getCog() {
     	CogProfile getCog = new CogProfile();
-    	getCog.displayResponse(getCog.getRequest());
-    	
+    	ResponseParameterList response = getCog.getRequest();
+    	getCog.displayResponse(response);
+    	getCog.writeResponse(response);
     }
 }
