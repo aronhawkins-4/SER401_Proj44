@@ -48,7 +48,7 @@ public class CogProfile {
 		// Create service and set properties
 		IPAWS service = new IPAWS();
 		System.setProperty("javax.xml.bind.JAXBContext", "com.sun.xml.internal.bind.v2.ContextFactory");
-		service.addPort(service.SERVICE, "service2", "https://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS");
+		//service.addPort(service.SERVICE, "service2", "https://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS");
 
 		// Create port
 		CAPserviceInterface port = service.getIPAWS();
