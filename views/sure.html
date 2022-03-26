@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="javascripts/myScript.js"></script>
     <title>Are You Sure?</title>
 </head>
-<body>
+<body onload="onLoadSurePage()">
     <header id="header">
         <p id="invis"></p>
         <h1>Are You Sure?</h1>
@@ -18,7 +19,7 @@
     <!-- <h1 id="aboutHeader">About</h1> -->
     <br>
     
-    <div id="sureSubmitButton"><form action="/test" method="get"><button>Yes, Submit.</button></form></div>
+    <div id="sureSubmitButton"><form action="/test" method="post"><button>Yes, Submit.</button></form></div>
 	<div id="aboutHomeButton"><form action="/" method="get"><button>No, Take Me Back.</button></form></div>
     
     <footer id="footer">

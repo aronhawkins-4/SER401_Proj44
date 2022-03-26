@@ -1159,6 +1159,10 @@ function disableFields() {
     document.getElementById('hideSpan').style.display = "none";
 }
 
+function onLoadSurePage(){
+    alert(newObject.sender);
+}
+
 function countWord() {
 
     var engCount90 = 90;
