@@ -19,7 +19,7 @@ export default function App() {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#005287" }}>
       <WebView
         // PUT YOUR OWN COMPUTER'S IP ADDRESS BELOW
-        source={{ uri: "http://192.168.68.112:3000/" }}
+        source={{ uri: "http://192.168.0.234:3000/" }}
         // ref = {"webView"}
         // onNavigationStateChange={this.onNavigationStateChange}
       ></WebView>
