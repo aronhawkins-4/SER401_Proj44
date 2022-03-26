@@ -99,68 +99,52 @@
                 zoomOffset: -1,
                 accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
             }).addTo(map);
-
+            //Check if geo shapes were included in the alert and process
             if (shapes != "0") {
                 var shapesArray = JSON.parse(shapes);
-                //alert(shapesArray[0].type);
-                //alert(shapesArray[0].coordinates);
-               /* 
-               var testShapes = {
+    
+                for (i = 0; i < shapesArray.length; i++) {
+                    //Retrive the type of shape and capitalize first letter to conform with geoJSON 
+                    var geoType = shapesArray[i].type;
+                    geoType = geoType[0].toUpperCase() + geoType.substring(1);
                     
-                        "type": "FeatureCollection",
-                        "features": [
-                          {
-                            "type": "Feature",
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [
-                                    [[-104.05, 48.99], [-97.22,  48.98], 
-                                    [-96.58,  45.94], [-104.03, 45.94], 
-                                    [-104.05, 48.99]]
-                                ]
-                            }
-                          }, 
-                          {
-                            "type": "Feature",
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [
-                                    [[-109.05, 41.00], [-102.06, 40.99], 
-                                    [-102.03, 36.99], [-109.04, 36.99], 
-                                    [-109.05, 41.00]]
-                                ]
-                            }
-                          }
+                    var geoCoords = JSON.parse(shapesArray[i].coordinates);        
+                    var coordsObj = [];
+                    //Retrieve all coordinates for the shape         
+                    for (j = 0; j < geoCoords.length; j++) {
+                        coordsObj.push(geoCoords[j]);
+                    }
+                
+                    if (geoType == "Circle") {
+                        var radius = parseFloat(coordsObj.pop());
+                        var long = coordsObj[0];
+                        var lat = coordsObj[1];
+                        var latLong = [
+                            lat,
+                            long
                         ]
-                      }
-                */
-                      /*
-                      var testShapes = {
+                        var circleOptions = {}
+                        var circle = L.circle(latLong,radius,circleOptions);
+                        //Draw the circle on the map 
+                        circle.addTo(map);
+                    
+                    } else {
+                        var alertShape = {
                             "type": "Feature",
                             "geometry": {
-                                "type": "Polygon",
+                                "type": geoType,
                                 "coordinates": [
-                                    [[-104.05, 48.99], [-97.22,  48.98], 
-                                    [-96.58,  45.94], [-104.03, 45.94], 
-                                    [-104.05, 48.99]]
+                                    coordsObj
                                 ]
                             }
-                          }*/
-                        
-                          /*
-                          var myobject = [];
+                        }
+                        //Draw the polygon on the map 
+                        L.geoJSON(alertShape).addTo(map);
+                    }
                     
-                          var testShapes = {
-                            "type": "Feature",
-                            "geometry": {
-                                "type": shapesArray[0].type,
-                                "coordinates": shapesArray[0].coordinates
-                            }
-                          }
-               L.geoJSON(testShapes).addTo(map);
-               */
+                }
+                    
             }
-
             //Retrieve the number of geocodes form from the comma separated values 
             if (alertLog[msg].geo.length == 5 ) {
                 geocodes.push(alertLog[msg].geo)
