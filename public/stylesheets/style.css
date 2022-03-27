@@ -650,6 +650,9 @@ option {
     position: absolute;
     white-space: nowrap;
   }
+  .alertGrid2 {
+    margin: 0 50px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
