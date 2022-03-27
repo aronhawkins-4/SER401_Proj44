@@ -9,11 +9,11 @@
     <title>Home Page</title>
 </head>
 
-<body>
+<body class="home-body">
 
     <header id="header">
         <p id="invis"></p>
-        <h1>ABOUT AO APP (BETA)</h1>
+        <h1>AO APP (BETA)</h1>
         <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
             target="_blank" id="headerLink">
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
@@ -22,17 +22,35 @@
     <div id="alertPage">
         <p id="alertTest">Please select the appropriate task below:</p>
     </div>
-    <div id="alertPageButton">
-        <form action="/alert" method="get"><button>Send Alert</button></form>
+    <div class="alertGrid2">
+        <a href="/alert" id="alertIcon">
+            <div id="alertPageButton1" class="container alertPageButton">
+                <img id="alert_logo" class="alertLogo" src="images/WEA_ALERT_ICON.jpg" alt="Send an Alert Page">
+                <label class="text"><strong>Send Alert</strong></label>
+            </div>
+        </a>
+        <a href="/alertlog" id="alertLogIcon">
+            <div id="alertPageButton2" class="container alertPageButton">
+                <img id="alert_log_logo" class="alertLogo" src="images/WEA_LOG_ICON.png" alt="Log Page">
+                <label class="text"><strong>Alert Log</strong></label>
+            </div>
+        </a>
+        <a href="/about" id="aboutIcon">
+            <div id="alertPageButton3" class="container alertPageButton">
+                <img id="alert_log_logo" class="alertLogo" src="images/WEA_MEET_OUR_TEAM_ICON.png"
+                    alt="Meet our Team Page">
+                <label class="text"><strong>About Us</strong></label>
+            </div>
+        </a>
+        <a href="/tempholderwillerror/$$$" id="getProfileIcon">
+            <div id="alertPageButton4" class="container alertPageButton">
+                <img id="alert_log_logo" class="alertLogo" src="images/WEA_GET_PROFILE.png" alt="Get IPAWS Profile">
+                <label class="text"><strong>Get IPAWS Profile</strong></label>
+            </div>
+        </a>
     </div>
-    <div id="alertPageButton">
-        <form action="/alertlog" method="get"><button>Alert Log</button></form>
-    </div>
-    <div id="alertPageButton">
-        <form action="/about" method="get"><button>About AO APP</button></form>
-    </div>
-    <br><br>
-    <footer id="footer">
+
+    <footer id="home-footer">
         <p id="phone_number">1 (800) 621-3362</p>
         <a href="https://www.fema.gov/" target="_blank" id="footerLink">
             <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
