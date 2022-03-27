@@ -2,139 +2,16 @@
 <html>
 
 <head>
-    <script src="/jquery/jquery.js"></script> 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
-    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
-    <script src="javascripts/alertHist.js"></script>
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="stylesheets/style.css">
-
-    <script>
-        var alertLog;
-        var msg;
-        var geocodes = []; 
-
-        //Retreive alert log from file and store it 
-        var promise = $.get("dbs/alertlog.json", function (data) {
-            alertLog = data;
-        }); 
-        promise.done(function (data) {
-            //Retreive alert number from the url 
-            var msgNumber = window.location.href;
-            msgNumber = msgNumber.substring(msgNumber.indexOf("?") + 1,msgNumber.length); 
-            
-            //Parse alert log to json format 
-            alertLog = JSON.stringify(alertLog);
-            alertLog = JSON.parse(alertLog);
-            
-            //Find the index for the alert number 
-            
-            for (i = 0; i < alertLog.length; i++){
-                if (alertLog[i].identifier === msgNumber) {
-                    msg = i; 
-                }
-            }
-
-            $(document).ready(function () {
-                //Populate element values and disable them so they can be read only 
-                $('#identifier').prop('disabled', true);
-                document.getElementById("identifier").value = alertLog[msg].identifier;
-                
-                $('#sender').prop('disabled', true);
-                document.getElementById("sender").value = alertLog[msg].sender;
-                
-                $('#msgTypeDropdown').prop('disabled', true);
-                document.getElementById("msgTypeDropdown").value = alertLog[msg].msgType;
-
-                $('#status').prop('disabled', true);
-                document.getElementById("status").value = alertLog[msg].status;
-                 
-                $('#categoryDropdown').prop('disabled', true);
-                document.getElementById("categoryDropdown").value = alertLog[msg].category;
-
-                $('#alertDropdown').prop('disabled', true);
-                document.getElementById("alertDropdown").value = alertLog[msg].severity;
-                
-                $('#certaintyDropdown').prop('disabled', true);
-                document.getElementById("certaintyDropdown").value = alertLog[msg].certainty;
-
-                $('#urgencyDropdown').prop('disabled', true);
-                document.getElementById("urgencyDropdown").value = alertLog[msg].urgency;
-                
-                $('#eventDropdown').prop('disabled', true);
-                document.getElementById("eventDropdown").value = alertLog[msg].eventCode;
-                
-                //Retrieve the number of geocodes form from the comma separated values 
-                if (alertLog[msg].geo.length == 5 ) {
-                    geocodes.push(alertLog[msg].geo)
-                } else {
-                    let geos = alertLog[msg].geo;
-                    geocodes = geos.split(',');
-                }
-
-                $('#numCodesDropdown').prop('disabled', true);
-                document.getElementById("numCodesDropdown").value = geocodes.length;
-                
-                $('#eventSubjFi180').prop('disabled', true);
-                document.getElementById("eventSubjFi180").value = alertLog[msg].event;
-
-                $('#eventFi180').prop('disabled', true);
-                document.getElementById("eventFi180").value = alertLog[msg].areaDesc;
-
-                $('#alertEn360').prop('disabled', true);
-                document.getElementById("alertEn360").value = alertLog[msg].desc;
-                
-               if (alertLog[msg].spanCheck === "true") {
-                    $('#eventFi180sp').prop('disabled', true);
-                    document.getElementById("eventFi180sp").value = alertLog[msg].spanAreaDesc;
-
-                    $('#alertSp360').prop('disabled', true);
-                    document.getElementById("alertSp360").value = alertLog[msg].spanDesc;                    
-               } else {  
-                    $('#hideSpan').hide();
-               }
-            });
-        });
-
-    
-        var geoList = new Array;
-
-        //Populate the FIPS fields
-        var promise = $.get("dbs/geocodes.json", function (data) {
-            geoList = data;
-        });
-        promise.done(function (data) {
-            geoList = JSON.stringify(geoList);
-            geoList = JSON.parse(geoList);
-
-            $(document).ready(function () {
-               if (geocodes.length > 5) {
-                    //TODO populate all FIPS codes when you have multiple 
-               } else {
-                   var index; 
-
-                   for (i = 0; i < geoList.length; i++) {
-                       if (geocodes[0] === geoList[i].id) {
-                           index = i;
-                       }
-                   }
-                   
-                   $('#selectid').prop('disabled', true);
-                   document.getElementById("selectid").value = "" + geoList[index].id + " " + geoList[index].name + " " + geoList[index].state;
-               }
-            });
-        });
-
-    </script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="/jquery/jquery.js"></script>
 </head>
 
-<body onload="pageLoad()">
+<body>
     <header id="header">
         <p id="invis"></p>
         <h1><a href="./">AO APP (BETA)</a></h1>
@@ -160,7 +37,7 @@
             <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
             <br>
             <div id="msgTypeDropdownMenu" class="text">
-                <select name="msgTypeDropdown" class="text" id="msgTypeDropdown" >
+                <select name="msgTypeDropdown" class="text" id="msgTypeDropdown">
                     <option value="Default">Select Message Type</option>
                     <option value="Alert">Alert</option>
                     <option value="Update">Update</option>
@@ -745,141 +622,13 @@
     <div id="mapid" onload="loadMap">
         <!-- Import necessary files to use LeafletJS Geoman -->
 
-        <script>
-            // CREATE MAP //
-            // Var to store LeafletJS map initial settings
-            var map = L.map('mapid', {
-                drawControl: true
-            }).setView([33.4181255, -111.9323892], 13);
 
-            // Var to count number of shapes on map
-            var shapeNum = 0;
-
-            // Var to count number of vertexes on the map
-            var vertNum = 0;
-
-            // LeafletJS Mapbox tile box settings (generic public access token: pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q)
-            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright ">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/ ">Mapbox</a>',
-                maxZoom: 18,
-                id: 'mapbox/streets-v11',
-                tileSize: 512,
-                zoomOffset: -1,
-                accessToken: 'pk.eyJ1IjoicndhczEiLCJhIjoiY2t1aG56ejF5MmZvZTJvcWx6YjAzbHdnZiJ9.LOhy2JUgZ7VqbcoegFdr1Q'
-            }).addTo(map);
-
-            // Add Leaflet-Geoman controls with some options to the map  
-            map.pm.addControls({
-                position: 'topleft',
-                drawCircle: true,
-                drawCircleMarker: false,
-                drawMarker: false,
-                drawRectangle: true,
-                drawPolygon: true,
-                drawPolyline: false,
-                cutPolygon: false,
-                splitMode: false,
-            });
-
-            // Order buttons
-            map.pm.Toolbar.changeControlOrder([
-                'drawPolygon',
-                'drawRectangle',
-                'drawCircle',
-                'dragMode',
-                'editMode',
-                'rotateMode',
-            ]);
-
-            // Check number of shapes and vertexes on map
-            map.on('pm:create', function (e) {
-                var layer = e.layer.toGeoJSON();
-                var coordinates;
-                var shape = layer.geometry.type;
-                var vertNumTemp = vertNum;
-
-                if (shape === "Polygon") {
-                    coordinates = layer.geometry.coordinates[0];
-                    var vertices = coordinates.length - 1;
-                    vertNum += vertices;
-                    // console.log(coordinates);
-
-                } else if (shape === "Point") {
-
-                    layer.properties.radius = e.layer.getRadius();
-                    coordinates = layer.geometry.coordinates;
-                    vertNum++;
-                    // console.log(coordinates);
-                    //console.log(layer.properties.radius);
-
-                }
-                if (vertNum > 100) {
-                    e.layer.remove();
-                    vertNum = vertNumTemp;
-                    alert("Vertice limit exceeded!");
-                } else {
-                    shapeNum++;
-                    addShape(layer);
-                    checkShapeVertNums(shapeNum, vertNum, coordinates);
-                }
-            });
-
-            map.on('pm:remove', e => {
-                var layer = e.layer.toGeoJSON();
-                var coordinates;
-                var shape = layer.geometry.type;
-
-                if (shape === "Polygon") {
-                    coordinates = layer.geometry.coordinates[0];
-                    var vertices = coordinates.length - 1;
-                    vertNum -= vertices;
-                } else if (shape === "Point") {
-                    layer.properties.radius = e.layer.getRadius();
-                    coordinates = layer.geometry.coordinates;
-                    //  console.log(coordinates);
-                    vertNum--;
-                }
-                shapeNum--;
-                deleteShape(layer);
-                checkShapeVertNums(shapeNum, vertNum, coordinates);
-            });
-
-            // Check number of shapes on map. If at or over 10, remove shape toolbar visibilty.
-            // If number was at or over 10 and gets brought to under 10, restore shape toolbar visibility.
-            function checkShapeVertNums(shapes, vertices, coordinates) {
-                if (shapes >= 10 || vertices >= 100) {
-                    map.pm.addControls({
-                        position: 'topleft',
-                        drawCircle: false,
-                        drawCircleMarker: false,
-                        drawMarker: false,
-                        drawRectangle: false,
-                        drawPolygon: false,
-                        drawPolyline: false,
-                        cutPolygon: false,
-                        splitMode: false,
-                    });
-                } else if (shapes < 10 && vertices < 100) {
-                    map.pm.addControls({
-                        position: 'topleft',
-                        drawCircle: true,
-                        drawCircleMarker: false,
-                        drawMarker: false,
-                        drawRectangle: true,
-                        drawPolygon: true,
-                        drawPolyline: false,
-                        cutPolygon: false,
-                        splitMode: false,
-                    });
-                }
-            }
-        </script>
     </div>
     <br><br>
     <div>
-    <form action="/alertlog" method="get">
-        <button class="button button1">Back to Alert Log</button>
-    </form>
+        <form action="/alertlog" method="get">
+            <button class="button button1">Back to Alert Log</button>
+        </form>
     </div>
     <footer id="footer">
         <p id="phone_number">1 (800) 621-3362</p>
@@ -890,5 +639,11 @@
         <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
     </footer>
 </body>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+<script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+<script src="javascripts/alertHist.js"></script>
 
 </html>

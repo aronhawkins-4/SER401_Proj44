@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20220219150827550JES</identifier>
-    <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2022-02-19T15:08:27-07:00</sent>
+    <identifier>20220326224410320HAW</identifier>
+    <sender>hawkins.aron@gmail.com</sender>
+    <sent>2022-03-26T22:44:10-05:00</sent>
     <status>Exercise</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>CBRNE</category>
-        <event>rdgefdfgd</event>
-        <urgency>Expected</urgency>
-        <severity>Extreme</severity>
+        <category>Fire</category>
+        <event>asdfda</event>
+        <urgency>Immediate</urgency>
+        <severity>Severe</severity>
         <certainty>Likely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>TOE</value>
+            <value>ADR</value>
         </eventCode>
-        <expires>2022-02-20T15:08:27-07:00</expires>
-        <senderName>jesus.a.quiroz</senderName>
+        <expires>2022-03-27T22:44:10-05:00</expires>
+        <senderName>hawkins.aron</senderName>
         <headline>headline goes here</headline>
-        <description>dgdgdgddggd</description>
+        <description>sdfasf</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,45 +29,11 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>dggdgd</areaDesc>
-            <polygon>-111.944847,33.423347 -111.91618,33.442973 -111.90382,33.42263 -111.944847,33.423347</polygon>
-            <polygon>-111.960983,33.407155 -111.960983,33.444262 -111.948967,33.444262 -111.948967,33.407155 -111.960983,33.407155</polygon>
-            <circle>-111.907425,33.404433 1.5</circle>
+            <areaDesc>sdfasdfsa</areaDesc>
+            <polygon>-111.95652,33.412477 -111.95652,33.433101 -111.910858,33.433101 -111.910858,33.412477 -111.95652,33.412477</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004009</value>
-            </geocode>
-        </area>
-    </info>
-    <info>
-        <language>es-US</language>
-        <category>CBRNE</category>
-        <event>rdgefdfgd</event>
-        <urgency>Expected</urgency>
-        <severity>Extreme</severity>
-        <certainty>Likely</certainty>
-        <eventCode>
-            <valueName>SAME</valueName>
-            <value>TOE</value>
-        </eventCode>
-        <expires>2007-04-22T23:55:00-08:00</expires>
-        <senderName>jesus.a.quiroz</senderName>
-        <headline>headline goes here</headline>
-        <description>gdgddggdgddgdg</description>
-        <instruction>instruction goes here</instruction>
-        <web>http://www.google.com</web>
-        <parameter>
-            <valueName>valuename goes here</valueName>
-            <value>value goes here</value>
-        </parameter>
-        <area>
-            <areaDesc>dgdgdggdgd</areaDesc>
-            <polygon>-111.944847,33.423347 -111.91618,33.442973 -111.90382,33.42263 -111.944847,33.423347</polygon>
-            <polygon>-111.960983,33.407155 -111.960983,33.444262 -111.948967,33.444262 -111.948967,33.407155 -111.960983,33.407155</polygon>
-            <circle>-111.907425,33.404433 1.5</circle>
-            <geocode>
-                <valueName>SAME</valueName>
-                <value>004009</value>
+                <value>048009</value>
             </geocode>
         </area>
     </info>

@@ -26,6 +26,12 @@ p {
 a {
   color: #00b7ff;
 }
+
+a:hover {
+  background-color: #bbb;
+  opacity: 1;
+}
+
 button {
   background-color: #4bb543;
   border: none;
@@ -660,6 +666,9 @@ option {
   td:before {
     position: absolute;
     white-space: nowrap;
+  }
+  .alertGrid2 {
+    margin: 0 50px;
   }
 }
 
