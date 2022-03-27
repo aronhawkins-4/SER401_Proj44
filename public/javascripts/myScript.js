@@ -1159,9 +1159,9 @@ function disableFields() {
     document.getElementById('hideSpan').style.display = "none";
 }
 
-function onLoadSurePage(){
-    alert(newObject.sender);
-}
+// function onLoadSurePage(){
+//     alert(newObject.sender);
+// }
 
 function countWord() {
 
@@ -1644,10 +1644,11 @@ function handleClick() {
                     };
 
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function(data, status, xhr) {
-                        // alert("Alert Submitted");
-                        $(location).attr('href', '/sure');
-                    });
+                    // $.post("/", newObject, function(data, status, xhr) {
+                    //     // alert("Alert Submitted");
+                    //     // $(location).attr('href', '/sure');
+                    // });
+                    
                 }
             } else if (msgTypeOptSelected == "Cancel") {
                 //Process an Alert Cancellation
@@ -1686,10 +1687,11 @@ function handleClick() {
                     };
 
                     //Send a POST request containing the form elements object  
-                    $.post("/", newObject, function(data, status, xhr) {
-                        // alert("Alert Submitted");
-                        $(location).attr('href', '/sure');
-                    });
+                    // $.post("/", newObject, function(data, status, xhr) {
+                    //     // alert("Alert Submitted");
+                    //     // $(location).attr('href', '/sure');
+                    // });
+                    
                 }
             } else {
                 //Process a new alert 
@@ -1782,10 +1784,11 @@ function handleClick() {
                 };
 
                 //Send a POST request containing the form elements object  
-                $.post("/", newObject, function(data, status, xhr) {
-                    // alert("Alert Submitted");
-                    $(location).attr('href', '/sure');
-                });
+                // $.post("/", newObject, function(data, status, xhr) {
+                //     // alert("Alert Submitted");
+                //     // $(location).attr('href', '/sure');
+                // });
+                
             }
         }
     }
@@ -1794,6 +1797,21 @@ function handleClick() {
 // Variable and function to store all map shape information
 var shapes = "";
 var shapesNum = 0
+
+var btn = document.getElementById("submit-button");
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+}
 
 function addShape(shape) {
     var json;
