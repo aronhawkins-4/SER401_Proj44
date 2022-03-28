@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="/jquery/jquery.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <p id="invis"></p>
+        <h1><a href="./">AO APP (BETA)</a></h1>
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
+            target="_blank" id="headerLink">
+            <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
+        </a>
+    </header>
+    <h2 class="text">ALERT HISTORY DETAILS</h2>
+    <div class="alertGrid3">
+        <div id="msgNum" class="container">
+            <label for="identifier" class="text"><strong>Alert Number:</strong></label>
+            <br>
+            <input type="text" id="identifier" value="" name="identifier" maxlength="20"
+                placeholder="ALERT # WILL BE GENERATED ON SUBMISSION">
+        </div>
+        <div id="msgSender" class="container">
+            <label for="sender" class="text"><strong>Sender's Email:</strong></label>
+            <br>
+            <input type="email" id="sender" name="sender" placeholder="youremail@domain.com" required>
+        </div>
+        <div id="msgTypeDrop" class="container">
+            <label for="msgTypeDropdown" class="text"><strong>Alert Type:</strong></label>
+            <br>
+            <div id="msgTypeDropdownMenu" class="text">
+                <select name="msgTypeDropdown" class="text" id="msgTypeDropdown">
+                    <option value="Default">Select Message Type</option>
+                    <option value="Alert">Alert</option>
+                    <option value="Update">Update</option>
+                    <option value="Cancel">Cancel</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="msgStatusDrop" class="container">
+            <label for="msgStatusDropdown" class="text"><strong>Alert Status:</strong></label>
+            <br>
+            <div id="msgStatusDropdownMenu" class="dropdownMenu_style">
+                <select name="status" class="dropdownMenu" id="status">
+                    <option value="Default">Select Message Type</option>
+                    <option value="Actual">Actual</option>
+                    <option value="Exercise">Exercise</option>
+                    <option value="System Test">System Test</option>
+                    <option value="Draft">Draft</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="categoryDrop" class="container">
+            <label for="categoryDropdown" class="text"><strong>Alert Category:</strong></label>
+            <br>
+            <div id="categoryDropdownMenu" class="dropdownMenu_style">
+                <select name="categoryDropdown" class="dropdownMenu" id="categoryDropdown">
+                    <option value="Default">Select Alert Category</option>
+                    <option value="CBRNE">Chemical, Biological, Radiological, Nuclear or High-Yield Explosive Threat or
+                        Attack
+                    </option>
+                    <option value="Fire">Fire Suppression and Rescue</option>
+                    <option value="Safety">General Emergency and Public Safety</option>
+                    <option value="Geo">Geophysical (inc. Landslide)</option>
+                    <option value="Security">Law Enforcement, Military, Homeland and Local/Private Security</option>
+                    <option value="Health">Medical and Public Health</option>
+                    <option value="Met">Meteorological (inc. Flood)</option>
+                    <option value="Other">Other Events</option>
+                    <option value="Env">Pollution and Other Environmental</option>
+                    <option value="Transport">Public and Private Transportation</option>
+                    <option value="Rescue">Rescue and Recovery</option>
+                    <option value="Infra">Utility, Telecommunication, Other Non-Transport Infrastructure</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="alertTypeDrop" class="container">
+            <label for="alertDropdown" class="text"><strong>Alert Severity:</strong></label>
+            <br>
+            <div id="alertDropDownMenu" class="dropdownMenu_style">
+                <select name="alertDropDdwn" class="dropdownMenu" id="alertDropdown">
+                    <option value="Default">Select Alert Severity</option>
+                    <option value="Extreme">Extreme - Extraordinary threat to life or property</option>
+                    <option value="Severe">Severe - Significant threat to life or property</option>
+                    <option value="Moderate">Moderate - Possible threat to life or property</option>
+                    <option value="Minor">Minor - Minimal to no known threat to life or property</option>
+                    <option value="Unknown">Unknown - Severity unknown</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="certaintyDrop" class="container">
+            <label for="certaintyDropdown" class="text"><strong>Alert Certainty:</strong></label>
+            <br>
+            <div id="certaintyDropdownMenu" class="dropdownMenu_style">
+                <select name="certaintyDropdown" class="dropdownMenu" id="certaintyDropdown">
+                    <option value="Default">Select Certainty</option>
+                    <option value="Observed">Observed</option>
+                    <option value="Likely">Likely</option>
+                    <option value="Possible">Possible</option>
+                    <option value="Unlikely">Unlikely</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+        </div>
+        <div id="urgencyDrop" class="container">
+            <label for="urgencyDropdown" class="text"><strong>Alert Urgency:</strong></label>
+            <br>
+            <div id="urgencyDropdownMenu" class="dropdownMenu_style">
+                <select name="urgencyDropdown" class="dropdownMenu" id="urgencyDropdown">
+                    <option value="Default">Select Alert Urgency</option>
+                    <option value="Immediate">Immediate</option>
+                    <option value="Expected">Expected</option>
+                    <option value="Future">Future</option>
+                    <option value="Past">Past</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="eventDrop" class="container">
+            <label for="eventDropdownMenu" class="text"><strong>Alert Event Code:</strong></label>
+            <br>
+            <div id="eventDropdownMenu" class="dropdownMenu_style">
+                <select name="eventCodeDropdown" class="dropdownMenu" id="eventDropdown">
+                    <option value="Default">Select Event Code</option>
+                    <option value="TOE">911 Telephone Outage Emergency</option>
+                    <option value="ADR">Administrative Message/Follow up Statement</option>
+                    <option value="AVW">Avalanche Warning</option>
+                    <option value="AVA">Avalanche Watch</option>
+                    <option value="BZW">Blizzard Warning</option>
+                    <option value="CAE">Child Abduction Emergency</option>
+                    <option value="CDW">Civil Danger Warning</option>
+                    <option value="CEM">Civil Emergency Message</option>
+                    <option value="CFW">Coastal Flood Warning</option>
+                    <option value="DSW">Dust Storm Warning</option>
+                    <option value="EQW">Earthquake Warning</option>
+                    <option value="EVI">Evacuation Immediate</option>
+                    <option value="EWW">Extreme Wind Warning</option>
+                    <option value="FRW">Fire Warning</option>
+                    <option value="FFS">Flash Flood Statement</option>
+                    <option value="FFW">Flash Flood Warning</option>
+                    <option value="FFA">Flash Flood Watch</option>
+                    <option value="FLW">Flood Warning</option>
+                    <option value="FLA">Flood Watch</option>
+                    <option value="HMV">Hazardous Materials Warning</option>
+                    <option value="HWW">High Wind Warning</option>
+                    <option value="HUW">Hurricane Warning</option>
+                    <option value="HUA">Hurricane Watch</option>
+                    <option value="BLU">Law Enforcement Blue Alert</option>
+                    <option value="LEW">Law Enforcement Warning</option>
+                    <option value="LAE">Local Area Emergency</option>
+                    <option value="NIC">National Information Center</option>
+                    <option value="NPT">National Periodic Test</option>
+                    <option value="NWS">National Weather Service</option>
+                    <option value="NMN">Network Message Notification</option>
+                    <option value="NUW">Nuclear Power Plant Warning</option>
+                    <option value="DMO">Practice/Demo Warning</option>
+                    <option value="EAN">Presidential Alert</option>
+                    <option value="RHW">Radiological Hazard Warning</option>
+                    <option value="RMT">Required Monthly Test</option>
+                    <option value="RWT">Required Weekly Test</option>
+                    <option value="SVR">Severe Thunderstorm Warning</option>
+                    <option value="SVS">Severe Weather Statement</option>
+                    <option value="SPW">Shelter in Place Warning</option>
+                    <option value="SMW">Special Marine Warning</option>
+                    <option value="SSW">Storm Surge Warning</option>
+                    <option value="SSA">Storm Surge Watch</option>
+                    <option value="SPS">Special Weather Statement</option>
+                    <option value="TOR">Tornado Warning</option>
+                    <option value="TOA">Tornado Watch</option>
+                    <option value="TRW">Tropical Storm Warning</option>
+                    <option value="TRA">Tropical Storm Watch</option>
+                    <option value="TSW">Tsunami Warning</option>
+                    <option value="VOW">Volcano Warning</option>
+                    <option value="WSW">Winter Storm Warning</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="numCodesDrop" class="container">
+            <label for="numCodesDropdown" class="text"><strong>Number of Geocodes:</strong></label>
+            <br>
+            <div id="numCodesDropdownMenu" class=dropdownMenu_style>
+                <select name="numCodesDropdown" class="dropdownMenu" id="numCodesDropdown" onchange="numCodesOpt()">
+                    <option value="Default">Select Number of Geocodes (1 Included by Default)</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <br>
+            </div>
+        </div>
+        <div id="geoArea" class="container">
+            <label for="geoBlock" class="text"><strong>Select the FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea1" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid1" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes1" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea2" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid2" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes2" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea3" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid3" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes3" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea4" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid4" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes4" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea5" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid5" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes5" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea6" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid6" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes6" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea7" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid7" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes7" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea8" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid8" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes8" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea9" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid9" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes9" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea10" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid10" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes10" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea11" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid11" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes11" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea12" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid12" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes12" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea13" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid13" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes13" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea14" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid14" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes14" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea15" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid15" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes15" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea16" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid16" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes16" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea17" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid17" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes17" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea18" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid18" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes18" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea19" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid19" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes19" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea20" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid20" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes20" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea21" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid21" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes21" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea22" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid22" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes22" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea23" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid23" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes23" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea24" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid24" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes24" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea25" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid25" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes25" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea26" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid26" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes26" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea27" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid27" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes27" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea28" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid28" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes28" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea29" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid29" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes29" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+        <div id="geoArea30" class="container">
+            <label for="geoBlock" class="text"><strong>Select Additional FIPS Code for Applicable County or
+                    State:</strong></label>
+            <br>
+            <input list="geocodes" class="selectFIPS" id="selectid30" name="selectid"
+                placeholder="Search by State or County">
+            <datalist id="geocodes30" name="geocodes">
+                <option value=""></option>
+            </datalist>
+            </input>
+        </div>
+    </div>
+    <div class="alertGridEn">
+        <div id="EvSubj180" class="container">
+            <label for="eventSubj180" class="text"><strong>Subject Event:</strong></label>
+            <div class="textarea_style">
+                <textarea id="eventSubjFi180" class="event180" name="eventSubjFi180" oninput="countWord()"
+                    maxlength="180" placeholder="Subject Event for Alert Message..."></textarea>
+            </div>
+        </div>
+        <div id="Ev180" class="container">
+            <label for="event180" class="text"><strong>Alert Area Description:</strong></label>
+            <div class="textarea_style">
+                <textarea id="eventFi180" class="event180" name="eventFi180" oninput="countWord()" maxlength="180"
+                    placeholder="Provide specific information regarding the area the alert pertains to..."></textarea>
+            </div>
+        </div>
+        <div id="En360" class="container">
+            <label for="alert360" class="text"><strong>Alert Message</strong></label>
+            <br>
+            <div class="textarea_style">
+                <textarea id="alertEn360" class="alert360" name="alertEn360" oninput="countWord()" maxlength="360"
+                    placeholder="Alert message to be disseminated..."></textarea>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="hideSpan">
+        <div class="alertGridSp">
+            <div id="Ev180sp" class="container">
+                <label for="event180sp" class="text"><strong>Informacion Adicional Sobre el Area
+                        Afectada:</strong></label>
+                <div class="textarea_style">
+                    <textarea id="eventFi180sp" class="event180" name="eventFi180sp" oninput="countWord()"
+                        maxlength="180"
+                        placeholder="Indica informacion especifica sobre el area que tiene que ver con la alerta..."></textarea>
+                </div>
+            </div>
+            <div id="Sp360" class="container">
+                <label for="alertSp360 " class="text "><strong>Mensaje de Alerta:</strong></label>
+                <br>
+                <div class="textarea_style">
+                    <textarea id="alertSp360" class="alert360 " name="alertSp360 " oninput="countWord()" maxlength="360"
+                        placeholder="Mensaje de alerta que se enviara..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br><br>
+    <div id="mapid" onload="loadMap">
+        <!-- Import necessary files to use LeafletJS Geoman -->
+
+
+    </div>
+    <br><br>
+    <div>
+        <form action="/alertlog" method="get">
+            <button class="button button1">Back to Alert Log</button>
+        </form>
+    </div>
+    <footer id="footer">
+        <p id="phone_number">1 (800) 621-3362</p>
+        <a id="aboutLink" href="/about">About AO APP</a>
+        <a href="https://www.fema.gov/" target="_blank" id="footerLink">
+            <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+        </a>
+        <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+    </footer>
+</body>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+<script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+<script src="javascripts/alertHist.js"></script>
+
+</html>

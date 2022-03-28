@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script>
+        var alertLog = new Array;
+
+        var promise = $.get("dbs/alertlog.json", function(data) {
+            alertLog = data;
+        });
+        
+        promise.done(function(data) {
+            alertLog = JSON.stringify(alertLog);
+            alertLog = JSON.parse(alertLog);
+            var alertMessage; 
+            var alertGeos; 
+
+            $(document).ready(function() {
+                for (i = 0; i < alertLog.length; i++) {
+                    //Limit alert message output to 180 characters 
+                    alertMessage = alertLog[i].desc;
+                    if (alertMessage.length > 180) {
+                        alertMessage = alertMessage.substring(0,180) + " ..."; 
+                    }
+                    //Limit geocodes output to 2 geocodes 
+                    alertGeos = alertLog[i].geo;
+                    if (alertGeos.length >= 12) {
+                        alertGeos = alertGeos.substring(0,11) + "..."; 
+                    }
+
+                    $('#msglog').append('<tr><td><a href=/msg?'+alertLog[i].identifier+">"+alertLog[i].identifier+'</a></td><td>'+
+                        alertLog[i].sent+'</td><td>'+alertLog[i].sender+'</td><td>'+alertLog[i].status+'</td><td>'+alertLog[i].msgType+
+                            '</td><td>'+alertGeos+'</td><td>'+alertMessage+'</td></tr>'); 
+                }
+
+            });
+        })
+
+    </script>
+</head>
+
+<body>
+    <header id="header">
+        <p id="invis"></p>
+        <h1><a href="./">AO APP</a></h1>
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system" target="_blank" id="headerLink">
+            <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
+        </a>
+    </header>
+    <h2>Alert Log:</h2>
+    <div class="logGrid">
+    <table id="msglog">
+        <tr>
+            <th>Alert Number</th>
+            <th>Sent Date/Time</th>
+            <th>Sender's Email</th>
+            <th>Submission Type</th>
+            <th>Alert Type</th>
+            <th>Geocode(s)</th>
+            <th>Alert Message</th>
+        </tr>
+    </table> 
+    </div> 
+    <div class="nav-container">
+	    <div id="aboutHomeButton"><a href="./"><button>Home</button></a></div>
+        <div id="aboutAlertButton"><a href="alert"><button>Send Alert</button></a></div>
+        <div id="aboutLogButton"><a href="about"><button>About</button></a></div>
+    </div>
+    <footer id="footer">
+        <p id="phone_number">1 (800) 621-3362</p>
+        <a href="https://www.fema.gov/" target="_blank" id="footerLink">
+            <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+        </a>
+        <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+    </footer>
+</body>
+
+</html>
