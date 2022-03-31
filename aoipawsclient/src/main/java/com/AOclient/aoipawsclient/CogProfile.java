@@ -1,5 +1,7 @@
 package com.AOclient.aoipawsclient;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +16,8 @@ import org.apache.cxf.headers.Header;
 import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor;
 import org.apache.wss4j.dom.handler.WSHandlerConstants;
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import services.ipaws.fema.gov.caprequest.RequestParameterList;
 import services.ipaws.fema.gov.capresponse.ResponseParameterList;
 import services.ipaws.fema.gov.ipaws_capservice.CAPHeaderTypeDef;
@@ -137,7 +140,7 @@ public class CogProfile {
 		}
 	}
 	
-	public void writeResponse(ResponseParameterList response) {
+	public String writeResponse(ResponseParameterList response) {
 		JSONObject cogProfile = new JSONObject();
 		JSONObject eventCodes = new JSONObject();
 		JSONObject geoCodes = new JSONObject();
@@ -182,6 +185,6 @@ public class CogProfile {
 	      }
 	      System.out.println("JSON file created: " + cogProfile);
 	   
-		System.out.println(cogProfile.toJSONString());
+		return cogProfile.toJSONString();
 	}
 }
