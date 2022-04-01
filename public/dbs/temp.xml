@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20220331001711749JEC</identifier>
-    <sender>jecc21@yahoo.com</sender>
-    <sent>2022-03-31T00:17:11-04:00</sent>
-    <status>Actual</status>
+    <identifier>20220401101722166RAN</identifier>
+    <sender>randomguy@yahoo.com</sender>
+    <sent>2022-04-01T10:17:22-04:00</sent>
+    <status>Exercise</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Fire</category>
-        <event>Fire seen and reported to 911 in Knoxville, Tennessee</event>
-        <urgency>Immediate</urgency>
-        <severity>Extreme</severity>
-        <certainty>Observed</certainty>
+        <category>CBRNE</category>
+        <event>This is just an Exercise!</event>
+        <urgency>Future</urgency>
+        <severity>Moderate</severity>
+        <certainty>Possible</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>FRW</value>
+            <value>NUW</value>
         </eventCode>
-        <expires>2022-04-01T00:17:11-04:00</expires>
-        <senderName>jecc21</senderName>
+        <expires>2022-04-02T10:17:22-04:00</expires>
+        <senderName>randomguy</senderName>
         <headline>headline goes here</headline>
-        <description>STAY AWAY FROM THE KNOXVILLE AREA. FIRE IS ACTIVE AND SPREADING QUICKLY. EVACUATE IMMEDIATELY.</description>
+        <description>This is just an Exercise!</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,11 +29,12 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>Fire spreading quickly with winds high in Knoxville, TN. Many officials on scene trying to fight the blaze.</areaDesc>
-            <circle>-83.9328,35.964373 51.3</circle>
+            <areaDesc>This is just an Exercise!</areaDesc>
+            <circle>-87.473145,33.521858 62.9</circle>
+            <circle>-86.374512,32.470223 50.8</circle>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>047000</value>
+                <value>001000</value>
             </geocode>
         </area>
     </info>
