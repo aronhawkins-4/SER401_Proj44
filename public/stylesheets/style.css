@@ -60,16 +60,14 @@ button:hover {
 }
 
 footer {
-  height: 90px;
+  min-height: 90px;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   background-color: #005287;
   margin: 50px 0 0 0;
   position: relative;
   bottom: 0;
   width: 100%;
-  /* font-size: 16px; */
   color: white;
 }
 
@@ -330,14 +328,31 @@ select {
   padding-top: 20px;
   padding-right: 50px;
 }
-
 #home-footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  margin-top: auto;
 }
+.footer {
+  position: relative;
+  /* bottom: 0; */
+  width: 100%;
+  margin-top: 50px;
 
+}
+.footer-container {
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 100px;
+}
+.footer-container, .footer-logo-container, .footer-info-container {
+  display: flex;
+  align-items: center;
+}
+.footer-info-container{
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: flex-start;
+}
 #index-container {
   display: flex;
   flex-direction: column;
@@ -351,15 +366,15 @@ select {
 #phone_number {
   /* color: white; */
   font-size: 16px;
-  padding: 5px;
+  margin: 0;
   /* justify-self: left; */
 }
 
 #email {
   font-size: 16px;
-  padding: 5px;
   color: white;
   text-decoration: none;
+  text-align: left;
 }
 
 #alertLogHomeButton {
@@ -430,6 +445,7 @@ select {
 
 #alertTest {
   font-size: 2em;
+  padding: 0 50px;
 }
 
 .homeIcon {
@@ -670,7 +686,9 @@ option {
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "EvSubj180""Ev180""En360""geoArea";
   }
-
+  .footer-container {
+    padding: 10px;
+  }
   .logGrid {
     padding: 20px 50px;
     grid-template-columns: 1fr;
@@ -745,6 +763,9 @@ option {
 }
 
 @media only screen and (max-width: 480px) {
+  #headerLink {
+    display: none;
+  }
   .alertGridEn {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -762,7 +783,15 @@ option {
   #home-footer {
     position: relative;
     margin-top: 50px;
-    
+    height: 200px;
+  }
+  .footer-container {
+    flex-direction: column;
+    row-gap: 25px;
+  }
+  .footer-info-container {
+    align-items: center;
+    row-gap: 25px;
   }
   .alertGridSp {
     grid-template-columns: 1fr;
