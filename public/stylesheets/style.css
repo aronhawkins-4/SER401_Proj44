@@ -703,12 +703,14 @@ option {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: white;
+  font-size: smaller;
 }
 
 /* Modal Body */
 .modal-body {
   padding: 2px 16px;
   justify-content: center;
+  font-size: small;
 }
 
 /* Modal Footer */
