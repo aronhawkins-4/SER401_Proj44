@@ -816,7 +816,13 @@
         <div class="modal-body">
             <h4>Alert Information Goes Here</h4>
             <div>
-                <h5 id="subjHeader">Subject:</h5>
+                <h5 id="categoryHeader">Category: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="subjHeader">Subject: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="messageHeader">Alert Message: (Empty)</h5>
             </div>
         </div>
         <br>
@@ -834,8 +840,17 @@
     var span = document.getElementsByClassName("close")[0];
 
     btn.onclick = function() {
-        var subjTemp = document.getElementById("eventSubjFi180").value
-        document.getElementById("subjHeader").innerText="Subject: " + subjTemp
+
+        var valTemp = document.getElementById("eventSubjFi180").value
+        document.getElementById("subjHeader").innerText="Subject: " + valTemp
+
+        valTemp = document.getElementById("alertEn360").value
+        document.getElementById("messageHeader").innerText="Alert Message: " + valTemp
+
+        valTemp = document.getElementById("categoryDropdown")
+        valTemp.options[valTemp.selectedIndex].text
+        document.getElementById("categoryHeader").innerText="Event Category: " + valTemp.options[valTemp.selectedIndex].text
+
         modal.style.display = "block";
     }
 
