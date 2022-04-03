@@ -814,7 +814,10 @@
         </div>
         <br>
         <div class="modal-body">
-            <p>Alert Information Goes Here</p>
+            <h4>Alert Information Goes Here</h4>
+            <div>
+                <h5 id="subjHeader">Subject:</h5>
+            </div>
         </div>
         <br>
         <div class="modal-footer">
@@ -831,6 +834,8 @@
     var span = document.getElementsByClassName("close")[0];
 
     btn.onclick = function() {
+        var subjTemp = document.getElementById("eventSubjFi180").value
+        document.getElementById("subjHeader").innerText="Subject: " + subjTemp
         modal.style.display = "block";
     }
 

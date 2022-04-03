@@ -706,7 +706,10 @@ option {
 }
 
 /* Modal Body */
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 2px 16px;
+  justify-content: center;
+}
 
 /* Modal Footer */
 .modal-footer {
