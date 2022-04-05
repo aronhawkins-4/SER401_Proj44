@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20220402231802567WAS</identifier>
-    <sender>wasryan@live.com</sender>
-    <sent>2022-04-02T23:18:02-07:00</sent>
+    <identifier>20220404224012877JEC</identifier>
+    <sender>Jecc21@yahoo.com</sender>
+    <sent>2022-04-04T22:40:12-04:00</sent>
     <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
@@ -10,18 +10,18 @@
     <info>
         <language>en-US</language>
         <category>CBRNE</category>
-        <event>a</event>
+        <event>Mysterious radioactive chemical traces found across the United States</event>
         <urgency>Immediate</urgency>
         <severity>Extreme</severity>
         <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>TOE</value>
+            <value>RHW</value>
         </eventCode>
-        <expires>2022-04-03T23:18:02-07:00</expires>
-        <senderName>wasryan</senderName>
+        <expires>2022-04-05T22:40:12-04:00</expires>
+        <senderName>Jecc21</senderName>
         <headline>headline goes here</headline>
-        <description>sdfasojdkfljsadljfjdasjlfldlak</description>
+        <description>Craters are forming around the United States in random locations protruding a radioactive element. Authorities have said to STAY INDOORS AT ALL COSTS!! DO NOT GO OUTSIDE!!</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,10 +29,18 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc>aisdujcnlajSDnlufn</areaDesc>
+            <areaDesc>All areas seem to have a big crater and a radioactive element protruding from said crater.</areaDesc>
+            <circle>-119.794922,45.697995 357.6</circle>
+            <polygon>-121.464844,41.169833 -126.5625,39.086868 -121.025391,36.305682 -114.257813,36.305682 -119.882813,33.494987 -113.115234,32.240063 -99.404297,34.587395 -95.449219,29.525033 -95.888672,38.401375 -119.521987,42.486008 -121.464844,41.169833</polygon>
+            <circle>-101.865234,47.092067 529.4</circle>
+            <circle>-81.386719,27.517366 212.6</circle>
+            <circle>-88.769531,33.78767 209.4</circle>
+            <circle>-78.574219,36.870246 218.9</circle>
+            <circle>-82.880859,32.980406 299.0</circle>
+            <circle>-86.572266,42.154717 758.4</circle>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>001053</value>
+                <value>000000</value>
             </geocode>
         </area>
     </info>
