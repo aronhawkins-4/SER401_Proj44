@@ -677,7 +677,7 @@
   <WL5G3N0:service name="IPAWS">
 <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
     <WL5G3N0:port binding="WL5G3N1:CAPSoapHttp" name="IPAWS">
-      <WL5G3N2:address location="http://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS"/>
+      <WL5G3N2:address location="https://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS"/>
     </WL5G3N0:port>
   </WL5G3N0:service>
 </WL5G3N0:definitions>
