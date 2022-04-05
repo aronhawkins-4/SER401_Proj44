@@ -7,11 +7,42 @@ fs = require('fs');
 var fs = require('fs');
 const { off } = require('process');
 const { Console } = require('console');
+const { json } = require('body-parser');
 
-/* GET home page. */
+/*******       DEFINE GET ROUTES               *******/
+/* GET Home Page */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: 'Home' });
 });
+
+/* GET Alert Submission Page */
+router.get('/alert', function (req, res, next) {
+    res.render('alert', { title: 'Alert Submission' });
+});
+
+/* GET About Page */
+router.get('/about', function(req, res, next) {
+    res.render('about', { title: 'About' });
+
+});
+
+/* GET Alert Log Page */ 
+router.get('/alertlog', function(req, res, next) {
+    res.render('alertlog', { title: 'Alert Log' });
+});
+
+/* GET Retrieve Previous Message View Page  */ 
+router.get('/:id', function(req, res, next) {
+    res.render('alerthist', { title: 'Submitted Alert' });
+    //res.send("the ID is = " + req.params.id);
+
+    /*res.redirect(url.format({
+        pathname: '/about',
+        query: req.params.id
+    }));*/
+});
+
+/*******       DEFINE POST ROUTES               *******/
 
 /* Process POST from home page*/
 router.post('/', function(req, res, next) {
@@ -40,7 +71,7 @@ router.post('/', function(req, res, next) {
     if (layers.length != 0) {
         var layersJson = JSON.parse(layers);
     }
-
+    
     //Array to hold individual geocode values and used with saveXml functions 
     var geoArray = [];
     geoArray = geo.split(",");
@@ -55,7 +86,7 @@ router.post('/', function(req, res, next) {
         //Call function to generate xml 
         var xmlString = saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geoArray, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
         //Call function to save msg as json 
-        saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
+        saveJsonNoLayers(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes);
 
     }
 
@@ -64,6 +95,8 @@ router.post('/', function(req, res, next) {
 
     res.redirect('/test', 301);
 });
+
+/*******       DEFINE FUNCTIONS               *******/
 
 /* Generate and save xml alert messag data */
 function saveXml(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
@@ -213,8 +246,8 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 }
 
 /* Generate and save json alert message data */
-function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, layersJson, numGeocodes) {
-
+function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
+    let myShapes = JSON.stringify(layersJson);
     var newObject = {
         identifier: identifier,
         sender: sender,
@@ -235,7 +268,7 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
         spanDesc: spanDesc,
-        layersJson: layersJson,
+        layersJson: myShapes,
         numGeocodes: numGeocodes
     };
 
@@ -250,7 +283,7 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
 }
 
 /* Generate and save json alert message data */
-function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes) {
+function saveJsonNoLayers(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes) {
 
     var newObject = {
         identifier: identifier,
@@ -272,6 +305,7 @@ function saveJson(identifier, sender, sent, status, msgType, scope, event, categ
         spanCheck: spanCheck,
         spanAreaDesc: spanAreaDesc,
         spanDesc: spanDesc,
+        layersJson: "0", 
         numGeocodes: numGeocodes
     };
 
@@ -297,7 +331,7 @@ function updateLog(add) {
                 var alertArray = [];
                 alertArray.push(add);
 
-                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                fs.writeFile('public/dbs/alertlog.json', "["+alertArray+"]", 'utf-8', function(err) {
                     if (err) throw err;
                     console.log("Alert Saved to Log - New Log Started");
                 });
@@ -305,10 +339,11 @@ function updateLog(add) {
             } else {
                 //Log contains messages, retrieve and add new alert to the log 
                 var alertArray = [];
+                var arrayString = jsonString.substring(1,jsonString.length -1);
                 alertArray.push(add);
-                alertArray.push(jsonString);
+                alertArray.push(arrayString);
 
-                fs.writeFile('public/dbs/alertlog.json', alertArray, 'utf-8', function(err) {
+                fs.writeFile('public/dbs/alertlog.json', "["+alertArray+"]", 'utf-8', function(err) {
                     if (err) throw err;
                     console.log("Alert Saved to Log - Log Updated");
                 });
@@ -327,6 +362,8 @@ function saveTestPage(xml) {
 
 }
 
+
+/************        TEST ROUTE BLOCK  (WILL DELETE ON FINAL DELIVERABLE)    *********/
 /*DEBUG TEST ROUTE */
 router.get('/test', function(req, res, next) {
     res.render('test', { title: 'Test Page' });
@@ -336,5 +373,7 @@ router.get('/test', function(req, res, next) {
 router.get('/test2', function(req, res, next) {
     res.render('test2', { title: 'Test Page2' });
 });
+/************************************************************************************* */
+
 
 module.exports = router;
