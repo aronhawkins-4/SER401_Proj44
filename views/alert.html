@@ -863,7 +863,8 @@
         </div>
         <br>
         <div class="modal-footer">
-            <h3>Confirm Submission / Back Buttons Go Here</h3>
+            <button id="modal-cancel-button">Cancel</button>
+            <button id="modal-submit-button">Comfirm and Submit Alert</button>
         </div>
     </div>
   
@@ -872,8 +873,15 @@
 <script>
 
     var btn = document.getElementById("submit-button");
+    var cancelBtn = document.getElementById("modal-cancel-button");
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("close")[0];
+
+    cancelBtn.onclick = function() {
+
+        modal.style.display = "none";
+
+    }
 
     btn.onclick = function() {
 
