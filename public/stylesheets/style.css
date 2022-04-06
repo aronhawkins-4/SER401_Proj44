@@ -25,7 +25,7 @@ h2 {
 }
 
 p {
-  float: right;
+  /* float: right; */
   font-size: 10px;
 }
 
@@ -83,19 +83,32 @@ footer {
   border-bottom: 2px solid #005287;
   padding-bottom: 1px;
   padding-top: 25px;
+  line-height: 1.25rem;
 }
 
 #techStack {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
+  line-height: 1.25rem;
 }
 
 #techList {
   text-align: center;
   list-style-type: none;
   font-size: 1em;
-  margin-right: 2%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-wrap: wrap;
+  /* margin-right: 2%; */
+  padding: 0;
+  max-width: 60%;
+  line-height: 1.25rem;
+}
+#techList li {
+  flex: 0 0 50%;
+  line-height: 1.25rem;
 }
 
 #devPDIV {
@@ -103,6 +116,7 @@ footer {
   justify-content: center;
   color: black;
   font-size: 1em;
+  line-height: 1.25rem;
 }
 
 #devP {
@@ -110,14 +124,24 @@ footer {
   border-bottom: 2px solid #005287;
   padding-bottom: 1px;
   padding-top: 25px;
+  line-height: 1.5rem;
 }
 
 #developers {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
+  line-height: 1.5rem;
 }
-
+#aboutDesc {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+}
+#aboutDesc p {
+  padding: 0 25px;
+}
 .nav-container {
   display: flex;
   align-items: center;
@@ -398,6 +422,7 @@ select {
   justify-content: center;
   color: black;
   font-size: 1em;
+  line-height: 1.5rem;
 }
 
 #sponsorP {
@@ -405,6 +430,7 @@ select {
   border-bottom: 2px solid #005287;
   padding-bottom: 1px;
   padding-top: 25px;
+  line-height: 1.5rem;
 }
 
 #devP {
@@ -473,6 +499,7 @@ select {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
+  line-height: 1.25rem;
 }
 
 #sponsorList {
@@ -480,7 +507,8 @@ select {
   justify-content: center;
   list-style-type: none;
   font-size: 1em;
-  margin-right: 2%;
+  padding: 0;
+  line-height: 1.25rem;
 }
 
 #developerList {
@@ -488,7 +516,8 @@ select {
   justify-content: center;
   list-style-type: none;
   font-size: 1em;
-  margin-right: 2%;
+  padding: 0;
+  line-height: 1.25rem;
 }
 
 /* Style Text Areas */
