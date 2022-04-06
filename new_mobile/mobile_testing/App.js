@@ -21,7 +21,7 @@ export default function App() {
       {Platform.OS === "android" && <CloseButton />}
       <WebView
         // PUT YOUR OWN COMPUTER'S IP ADDRESS BELOW
-        source={{ uri: "http://192.168.68.112:3000/" }}
+        source={{ uri: "http://192.168.0.52:3000/" }}
         // ref = {"webView"}
         // onNavigationStateChange={this.onNavigationStateChange}
       ></WebView>
