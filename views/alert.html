@@ -40,8 +40,10 @@
 
 <body onload="pageLoad()">
     <header id="header">
-        <p id="invis"></p>
-        <h1><a href="./">AO APP (BETA)</a></h1>
+        <a href="./" id="backButton">
+            <img id="back_button" class="alertLogo" src="images/back_arrow_header_icon.png" alt="Back button"></img>
+        </a>
+        <h1>AO APP</h1>
         <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
             target="_blank" id="headerLink">
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
@@ -793,18 +795,19 @@
     <div>
         <button class="button button1">Submit Alert!</button>
     </div>
-    <div class="nav-container alert-nav-container">
-	    <div id="aboutHomeButton"><a href="./"><button>Home</button></a></div>
-        <div id="aboutAlertButton"><a href="about"><button>About</button></a></div>
-        <div id="aboutLogButton"><a href="alertlog"><button>Alert Log</button></a></div>
-    </div>
-    <footer id="footer">
-        <p id="phone_number">1 (800) 621-3362</p>
-        <a id="aboutLink" href="/about">About AO APP</a>
-        <a href="https://www.fema.gov/" target="_blank" id="footerLink">
-            <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
-        </a>
-        <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+    <footer id="alert-footer" class="footer">
+        <div class="footer-container">
+            <div class="footer-logo-container">
+                <a href="https://www.fema.gov/" target="_blank" id="footerLink">
+                    <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+                </a>
+            </div>
+            <div class="footer-info-container">
+                <a id="phone_number">1 (800) 621-3362</a>
+                <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+                <a href="./about" target="_blank" id="about">About AO App</a>
+            </div>
+        </div>  
     </footer>
 </body>
 

@@ -9,12 +9,132 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="/jquery/jquery.js"></script>
+
+    <script>
+        var alertLog;
+        var msg;
+        var geocodes = [];
+
+        //Retreive alert log from file and store it 
+        var promise = $.get("dbs/alertlog.json", function (data) {
+            alertLog = data;
+        });
+        promise.done(function (data) {
+            //Retreive alert number from the url 
+            var msgNumber = window.location.href;
+            msgNumber = msgNumber.substring(msgNumber.indexOf("?") + 1, msgNumber.length);
+
+            //Parse alert log to json format 
+            alertLog = JSON.stringify(alertLog);
+            alertLog = JSON.parse(alertLog);
+
+            //Find the index for the alert number 
+
+            for (i = 0; i < alertLog.length; i++) {
+                if (alertLog[i].identifier === msgNumber) {
+                    msg = i;
+                }
+            }
+
+            $(document).ready(function () {
+                //Populate element values and disable them so they can be read only 
+                $('#identifier').prop('disabled', true);
+                document.getElementById("identifier").value = alertLog[msg].identifier;
+
+                $('#sender').prop('disabled', true);
+                document.getElementById("sender").value = alertLog[msg].sender;
+
+                $('#msgTypeDropdown').prop('disabled', true);
+                document.getElementById("msgTypeDropdown").value = alertLog[msg].msgType;
+
+                $('#status').prop('disabled', true);
+                document.getElementById("status").value = alertLog[msg].status;
+
+                $('#categoryDropdown').prop('disabled', true);
+                document.getElementById("categoryDropdown").value = alertLog[msg].category;
+
+                $('#alertDropdown').prop('disabled', true);
+                document.getElementById("alertDropdown").value = alertLog[msg].severity;
+
+                $('#certaintyDropdown').prop('disabled', true);
+                document.getElementById("certaintyDropdown").value = alertLog[msg].certainty;
+
+                $('#urgencyDropdown').prop('disabled', true);
+                document.getElementById("urgencyDropdown").value = alertLog[msg].urgency;
+
+                $('#eventDropdown').prop('disabled', true);
+                document.getElementById("eventDropdown").value = alertLog[msg].eventCode;
+
+                //Retrieve the number of geocodes form from the comma separated values 
+                if (alertLog[msg].geo.length == 5) {
+                    geocodes.push(alertLog[msg].geo)
+                } else {
+                    let geos = alertLog[msg].geo;
+                    geocodes = geos.split(',');
+                }
+
+                $('#numCodesDropdown').prop('disabled', true);
+                document.getElementById("numCodesDropdown").value = geocodes.length;
+
+                $('#eventSubjFi180').prop('disabled', true);
+                document.getElementById("eventSubjFi180").value = alertLog[msg].event;
+
+                $('#eventFi180').prop('disabled', true);
+                document.getElementById("eventFi180").value = alertLog[msg].areaDesc;
+
+                $('#alertEn360').prop('disabled', true);
+                document.getElementById("alertEn360").value = alertLog[msg].desc;
+
+                if (alertLog[msg].spanCheck === "true") {
+                    $('#eventFi180sp').prop('disabled', true);
+                    document.getElementById("eventFi180sp").value = alertLog[msg].spanAreaDesc;
+
+                    $('#alertSp360').prop('disabled', true);
+                    document.getElementById("alertSp360").value = alertLog[msg].spanDesc;
+                } else {
+                    $('#hideSpan').hide();
+                }
+            });
+        });
+
+
+        var geoList = new Array;
+
+        //Populate the FIPS fields
+        var promise = $.get("dbs/geocodes.json", function (data) {
+            geoList = data;
+        });
+        promise.done(function (data) {
+            geoList = JSON.stringify(geoList);
+            geoList = JSON.parse(geoList);
+
+            $(document).ready(function () {
+                if (geocodes.length > 5) {
+                    //TODO populate all FIPS codes when you have multiple 
+                } else {
+                    var index;
+
+                    for (i = 0; i < geoList.length; i++) {
+                        if (geocodes[0] === geoList[i].id) {
+                            index = i;
+                        }
+                    }
+
+                    $('#selectid').prop('disabled', true);
+                    document.getElementById("selectid").value = "" + geoList[index].id + " " + geoList[index].name + " " + geoList[index].state;
+                }
+            });
+        });
+
+    </script>
 </head>
 
 <body>
     <header id="header">
-        <p id="invis"></p>
-        <h1><a href="./">AO APP (BETA)</a></h1>
+        <a href="./alertlog" id="backButton">
+            <img id="back_button" class="alertLogo" src="images/back_arrow_header_icon.png" alt="Back button"></img>
+        </a>
+        <h1>AO APP (BETA)</h1>
         <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
             target="_blank" id="headerLink">
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
@@ -627,16 +747,22 @@
     <br><br>
     <div>
         <form action="/alertlog" method="get">
-            <button class="button button1">Back to Alert Log</button>
+            <button class="button button1">Back to Log</button>
         </form>
     </div>
-    <footer id="footer">
-        <p id="phone_number">1 (800) 621-3362</p>
-        <a id="aboutLink" href="/about">About AO APP</a>
-        <a href="https://www.fema.gov/" target="_blank" id="footerLink">
-            <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
-        </a>
-        <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+    <footer id="hist-footer" class="footer">
+        <div class="footer-container">
+            <div class="footer-logo-container">
+                <a href="https://www.fema.gov/" target="_blank" id="footerLink">
+                    <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+                </a>
+            </div>
+            <div class="footer-info-container">
+                <a id="phone_number">1 (800) 621-3362</a>
+                <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+                <a href="./about" target="_blank" id="about">About AO App</a>
+            </div>
+        </div>  
     </footer>
 </body>
 
