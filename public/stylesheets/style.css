@@ -5,24 +5,29 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #f7f7f7;
 }
+
 header {
   height: 90px;
   display: flex;
   justify-content: space-between;
   background-color: #005287;
 }
+
 h1 {
   justify-self: center;
   align-self: center;
   color: white;
 }
+
 h2 {
   padding: 0 100px;
 }
+
 p {
   float: right;
   font-size: 10px;
 }
+
 a {
   color: #00b7ff;
 }
@@ -49,9 +54,11 @@ button {
   border-radius: 5px;
   transition: 0.1s;
 }
+
 button:hover {
   background-color: #ff0f0f;
 }
+
 footer {
   height: 90px;
   display: flex;
@@ -73,51 +80,61 @@ footer {
   color: black;
   font-size: 1em;
 }
+
 #aboutP {
   font-size: 1em;
   border-bottom: 2px solid #005287;
   padding-bottom: 1px;
   padding-top: 25px;
 }
+
 #techStack {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
 }
+
 #techList {
   text-align: center;
   list-style-type: none;
   font-size: 1em;
   margin-right: 2%;
 }
+
 #devPDIV {
   display: flex;
   justify-content: center;
   color: black;
   font-size: 1em;
 }
+
 #devP {
   font-size: 1em;
   border-bottom: 2px solid #005287;
   padding-bottom: 1px;
   padding-top: 25px;
 }
+
 #developers {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
 }
+
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .nav-container button {
   margin: 0 15px;
 }
+
 .nav-container a {
   text-decoration: none;
 }
+
 .alert-nav-container {
   margin-top: 50px;
 }
@@ -131,10 +148,12 @@ footer {
   justify-content: center;
   align-content: center;
 }
+
 table {
   border-collapse: collapse;
   border: 2px solid #3399cc;
 }
+
 table,
 th,
 td {
@@ -142,6 +161,7 @@ td {
   padding: 0.5em;
   text-align: center;
 }
+
 tr:nth-child(odd) {
   background-color: #f5fafc;
 }
@@ -153,13 +173,15 @@ tr:nth-child(odd) {
   gap: 20px;
   padding: 0 100px;
 }
+
 .alertGridEn {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
+  grid-template-areas: "EvSubj180 Ev180""En360 geoArea";
   gap: 20px;
   padding: 20px 100px;
 }
+
 .alertGridSp {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -167,6 +189,7 @@ tr:nth-child(odd) {
   gap: 20px;
   padding: 20px 100px;
 }
+
 .dropdownMenu {
   margin: 5px;
   outline: none;
@@ -175,20 +198,24 @@ tr:nth-child(odd) {
   border-radius: 2px;
   width: 95%;
 }
+
 .dropdownMenu_style {
   margin: 5px;
   width: auto;
   height: auto;
   font-size: 16px;
 }
+
 .checkLine {
   display: inline-flexbox;
   gap: 20px;
   padding: 0 100px;
 }
+
 #Ev180 {
   grid-area: Ev180;
 }
+
 .alertLogo {
   display: flex;
   justify-content: center;
@@ -199,23 +226,29 @@ tr:nth-child(odd) {
   min-height: 3em;
   width: 95%;
 }
+
 #eventFi180,
 #eventFi180sp {
   padding-bottom: 29px;
 }
+
 #En360 {
   grid-area: En360;
 }
+
 #Ev180sp {
   grid-area: Ev180sp;
 }
+
 #Sp360 {
   grid-area: Sp360;
 }
+
 .event180 {
   min-height: 3em;
   width: 95%;
 }
+
 .selectFIPS {
   width: 95%;
   padding: 6px 10px 6px;
@@ -225,6 +258,7 @@ tr:nth-child(odd) {
   border-radius: 2px;
   box-sizing: border-box;
 }
+
 input[type="text"],
 select {
   width: 95%;
@@ -235,6 +269,7 @@ select {
   border-radius: 2px;
   box-sizing: border-box;
 }
+
 input[type="email"],
 select {
   width: 95%;
@@ -246,6 +281,7 @@ select {
   border-radius: 2px;
   box-sizing: border-box;
 }
+
 #mapid {
   height: 80vh;
   border-top: 7px solid #005287;
@@ -255,6 +291,7 @@ select {
   padding: 10px;
   margin: 0 50px;
 }
+
 #map {
   border-top: 7px solid #005287;
   border-bottom: 7px solid #005287;
@@ -270,10 +307,12 @@ select {
   width: 125px;
   align-self: center;
 }
+
 #header a {
   text-decoration: none;
   color: white;
 }
+
 #header_logo {
   padding-top: 20px;
   padding-right: 50px;
@@ -285,6 +324,7 @@ select {
   width: 100%;
   margin-top: auto;
 }
+
 #index-container {
   display: flex;
   flex-direction: column;
@@ -294,6 +334,7 @@ select {
   height: 70vh;
   margin: 0 20px;
 }
+
 #phone_number {
   /* color: white; */
   font-size: 16px;
@@ -307,6 +348,7 @@ select {
   color: white;
   text-decoration: none;
 }
+
 #alertLogHomeButton {
   display: flex;
   justify-content: center;
@@ -336,6 +378,7 @@ select {
   min-height: 3em;
   width: 95%;
 }
+
 #sponsorPDIV {
   display: flex;
   justify-content: center;
@@ -375,12 +418,15 @@ select {
 #alertTest {
   font-size: 2em;
 }
+
 .homeIcon {
   text-decoration: none;
 }
+
 .home-body {
   height: 100vh;
 }
+
 .alertPageButton {
   display: flex;
   flex-direction: column;
@@ -475,7 +521,7 @@ textarea {
 .alertGridEn {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
+  grid-template-areas: "EvSubj180 Ev180""En360 geoArea";
   gap: 20px;
   padding: 20px 100px;
 }
@@ -515,6 +561,7 @@ textarea {
 #Sp360 {
   grid-area: Sp360;
 }
+
 .alertGrid2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -602,7 +649,7 @@ option {
     padding: 20px 50px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "EvSubj180" "Ev180" "En360" "geoArea";
+    grid-template-areas: "EvSubj180""Ev180""En360""geoArea";
   }
 
   .logGrid {
@@ -615,21 +662,24 @@ option {
     padding: 20px 50px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "Ev180sp" "Sp360";
+    grid-template-areas: "Ev180sp""Sp360";
   }
+
   .alertGrid3 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "msgNum msgSender" "msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop" "certaintyDrop eventDrop" "scopeDrop urgencyDrop" "alertInfoArea ev180";
+    grid-template-areas: "msgNum msgSender""msgTypeDrop msgStatusDrop""categoryDrop alertTypeDrop""certaintyDrop eventDrop""scopeDrop urgencyDrop""alertInfoArea ev180";
     padding: 0px 50px;
   }
+
   #fileAttachDiv {
     margin-right: 50px;
   }
+
   h1 {
     margin: auto;
   }
-  
+
   /* #headerLink,
     #footerLink {
         visibility: hidden;
@@ -639,6 +689,7 @@ option {
   #invis {
     width: 0px;
   }
+
   #mapid {
     height: 450px;
   }
@@ -668,6 +719,7 @@ option {
     position: absolute;
     white-space: nowrap;
   }
+
   .alertGrid2 {
     margin: 0 50px;
   }
@@ -686,8 +738,8 @@ option {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 
@@ -715,7 +767,7 @@ option {
 .modal-body {
   padding: 2px 16px;
   justify-content: center;
-  font-size: small;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 /* Modal Footer */
@@ -736,7 +788,7 @@ option {
   padding: 0;
   border: 1px solid #005287;
   width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 0.4s
 }
@@ -759,7 +811,7 @@ option {
   .alertGridEn {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "EvSubj180" "Ev180" "En360" "geArea";
+    grid-template-areas: "EvSubj180""Ev180""En360""geArea";
     padding: 0px 25px;
   }
 
@@ -771,25 +823,29 @@ option {
   .alertGridSp {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "Ev180sp" "Sp360";
+    grid-template-areas: "Ev180sp""Sp360";
     padding: 0px 25px;
   }
+
   .alertGrid3 {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
+    grid-template-areas: "msgNum""msgSender""msgTypeDrop""msgStatusDrop""categoryDrop""alertTypeDrop""certaintyDrop""eventDrop""scopeDrop""urgencyDrop""alertInfoArea""ev180";
     padding: 0px 25px;
     margin-bottom: -20px;
   }
+
   #mapid {
     height: 400px;
     align-items: center;
     margin: 0 25px;
   }
+
   .button1 {
     width: 50%;
     margin: 0 auto;
   }
+
   .checkLine {
     padding: 0px 25px;
     margin-top: 40px;
