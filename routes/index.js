@@ -360,18 +360,4 @@ function saveTestPage(xml) {
   });
 }
 
-
-/************        TEST ROUTE BLOCK  (WILL DELETE ON FINAL DELIVERABLE)    *********/
-/*DEBUG TEST ROUTE */
-router.get('/test', function (req, res, next) {
-  res.render('test', { title: 'Test Page' });
-});
-
-/*DEBUG TEST ROUTE 2*/
-router.get('/test2', function (req, res, next) {
-  res.render('test2', { title: 'Test Page2' });
-});
-/************************************************************************************* */
-
-
 module.exports = router;
