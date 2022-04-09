@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,23 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <title>About Page</title>
 </head>
+
 <body>
     <header id="header">
-        <p id="invis"></p>
-        <h1><a href="./">ABOUT AO APP (BETA)</a></h1>
-        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system" target="_blank" id="headerLink">
+        <a href="./" id="backButton">
+            <img id="back_button" class="alertLogo" src="images/back_arrow_header_icon.png" alt="Back button"></img>
+        </a>
+        <h1>AO APP</h1>
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
+            target="_blank" id="headerLink">
             <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
         </a>
     </header>
     <!-- <h1 id="aboutHeader">About</h1> -->
     <br>
-    <div id = "aboutPDIV"><h2 id="aboutP">Powered By</h2></div>
+    <div id="aboutPDIV">
+        <h2 id="aboutP">Powered By</h2>
+    </div>
     <div id="techStack">
         <ul id="techList">
             <li>JavaScript</li>
@@ -31,7 +38,9 @@
             <li>React.js</li>
         </ul>
     </div>
-    <div id = "devPDIV"><h2 id="devP">Developed By</h2></div>
+    <div id="devPDIV">
+        <h2 id="devP">Developed By</h2>
+    </div>
     <div id="developers">
         <ul id="developerList">
             <li>Jackson Call - jcall3@asu.edu</li>
@@ -41,7 +50,9 @@
             <li>Ryan Was - rwas1@asu.edu</li>
         </ul>
     </div>
-    <div id = "sponsorPDIV"><h2 id="sponsorP">Sponsors at AT&T</h2></div>
+    <div id="sponsorPDIV">
+        <h2 id="sponsorP">Sponsors at AT&T</h2>
+    </div>
     <div id="sponsors">
         <ul id="sponsorList">
             <li>Peter Musgrove - peter.musgrove@att.com</li>
@@ -49,20 +60,23 @@
         </ul>
     </div>
     <div id="sponsors">
-        <p>Application Developed Over the Course Of Arizona State University's Capstone Course Series</p>   
-    </div>
-    <div class="nav-container">
-	    <div id="aboutHomeButton"><a href="./"><button>Home</button></a></div>
-        <div id="aboutAlertButton"><a href="alert"><button>Send Alert</button></a></div>
-        <div id="aboutLogButton"><a href="alertlog"><button>Alert Log</button></a></div>
-    </div>
-    <footer id="footer">
-        <p id="phone_number">1 (800) 621-3362</p>
-        <a href="https://www.fema.gov/" target="_blank" id="footerLink">
-            <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
-        </a>
-        <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+        <p>Application Developed Over the Course Of Arizona State University's Capstone Course Series</p>
+    </div>  
+    <footer id="about-footer" class="footer">
+        <div class="footer-container">
+            <div class="footer-logo-container">
+                <a href="https://www.fema.gov/" target="_blank" id="footerLink">
+                    <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+                </a>
+            </div>
+            <div class="footer-info-container">
+                <a id="phone_number">1 (800) 621-3362</a>
+                <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+                <a href="./about" target="_blank" id="about">About AO App</a>
+            </div>
+        </div>  
     </footer>
 
 </body>
+
 </html>
