@@ -119,7 +119,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.writeElement('scope', scope);
     xw.writeElement('code', 'IPAWSv1.0');
     xw.startElement('info');
-    xw.writeElement('language', 'en-US');
+    xw.writeElement('language', 'es-US');
     xw.writeElement('category', category);
     xw.writeElement('event', event);
     xw.writeElement('urgency', urgency);
@@ -132,7 +132,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.writeElement('expires', expires);
     xw.writeElement('senderName', nameSender);
     xw.writeElement('headline', 'headline goes here');
-    xw.writeElement('description', desc);
+    xw.writeElement('description', spanDesc);
     xw.writeElement('instruction', 'instruction goes here');
     xw.writeElement('web', 'http://www.google.com');
     xw.startElement('parameter', 'parameter goes here');
@@ -140,7 +140,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
     xw.writeElement('value', 'value goes here');
     xw.endElement('parameter');
     xw.startElement('area');
-    xw.writeElement('areaDesc', areaDesc);
+    xw.writeElement('areaDesc', spanAreaDesc);
     if (layersJson != null) {
         for (var i = 0; i < layersJson.length; i++) {
             var coordinates = layersJson[i].coordinates.toString();
@@ -161,7 +161,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 
             xw.writeElement(shape, coordinates);
         }
-    }
+      }
 
     for (var i = 0; i < geo.length; i++) {
         xw.startElement('geocode');
@@ -172,7 +172,7 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 
     xw.endElement('area');
     xw.endElement('info');
-
+  
     if (spanCheck === "true") {
 
         xw.startElement('info');
@@ -231,19 +231,19 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
         xw.endElement('area');
         xw.endElement('info');
 
-    }
+      }
 
-    xw.endDocument();
-    let xmlString = xw.toString();
-
-    fs.writeFile('public/dbs/temp.xml', xmlString, function(err) {
-
-        if (err) throw err;
-        console.log("XML Saved");
-    });
-
-    return xmlString;
-}
+      xw.endDocument();
+      let xmlString = xw.toString();
+  
+      fs.writeFile('public/dbs/temp.xml', xmlString, function(err) {
+  
+          if (err) throw err;
+          console.log("XML Saved");
+      });
+  
+      return xmlString;
+  }
 
 /* Generate and save json alert message data */
 function saveJson(identifier, sender, sent, status, msgType, scope, event, category, urgency, severity, certainty, eventCode, expires, desc, areaDesc, geo, spanCheck, spanAreaDesc, spanDesc, numGeocodes, layersJson) {
@@ -354,24 +354,22 @@ function updateLog(add) {
 
 /* Generate and save xml alert messag data */
 function saveTestPage(xml) {
-
-    fs.writeFile('views/test.html', xml, function(err) {
-        if (err) throw err;
-        console.log("Test Page Saved");
-    });
-
+  fs.writeFile('views/test.html', xml, function (err) {
+    if (err) throw err;
+    console.log('Test Page Saved');
+  });
 }
 
 
 /************        TEST ROUTE BLOCK  (WILL DELETE ON FINAL DELIVERABLE)    *********/
 /*DEBUG TEST ROUTE */
-router.get('/test', function(req, res, next) {
-    res.render('test', { title: 'Test Page' });
+router.get('/test', function (req, res, next) {
+  res.render('test', { title: 'Test Page' });
 });
 
 /*DEBUG TEST ROUTE 2*/
-router.get('/test2', function(req, res, next) {
-    res.render('test2', { title: 'Test Page2' });
+router.get('/test2', function (req, res, next) {
+  res.render('test2', { title: 'Test Page2' });
 });
 /************************************************************************************* */
 
