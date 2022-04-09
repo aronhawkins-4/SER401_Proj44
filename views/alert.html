@@ -793,7 +793,7 @@
     </div>
     <br><br>
     <div>
-        <button class="button button1">Submit Alert!</button>
+        <button id='submit-button' class="button button1">Submit Alert!</button>
     </div>
     <footer id="alert-footer" class="footer">
         <div class="footer-container">
@@ -810,5 +810,362 @@
         </div>  
     </footer>
 </body>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <!-- <span class="close">&times;</span> -->
+            <h2>Alert Submission Confirmation</h2>
+        </div>
+        <br>
+        <div class="modal-body">
+            <h4>Alert Information</h4>
+            <div>
+                <h5 id="senderHeader">Sender's Email: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="typeHeader">Alert Type: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="statusHeader">Alert Status: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="categoryHeader">Category: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="severityHeader">Severity: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="certaintyHeader">Event Certainty: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="urgencyHeader">Event Urgency: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="eventcodeHeader">Event Code: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="subjHeader">Subject: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="areadescHeader">Alert Area Description: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="messageHeader">Alert Message: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="fipsHeader">FIPS Code(s): (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="spanishHeader">Spanish Message Included: (Empty)</h5>
+            </div>
+            <div>
+                <h5 id="spAreaDescHeader"></h5>
+            </div>
+            <div>
+                <h5 id="spMessageHeader"></h5>
+            </div>
+        </div>
+        <br>
+        <div class="modal-footer">
+            <button id="modal-cancel-button">Cancel</button>
+            <button id="modal-submit-button">Comfirm and Submit Alert</button>
+        </div>
+    </div>
+  
+</div>
+
+<script>
+
+    var btn = document.getElementById("submit-button");
+    var cancelBtn = document.getElementById("modal-cancel-button");
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    cancelBtn.onclick = function() {
+
+        modal.style.display = "none";
+
+    }
+
+    btn.onclick = function() {
+
+        var valTemp = document.getElementById("sender").value
+        document.getElementById("senderHeader").innerText="Sender's Email: " + valTemp
+
+        valTemp = document.getElementById("msgTypeDropdown")
+        valTemp.options[valTemp.selectedIndex].text
+        document.getElementById("typeHeader").innerText="Alert Type: " + valTemp.options[valTemp.selectedIndex].text
+
+        valTemp = document.getElementById("status")
+        valTemp.options[valTemp.selectedIndex].text
+        document.getElementById("statusHeader").innerText="Alert Status: " + valTemp.options[valTemp.selectedIndex].text
+
+        valTemp = document.getElementById("eventSubjFi180").value
+        document.getElementById("subjHeader").innerText="Alert Subject: " + valTemp
+
+        valTemp = document.getElementById("eventFi180").value
+        document.getElementById("areadescHeader").innerText="Alert Area Description: " + valTemp
+
+        valTemp = document.getElementById("alertEn360").value
+        document.getElementById("messageHeader").innerText="Alert Message: " + valTemp
+
+        valTemp = document.getElementById("categoryDropdown")
+        valTemp.options[valTemp.selectedIndex].text
+        document.getElementById("categoryHeader").innerText="Event Category: " + valTemp.options[valTemp.selectedIndex].text
+
+        valTemp = document.getElementById("alertDropdown")
+        valTemp.options[valTemp.selectedIndex].text
+        document.getElementById("severityHeader").innerText="Event Severity: " + valTemp.options[valTemp.selectedIndex].text
+
+        valTemp = document.getElementById("certaintyDropdown")
+        valTemp.options[valTemp.selectedIndex].text
+        document.getElementById("certaintyHeader").innerText="Event Certainty: " + valTemp.options[valTemp.selectedIndex].text
+        
+        valTemp = document.getElementById("urgencyDropdown")
+        valTemp.options[valTemp.selectedIndex].text
+        document.getElementById("urgencyHeader").innerText="Event Urgency: " + valTemp.options[valTemp.selectedIndex].text
+
+        valTemp = document.getElementById("eventDropdown")
+        valTemp.options[valTemp.selectedIndex].text
+        document.getElementById("eventcodeHeader").innerText="Event Code: " + valTemp.options[valTemp.selectedIndex].text
+
+        valTemp = document.getElementById("numCodesDropdown")
+        numCodesString = valTemp.options[valTemp.selectedIndex].text
+        
+        numCodes = parseInt(numCodesString)
+
+        valTemp = document.getElementById("selectid")
+        tempString = "FIPS Code(s): " + valTemp.value
+        document.getElementById("fipsHeader").innerText = tempString
+
+        if(numCodes > 1){
+            valTemp = document.getElementById("selectid1")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 2){
+            valTemp = document.getElementById("selectid2")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 3){
+            valTemp = document.getElementById("selectid3")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 4){
+            valTemp = document.getElementById("selectid4")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 5){
+            valTemp = document.getElementById("selectid5")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 6){
+            valTemp = document.getElementById("selectid6")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 7){
+            valTemp = document.getElementById("selectid7")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 8){
+            valTemp = document.getElementById("selectid8")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 9){
+            valTemp = document.getElementById("selectid9")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 10){
+            valTemp = document.getElementById("selectid10")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 11){
+            valTemp = document.getElementById("selectid11")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 12){
+            valTemp = document.getElementById("selectid12")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 13){
+            valTemp = document.getElementById("selectid13")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 14){
+            valTemp = document.getElementById("selectid14")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 15){
+            valTemp = document.getElementById("selectid15")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 16){
+            valTemp = document.getElementById("selectid16")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 17){
+            valTemp = document.getElementById("selectid17")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 18){
+            valTemp = document.getElementById("selectid18")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 19){
+            valTemp = document.getElementById("selectid19")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 20){
+            valTemp = document.getElementById("selectid20")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 21){
+            valTemp = document.getElementById("selectid21")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 22){
+            valTemp = document.getElementById("selectid22")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 23){
+            valTemp = document.getElementById("selectid23")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 24){
+            valTemp = document.getElementById("selectid24")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 25){
+            valTemp = document.getElementById("selectid25")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 26){
+            valTemp = document.getElementById("selectid26")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 27){
+            valTemp = document.getElementById("selectid27")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 28){
+            valTemp = document.getElementById("selectid28")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 29){
+            valTemp = document.getElementById("selectid29")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        if(numCodes > 30){
+            valTemp = document.getElementById("selectid30")
+            tempString = tempString + ", " + valTemp.value
+            document.getElementById("fipsHeader").innerText = tempString
+        }
+
+        valTemp = document.getElementById("spanchk").checked
+        
+        if(valTemp == false){
+
+            valTemp = "No"
+
+        }else{
+
+            valTemp = "Yes"
+
+        }
+
+        document.getElementById("spanishHeader").innerText="Spanish Alert Included: " + valTemp
+
+        valTemp = document.getElementById("eventFi180sp").value
+        
+        if(valTemp != ""){
+
+            document.getElementById("spAreaDescHeader").innerText = "Spanish Alert Area Description: " + valTemp
+
+        }
+
+        valTemp = document.getElementById("alertSp360").value
+        
+        if(valTemp != ""){
+
+            document.getElementById("spMessageHeader").innerText = "Spanish Alert Message: " + valTemp
+
+        }
+
+        modal.style.display = "block";
+
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+</script>
+
 
 </html>
