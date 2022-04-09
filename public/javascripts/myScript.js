@@ -1230,7 +1230,7 @@ function countWord() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('button.button').addEventListener('click', handleClick);
+    document.querySelector('#modal-submit-button').addEventListener('click', handleClick);
 
 });
 
