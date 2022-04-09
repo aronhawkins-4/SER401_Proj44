@@ -177,7 +177,7 @@ tr:nth-child(odd) {
 .alertGridEn {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "EvSubj180 Ev180""En360 geoArea";
+  grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
   gap: 20px;
   padding: 20px 100px;
 }
@@ -521,7 +521,7 @@ textarea {
 .alertGridEn {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "EvSubj180 Ev180""En360 geoArea";
+  grid-template-areas: "EvSubj180 Ev180" "En360 geoArea";
   gap: 20px;
   padding: 20px 100px;
 }
@@ -649,7 +649,7 @@ option {
     padding: 20px 50px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "EvSubj180""Ev180""En360""geoArea";
+    grid-template-areas: "EvSubj180" "Ev180" "En360" "geoArea";
   }
 
   .logGrid {
@@ -662,13 +662,13 @@ option {
     padding: 20px 50px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "Ev180sp""Sp360";
+    grid-template-areas: "Ev180sp" "Sp360";
   }
 
   .alertGrid3 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "msgNum msgSender""msgTypeDrop msgStatusDrop""categoryDrop alertTypeDrop""certaintyDrop eventDrop""scopeDrop urgencyDrop""alertInfoArea ev180";
+    grid-template-areas: "msgNum msgSender" "msgTypeDrop msgStatusDrop" "categoryDrop alertTypeDrop" "certaintyDrop eventDrop" "scopeDrop urgencyDrop" "alertInfoArea ev180";
     padding: 0px 50px;
   }
 
@@ -811,7 +811,7 @@ option {
   .alertGridEn {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "EvSubj180""Ev180""En360""geArea";
+    grid-template-areas: "EvSubj180" "Ev180" "En360" "geArea";
     padding: 0px 25px;
   }
 
@@ -823,14 +823,14 @@ option {
   .alertGridSp {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "Ev180sp""Sp360";
+    grid-template-areas: "Ev180sp" "Sp360";
     padding: 0px 25px;
   }
 
   .alertGrid3 {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "msgNum""msgSender""msgTypeDrop""msgStatusDrop""categoryDrop""alertTypeDrop""certaintyDrop""eventDrop""scopeDrop""urgencyDrop""alertInfoArea""ev180";
+    grid-template-areas: "msgNum" "msgSender" "msgTypeDrop" "msgStatusDrop" "categoryDrop" "alertTypeDrop" "certaintyDrop" "eventDrop" "scopeDrop" "urgencyDrop" "alertInfoArea" "ev180";
     padding: 0px 25px;
     margin-bottom: -20px;
   }
