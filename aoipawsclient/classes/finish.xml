@@ -1,0 +1,62 @@
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+    <identifier>20223123101814224JKE</identifier>
+    <sender>jkeigh0773@gmail.com</sender>
+    <sent>2022-03-23T10:18:14-04:00</sent>
+    <status>Test</status>
+    <msgType>Alert</msgType>
+    <scope>Public</scope>
+    <code>IPAWSv1.0</code>
+    <info>
+        <language>en-US</language>
+        <category>CBRNE</category>
+        <event>bad</event>
+        <urgency>Immediate</urgency>
+        <severity>Extreme</severity>
+        <certainty>Likely</certainty>
+        <eventCode>
+            <valueName>SAME</valueName>
+            <value>AVA</value>
+        </eventCode>
+        <expires>2022-03-14T10:18:14-04:00</expires>
+        <description>bad bad bad</description>
+        <area>
+            <areaDesc>bad area </areaDesc>
+            <geocode>
+                <valueName>SAME</valueName>
+                <value>004000</value>
+            </geocode>
+        </area>
+    </info>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>ZYXZFYHDr5HcU9AOsWmu5LvWvngeqqRKDkjx5JAmniQ=</DigestValue></Reference></SignedInfo><SignatureValue>GXS7rRo18FUDxolDFmK/z1ftlDCyjSUsbN/Nh0tucinhqNIgdTmZz/veYPs/O/dTI2tqNJ14T48w
+pT/PZ6U8u08EQW07M64e+IWXhZ8sJURjdTfFRpC8nk6DFYM4BSgMCFKcUb19ImUUYdloQqs2adwH
+t5g/453YAX1bBmCyFDZHycNqBZJaS1sTeGzx8oBwtTKOH3aAi4Ax2o7hf6W4N5cUoq24YCySeOi7
+KBJ5Sz3PKKMAs2LHfyVR8wj4xAii1Awr7S8rjV2tJCO7qslM5+4GANUlgbXc21rS7psyBlOSNwE4
++jGC4G3Eo4S+QPjyqHD6sPT5s952XOsfYKWEsg==</SignatureValue><KeyInfo><X509Data><X509Certificate>MIIGUzCCBTugAwIBAgIQQAF9JHSji4PBCLUgRV3FADANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQG
+EwJVUzESMBAGA1UEChMJSWRlblRydXN0MSAwHgYDVQQLExdJZGVuVHJ1c3QgR2xvYmFsIENvbW1v
+bjEcMBoGA1UEAxMTUFRFIElHQyBEZXZpY2UgQ0EgMTAeFw0yMTExMTUxNjM2MDNaFw0yNDExMTQx
+NjM2MDJaMIGlMQswCQYDVQQGEwJVUzETMBEGA1UEChMKRkVNQSBJUEFXUzElMCMGA1UECxMcTmF0
+aW9uYWwgQ29udGludWl0eSBQcm9ncmFtczEWMBQGA1UECxMNRGV2aWNlcyBJUEFXUzEoMCYGA1UE
+CxMfQTAxNDEzMzAwMDAwMTdEMjQ3NEEzNzMwMDAwMkQyMjEYMBYGA1UEAxMPaXBhd3NvcGVuMTIw
+MDc1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApUyjkYTXq4WaSfRMWvkbeFeMUnyE
+PVFrn8wyLJAQGoloANwBTZ6Y6iXsH+UYeBfAbEXe9GODWB7KOhFcW1jBRkL8FG/1ntyvUh4tiL6u
+nBnX2TKrEyi/3lvyq1z7n0JJ1kWGiQgfChwxbT/IydcNmwAjRTkl17u0dzRj7/ykpinJ5Y6xhgSE
+0DUJQtlulqC/Uq8JqUxBhVcuHhE1PTGxW75aukxaGN45UVoh49AIvgpIW7JyFWo10eXW+NtpO6eu
+Dlm5z1gOR7XKCqCpkCpj/OCeLDcvPaGmbJMecwJpRlrvxzNWwdZnyRWsBoe+Dp0ZmpUiIrVe1Fos
+tc9dw0NOAQIDAQABo4ICwDCCArwwDgYDVR0PAQH/BAQDAgWgMIGEBggrBgEFBQcBAQR4MHYwLwYI
+KwYBBQUHMAGGI2h0dHA6Ly9JR0NDQTFQVEUub2NzcC5pZGVudHJ1c3QuY29tMEMGCCsGAQUFBzAC
+hjdodHRwOi8vYXBwcy1zdGcuaWRlbnRydXN0LmNvbS9yb290cy9wdGVJR0NEZXZpY2VDQTEucDdj
+MB8GA1UdIwQYMBaAFLurb+4B47/hOPBQFj0+4EXgjEMHMIIBUgYDVR0gBIIBSTCCAUUwggFBBgtg
+hkgBhvkvAGQlAjCCATAwSwYIKwYBBQUHAgEWP2h0dHBzOi8vc2VjdXJlLmlkZW50cnVzdC5jb20v
+Y2VydGlmaWNhdGVzL3BvbGljeS9JR0MvaW5kZXguaHRtbDCB4AYIKwYBBQUHAgIwgdMMgdBUZXN0
+IENlcnRpZmljYXRlLiBEbyBObyBSZWx5LiBDZXJ0aWZpY2F0ZSB1c2UgcmVzdHJpY3RlZCB0byBS
+ZWx5aW5nIFBhcnR5KHMpIGluIGFjY29yZGFuY2Ugd2l0aCBJR0MtQ1AgKHNlZSBodHRwczovL3Nl
+Y3VyZS5pZGVudHJ1c3QuY29tL2NlcnRpZmljYXRlcy9wb2xpY3kvSUdDL2luZGV4Lmh0bWwpLiBJ
+R0MtQ1BTIGluY29ycG9yYXRlZCBieSByZWZlcmVuY2UuMD4GA1UdHwQ3MDUwM6AxoC+GLWh0dHA6
+Ly9jcmwtcHRlLmlkZW50cnVzdC5jb20vaWdjZGV2aWNlY2ExLmNybDAaBgNVHREEEzARgg9pcGF3
+c29wZW4xMjAwNzUwHQYDVR0OBBYEFAFbU/qfQ5GH77qT8CBotkMfbIosMDEGA1UdJQQqMCgGCCsG
+AQUFBwMCBggrBgEFBQcDBQYIKwYBBQUHAwYGCCsGAQUFBwMHMA0GCSqGSIb3DQEBCwUAA4IBAQBr
+72DZ3m0ayE6z4PDFvCsSjlZ25EvKRqXykXGR7l/LOgW0FYS62Q0T3o8rEe0b9qTRqKWNnFbiJiMA
+hXFP6MotT1k6NsPEzQcs+3HXEAJ/ZgRo+3EbzuZEV0JPmEXAH+KHGMvjBr3XUDRcbLvbkdpBa1Kg
+7BKpeXktI8d63RVuUhWZcQIiD7VeGIp99aydKcSXmna9HzKc/PJZWQj7WEYCzAubI5vc0BoMBbdz
+urglKzD0Wm5TcSSAdm8/q6mLVOvkNA8XpqfW+P5uB7denU0Qbrlzx+L/ewuu7c0MGvGsbSY6XO1c
+rbaC20EpxyXke/P7qGsrO4Bzu4mVauZqjlfD</X509Certificate></X509Data></KeyInfo></Signature></alert>
