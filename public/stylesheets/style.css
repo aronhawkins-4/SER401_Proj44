@@ -333,12 +333,12 @@ select {
 }
 
 #profile-footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
 
 #log-footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
 
@@ -877,16 +877,6 @@ option {
     position: relative;
     margin-top: 50px;
     height: 200px;
-  }
-
-  #profile-footer {
-    position: relative;
-    bottom: 0;
-  }
-
-  #log-footer {
-    position: relative;
-    bottom: 0;
   }
 
   .footer-container {
