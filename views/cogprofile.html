@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="/jquery/jquery.js"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script>
+        var profile = new Array;
+
+        var promise = $.get("dbs/cogProfile.json", function (data) {
+            profile = data;
+        });
+
+        promise.done(function (data) {
+            profile = JSON.stringify(profile);
+            profile = JSON.parse(profile);
+        
+            var profileMain = JSON.stringify(profile.CogProfile);
+            profileMain = JSON.parse(profileMain); 
+
+            let id = profileMain[0].cogid;
+            let subscriber = profileMain[1].name;
+            let subscriberDesc = profileMain[2].description;
+            let categoryName = profileMain[3].categoryName;  
+            let organizationName = profileMain[4].organizationName;
+            let cogEnabled = profileMain[5].cogEnabled;   
+            let broadcastAuthorized = profileMain[6].broadcastAuthorized;
+            let email = profileMain[7].email;
+            let eventCodes = JSON.stringify(profileMain[8]);
+            let geoCodes = JSON.stringify(profileMain[9]);
+            
+            $(document).ready(function () {
+                $('#cogProfile').append("<label class='text'><strong>COG ID: " + id + "</strong></label>");
+                $('#cogProfile').append("<label class='text'><strong>Registered to: " + subscriber + "</strong></label>");
+                $('#cogProfile').append("<label class='text'><strong>Subscriber Descrption: " + subscriberDesc + "</strong></label>");
+                $('#cogProfile').append("<label class='text'><strong>Subscriber Email: " + email + "</strong></label>");
+                $('#cogProfile').append("<label class='text'><strong>Category Name: " + categoryName + "</strong></label>");
+                $('#cogProfile').append("<label class='text'><strong>Organization Type: " + organizationName + "</strong></label>");
+                $('#cogProfile').append("<label class='text'><strong>Is COG Enabled: " + cogEnabled + "</strong></label>");
+                $('#cogProfile').append("<label class='text'><strong>Is Authorized to Broadcast: " + broadcastAuthorized + "</strong></label>");
+                $('#cogProfile').append("<label class='text'><strong>List of Authroized Event Codes:</strong></label>");
+                $('#cogProfile').append("<label class='text'>" + "   " + eventCodes +"</label>");
+                $('#cogProfile').append("<label class='text'><strong>List of Authroized Geo Codes:</strong></label>");
+                $('#cogProfile').append("<label class='text'>" + "   " + geoCodes + "</label>");
+
+            });
+        })
+
+    </script>
+</head>
+
+<body>
+    <header id="header">
+        <a href="./" id="backButton">
+            <img id="back_button" class="alertLogo" src="images/back_arrow_header_icon.png" alt="Back button"></img>
+        </a>
+        <h1>AO APP</h1>
+        <a href="https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system"
+            target="_blank" id="headerLink">
+            <img id="header_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo"></img>
+        </a>
+    </header>
+    <h2 class="text">IPAWS Profile:</h2>
+    <div id="cogProfile" class="logGrid"></div>
+    <br>
+    <br>
+    <footer id="home-footer" class="footer">
+        <div class="footer-container">
+            <div class="footer-logo-container">
+                <a href="https://www.fema.gov/" target="_blank" id="footerLink">
+                    <img id="footer_logo" class="femaLogo" src="images/pngkit_fema-logo-png_2426325.png" alt="FEMA logo">
+                </a>
+            </div>
+            <div class="footer-info-container">
+                <a id="phone_number">1 (800) 621-3362</a>
+                <a id="email" href="https://www.fema.gov/" target="_blank">www.fema.gov</a>
+                <a href="./about" target="_blank" id="about">About AO App</a>
+            </div>
+        </div>  
+    </footer>
+</body>
+</html>

@@ -26,6 +26,11 @@ router.get('/about', function(req, res, next) {
 
 });
 
+/* GET Retrieve IPAWS Profile Page  */ 
+router.get('/ipawsprofile', function(req, res, next) {
+    res.render('cogprofile', { title: 'IPAWS Profile' });
+});
+
 /* GET Alert Log Page */ 
 router.get('/alertlog', function(req, res, next) {
     res.render('alertlog', { title: 'Alert Log' });
@@ -34,12 +39,6 @@ router.get('/alertlog', function(req, res, next) {
 /* GET Retrieve Previous Message View Page  */ 
 router.get('/:id', function(req, res, next) {
     res.render('alerthist', { title: 'Submitted Alert' });
-    //res.send("the ID is = " + req.params.id);
-
-    /*res.redirect(url.format({
-        pathname: '/about',
-        query: req.params.id
-    }));*/
 });
 
 /*******       DEFINE POST ROUTES               *******/
