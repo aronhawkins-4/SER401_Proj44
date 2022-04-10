@@ -331,6 +331,17 @@ select {
   position: absolute;
   bottom: 0;
 }
+
+#profile-footer {
+  position: absolute;
+  bottom: 0;
+}
+
+#log-footer {
+  position: absolute;
+  bottom: 0;
+}
+
 .footer {
   position: relative;
   /* bottom: 0; */
@@ -860,12 +871,24 @@ option {
   .logGrid {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+  
   }
   #home-footer {
     position: relative;
     margin-top: 50px;
     height: 200px;
   }
+
+  #profile-footer {
+    position: relative;
+    bottom: 0;
+  }
+
+  #log-footer {
+    position: relative;
+    bottom: 0;
+  }
+
   .footer-container {
     flex-direction: column;
     row-gap: 25px;
