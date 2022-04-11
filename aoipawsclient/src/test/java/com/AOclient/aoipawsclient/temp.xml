@@ -1,39 +1,162 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20211128173229666WAS</identifier>
-    <sender>wasryan@live.com</sender>
-    <sent>2021-11-28T17:32:29-08:00</sent>
-    <status>Actual</status>
-    <msgType>Alert</msgType>
-    <scope>Public</scope>
-    <code>IPAWSv1.0</code>
-    <info>
-        <language>en-US</language>
-        <category>Geo</category>
-        <event>dsfad</event>
-        <urgency>Immediate</urgency>
-        <severity>Extreme</severity>
-        <certainty>Observed</certainty>
-        <eventCode>
-            <valueName>SAME</valueName>
-            <value>ADR</value>
-        </eventCode>
-        <expires>2021-11-29T17:32:29-08:00</expires>
-        <senderName>sender name goes here</senderName>
-        <headline>headline goes here</headline>
-        <description>asdfsfasdfasd</description>
-        <instruction>instruction goes here</instruction>
-        <web>http://www.google.com</web>
-        <parameter>
-            <valueName>valuename goes here</valueName>
-            <value>value goes here</value>
-        </parameter>
-        <area>
-            <areaDesc>asdffsadfasdfasdfasdf</areaDesc>
-            <geocode>
-                <valueName>SAME</valueName>
-                <value>006003,01019,01000,00000,01005,00000,01005,00000</value>
-            </geocode>
-        </area>
-    </info>
-</alert>
+
+<SOAP-ENV:Envelope
+xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:ipaw="http://gov.fema.ipaws.services/IPAWS_CAPService/"
+xmlns:req="http://gov.fema.ipawsopen.services/caprequest">
+<SOAP-ENV:Header>
+	<wsse:Security
+		xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+		mustUnderstand="1">
+		<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+			<SignedInfo>
+				<CanonicalizationMethod
+					Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+				<SignatureMethod
+					Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+				<Reference URI="">
+					<Transforms>
+						<Transform
+							Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+					</Transforms>
+					<DigestMethod
+						Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+					<DigestValue>8KftMAH1uk9QsinsCuA+E5pxvbg7TF4tsKTZSJHd4rE=
+					</DigestValue>
+				</Reference>
+			</SignedInfo>
+			<SignatureValue>KOdHZS3L57kK57X4Luk2hUsbEMemttbBHrtmD/4CYG1J5ncEw6wAeZoUiqdCJdjpSjdI8SCJA1LN
+				uHVuNRdKaKL5SoCSSooLn6xdRDZAtuGtLYoElm8BHjIxb7q8LtW+GbWapLQwbv5N3arcA4FUgTrg
+				87YhE+TCDqQ86JtY02xjGzflkWHHkiQhJ5wy5d39L/0X8tgnYCNzLF7ys8NhiuBTRfvSUkF0IFIG
+				pRMUSYxaJZ6AGug7op+lqo/KgeWG611jBdmRnJGk8/sQI4v6RkxzLDFgwQiCsxSbV6SepQ5a6VK6
+				NPgGAJ23vpqqE5tKld93xmPgPZb/WdFLbvoo9Q==
+			</SignatureValue>
+			<KeyInfo>
+				<X509Data>
+					<X509Certificate>MIIGUzCCBTugAwIBAgIQQAF9JHSji4PBCLUgRV3FADANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQG
+						EwJVUzESMBAGA1UEChMJSWRlblRydXN0MSAwHgYDVQQLExdJZGVuVHJ1c3QgR2xvYmFsIENvbW1v
+						bjEcMBoGA1UEAxMTUFRFIElHQyBEZXZpY2UgQ0EgMTAeFw0yMTExMTUxNjM2MDNaFw0yNDExMTQx
+						NjM2MDJaMIGlMQswCQYDVQQGEwJVUzETMBEGA1UEChMKRkVNQSBJUEFXUzElMCMGA1UECxMcTmF0
+						aW9uYWwgQ29udGludWl0eSBQcm9ncmFtczEWMBQGA1UECxMNRGV2aWNlcyBJUEFXUzEoMCYGA1UE
+						CxMfQTAxNDEzMzAwMDAwMTdEMjQ3NEEzNzMwMDAwMkQyMjEYMBYGA1UEAxMPaXBhd3NvcGVuMTIw
+						MDc1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApUyjkYTXq4WaSfRMWvkbeFeMUnyE
+						PVFrn8wyLJAQGoloANwBTZ6Y6iXsH+UYeBfAbEXe9GODWB7KOhFcW1jBRkL8FG/1ntyvUh4tiL6u
+						nBnX2TKrEyi/3lvyq1z7n0JJ1kWGiQgfChwxbT/IydcNmwAjRTkl17u0dzRj7/ykpinJ5Y6xhgSE
+						0DUJQtlulqC/Uq8JqUxBhVcuHhE1PTGxW75aukxaGN45UVoh49AIvgpIW7JyFWo10eXW+NtpO6eu
+						Dlm5z1gOR7XKCqCpkCpj/OCeLDcvPaGmbJMecwJpRlrvxzNWwdZnyRWsBoe+Dp0ZmpUiIrVe1Fos
+						tc9dw0NOAQIDAQABo4ICwDCCArwwDgYDVR0PAQH/BAQDAgWgMIGEBggrBgEFBQcBAQR4MHYwLwYI
+						KwYBBQUHMAGGI2h0dHA6Ly9JR0NDQTFQVEUub2NzcC5pZGVudHJ1c3QuY29tMEMGCCsGAQUFBzAC
+						hjdodHRwOi8vYXBwcy1zdGcuaWRlbnRydXN0LmNvbS9yb290cy9wdGVJR0NEZXZpY2VDQTEucDdj
+						MB8GA1UdIwQYMBaAFLurb+4B47/hOPBQFj0+4EXgjEMHMIIBUgYDVR0gBIIBSTCCAUUwggFBBgtg
+						hkgBhvkvAGQlAjCCATAwSwYIKwYBBQUHAgEWP2h0dHBzOi8vc2VjdXJlLmlkZW50cnVzdC5jb20v
+						Y2VydGlmaWNhdGVzL3BvbGljeS9JR0MvaW5kZXguaHRtbDCB4AYIKwYBBQUHAgIwgdMMgdBUZXN0
+						IENlcnRpZmljYXRlLiBEbyBObyBSZWx5LiBDZXJ0aWZpY2F0ZSB1c2UgcmVzdHJpY3RlZCB0byBS
+						ZWx5aW5nIFBhcnR5KHMpIGluIGFjY29yZGFuY2Ugd2l0aCBJR0MtQ1AgKHNlZSBodHRwczovL3Nl
+						Y3VyZS5pZGVudHJ1c3QuY29tL2NlcnRpZmljYXRlcy9wb2xpY3kvSUdDL2luZGV4Lmh0bWwpLiBJ
+						R0MtQ1BTIGluY29ycG9yYXRlZCBieSByZWZlcmVuY2UuMD4GA1UdHwQ3MDUwM6AxoC+GLWh0dHA6
+						Ly9jcmwtcHRlLmlkZW50cnVzdC5jb20vaWdjZGV2aWNlY2ExLmNybDAaBgNVHREEEzARgg9pcGF3
+						c29wZW4xMjAwNzUwHQYDVR0OBBYEFAFbU/qfQ5GH77qT8CBotkMfbIosMDEGA1UdJQQqMCgGCCsG
+						AQUFBwMCBggrBgEFBQcDBQYIKwYBBQUHAwYGCCsGAQUFBwMHMA0GCSqGSIb3DQEBCwUAA4IBAQBr
+						72DZ3m0ayE6z4PDFvCsSjlZ25EvKRqXykXGR7l/LOgW0FYS62Q0T3o8rEe0b9qTRqKWNnFbiJiMA
+						hXFP6MotT1k6NsPEzQcs+3HXEAJ/ZgRo+3EbzuZEV0JPmEXAH+KHGMvjBr3XUDRcbLvbkdpBa1Kg
+						7BKpeXktI8d63RVuUhWZcQIiD7VeGIp99aydKcSXmna9HzKc/PJZWQj7WEYCzAubI5vc0BoMBbdz
+						urglKzD0Wm5TcSSAdm8/q6mLVOvkNA8XpqfW+P5uB7denU0Qbrlzx+L/ewuu7c0MGvGsbSY6XO1c
+						rbaC20EpxyXke/P7qGsrO4Bzu4mVauZqjlfD
+					</X509Certificate>
+				</X509Data>
+			</KeyInfo>
+		</Signature>
+	</wsse:Security>
+	<ipaw:CAPHeaderTypeDef>
+		<LogonCogId>120075</LogonCogId>
+	</ipaw:CAPHeaderTypeDef>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+	<ipaw:getRequestTypeDef>
+		<req:requestAPI>REQUEST1</req:requestAPI>
+		<req:requestOperation>getACK</req:requestOperation>
+	</ipaw:getRequestTypeDef>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+<soapenv:Envelope
+	xmlns:cap="http://gov.fema.ipaws.services/caprequest"
+	xmlns:ipaw="http://gov.fema.ipaws.services/IPAWS_CAPService/"
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Header>
+		<wsse:Security soapenv:mustUnderstand="1"
+			xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+			xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+			<wsse:BinarySecurityToken
+				EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary"
+				ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"
+				wsu:Id="X509-9DCDC829F32DA5DB62164806972117291">MIIGUzCCBTugAwIBAgIQQAF9JHSji4PBCLUgRV3FADANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJVUzESMBAGA1UEChMJSWRlblRydXN0MSAwHgYDVQQLExdJZGVuVHJ1c3QgR2xvYmFsIENvbW1vbjEcMBoGA1UEAxMTUFRFIElHQyBEZXZpY2UgQ0EgMTAeFw0yMTExMTUxNjM2MDNaFw0yNDExMTQxNjM2MDJaMIGlMQswCQYDVQQGEwJVUzETMBEGA1UEChMKRkVNQSBJUEFXUzElMCMGA1UECxMcTmF0aW9uYWwgQ29udGludWl0eSBQcm9ncmFtczEWMBQGA1UECxMNRGV2aWNlcyBJUEFXUzEoMCYGA1UECxMfQTAxNDEzMzAwMDAwMTdEMjQ3NEEzNzMwMDAwMkQyMjEYMBYGA1UEAxMPaXBhd3NvcGVuMTIwMDc1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApUyjkYTXq4WaSfRMWvkbeFeMUnyEPVFrn8wyLJAQGoloANwBTZ6Y6iXsH+UYeBfAbEXe9GODWB7KOhFcW1jBRkL8FG/1ntyvUh4tiL6unBnX2TKrEyi/3lvyq1z7n0JJ1kWGiQgfChwxbT/IydcNmwAjRTkl17u0dzRj7/ykpinJ5Y6xhgSE0DUJQtlulqC/Uq8JqUxBhVcuHhE1PTGxW75aukxaGN45UVoh49AIvgpIW7JyFWo10eXW+NtpO6euDlm5z1gOR7XKCqCpkCpj/OCeLDcvPaGmbJMecwJpRlrvxzNWwdZnyRWsBoe+Dp0ZmpUiIrVe1Fostc9dw0NOAQIDAQABo4ICwDCCArwwDgYDVR0PAQH/BAQDAgWgMIGEBggrBgEFBQcBAQR4MHYwLwYIKwYBBQUHMAGGI2h0dHA6Ly9JR0NDQTFQVEUub2NzcC5pZGVudHJ1c3QuY29tMEMGCCsGAQUFBzAChjdodHRwOi8vYXBwcy1zdGcuaWRlbnRydXN0LmNvbS9yb290cy9wdGVJR0NEZXZpY2VDQTEucDdjMB8GA1UdIwQYMBaAFLurb+4B47/hOPBQFj0+4EXgjEMHMIIBUgYDVR0gBIIBSTCCAUUwggFBBgtghkgBhvkvAGQlAjCCATAwSwYIKwYBBQUHAgEWP2h0dHBzOi8vc2VjdXJlLmlkZW50cnVzdC5jb20vY2VydGlmaWNhdGVzL3BvbGljeS9JR0MvaW5kZXguaHRtbDCB4AYIKwYBBQUHAgIwgdMMgdBUZXN0IENlcnRpZmljYXRlLiBEbyBObyBSZWx5LiBDZXJ0aWZpY2F0ZSB1c2UgcmVzdHJpY3RlZCB0byBSZWx5aW5nIFBhcnR5KHMpIGluIGFjY29yZGFuY2Ugd2l0aCBJR0MtQ1AgKHNlZSBodHRwczovL3NlY3VyZS5pZGVudHJ1c3QuY29tL2NlcnRpZmljYXRlcy9wb2xpY3kvSUdDL2luZGV4Lmh0bWwpLiBJR0MtQ1BTIGluY29ycG9yYXRlZCBieSByZWZlcmVuY2UuMD4GA1UdHwQ3MDUwM6AxoC+GLWh0dHA6Ly9jcmwtcHRlLmlkZW50cnVzdC5jb20vaWdjZGV2aWNlY2ExLmNybDAaBgNVHREEEzARgg9pcGF3c29wZW4xMjAwNzUwHQYDVR0OBBYEFAFbU/qfQ5GH77qT8CBotkMfbIosMDEGA1UdJQQqMCgGCCsGAQUFBwMCBggrBgEFBQcDBQYIKwYBBQUHAwYGCCsGAQUFBwMHMA0GCSqGSIb3DQEBCwUAA4IBAQBr72DZ3m0ayE6z4PDFvCsSjlZ25EvKRqXykXGR7l/LOgW0FYS62Q0T3o8rEe0b9qTRqKWNnFbiJiMAhXFP6MotT1k6NsPEzQcs+3HXEAJ/ZgRo+3EbzuZEV0JPmEXAH+KHGMvjBr3XUDRcbLvbkdpBa1Kg7BKpeXktI8d63RVuUhWZcQIiD7VeGIp99aydKcSXmna9HzKc/PJZWQj7WEYCzAubI5vc0BoMBbdzurglKzD0Wm5TcSSAdm8/q6mLVOvkNA8XpqfW+P5uB7denU0Qbrlzx+L/ewuu7c0MGvGsbSY6XO1crbaC20EpxyXke/P7qGsrO4Bzu4mVauZqjlfD</wsse:BinarySecurityToken>
+			<ds:Signature Id="SIG-9DCDC829F32DA5DB62164806972124095"
+				xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:SignedInfo>
+					<ds:CanonicalizationMethod
+						Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+						<ec:InclusiveNamespaces
+							PrefixList="cap ipaw soapenv"
+							xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" />
+					</ds:CanonicalizationMethod>
+					<ds:SignatureMethod
+						Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+					<ds:Reference
+						URI="#id-9DCDC829F32DA5DB62164806972117394">
+						<ds:Transforms>
+							<ds:Transform
+								Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+								<ec:InclusiveNamespaces
+									PrefixList="cap ipaw"
+									xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" />
+							</ds:Transform>
+						</ds:Transforms>
+						<ds:DigestMethod
+							Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+						<ds:DigestValue>8hVwWxwxCfNPla4zHpFKEZEh4AjU7rBZahRjwJycf80=</ds:DigestValue>
+					</ds:Reference>
+				</ds:SignedInfo>
+				<ds:SignatureValue>ErEsPr4eGnuLWBM75OeWGBc8DqSszqrsgW+Mn7jQF8dsXq1nTslP6x3RGeDFHltF+vvYyzm6R0En&#13;
+					6feFwGpvU2BuufybMA6Htqmi7Hp9Sddp8dze0daSU6BC0JXMFGHG0wQHYlwnhlN5QrkJNt2Ye4Tv&#13;
+					criyslsWL36UFnTwgw3MytoBNpLx9Vc7wTSenYjX8/bH1sKWD1NEBFdgRZ5ieke58S61i/07r5hk&#13;
+					iElKFa6a2SDYcwQAYTCHxQ/IlxBTtZ2f33tir4RCK4CZ22YAF5TIn4Jq31pkXoL1cbi63xzN64JV&#13;
+					BVSJbJP7P1RiCmgHtvyYn3Ic12V8WLfBPzut5g==</ds:SignatureValue>
+				<ds:KeyInfo Id="KI-9DCDC829F32DA5DB62164806972117392">
+					<wsse:SecurityTokenReference
+						wsu:Id="STR-9DCDC829F32DA5DB62164806972117393">
+						<wsse:Reference
+							URI="#X509-9DCDC829F32DA5DB62164806972117291"
+							ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" />
+					</wsse:SecurityTokenReference>
+				</ds:KeyInfo>
+			</ds:Signature>
+		</wsse:Security>
+		<ipaw:CAPHeaderTypeDef>
+			<!--Optional: -->
+			<ipaw:logonUser>?</ipaw:logonUser>
+			<!--Optional: -->
+			<ipaw:logonCogId>120075</ipaw:logonCogId>
+		</ipaw:CAPHeaderTypeDef>
+	</soapenv:Header>
+	<soapenv:Body
+		wsu:Id="id-9DCDC829F32DA5DB62164806972117394"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+		<ipaw:getRequestTypeDef>
+			<!--Optional: -->
+			<cap:requestAPI>REQUEST1</cap:requestAPI>
+			<!--Optional: -->
+			<cap:requestOperation>getACK</cap:requestOperation>
+			<!--Zero or more repetitions: -->
+			<cap:parameters>
+				<!--Optional: -->
+				<cap:parameterName>?</cap:parameterName>
+				<!--Optional: -->
+				<cap:comparisonOp>?</cap:comparisonOp>
+				<!--Zero or more repetitions: -->
+				<cap:parameterValue>?</cap:parameterValue>
+				<!--Optional: -->
+				<cap:logicalOp>?</cap:logicalOp>
+			</cap:parameters>
+		</ipaw:getRequestTypeDef>
+	</soapenv:Body>
+</soapenv:Envelope>

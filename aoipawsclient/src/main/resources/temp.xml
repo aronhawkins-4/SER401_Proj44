@@ -1,38 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20211128173229666WAS</identifier>
-    <sender>wasryan@live.com</sender>
-    <sent>2021-11-28T17:32:29-08:00</sent>
-    <status>Actual</status>
+    <identifier>20223123101814224JKE</identifier>
+    <sender>jkeigh0773@gmail.com</sender>
+    <sent>2022-03-23T10:18:14-04:00</sent>
+    <status>Test</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
-        <category>Geo</category>
-        <event>dsfad</event>
+        <category>CBRNE</category>
+        <event>bad</event>
         <urgency>Immediate</urgency>
         <severity>Extreme</severity>
-        <certainty>Observed</certainty>
+        <certainty>Likely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>ADR</value>
+            <value>AVA</value>
         </eventCode>
-        <expires>2021-11-29T17:32:29-08:00</expires>
-        <senderName>sender name goes here</senderName>
-        <headline>headline goes here</headline>
-        <description>asdfsfasdfasd</description>
-        <instruction>instruction goes here</instruction>
-        <web>http://www.google.com</web>
-        <parameter>
-            <valueName>valuename goes here</valueName>
-            <value>value goes here</value>
-        </parameter>
+        <expires>2022-03-14T10:18:14-04:00</expires>
+        <description>bad bad bad</description>
         <area>
-            <areaDesc>asdffsadfasdfasdfasdf</areaDesc>
+            <areaDesc>bad area </areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>006003,01019,01000,00000,01005,00000,01005,00000</value>
+                <value>004000</value>
             </geocode>
         </area>
     </info>
