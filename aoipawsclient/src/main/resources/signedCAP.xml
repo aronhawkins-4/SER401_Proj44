@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+    <identifier>20211128173229666WAS</identifier>
+    <sender>wasryan@live.com</sender>
+    <sent>2021-11-28T17:32:29-08:00</sent>
+    <status>Actual</status>
+    <msgType>Alert</msgType>
+    <scope>Public</scope>
+    <code>IPAWSv1.0</code>
+    <info>
+        <language>en-US</language>
+        <category>Geo</category>
+        <event>dsfad</event>
+        <urgency>Immediate</urgency>
+        <severity>Extreme</severity>
+        <certainty>Observed</certainty>
+        <eventCode>
+            <valueName>SAME</valueName>
+            <value>ADR</value>
+        </eventCode>
+        <expires>2021-11-29T17:32:29-08:00</expires>
+        <senderName>sender name goes here</senderName>
+        <headline>headline goes here</headline>
+        <description>asdfsfasdfasd</description>
+        <instruction>instruction goes here</instruction>
+        <web>http://www.google.com</web>
+        <parameter>
+            <valueName>valuename goes here</valueName>
+            <value>value goes here</value>
+        </parameter>
+        <area>
+            <areaDesc>asdffsadfasdfasdfasdf</areaDesc>
+            <geocode>
+                <valueName>SAME</valueName>
+                <value>006003,01019,01000,00000,01005,00000,01005,00000</value>
+            </geocode>
+        </area>
+    </info>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>+O1r1nxkLU8yeB/akyNNCFiKR5LjuYiY3vRJqOwpFc4=</DigestValue></Reference></SignedInfo><SignatureValue>SRChtjJ9whLQXGXD7tdHbsjwUal8dhul7hWEvkRK1cQYJ2b63T5wG2khb9FlocW/s6DUOaaVSFYM&#13;
+7MPkBACPdKSr+FUukMxdq54vjAgyNahIpcq7PwyHxDQ32GsX8inv36248g4VyvEEyOD5uOJMFnuC&#13;
+VHWfXbLIJzdL0r63wxLOwQdT5bUbXv3PsEuRw3HP5j60R3c8QAmU3Rh0slnmiF68A5ocGvbCXySa&#13;
+D8VFhHifjAoLNzLxNyPXfW3tamk9j06P7OU2H5j4gH9Rttyg/j4RuPe0RO2nZlQHXIhs8l7rMRs7&#13;
+60WmTufMTMf+TkNLmJvbjAhBotfnwvGrPWXoGg==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>pUyjkYTXq4WaSfRMWvkbeFeMUnyEPVFrn8wyLJAQGoloANwBTZ6Y6iXsH+UYeBfAbEXe9GODWB7K&#13;
+OhFcW1jBRkL8FG/1ntyvUh4tiL6unBnX2TKrEyi/3lvyq1z7n0JJ1kWGiQgfChwxbT/IydcNmwAj&#13;
+RTkl17u0dzRj7/ykpinJ5Y6xhgSE0DUJQtlulqC/Uq8JqUxBhVcuHhE1PTGxW75aukxaGN45UVoh&#13;
+49AIvgpIW7JyFWo10eXW+NtpO6euDlm5z1gOR7XKCqCpkCpj/OCeLDcvPaGmbJMecwJpRlrvxzNW&#13;
+wdZnyRWsBoe+Dp0ZmpUiIrVe1Fostc9dw0NOAQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIGUzCCBTugAwIBAgIQQAF9JHSji4PBCLUgRV3FADANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQG&#13;
+EwJVUzESMBAGA1UEChMJSWRlblRydXN0MSAwHgYDVQQLExdJZGVuVHJ1c3QgR2xvYmFsIENvbW1v&#13;
+bjEcMBoGA1UEAxMTUFRFIElHQyBEZXZpY2UgQ0EgMTAeFw0yMTExMTUxNjM2MDNaFw0yNDExMTQx&#13;
+NjM2MDJaMIGlMQswCQYDVQQGEwJVUzETMBEGA1UEChMKRkVNQSBJUEFXUzElMCMGA1UECxMcTmF0&#13;
+aW9uYWwgQ29udGludWl0eSBQcm9ncmFtczEWMBQGA1UECxMNRGV2aWNlcyBJUEFXUzEoMCYGA1UE&#13;
+CxMfQTAxNDEzMzAwMDAwMTdEMjQ3NEEzNzMwMDAwMkQyMjEYMBYGA1UEAxMPaXBhd3NvcGVuMTIw&#13;
+MDc1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApUyjkYTXq4WaSfRMWvkbeFeMUnyE&#13;
+PVFrn8wyLJAQGoloANwBTZ6Y6iXsH+UYeBfAbEXe9GODWB7KOhFcW1jBRkL8FG/1ntyvUh4tiL6u&#13;
+nBnX2TKrEyi/3lvyq1z7n0JJ1kWGiQgfChwxbT/IydcNmwAjRTkl17u0dzRj7/ykpinJ5Y6xhgSE&#13;
+0DUJQtlulqC/Uq8JqUxBhVcuHhE1PTGxW75aukxaGN45UVoh49AIvgpIW7JyFWo10eXW+NtpO6eu&#13;
+Dlm5z1gOR7XKCqCpkCpj/OCeLDcvPaGmbJMecwJpRlrvxzNWwdZnyRWsBoe+Dp0ZmpUiIrVe1Fos&#13;
+tc9dw0NOAQIDAQABo4ICwDCCArwwDgYDVR0PAQH/BAQDAgWgMIGEBggrBgEFBQcBAQR4MHYwLwYI&#13;
+KwYBBQUHMAGGI2h0dHA6Ly9JR0NDQTFQVEUub2NzcC5pZGVudHJ1c3QuY29tMEMGCCsGAQUFBzAC&#13;
+hjdodHRwOi8vYXBwcy1zdGcuaWRlbnRydXN0LmNvbS9yb290cy9wdGVJR0NEZXZpY2VDQTEucDdj&#13;
+MB8GA1UdIwQYMBaAFLurb+4B47/hOPBQFj0+4EXgjEMHMIIBUgYDVR0gBIIBSTCCAUUwggFBBgtg&#13;
+hkgBhvkvAGQlAjCCATAwSwYIKwYBBQUHAgEWP2h0dHBzOi8vc2VjdXJlLmlkZW50cnVzdC5jb20v&#13;
+Y2VydGlmaWNhdGVzL3BvbGljeS9JR0MvaW5kZXguaHRtbDCB4AYIKwYBBQUHAgIwgdMMgdBUZXN0&#13;
+IENlcnRpZmljYXRlLiBEbyBObyBSZWx5LiBDZXJ0aWZpY2F0ZSB1c2UgcmVzdHJpY3RlZCB0byBS&#13;
+ZWx5aW5nIFBhcnR5KHMpIGluIGFjY29yZGFuY2Ugd2l0aCBJR0MtQ1AgKHNlZSBodHRwczovL3Nl&#13;
+Y3VyZS5pZGVudHJ1c3QuY29tL2NlcnRpZmljYXRlcy9wb2xpY3kvSUdDL2luZGV4Lmh0bWwpLiBJ&#13;
+R0MtQ1BTIGluY29ycG9yYXRlZCBieSByZWZlcmVuY2UuMD4GA1UdHwQ3MDUwM6AxoC+GLWh0dHA6&#13;
+Ly9jcmwtcHRlLmlkZW50cnVzdC5jb20vaWdjZGV2aWNlY2ExLmNybDAaBgNVHREEEzARgg9pcGF3&#13;
+c29wZW4xMjAwNzUwHQYDVR0OBBYEFAFbU/qfQ5GH77qT8CBotkMfbIosMDEGA1UdJQQqMCgGCCsG&#13;
+AQUFBwMCBggrBgEFBQcDBQYIKwYBBQUHAwYGCCsGAQUFBwMHMA0GCSqGSIb3DQEBCwUAA4IBAQBr&#13;
+72DZ3m0ayE6z4PDFvCsSjlZ25EvKRqXykXGR7l/LOgW0FYS62Q0T3o8rEe0b9qTRqKWNnFbiJiMA&#13;
+hXFP6MotT1k6NsPEzQcs+3HXEAJ/ZgRo+3EbzuZEV0JPmEXAH+KHGMvjBr3XUDRcbLvbkdpBa1Kg&#13;
+7BKpeXktI8d63RVuUhWZcQIiD7VeGIp99aydKcSXmna9HzKc/PJZWQj7WEYCzAubI5vc0BoMBbdz&#13;
+urglKzD0Wm5TcSSAdm8/q6mLVOvkNA8XpqfW+P5uB7denU0Qbrlzx+L/ewuu7c0MGvGsbSY6XO1c&#13;
+rbaC20EpxyXke/P7qGsrO4Bzu4mVauZqjlfD</X509Certificate></X509Data></KeyInfo></Signature></alert>
