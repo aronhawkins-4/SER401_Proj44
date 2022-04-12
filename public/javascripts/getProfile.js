@@ -3,27 +3,31 @@ const Net = require('net');
 // The port number and hostname of the server.
 const port = 8080;
 const host = 'localhost';
+fs = require('fs');
 
 // Create a new TCP client.
 const client = new Net.Socket();
 // Send a connection request to the server.
 client.connect({ port: port, host: host }, function() {
-    // If there is no error, the server has accepted the request and created a new 
+    // If there is no error, the server has accepted the request and created a new
     // socket dedicated to us.
     console.log('TCP connection established with the server.');
 
     // The client can now send data to the server by writing to its socket.
     client.write('getCogProfile');
-    
 });
 
 // The client can also receive data from the server by reading from its socket.
 client.on('data', function(chunk) {
     console.log(`Data received from the server: ${chunk.toString()}.`);
-    
+
+    //Write the response to a local file
+    fs.writeFile('public/dbs/cogProfile.json', chunk.toString(), 'utf-8', function(err) {
+	                    if (err) throw err;
+	                    console.log("Saved IPAWS profile to /ppublic/dbs/cogProfile.json");
+                });
     // Request an end to the connection after the data has been received.
     client.end();
-    
 });
 
 client.on('end', function() {

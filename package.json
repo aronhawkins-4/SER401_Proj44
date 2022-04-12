@@ -4,6 +4,8 @@
   "description": "ASU Group 44 Alert Originator App",
   "private": true,
   "scripts": {
+    "ipawsclient": "java -jar ./aoipawsclient/target/aoipawsclient-0.0.1-SNAPSHOT.jar",
+    "getprofile": "node ./public/javascripts/getProfile.js",
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
   },
