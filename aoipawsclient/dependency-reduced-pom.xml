@@ -12,8 +12,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${cxf.version}</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>8</source>
+          <target>8</target>
         </configuration>
       </plugin>
       <plugin>
@@ -49,6 +49,12 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <archive>
+                <manifest>
+                  <addClasspath>true</addClasspath>
+                  <mainClass>com.AOclient.aoipawsclient.App</mainClass>
+                </manifest>
+              </archive>
               <artifactSet>
                 <excludes>
                   <exclude>org.apache.flink:force-shading</exclude>

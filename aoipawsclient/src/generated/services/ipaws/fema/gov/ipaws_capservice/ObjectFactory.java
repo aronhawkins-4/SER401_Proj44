@@ -73,8 +73,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RequestParameterList }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RequestParameterList }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RequestParameterList }{@code >}
      */
     @XmlElementDecl(namespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", name = "getRequestTypeDef")
     public JAXBElement<RequestParameterList> createGetRequestTypeDef(RequestParameterList value) {
@@ -82,8 +86,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ResponseParameterList }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ResponseParameterList }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ResponseParameterList }{@code >}
      */
     @XmlElementDecl(namespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", name = "getResponseTypeDef")
     public JAXBElement<ResponseParameterList> createGetResponseTypeDef(ResponseParameterList value) {
@@ -91,8 +99,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RequestParameterList }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RequestParameterList }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RequestParameterList }{@code >}
      */
     @XmlElementDecl(namespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", name = "getMessageTypeDef")
     public JAXBElement<RequestParameterList> createGetMessageTypeDef(RequestParameterList value) {
@@ -100,8 +112,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ResponseParameterList }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ResponseParameterList }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ResponseParameterList }{@code >}
      */
     @XmlElementDecl(namespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", name = "postCAPResponseTypeDef")
     public JAXBElement<ResponseParameterList> createPostCAPResponseTypeDef(ResponseParameterList value) {
@@ -109,8 +125,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
     @XmlElementDecl(namespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", name = "logonUser", scope = CAPHeaderTypeDef.class)
     public JAXBElement<String> createCAPHeaderTypeDefLogonUser(String value) {
@@ -118,8 +138,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
      */
     @XmlElementDecl(namespace = "http://gov.fema.ipaws.services/IPAWS_CAPService/", name = "logonCogId", scope = CAPHeaderTypeDef.class)
     public JAXBElement<Integer> createCAPHeaderTypeDefLogonCogId(Integer value) {

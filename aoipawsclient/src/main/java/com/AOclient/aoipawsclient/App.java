@@ -25,6 +25,7 @@ public class App {
 		App app = new App();
 
 		serverSocket = new ServerSocket(portNumber);
+		while(true){
 		clientSocket = serverSocket.accept();
 		System.out.println("Connected to AO APP");
 		out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -44,7 +45,8 @@ public class App {
 		out.write(cogProfile);
 		out.flush();
 		clientSocket.close();
-
+	}
+	
 	}
 
 	private String getCog() {
