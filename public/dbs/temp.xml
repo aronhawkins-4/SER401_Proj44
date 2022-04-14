@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20220409153755374JES</identifier>
+    <identifier>20220413224303815JES</identifier>
     <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2022-04-09T15:37:55-07:00</sent>
-    <status>Actual</status>
+    <sent>2022-04-13T22:43:03-07:00</sent>
+    <status>Exercise</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>es-US</language>
-        <category>CBRNE</category>
-        <event>deeddssd</event>
+        <category>Fire</category>
+        <event>gggg</event>
         <urgency>Immediate</urgency>
-        <severity>Extreme</severity>
-        <certainty>Observed</certainty>
+        <severity>Moderate</severity>
+        <certainty>Likely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>AVW</value>
+            <value>ADR</value>
         </eventCode>
-        <expires>2022-04-10T15:37:55-07:00</expires>
+        <expires>2022-04-14T22:43:03-07:00</expires>
         <senderName>jesus.a.quiroz</senderName>
         <headline>headline goes here</headline>
         <description></description>
@@ -30,10 +30,12 @@
         </parameter>
         <area>
             <areaDesc></areaDesc>
-            <polygon>-111.941071,33.405866 -111.941071,33.426785 -111.922703,33.426785 -111.922703,33.405866 -111.941071,33.405866</polygon>
+            <polygon>-111.978493,33.440108 -111.936092,33.453715 -111.921673,33.433948 -111.978493,33.440108</polygon>
+            <circle>-111.882362,33.44684 1.4</circle>
+            <polygon>-111.972141,33.410738 -111.972141,33.426212 -111.940384,33.426212 -111.940384,33.410738 -111.972141,33.410738</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004013</value>
+                <value>001017</value>
             </geocode>
         </area>
     </info>

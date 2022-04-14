@@ -235,10 +235,18 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
       xw.endDocument();
       let xmlString = xw.toString();
   
+      //Save xml temp copy in database folder 
       fs.writeFile('public/dbs/temp.xml', xmlString, function(err) {
   
           if (err) throw err;
-          console.log("XML Saved");
+          console.log("XML Saved to dbs");
+      });
+
+      //Save xml copy for java ipawsclient 
+      fs.writeFile('aoipawsclient/src/main/resources/temp.xml', xmlString, function(err) {
+  
+        if (err) throw err;
+        console.log("XML Saved to ipawsclient folder");
       });
   
       return xmlString;
