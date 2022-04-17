@@ -1,27 +1,35 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20223123101814224JKE</identifier>
+    <identifier>20220417155750835JKE</identifier>
     <sender>jkeigh0773@gmail.com</sender>
-    <sent>2022-03-23T10:18:14-04:00</sent>
-    <status>Test</status>
+    <sent>2022-04-17T15:57:50-04:00</sent>
+    <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>en-US</language>
         <category>CBRNE</category>
-        <event>bad</event>
+        <event>stuff</event>
         <urgency>Immediate</urgency>
-        <severity>Extreme</severity>
-        <certainty>Likely</certainty>
+        <severity>Severe</severity>
+        <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>AVA</value>
+            <value>TOE</value>
         </eventCode>
-        <expires>2022-03-14T10:18:14-04:00</expires>
-        <description>bad bad bad</description>
+        <expires>2022-04-18T15:57:50-04:00</expires>
+        <senderName>jkeigh0773</senderName>
+        <headline>headline goes here</headline>
+        <description>bad things gonna happen</description>
+        <instruction>instruction goes here</instruction>
+        <web>http://www.google.com</web>
+        <parameter>
+            <valueName>valuename goes here</valueName>
+            <value>value goes here</value>
+        </parameter>
         <area>
-            <areaDesc>bad area </areaDesc>
+            <areaDesc>bad area</areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
                 <value>004000</value>
