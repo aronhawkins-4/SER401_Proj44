@@ -114,21 +114,8 @@ public class PostCAP {
 		Document doc = null;
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
-		InputStream is = getClass().getClassLoader().getResourceAsStream(xmlFilePath);
-		InputStreamReader isReader = new InputStreamReader(is);
-		BufferedReader reader = new BufferedReader(isReader);
-       StringBuffer sb = new StringBuffer();
-        String str = "";
-       try{
-		while((str = reader.readLine())!= null){
-         sb.append(str);
-      }
-	} catch (IOException e){
-		e.printStackTrace();
-	}
-	System.out.println(sb.toString());
         try {
-            doc = dbf.newDocumentBuilder().parse(new InputSource(new StringReader(sb.toString())));
+            doc = dbf.newDocumentBuilder().parse(new FileInputStream(xmlFilePath));
         } catch (ParserConfigurationException ex) {
             ex.printStackTrace();
         } catch (FileNotFoundException ex) {
@@ -141,7 +128,6 @@ public class PostCAP {
         return doc;
 	}
 	
-
 	public String sendAlert() throws WSSecurityException {
 		System.setProperty("javax.xml.bind.JAXBContext", "com.sun.xml.internal.bind.v2.ContextFactory");
 		// Step 1: Get, clean and sign the XML

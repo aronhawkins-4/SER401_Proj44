@@ -93,7 +93,7 @@ public class CogProfile {
 		outProps.put(WSHandlerConstants.SIG_ALGO, "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256");
 		outProps.put(WSHandlerConstants.SIG_C14N_ALGO, "http://www.w3.org/2001/10/xml-exc-c14n#");
 		outProps.put(WSHandlerConstants.SIGNATURE_USER, "ipawsopen120075");
-
+		System.out.println(outProps.get(WSHandlerConstants.SIG_PROP_FILE));
 		WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps);
 
 		// Add the interceptors to the endpoint
