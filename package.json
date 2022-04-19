@@ -6,6 +6,7 @@
   "scripts": {
     "ipawsclient": "java -jar ./aoipawsclient/target/aoipawsclient-0.0.1-SNAPSHOT.jar",
     "getprofile": "node ./public/javascripts/getProfile.js",
+    "postalert": "node ./public/javascripts/postAlert.js",
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
   },

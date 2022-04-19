@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20220418174416298JES</identifier>
-    <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2022-04-18T17:44:16-07:00</sent>
+    <identifier>20221515750835JKE</identifier>
+    <sender>jkeigh0773@gmail.com</sender>
+    <sent>2022-04-18T14:57:50-04:00</sent>
     <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
-        <language>es-US</language>
-        <category>Met</category>
-        <event>Strong wind advisory </event>
-        <urgency>Expected</urgency>
-        <severity>Moderate</severity>
-        <certainty>Likely</certainty>
+        <language>en-US</language>
+        <category>CBRNE</category>
+        <event>stuff</event>
+        <urgency>Immediate</urgency>
+        <severity>Severe</severity>
+        <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>EWW</value>
+            <value>TOE</value>
         </eventCode>
-        <expires>2022-04-19T17:44:16-07:00</expires>
-        <senderName>jesus.a.quiroz</senderName>
+        <expires>2022-04-18T15:57:50-04:00</expires>
+        <senderName>jkeigh0773</senderName>
         <headline>headline goes here</headline>
-        <description></description>
+        <description>bad things gonna happen</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,11 +29,10 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc></areaDesc>
-            <circle>-112.417603,33.467722 36.6</circle>
+            <areaDesc>bad area</areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>004013</value>
+                <value>004000</value>
             </geocode>
         </area>
     </info>
