@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20220413224303815JES</identifier>
-    <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2022-04-13T22:43:03-07:00</sent>
-    <status>Exercise</status>
+    <identifier>20221515750835JKE</identifier>
+    <sender>jkeigh0773@gmail.com</sender>
+    <sent>2022-04-18T14:57:50-04:00</sent>
+    <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
-        <language>es-US</language>
-        <category>Fire</category>
-        <event>gggg</event>
+        <language>en-US</language>
+        <category>CBRNE</category>
+        <event>stuff</event>
         <urgency>Immediate</urgency>
-        <severity>Moderate</severity>
-        <certainty>Likely</certainty>
+        <severity>Severe</severity>
+        <certainty>Observed</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>ADR</value>
+            <value>TOE</value>
         </eventCode>
-        <expires>2022-04-14T22:43:03-07:00</expires>
-        <senderName>jesus.a.quiroz</senderName>
+        <expires>2022-04-18T15:57:50-04:00</expires>
+        <senderName>jkeigh0773</senderName>
         <headline>headline goes here</headline>
-        <description></description>
+        <description>bad things gonna happen</description>
         <instruction>instruction goes here</instruction>
         <web>http://www.google.com</web>
         <parameter>
@@ -29,13 +29,10 @@
             <value>value goes here</value>
         </parameter>
         <area>
-            <areaDesc></areaDesc>
-            <polygon>-111.978493,33.440108 -111.936092,33.453715 -111.921673,33.433948 -111.978493,33.440108</polygon>
-            <circle>-111.882362,33.44684 1.4</circle>
-            <polygon>-111.972141,33.410738 -111.972141,33.426212 -111.940384,33.426212 -111.940384,33.410738 -111.972141,33.410738</polygon>
+            <areaDesc>bad area</areaDesc>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>001017</value>
+                <value>004000</value>
             </geocode>
         </area>
     </info>

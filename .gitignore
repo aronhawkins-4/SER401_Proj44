@@ -45,6 +45,4 @@ target/
 ### Project temp files ###
 /public/dbs/temp.json
 /public/dbs/temp.xml
-/views/test.html
-/views/test2.html 
-/new_mobile/mobile_testing/.expo/
+

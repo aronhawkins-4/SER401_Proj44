@@ -22,9 +22,9 @@ client.on('data', function(chunk) {
     console.log(`Data received from the server: ${chunk.toString()}.`);
 
     //Write the response to a local file
-    fs.writeFile('public/dbs/ipawsResponse.json', chunk.toString(), 'utf-8', function(err) {
+    fs.writeFile('public/dbs/ipawsResponse.txt', chunk.toString(), 'utf-8', function(err) {
 	                    if (err) throw err;
-	                    console.log("Saved IPAWS response /public/dbs/ipawsResponse.json");
+	                    console.log("Saved IPAWS response /public/dbs/ipawsResponse.txt");
                 });
     // Request an end to the connection after the data has been received.
     client.end();

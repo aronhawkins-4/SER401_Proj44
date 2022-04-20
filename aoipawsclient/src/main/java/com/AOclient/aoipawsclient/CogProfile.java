@@ -48,7 +48,7 @@ public class CogProfile {
 		// Create service and set properties
 		IPAWS service = new IPAWS();
 		System.setProperty("javax.xml.bind.JAXBContext", "com.sun.xml.internal.bind.v2.ContextFactory");
-		
+		service.addPort(service.SERVICE, "service2", "https://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS");
 
 		// Create port
 		CAPserviceInterface port = service.getIPAWS();
@@ -93,7 +93,7 @@ public class CogProfile {
 		outProps.put(WSHandlerConstants.SIG_ALGO, "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256");
 		outProps.put(WSHandlerConstants.SIG_C14N_ALGO, "http://www.w3.org/2001/10/xml-exc-c14n#");
 		outProps.put(WSHandlerConstants.SIGNATURE_USER, "ipawsopen120075");
-
+		System.out.println(outProps.get(WSHandlerConstants.SIG_PROP_FILE));
 		WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps);
 
 		// Add the interceptors to the endpoint
@@ -144,7 +144,7 @@ public class CogProfile {
 		JSONObject cogProfile = new JSONObject();
 		JSONObject eventCodes = new JSONObject();
 		JSONObject geoCodes = new JSONObject();
-		
+		//obj.put("COGPROFILE", "stuff");
 		JSONArray list = new JSONArray();
 		
 		for (int i = 0; i<response.getParameterListItem().size()-2;i++) {
@@ -154,7 +154,7 @@ public class CogProfile {
 		list.add(obj);	
 		}
 		
-		
+		//System.out.println(list.toJSONString());
 		JSONArray eventCodesList = new JSONArray();
 		for(int i = 0; i<response.getParameterListItem().get(8).getSubParaListItem().size();i++) {
 			JSONObject obj = new JSONObject();
@@ -184,7 +184,7 @@ public class CogProfile {
 	         e.printStackTrace();
 	      }
 	      System.out.println("JSON file created: " + cogProfile);
-	    
+	   
 		return cogProfile.toJSONString();
 	}
 }

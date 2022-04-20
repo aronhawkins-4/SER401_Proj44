@@ -19,241 +19,241 @@ import org.w3c.dom.Element;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * &lt;p&gt;Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * &lt;p&gt;The following schema fragment specifies the expected content contained within this class.
  * 
- * <pre>
- * &lt;complexType&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="identifier" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="sender" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="sent"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&gt;
- *               &lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="status"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *               &lt;enumeration value="Actual"/&gt;
- *               &lt;enumeration value="Exercise"/&gt;
- *               &lt;enumeration value="System"/&gt;
- *               &lt;enumeration value="Test"/&gt;
- *               &lt;enumeration value="Draft"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="msgType"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *               &lt;enumeration value="Alert"/&gt;
- *               &lt;enumeration value="Update"/&gt;
- *               &lt;enumeration value="Cancel"/&gt;
- *               &lt;enumeration value="Ack"/&gt;
- *               &lt;enumeration value="Error"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="source" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="scope"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *               &lt;enumeration value="Public"/&gt;
- *               &lt;enumeration value="Restricted"/&gt;
- *               &lt;enumeration value="Private"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="restriction" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="addresses" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
- *         &lt;element name="note" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="references" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="incidents" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="info" maxOccurs="unbounded" minOccurs="0"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="language" type="{http://www.w3.org/2001/XMLSchema}language" minOccurs="0"/&gt;
- *                   &lt;element name="category" maxOccurs="unbounded"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;enumeration value="Geo"/&gt;
- *                         &lt;enumeration value="Met"/&gt;
- *                         &lt;enumeration value="Safety"/&gt;
- *                         &lt;enumeration value="Security"/&gt;
- *                         &lt;enumeration value="Rescue"/&gt;
- *                         &lt;enumeration value="Fire"/&gt;
- *                         &lt;enumeration value="Health"/&gt;
- *                         &lt;enumeration value="Env"/&gt;
- *                         &lt;enumeration value="Transport"/&gt;
- *                         &lt;enumeration value="Infra"/&gt;
- *                         &lt;enumeration value="CBRNE"/&gt;
- *                         &lt;enumeration value="Other"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="event" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                   &lt;element name="responseType" maxOccurs="unbounded" minOccurs="0"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;enumeration value="Shelter"/&gt;
- *                         &lt;enumeration value="Evacuate"/&gt;
- *                         &lt;enumeration value="Prepare"/&gt;
- *                         &lt;enumeration value="Execute"/&gt;
- *                         &lt;enumeration value="Avoid"/&gt;
- *                         &lt;enumeration value="Monitor"/&gt;
- *                         &lt;enumeration value="Assess"/&gt;
- *                         &lt;enumeration value="AllClear"/&gt;
- *                         &lt;enumeration value="None"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="urgency"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;enumeration value="Immediate"/&gt;
- *                         &lt;enumeration value="Expected"/&gt;
- *                         &lt;enumeration value="Future"/&gt;
- *                         &lt;enumeration value="Past"/&gt;
- *                         &lt;enumeration value="Unknown"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="severity"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;enumeration value="Extreme"/&gt;
- *                         &lt;enumeration value="Severe"/&gt;
- *                         &lt;enumeration value="Moderate"/&gt;
- *                         &lt;enumeration value="Minor"/&gt;
- *                         &lt;enumeration value="Unknown"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="certainty"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;enumeration value="Observed"/&gt;
- *                         &lt;enumeration value="Likely"/&gt;
- *                         &lt;enumeration value="Possible"/&gt;
- *                         &lt;enumeration value="Unlikely"/&gt;
- *                         &lt;enumeration value="Unknown"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="audience" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *                   &lt;element name="eventCode" maxOccurs="unbounded" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
- *                             &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="effective" minOccurs="0"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&gt;
- *                         &lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="onset" minOccurs="0"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&gt;
- *                         &lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="expires" minOccurs="0"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&gt;
- *                         &lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="senderName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *                   &lt;element name="headline" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *                   &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *                   &lt;element name="instruction" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *                   &lt;element name="web" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&gt;
- *                   &lt;element name="contact" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *                   &lt;element name="parameter" maxOccurs="unbounded" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
- *                             &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="resource" maxOccurs="unbounded" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element name="resourceDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                             &lt;element name="mimeType" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                             &lt;element name="size" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/&gt;
- *                             &lt;element name="uri" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&gt;
- *                             &lt;element name="derefUri" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *                             &lt;element name="digest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="area" maxOccurs="unbounded" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element name="areaDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                             &lt;element name="polygon" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
- *                             &lt;element name="circle" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
- *                             &lt;element name="geocode" maxOccurs="unbounded" minOccurs="0"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;complexContent&gt;
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                     &lt;sequence&gt;
- *                                       &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
- *                                       &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
- *                                     &lt;/sequence&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/complexContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="altitude" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
- *                             &lt;element name="ceiling" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;any processContents='lax' namespace='http://www.w3.org/2000/09/xmldsig#' maxOccurs="unbounded" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
- * </pre>
+ * &lt;pre&gt;
+ * &amp;lt;complexType&amp;gt;
+ *   &amp;lt;complexContent&amp;gt;
+ *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+ *       &amp;lt;sequence&amp;gt;
+ *         &amp;lt;element name="identifier" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+ *         &amp;lt;element name="sender" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+ *         &amp;lt;element name="sent"&amp;gt;
+ *           &amp;lt;simpleType&amp;gt;
+ *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&amp;gt;
+ *               &amp;lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&amp;gt;
+ *             &amp;lt;/restriction&amp;gt;
+ *           &amp;lt;/simpleType&amp;gt;
+ *         &amp;lt;/element&amp;gt;
+ *         &amp;lt;element name="status"&amp;gt;
+ *           &amp;lt;simpleType&amp;gt;
+ *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+ *               &amp;lt;enumeration value="Actual"/&amp;gt;
+ *               &amp;lt;enumeration value="Exercise"/&amp;gt;
+ *               &amp;lt;enumeration value="System"/&amp;gt;
+ *               &amp;lt;enumeration value="Test"/&amp;gt;
+ *               &amp;lt;enumeration value="Draft"/&amp;gt;
+ *             &amp;lt;/restriction&amp;gt;
+ *           &amp;lt;/simpleType&amp;gt;
+ *         &amp;lt;/element&amp;gt;
+ *         &amp;lt;element name="msgType"&amp;gt;
+ *           &amp;lt;simpleType&amp;gt;
+ *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+ *               &amp;lt;enumeration value="Alert"/&amp;gt;
+ *               &amp;lt;enumeration value="Update"/&amp;gt;
+ *               &amp;lt;enumeration value="Cancel"/&amp;gt;
+ *               &amp;lt;enumeration value="Ack"/&amp;gt;
+ *               &amp;lt;enumeration value="Error"/&amp;gt;
+ *             &amp;lt;/restriction&amp;gt;
+ *           &amp;lt;/simpleType&amp;gt;
+ *         &amp;lt;/element&amp;gt;
+ *         &amp;lt;element name="source" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *         &amp;lt;element name="scope"&amp;gt;
+ *           &amp;lt;simpleType&amp;gt;
+ *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+ *               &amp;lt;enumeration value="Public"/&amp;gt;
+ *               &amp;lt;enumeration value="Restricted"/&amp;gt;
+ *               &amp;lt;enumeration value="Private"/&amp;gt;
+ *             &amp;lt;/restriction&amp;gt;
+ *           &amp;lt;/simpleType&amp;gt;
+ *         &amp;lt;/element&amp;gt;
+ *         &amp;lt;element name="restriction" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *         &amp;lt;element name="addresses" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *         &amp;lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&amp;gt;
+ *         &amp;lt;element name="note" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *         &amp;lt;element name="references" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *         &amp;lt;element name="incidents" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *         &amp;lt;element name="info" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+ *           &amp;lt;complexType&amp;gt;
+ *             &amp;lt;complexContent&amp;gt;
+ *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+ *                 &amp;lt;sequence&amp;gt;
+ *                   &amp;lt;element name="language" type="{http://www.w3.org/2001/XMLSchema}language" minOccurs="0"/&amp;gt;
+ *                   &amp;lt;element name="category" maxOccurs="unbounded"&amp;gt;
+ *                     &amp;lt;simpleType&amp;gt;
+ *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+ *                         &amp;lt;enumeration value="Geo"/&amp;gt;
+ *                         &amp;lt;enumeration value="Met"/&amp;gt;
+ *                         &amp;lt;enumeration value="Safety"/&amp;gt;
+ *                         &amp;lt;enumeration value="Security"/&amp;gt;
+ *                         &amp;lt;enumeration value="Rescue"/&amp;gt;
+ *                         &amp;lt;enumeration value="Fire"/&amp;gt;
+ *                         &amp;lt;enumeration value="Health"/&amp;gt;
+ *                         &amp;lt;enumeration value="Env"/&amp;gt;
+ *                         &amp;lt;enumeration value="Transport"/&amp;gt;
+ *                         &amp;lt;enumeration value="Infra"/&amp;gt;
+ *                         &amp;lt;enumeration value="CBRNE"/&amp;gt;
+ *                         &amp;lt;enumeration value="Other"/&amp;gt;
+ *                       &amp;lt;/restriction&amp;gt;
+ *                     &amp;lt;/simpleType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="event" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+ *                   &amp;lt;element name="responseType" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+ *                     &amp;lt;simpleType&amp;gt;
+ *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+ *                         &amp;lt;enumeration value="Shelter"/&amp;gt;
+ *                         &amp;lt;enumeration value="Evacuate"/&amp;gt;
+ *                         &amp;lt;enumeration value="Prepare"/&amp;gt;
+ *                         &amp;lt;enumeration value="Execute"/&amp;gt;
+ *                         &amp;lt;enumeration value="Avoid"/&amp;gt;
+ *                         &amp;lt;enumeration value="Monitor"/&amp;gt;
+ *                         &amp;lt;enumeration value="Assess"/&amp;gt;
+ *                         &amp;lt;enumeration value="AllClear"/&amp;gt;
+ *                         &amp;lt;enumeration value="None"/&amp;gt;
+ *                       &amp;lt;/restriction&amp;gt;
+ *                     &amp;lt;/simpleType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="urgency"&amp;gt;
+ *                     &amp;lt;simpleType&amp;gt;
+ *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+ *                         &amp;lt;enumeration value="Immediate"/&amp;gt;
+ *                         &amp;lt;enumeration value="Expected"/&amp;gt;
+ *                         &amp;lt;enumeration value="Future"/&amp;gt;
+ *                         &amp;lt;enumeration value="Past"/&amp;gt;
+ *                         &amp;lt;enumeration value="Unknown"/&amp;gt;
+ *                       &amp;lt;/restriction&amp;gt;
+ *                     &amp;lt;/simpleType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="severity"&amp;gt;
+ *                     &amp;lt;simpleType&amp;gt;
+ *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+ *                         &amp;lt;enumeration value="Extreme"/&amp;gt;
+ *                         &amp;lt;enumeration value="Severe"/&amp;gt;
+ *                         &amp;lt;enumeration value="Moderate"/&amp;gt;
+ *                         &amp;lt;enumeration value="Minor"/&amp;gt;
+ *                         &amp;lt;enumeration value="Unknown"/&amp;gt;
+ *                       &amp;lt;/restriction&amp;gt;
+ *                     &amp;lt;/simpleType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="certainty"&amp;gt;
+ *                     &amp;lt;simpleType&amp;gt;
+ *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+ *                         &amp;lt;enumeration value="Observed"/&amp;gt;
+ *                         &amp;lt;enumeration value="Likely"/&amp;gt;
+ *                         &amp;lt;enumeration value="Possible"/&amp;gt;
+ *                         &amp;lt;enumeration value="Unlikely"/&amp;gt;
+ *                         &amp;lt;enumeration value="Unknown"/&amp;gt;
+ *                       &amp;lt;/restriction&amp;gt;
+ *                     &amp;lt;/simpleType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="audience" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *                   &amp;lt;element name="eventCode" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+ *                     &amp;lt;complexType&amp;gt;
+ *                       &amp;lt;complexContent&amp;gt;
+ *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+ *                           &amp;lt;sequence&amp;gt;
+ *                             &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+ *                             &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+ *                           &amp;lt;/sequence&amp;gt;
+ *                         &amp;lt;/restriction&amp;gt;
+ *                       &amp;lt;/complexContent&amp;gt;
+ *                     &amp;lt;/complexType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="effective" minOccurs="0"&amp;gt;
+ *                     &amp;lt;simpleType&amp;gt;
+ *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&amp;gt;
+ *                         &amp;lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&amp;gt;
+ *                       &amp;lt;/restriction&amp;gt;
+ *                     &amp;lt;/simpleType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="onset" minOccurs="0"&amp;gt;
+ *                     &amp;lt;simpleType&amp;gt;
+ *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&amp;gt;
+ *                         &amp;lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&amp;gt;
+ *                       &amp;lt;/restriction&amp;gt;
+ *                     &amp;lt;/simpleType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="expires" minOccurs="0"&amp;gt;
+ *                     &amp;lt;simpleType&amp;gt;
+ *                       &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&amp;gt;
+ *                         &amp;lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&amp;gt;
+ *                       &amp;lt;/restriction&amp;gt;
+ *                     &amp;lt;/simpleType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="senderName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *                   &amp;lt;element name="headline" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *                   &amp;lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *                   &amp;lt;element name="instruction" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *                   &amp;lt;element name="web" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&amp;gt;
+ *                   &amp;lt;element name="contact" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *                   &amp;lt;element name="parameter" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+ *                     &amp;lt;complexType&amp;gt;
+ *                       &amp;lt;complexContent&amp;gt;
+ *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+ *                           &amp;lt;sequence&amp;gt;
+ *                             &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+ *                             &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+ *                           &amp;lt;/sequence&amp;gt;
+ *                         &amp;lt;/restriction&amp;gt;
+ *                       &amp;lt;/complexContent&amp;gt;
+ *                     &amp;lt;/complexType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="resource" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+ *                     &amp;lt;complexType&amp;gt;
+ *                       &amp;lt;complexContent&amp;gt;
+ *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+ *                           &amp;lt;sequence&amp;gt;
+ *                             &amp;lt;element name="resourceDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+ *                             &amp;lt;element name="mimeType" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+ *                             &amp;lt;element name="size" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/&amp;gt;
+ *                             &amp;lt;element name="uri" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&amp;gt;
+ *                             &amp;lt;element name="derefUri" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *                             &amp;lt;element name="digest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+ *                           &amp;lt;/sequence&amp;gt;
+ *                         &amp;lt;/restriction&amp;gt;
+ *                       &amp;lt;/complexContent&amp;gt;
+ *                     &amp;lt;/complexType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                   &amp;lt;element name="area" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+ *                     &amp;lt;complexType&amp;gt;
+ *                       &amp;lt;complexContent&amp;gt;
+ *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+ *                           &amp;lt;sequence&amp;gt;
+ *                             &amp;lt;element name="areaDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+ *                             &amp;lt;element name="polygon" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&amp;gt;
+ *                             &amp;lt;element name="circle" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&amp;gt;
+ *                             &amp;lt;element name="geocode" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+ *                               &amp;lt;complexType&amp;gt;
+ *                                 &amp;lt;complexContent&amp;gt;
+ *                                   &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+ *                                     &amp;lt;sequence&amp;gt;
+ *                                       &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+ *                                       &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+ *                                     &amp;lt;/sequence&amp;gt;
+ *                                   &amp;lt;/restriction&amp;gt;
+ *                                 &amp;lt;/complexContent&amp;gt;
+ *                               &amp;lt;/complexType&amp;gt;
+ *                             &amp;lt;/element&amp;gt;
+ *                             &amp;lt;element name="altitude" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&amp;gt;
+ *                             &amp;lt;element name="ceiling" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&amp;gt;
+ *                           &amp;lt;/sequence&amp;gt;
+ *                         &amp;lt;/restriction&amp;gt;
+ *                       &amp;lt;/complexContent&amp;gt;
+ *                     &amp;lt;/complexType&amp;gt;
+ *                   &amp;lt;/element&amp;gt;
+ *                 &amp;lt;/sequence&amp;gt;
+ *               &amp;lt;/restriction&amp;gt;
+ *             &amp;lt;/complexContent&amp;gt;
+ *           &amp;lt;/complexType&amp;gt;
+ *         &amp;lt;/element&amp;gt;
+ *         &amp;lt;any processContents='lax' namespace='http://www.w3.org/2000/09/xmldsig#' maxOccurs="unbounded" minOccurs="0"/&amp;gt;
+ *       &amp;lt;/sequence&amp;gt;
+ *     &amp;lt;/restriction&amp;gt;
+ *   &amp;lt;/complexContent&amp;gt;
+ * &amp;lt;/complexType&amp;gt;
+ * &lt;/pre&gt;
  * 
  * 
  */
@@ -520,20 +520,20 @@ public class Alert {
     /**
      * Gets the value of the code property.
      * 
-     * <p>
+     * &lt;p&gt;
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the code property.
+     * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the code property.
      * 
-     * <p>
+     * &lt;p&gt;
      * For example, to add a new item, do as follows:
-     * <pre>
+     * &lt;pre&gt;
      *    getCode().add(newItem);
-     * </pre>
+     * &lt;/pre&gt;
      * 
      * 
-     * <p>
+     * &lt;p&gt;
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      * 
@@ -621,20 +621,20 @@ public class Alert {
     /**
      * Gets the value of the info property.
      * 
-     * <p>
+     * &lt;p&gt;
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the info property.
+     * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the info property.
      * 
-     * <p>
+     * &lt;p&gt;
      * For example, to add a new item, do as follows:
-     * <pre>
+     * &lt;pre&gt;
      *    getInfo().add(newItem);
-     * </pre>
+     * &lt;/pre&gt;
      * 
      * 
-     * <p>
+     * &lt;p&gt;
      * Objects of the following type(s) are allowed in the list
      * {@link Alert.Info }
      * 
@@ -650,23 +650,23 @@ public class Alert {
     /**
      * Gets the value of the any property.
      * 
-     * <p>
+     * &lt;p&gt;
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the any property.
+     * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the any property.
      * 
-     * <p>
+     * &lt;p&gt;
      * For example, to add a new item, do as follows:
-     * <pre>
+     * &lt;pre&gt;
      *    getAny().add(newItem);
-     * </pre>
+     * &lt;/pre&gt;
      * 
      * 
-     * <p>
+     * &lt;p&gt;
      * Objects of the following type(s) are allowed in the list
-     * {@link Object }
      * {@link Element }
+     * {@link Object }
      * 
      * 
      */
@@ -679,183 +679,183 @@ public class Alert {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * &lt;p&gt;Java class for anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * &lt;p&gt;The following schema fragment specifies the expected content contained within this class.
      * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="language" type="{http://www.w3.org/2001/XMLSchema}language" minOccurs="0"/&gt;
-     *         &lt;element name="category" maxOccurs="unbounded"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;enumeration value="Geo"/&gt;
-     *               &lt;enumeration value="Met"/&gt;
-     *               &lt;enumeration value="Safety"/&gt;
-     *               &lt;enumeration value="Security"/&gt;
-     *               &lt;enumeration value="Rescue"/&gt;
-     *               &lt;enumeration value="Fire"/&gt;
-     *               &lt;enumeration value="Health"/&gt;
-     *               &lt;enumeration value="Env"/&gt;
-     *               &lt;enumeration value="Transport"/&gt;
-     *               &lt;enumeration value="Infra"/&gt;
-     *               &lt;enumeration value="CBRNE"/&gt;
-     *               &lt;enumeration value="Other"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="event" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *         &lt;element name="responseType" maxOccurs="unbounded" minOccurs="0"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;enumeration value="Shelter"/&gt;
-     *               &lt;enumeration value="Evacuate"/&gt;
-     *               &lt;enumeration value="Prepare"/&gt;
-     *               &lt;enumeration value="Execute"/&gt;
-     *               &lt;enumeration value="Avoid"/&gt;
-     *               &lt;enumeration value="Monitor"/&gt;
-     *               &lt;enumeration value="Assess"/&gt;
-     *               &lt;enumeration value="AllClear"/&gt;
-     *               &lt;enumeration value="None"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="urgency"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;enumeration value="Immediate"/&gt;
-     *               &lt;enumeration value="Expected"/&gt;
-     *               &lt;enumeration value="Future"/&gt;
-     *               &lt;enumeration value="Past"/&gt;
-     *               &lt;enumeration value="Unknown"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="severity"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;enumeration value="Extreme"/&gt;
-     *               &lt;enumeration value="Severe"/&gt;
-     *               &lt;enumeration value="Moderate"/&gt;
-     *               &lt;enumeration value="Minor"/&gt;
-     *               &lt;enumeration value="Unknown"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="certainty"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;enumeration value="Observed"/&gt;
-     *               &lt;enumeration value="Likely"/&gt;
-     *               &lt;enumeration value="Possible"/&gt;
-     *               &lt;enumeration value="Unlikely"/&gt;
-     *               &lt;enumeration value="Unknown"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="audience" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-     *         &lt;element name="eventCode" maxOccurs="unbounded" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
-     *                   &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="effective" minOccurs="0"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&gt;
-     *               &lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="onset" minOccurs="0"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&gt;
-     *               &lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="expires" minOccurs="0"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&gt;
-     *               &lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="senderName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-     *         &lt;element name="headline" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-     *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-     *         &lt;element name="instruction" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-     *         &lt;element name="web" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&gt;
-     *         &lt;element name="contact" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-     *         &lt;element name="parameter" maxOccurs="unbounded" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
-     *                   &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="resource" maxOccurs="unbounded" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element name="resourceDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *                   &lt;element name="mimeType" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *                   &lt;element name="size" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/&gt;
-     *                   &lt;element name="uri" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&gt;
-     *                   &lt;element name="derefUri" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-     *                   &lt;element name="digest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="area" maxOccurs="unbounded" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element name="areaDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *                   &lt;element name="polygon" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
-     *                   &lt;element name="circle" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
-     *                   &lt;element name="geocode" maxOccurs="unbounded" minOccurs="0"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;complexContent&gt;
-     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                           &lt;sequence&gt;
-     *                             &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
-     *                             &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
-     *                           &lt;/sequence&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/complexContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="altitude" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
-     *                   &lt;element name="ceiling" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
+     * &lt;pre&gt;
+     * &amp;lt;complexType&amp;gt;
+     *   &amp;lt;complexContent&amp;gt;
+     *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+     *       &amp;lt;sequence&amp;gt;
+     *         &amp;lt;element name="language" type="{http://www.w3.org/2001/XMLSchema}language" minOccurs="0"/&amp;gt;
+     *         &amp;lt;element name="category" maxOccurs="unbounded"&amp;gt;
+     *           &amp;lt;simpleType&amp;gt;
+     *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+     *               &amp;lt;enumeration value="Geo"/&amp;gt;
+     *               &amp;lt;enumeration value="Met"/&amp;gt;
+     *               &amp;lt;enumeration value="Safety"/&amp;gt;
+     *               &amp;lt;enumeration value="Security"/&amp;gt;
+     *               &amp;lt;enumeration value="Rescue"/&amp;gt;
+     *               &amp;lt;enumeration value="Fire"/&amp;gt;
+     *               &amp;lt;enumeration value="Health"/&amp;gt;
+     *               &amp;lt;enumeration value="Env"/&amp;gt;
+     *               &amp;lt;enumeration value="Transport"/&amp;gt;
+     *               &amp;lt;enumeration value="Infra"/&amp;gt;
+     *               &amp;lt;enumeration value="CBRNE"/&amp;gt;
+     *               &amp;lt;enumeration value="Other"/&amp;gt;
+     *             &amp;lt;/restriction&amp;gt;
+     *           &amp;lt;/simpleType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="event" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+     *         &amp;lt;element name="responseType" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+     *           &amp;lt;simpleType&amp;gt;
+     *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+     *               &amp;lt;enumeration value="Shelter"/&amp;gt;
+     *               &amp;lt;enumeration value="Evacuate"/&amp;gt;
+     *               &amp;lt;enumeration value="Prepare"/&amp;gt;
+     *               &amp;lt;enumeration value="Execute"/&amp;gt;
+     *               &amp;lt;enumeration value="Avoid"/&amp;gt;
+     *               &amp;lt;enumeration value="Monitor"/&amp;gt;
+     *               &amp;lt;enumeration value="Assess"/&amp;gt;
+     *               &amp;lt;enumeration value="AllClear"/&amp;gt;
+     *               &amp;lt;enumeration value="None"/&amp;gt;
+     *             &amp;lt;/restriction&amp;gt;
+     *           &amp;lt;/simpleType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="urgency"&amp;gt;
+     *           &amp;lt;simpleType&amp;gt;
+     *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+     *               &amp;lt;enumeration value="Immediate"/&amp;gt;
+     *               &amp;lt;enumeration value="Expected"/&amp;gt;
+     *               &amp;lt;enumeration value="Future"/&amp;gt;
+     *               &amp;lt;enumeration value="Past"/&amp;gt;
+     *               &amp;lt;enumeration value="Unknown"/&amp;gt;
+     *             &amp;lt;/restriction&amp;gt;
+     *           &amp;lt;/simpleType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="severity"&amp;gt;
+     *           &amp;lt;simpleType&amp;gt;
+     *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+     *               &amp;lt;enumeration value="Extreme"/&amp;gt;
+     *               &amp;lt;enumeration value="Severe"/&amp;gt;
+     *               &amp;lt;enumeration value="Moderate"/&amp;gt;
+     *               &amp;lt;enumeration value="Minor"/&amp;gt;
+     *               &amp;lt;enumeration value="Unknown"/&amp;gt;
+     *             &amp;lt;/restriction&amp;gt;
+     *           &amp;lt;/simpleType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="certainty"&amp;gt;
+     *           &amp;lt;simpleType&amp;gt;
+     *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&amp;gt;
+     *               &amp;lt;enumeration value="Observed"/&amp;gt;
+     *               &amp;lt;enumeration value="Likely"/&amp;gt;
+     *               &amp;lt;enumeration value="Possible"/&amp;gt;
+     *               &amp;lt;enumeration value="Unlikely"/&amp;gt;
+     *               &amp;lt;enumeration value="Unknown"/&amp;gt;
+     *             &amp;lt;/restriction&amp;gt;
+     *           &amp;lt;/simpleType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="audience" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+     *         &amp;lt;element name="eventCode" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+     *           &amp;lt;complexType&amp;gt;
+     *             &amp;lt;complexContent&amp;gt;
+     *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+     *                 &amp;lt;sequence&amp;gt;
+     *                   &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+     *                   &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+     *                 &amp;lt;/sequence&amp;gt;
+     *               &amp;lt;/restriction&amp;gt;
+     *             &amp;lt;/complexContent&amp;gt;
+     *           &amp;lt;/complexType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="effective" minOccurs="0"&amp;gt;
+     *           &amp;lt;simpleType&amp;gt;
+     *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&amp;gt;
+     *               &amp;lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&amp;gt;
+     *             &amp;lt;/restriction&amp;gt;
+     *           &amp;lt;/simpleType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="onset" minOccurs="0"&amp;gt;
+     *           &amp;lt;simpleType&amp;gt;
+     *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&amp;gt;
+     *               &amp;lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&amp;gt;
+     *             &amp;lt;/restriction&amp;gt;
+     *           &amp;lt;/simpleType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="expires" minOccurs="0"&amp;gt;
+     *           &amp;lt;simpleType&amp;gt;
+     *             &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}dateTime"&amp;gt;
+     *               &amp;lt;pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d[-,+]\d\d:\d\d"/&amp;gt;
+     *             &amp;lt;/restriction&amp;gt;
+     *           &amp;lt;/simpleType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="senderName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+     *         &amp;lt;element name="headline" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+     *         &amp;lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+     *         &amp;lt;element name="instruction" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+     *         &amp;lt;element name="web" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&amp;gt;
+     *         &amp;lt;element name="contact" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+     *         &amp;lt;element name="parameter" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+     *           &amp;lt;complexType&amp;gt;
+     *             &amp;lt;complexContent&amp;gt;
+     *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+     *                 &amp;lt;sequence&amp;gt;
+     *                   &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+     *                   &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+     *                 &amp;lt;/sequence&amp;gt;
+     *               &amp;lt;/restriction&amp;gt;
+     *             &amp;lt;/complexContent&amp;gt;
+     *           &amp;lt;/complexType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="resource" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+     *           &amp;lt;complexType&amp;gt;
+     *             &amp;lt;complexContent&amp;gt;
+     *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+     *                 &amp;lt;sequence&amp;gt;
+     *                   &amp;lt;element name="resourceDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+     *                   &amp;lt;element name="mimeType" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+     *                   &amp;lt;element name="size" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/&amp;gt;
+     *                   &amp;lt;element name="uri" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&amp;gt;
+     *                   &amp;lt;element name="derefUri" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+     *                   &amp;lt;element name="digest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+     *                 &amp;lt;/sequence&amp;gt;
+     *               &amp;lt;/restriction&amp;gt;
+     *             &amp;lt;/complexContent&amp;gt;
+     *           &amp;lt;/complexType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *         &amp;lt;element name="area" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+     *           &amp;lt;complexType&amp;gt;
+     *             &amp;lt;complexContent&amp;gt;
+     *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+     *                 &amp;lt;sequence&amp;gt;
+     *                   &amp;lt;element name="areaDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+     *                   &amp;lt;element name="polygon" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&amp;gt;
+     *                   &amp;lt;element name="circle" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&amp;gt;
+     *                   &amp;lt;element name="geocode" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+     *                     &amp;lt;complexType&amp;gt;
+     *                       &amp;lt;complexContent&amp;gt;
+     *                         &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+     *                           &amp;lt;sequence&amp;gt;
+     *                             &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+     *                             &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+     *                           &amp;lt;/sequence&amp;gt;
+     *                         &amp;lt;/restriction&amp;gt;
+     *                       &amp;lt;/complexContent&amp;gt;
+     *                     &amp;lt;/complexType&amp;gt;
+     *                   &amp;lt;/element&amp;gt;
+     *                   &amp;lt;element name="altitude" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&amp;gt;
+     *                   &amp;lt;element name="ceiling" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&amp;gt;
+     *                 &amp;lt;/sequence&amp;gt;
+     *               &amp;lt;/restriction&amp;gt;
+     *             &amp;lt;/complexContent&amp;gt;
+     *           &amp;lt;/complexType&amp;gt;
+     *         &amp;lt;/element&amp;gt;
+     *       &amp;lt;/sequence&amp;gt;
+     *     &amp;lt;/restriction&amp;gt;
+     *   &amp;lt;/complexContent&amp;gt;
+     * &amp;lt;/complexType&amp;gt;
+     * &lt;/pre&gt;
      * 
      * 
      */
@@ -943,20 +943,20 @@ public class Alert {
         /**
          * Gets the value of the category property.
          * 
-         * <p>
+         * &lt;p&gt;
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the category property.
+         * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the category property.
          * 
-         * <p>
+         * &lt;p&gt;
          * For example, to add a new item, do as follows:
-         * <pre>
+         * &lt;pre&gt;
          *    getCategory().add(newItem);
-         * </pre>
+         * &lt;/pre&gt;
          * 
          * 
-         * <p>
+         * &lt;p&gt;
          * Objects of the following type(s) are allowed in the list
          * {@link String }
          * 
@@ -996,20 +996,20 @@ public class Alert {
         /**
          * Gets the value of the responseType property.
          * 
-         * <p>
+         * &lt;p&gt;
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the responseType property.
+         * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the responseType property.
          * 
-         * <p>
+         * &lt;p&gt;
          * For example, to add a new item, do as follows:
-         * <pre>
+         * &lt;pre&gt;
          *    getResponseType().add(newItem);
-         * </pre>
+         * &lt;/pre&gt;
          * 
          * 
-         * <p>
+         * &lt;p&gt;
          * Objects of the following type(s) are allowed in the list
          * {@link String }
          * 
@@ -1121,20 +1121,20 @@ public class Alert {
         /**
          * Gets the value of the eventCode property.
          * 
-         * <p>
+         * &lt;p&gt;
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the eventCode property.
+         * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the eventCode property.
          * 
-         * <p>
+         * &lt;p&gt;
          * For example, to add a new item, do as follows:
-         * <pre>
+         * &lt;pre&gt;
          *    getEventCode().add(newItem);
-         * </pre>
+         * &lt;/pre&gt;
          * 
          * 
-         * <p>
+         * &lt;p&gt;
          * Objects of the following type(s) are allowed in the list
          * {@link Alert.Info.EventCode }
          * 
@@ -1366,20 +1366,20 @@ public class Alert {
         /**
          * Gets the value of the parameter property.
          * 
-         * <p>
+         * &lt;p&gt;
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the parameter property.
+         * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the parameter property.
          * 
-         * <p>
+         * &lt;p&gt;
          * For example, to add a new item, do as follows:
-         * <pre>
+         * &lt;pre&gt;
          *    getParameter().add(newItem);
-         * </pre>
+         * &lt;/pre&gt;
          * 
          * 
-         * <p>
+         * &lt;p&gt;
          * Objects of the following type(s) are allowed in the list
          * {@link Alert.Info.Parameter }
          * 
@@ -1395,20 +1395,20 @@ public class Alert {
         /**
          * Gets the value of the resource property.
          * 
-         * <p>
+         * &lt;p&gt;
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the resource property.
+         * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the resource property.
          * 
-         * <p>
+         * &lt;p&gt;
          * For example, to add a new item, do as follows:
-         * <pre>
+         * &lt;pre&gt;
          *    getResource().add(newItem);
-         * </pre>
+         * &lt;/pre&gt;
          * 
          * 
-         * <p>
+         * &lt;p&gt;
          * Objects of the following type(s) are allowed in the list
          * {@link Alert.Info.Resource }
          * 
@@ -1424,20 +1424,20 @@ public class Alert {
         /**
          * Gets the value of the area property.
          * 
-         * <p>
+         * &lt;p&gt;
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the area property.
+         * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the area property.
          * 
-         * <p>
+         * &lt;p&gt;
          * For example, to add a new item, do as follows:
-         * <pre>
+         * &lt;pre&gt;
          *    getArea().add(newItem);
-         * </pre>
+         * &lt;/pre&gt;
          * 
          * 
-         * <p>
+         * &lt;p&gt;
          * Objects of the following type(s) are allowed in the list
          * {@link Alert.Info.Area }
          * 
@@ -1452,37 +1452,37 @@ public class Alert {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * &lt;p&gt;Java class for anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * &lt;p&gt;The following schema fragment specifies the expected content contained within this class.
          * 
-         * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="areaDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-         *         &lt;element name="polygon" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
-         *         &lt;element name="circle" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
-         *         &lt;element name="geocode" maxOccurs="unbounded" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
-         *                   &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="altitude" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
-         *         &lt;element name="ceiling" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
-         * </pre>
+         * &lt;pre&gt;
+         * &amp;lt;complexType&amp;gt;
+         *   &amp;lt;complexContent&amp;gt;
+         *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+         *       &amp;lt;sequence&amp;gt;
+         *         &amp;lt;element name="areaDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+         *         &amp;lt;element name="polygon" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&amp;gt;
+         *         &amp;lt;element name="circle" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&amp;gt;
+         *         &amp;lt;element name="geocode" maxOccurs="unbounded" minOccurs="0"&amp;gt;
+         *           &amp;lt;complexType&amp;gt;
+         *             &amp;lt;complexContent&amp;gt;
+         *               &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+         *                 &amp;lt;sequence&amp;gt;
+         *                   &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+         *                   &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+         *                 &amp;lt;/sequence&amp;gt;
+         *               &amp;lt;/restriction&amp;gt;
+         *             &amp;lt;/complexContent&amp;gt;
+         *           &amp;lt;/complexType&amp;gt;
+         *         &amp;lt;/element&amp;gt;
+         *         &amp;lt;element name="altitude" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&amp;gt;
+         *         &amp;lt;element name="ceiling" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&amp;gt;
+         *       &amp;lt;/sequence&amp;gt;
+         *     &amp;lt;/restriction&amp;gt;
+         *   &amp;lt;/complexContent&amp;gt;
+         * &amp;lt;/complexType&amp;gt;
+         * &lt;/pre&gt;
          * 
          * 
          */
@@ -1532,20 +1532,20 @@ public class Alert {
             /**
              * Gets the value of the polygon property.
              * 
-             * <p>
+             * &lt;p&gt;
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the polygon property.
+             * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the polygon property.
              * 
-             * <p>
+             * &lt;p&gt;
              * For example, to add a new item, do as follows:
-             * <pre>
+             * &lt;pre&gt;
              *    getPolygon().add(newItem);
-             * </pre>
+             * &lt;/pre&gt;
              * 
              * 
-             * <p>
+             * &lt;p&gt;
              * Objects of the following type(s) are allowed in the list
              * {@link String }
              * 
@@ -1561,20 +1561,20 @@ public class Alert {
             /**
              * Gets the value of the circle property.
              * 
-             * <p>
+             * &lt;p&gt;
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the circle property.
+             * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the circle property.
              * 
-             * <p>
+             * &lt;p&gt;
              * For example, to add a new item, do as follows:
-             * <pre>
+             * &lt;pre&gt;
              *    getCircle().add(newItem);
-             * </pre>
+             * &lt;/pre&gt;
              * 
              * 
-             * <p>
+             * &lt;p&gt;
              * Objects of the following type(s) are allowed in the list
              * {@link String }
              * 
@@ -1590,20 +1590,20 @@ public class Alert {
             /**
              * Gets the value of the geocode property.
              * 
-             * <p>
+             * &lt;p&gt;
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the geocode property.
+             * This is why there is not a &lt;CODE&gt;set&lt;/CODE&gt; method for the geocode property.
              * 
-             * <p>
+             * &lt;p&gt;
              * For example, to add a new item, do as follows:
-             * <pre>
+             * &lt;pre&gt;
              *    getGeocode().add(newItem);
-             * </pre>
+             * &lt;/pre&gt;
              * 
              * 
-             * <p>
+             * &lt;p&gt;
              * Objects of the following type(s) are allowed in the list
              * {@link Alert.Info.Area.Geocode }
              * 
@@ -1666,22 +1666,22 @@ public class Alert {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * &lt;p&gt;Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * &lt;p&gt;The following schema fragment specifies the expected content contained within this class.
              * 
-             * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
-             *         &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
-             * </pre>
+             * &lt;pre&gt;
+             * &amp;lt;complexType&amp;gt;
+             *   &amp;lt;complexContent&amp;gt;
+             *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+             *       &amp;lt;sequence&amp;gt;
+             *         &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+             *         &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+             *       &amp;lt;/sequence&amp;gt;
+             *     &amp;lt;/restriction&amp;gt;
+             *   &amp;lt;/complexContent&amp;gt;
+             * &amp;lt;/complexType&amp;gt;
+             * &lt;/pre&gt;
              * 
              * 
              */
@@ -1751,22 +1751,22 @@ public class Alert {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * &lt;p&gt;Java class for anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * &lt;p&gt;The following schema fragment specifies the expected content contained within this class.
          * 
-         * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
-         *         &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
-         * </pre>
+         * &lt;pre&gt;
+         * &amp;lt;complexType&amp;gt;
+         *   &amp;lt;complexContent&amp;gt;
+         *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+         *       &amp;lt;sequence&amp;gt;
+         *         &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+         *         &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+         *       &amp;lt;/sequence&amp;gt;
+         *     &amp;lt;/restriction&amp;gt;
+         *   &amp;lt;/complexContent&amp;gt;
+         * &amp;lt;/complexType&amp;gt;
+         * &lt;/pre&gt;
          * 
          * 
          */
@@ -1834,22 +1834,22 @@ public class Alert {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * &lt;p&gt;Java class for anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * &lt;p&gt;The following schema fragment specifies the expected content contained within this class.
          * 
-         * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&gt;
-         *         &lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
-         * </pre>
+         * &lt;pre&gt;
+         * &amp;lt;complexType&amp;gt;
+         *   &amp;lt;complexContent&amp;gt;
+         *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+         *       &amp;lt;sequence&amp;gt;
+         *         &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}valueName"/&amp;gt;
+         *         &amp;lt;element ref="{urn:oasis:names:tc:emergency:cap:1.2}value"/&amp;gt;
+         *       &amp;lt;/sequence&amp;gt;
+         *     &amp;lt;/restriction&amp;gt;
+         *   &amp;lt;/complexContent&amp;gt;
+         * &amp;lt;/complexType&amp;gt;
+         * &lt;/pre&gt;
          * 
          * 
          */
@@ -1917,26 +1917,26 @@ public class Alert {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * &lt;p&gt;Java class for anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * &lt;p&gt;The following schema fragment specifies the expected content contained within this class.
          * 
-         * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="resourceDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-         *         &lt;element name="mimeType" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-         *         &lt;element name="size" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/&gt;
-         *         &lt;element name="uri" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&gt;
-         *         &lt;element name="derefUri" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-         *         &lt;element name="digest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
-         * </pre>
+         * &lt;pre&gt;
+         * &amp;lt;complexType&amp;gt;
+         *   &amp;lt;complexContent&amp;gt;
+         *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
+         *       &amp;lt;sequence&amp;gt;
+         *         &amp;lt;element name="resourceDesc" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+         *         &amp;lt;element name="mimeType" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt;
+         *         &amp;lt;element name="size" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/&amp;gt;
+         *         &amp;lt;element name="uri" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&amp;gt;
+         *         &amp;lt;element name="derefUri" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+         *         &amp;lt;element name="digest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&amp;gt;
+         *       &amp;lt;/sequence&amp;gt;
+         *     &amp;lt;/restriction&amp;gt;
+         *   &amp;lt;/complexContent&amp;gt;
+         * &amp;lt;/complexType&amp;gt;
+         * &lt;/pre&gt;
          * 
          * 
          */
