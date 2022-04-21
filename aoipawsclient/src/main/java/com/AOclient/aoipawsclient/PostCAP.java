@@ -97,7 +97,7 @@ import services.ipaws.fema.gov.ipaws_capservice.PostCAPRequestTypeDef;
 
 public class PostCAP {
 
-	private String messageXmlFilePath = "temp.xml";
+	private String messageXmlFilePath = "C:\\program_data\\temp.xml";
 	private String keyFilePath = "/keystore/IPAWSOPEN120075.jks";
 	private String soapEndpointUrl = "https://tdl.integration.aws.fema.gov/IPAWS_CAPService/IPAWS";
 	private String soapAction = "https://gov.fema.ipaws.services/IPAWS_CAPService/postCAP";
