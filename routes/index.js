@@ -89,9 +89,6 @@ router.post('/', function(req, res, next) {
 
     }
 
-    //Call function to save test page that displays xml string 
-    saveTestPage(xmlString);
-
     res.redirect('/test', 301);
 });
 
@@ -363,14 +360,6 @@ function updateLog(add) {
             }
         }
     });
-}
-
-/* Generate and save xml alert messag data */
-function saveTestPage(xml) {
-  fs.writeFile('views/test.html', xml, function (err) {
-    if (err) throw err;
-    console.log('Test Page Saved');
-  });
 }
 
 module.exports = router;
