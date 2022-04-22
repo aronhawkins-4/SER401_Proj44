@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
-    <identifier>20220413224303815JES</identifier>
+    <identifier>20220421191520481JES</identifier>
     <sender>jesus.a.quiroz@gmail.com</sender>
-    <sent>2022-04-13T22:43:03-07:00</sent>
-    <status>Exercise</status>
+    <sent>2022-04-21T19:15:20-07:00</sent>
+    <status>Actual</status>
     <msgType>Alert</msgType>
     <scope>Public</scope>
     <code>IPAWSv1.0</code>
     <info>
         <language>es-US</language>
-        <category>Fire</category>
-        <event>gggg</event>
-        <urgency>Immediate</urgency>
-        <severity>Moderate</severity>
+        <category>Env</category>
+        <event>Dust Strom Warning </event>
+        <urgency>Expected</urgency>
+        <severity>Minor</severity>
         <certainty>Likely</certainty>
         <eventCode>
             <valueName>SAME</valueName>
-            <value>ADR</value>
+            <value>DSW</value>
         </eventCode>
-        <expires>2022-04-14T22:43:03-07:00</expires>
+        <expires>2022-04-22T19:15:20-07:00</expires>
         <senderName>jesus.a.quiroz</senderName>
         <headline>headline goes here</headline>
         <description></description>
@@ -30,12 +30,10 @@
         </parameter>
         <area>
             <areaDesc></areaDesc>
-            <polygon>-111.978493,33.440108 -111.936092,33.453715 -111.921673,33.433948 -111.978493,33.440108</polygon>
-            <circle>-111.882362,33.44684 1.4</circle>
-            <polygon>-111.972141,33.410738 -111.972141,33.426212 -111.940384,33.426212 -111.940384,33.410738 -111.972141,33.410738</polygon>
+            <polygon>-112.116852,33.400985 -112.116852,33.48343 -111.980209,33.48343 -111.980209,33.400985 -112.116852,33.400985</polygon>
             <geocode>
                 <valueName>SAME</valueName>
-                <value>001017</value>
+                <value>004013</value>
             </geocode>
         </area>
     </info>

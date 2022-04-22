@@ -243,10 +243,10 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
       });
 
       //Save xml copy for java ipawsclient 
-      fs.writeFile('aoipawsclient/src/main/resources/temp.xml', xmlString, function(err) {
+      fs.writeFile('C:\\ProgramData\\aoapp\\temp.xml', xmlString, function(err) {
   
         if (err) throw err;
-        console.log("XML Saved to ipawsclient folder");
+        console.log("XML Saved to C:\\ProgramData\\aoapp\\temp.xml");
       });
   
       return xmlString;
