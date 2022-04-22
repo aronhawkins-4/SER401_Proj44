@@ -232,6 +232,12 @@ function saveXml(identifier, sender, sent, status, msgType, scope, event, catego
 
       }
 
+      //Create the ProgramData folder if it does not exists 
+      let appdataDir = 'C:\\ProgramData\\aoapp';
+      if (!fs.existsSync(appdataDir)) {
+          fs.mkdirSync(appdataDir); 
+      }
+
       xw.endDocument();
       let xmlString = xw.toString();
   

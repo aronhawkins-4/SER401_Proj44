@@ -14,7 +14,7 @@ client.connect({ port: port, host: host }, function() {
     console.log('TCP connection established with the server.');
 
     // The client can now send data to the server by writing to its socket.
-    client.write('getCogProfile');
+    client.write('postCAP');
 });
 
 // The client can also receive data from the server by reading from its socket.
@@ -22,9 +22,9 @@ client.on('data', function(chunk) {
     console.log(`Data received from the server: ${chunk.toString()}.`);
 
     //Write the response to a local file
-    fs.writeFile('public/dbs/cogProfile.json', chunk.toString(), 'utf-8', function(err) {
+    fs.writeFile('public/dbs/ipawsResponse.txt', chunk.toString(), 'utf-8', function(err) {
 	                    if (err) throw err;
-	                    console.log("Saved IPAWS profile to /public/dbs/cogProfile.json");
+	                    console.log("Saved IPAWS response in /public/dbs/ipawsResponse.txt");
                 });
     // Request an end to the connection after the data has been received.
     client.end();
