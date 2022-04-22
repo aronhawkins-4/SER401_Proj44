@@ -45,7 +45,7 @@ The mobile version of the application can be ran using expo and a virtual device
 on the Setup section so that the mobile app points to the webserver that should already be running prior to executingh of expo. 
     * Open the virtual device of your choice. It can be and Android device from AVD Manager on Android Studio or an IOS device running from Xcode. 
     * Once the Virtual device is running, from the root of the source code application folder navigate to the /mobile directory and exceute the command "expo start --android" or "expo start --ios"
-    * The application will continue to run on your device until you terminate it on the virtual device or expo session  
+    * The application will continue to run on your device until you terminate it on the virtual device or expo session
 
 ### Running IPAWS transactions 
 Currently the functionality between the Java server and the Node server has not been fully integrated to require no other interaction from the 
