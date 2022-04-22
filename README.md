@@ -31,7 +31,7 @@ recent released so this specific version of Java must be used:
 6. Perform a global install of Expo CLI. Information can be found at https://docs.expo.dev/get-started/installation/
 7. From root of the project code, change directory to "mobile" and run "npm install" to install mobile dependencies
 8. In the mobile directory edit the App.js to point to the IP of your webapp server (Line #24)
-9. Nnavigate to /aoipawsclient directory and run the command "mvn clean install" 
+9. Navigate to /aoipawsclient directory and run the command "mvn clean install" 
 
 ## Running the Application 
 
