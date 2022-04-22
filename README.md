@@ -43,10 +43,8 @@ recent released so this specific version of Java must be used:
 ### Running the Mobile Version of the Application
 The mobile version of the application can be ran using expo and a virtual device. You need to make sure you follow step #8
 on the Setup section so that the mobile app points to the webserver that should already be running prior to executingh of expo. 
-    * Open the virtual device of your choice. It can be and Android device from AVD Manager on Android Studio or an IOS device 
-        running from Xcode. 
-    * Once the Virtual device is running, from the root of the source code application folder navigate to the /mobile directory 
-        and exceute the command "expo start --android" or "expo start --ios"
+    * Open the virtual device of your choice. It can be and Android device from AVD Manager on Android Studio or an IOS device running from Xcode. 
+    * Once the Virtual device is running, from the root of the source code application folder navigate to the /mobile directory and exceute the command "expo start --android" or "expo start --ios"
     * The application will continue to run on your device until you terminate it on the virtual device or expo session  
 
 ### Running IPAWS transactions 
