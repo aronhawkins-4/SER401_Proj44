@@ -15,11 +15,11 @@ https://github.com/aronhawkins-4/SER401_Proj44
 The follwoing dependencies must be installed in order to run the application. The versions listed
 are the versions used for the project build. It is very likely that newer libraries can also work 
 but they have not been tested. The exception is Java 8 since the SOAP libraries have changed in the 
-recent released so this specific version of Java must be used: 
+recent releases so this specific version of Java must be used: 
     
     * Node.js version 12.16.2
     * npm version 7.24.1
-    * Java version 1.8.0_161 (Other versions of Java 8 will also work) 
+    * Java version 1.8.0_331
     * expo-cli version 5.2.0 
     * Apache Maven version 3.8.5
 
